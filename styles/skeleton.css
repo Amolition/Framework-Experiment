@@ -26,7 +26,7 @@
 */
 
 
-/* Grid
+/* General layout
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 ::-webkit-scrollbar { 
   width: 10px; 
@@ -34,7 +34,7 @@
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  background-color: rgb(182, 61, 119);
+  /*background-color: rgb(182, 61, 119);*/
   border-radius: 0px;
   width: 7px;
 }
@@ -65,25 +65,33 @@
 
 .container_journey {
   float: left;
-  width: 33%;
+  width: 33vw;
   height: 100vh;
-  background-color: #f7f7f7;
+  /*background-color: #f7f7f7;*/
+  /*background-color: #e3eae6;*/
   box-sizing: border-box;
   padding: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
+  margin: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.container_vis {
-  float: right;
+.vis_pg {
+  float: left;
   height: 100vh;
-  width: 67%;
+  width: 65vw;
   background-color: #f7f7f7;
   box-sizing: border-box;
   padding: 0px;
- }  
+ }
+
+ .journey_pg {
+   float: top;
+   margin-bottom:0px;
+   margin-top: 0px;
+ }
 
 .derivation_collapse {
   margin-bottom: 1rem;
@@ -102,6 +110,13 @@
   padding: 0.01em 16px;
 }
 
+
+
+
+
+
+/* Grid
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .column,
 .columns {
   width: 100%;
