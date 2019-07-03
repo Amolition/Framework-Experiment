@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+
+<head>
+    <!--Page Info-->
+    <title>Scrolling Template</title>
+    <!--css link-->
+    <link rel="stylesheet" href="styles/skeleton-1.css">
+    <link rel="stylesheet" href="styles/style-1.css">
+    <!--Required JS resources-->
+    <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+
+<body>
+
+<!--
+<div class="banner">
+    <h3>stable banner</h3>
+    <ul>
+        <li><a href="#section_1">function 1</a></li>
+        <li><a href="#section_2">func 2</a></li>
+        <li><a href="#section_3">func3</a></li>
+        <li><a href="#section_4">func4</a></li>
+
+    </ul>
+</div>
+-->
+
+
+<nav class="navbar-vis">
+    <div class="navbar-container">
+        <span class="navicon octicon octicon-three-bars"></span>
+        <a class="navbar-brand" href="/">
+            <img src="/static/core/imgs/VisualisationslogoWhite.7b52d9e20576.svg"
+                 alt="Imperial Visualisations logo">
+        </a>
+        <h2 class="navbar-vis-title">Title</h2>
+<!--
+            <a href="/visualisations/two-body-collision/feedback/" class="button feedback-button"><span
+                    class="octicon octicon-report"></span> Give feedback</a>
+                    -->
+
+    </div>
+    <div class="navbar-panel animated faster">
+        <h1><strong style="text-decoration: underline;">Two Body Collision</strong></h1>
+        <ol>
+
+                <li><a href="/visualisations/two-body-collision/two-body-collision/">
+                    <em>Two Body Collision</em></a></li>
+
+        </ol>
+        <!--
+        <ul style="margin-top: 10rem;">
+            <li><a href="/visualisations/two-body-collision/feedback/"><span
+                    class="octicon octicon-comment"></span>
+                Give Feedback</a></li>
+
+
+
+        </ul>
+        -->
+    </div>
+    <div class="menu">
+
+    </div>
+    <div class="nav-menu">
+
+    </div>
+</nav>
+<script>
+  /*  $(document).ready(() => {
+        $('.menu').on('mouthenter', () => {.nav-menu}.slideDown())
+        $('.menu').on('mouseleave', () => {
+            $('.nav-menu').hide();
+        $('.menu-button').css({
+            color: '#EFEFEF',
+            backgroundColor: '#303030'
+    });
+  })
+    })
+*/
+</script>
+
+<div id="app">
+    <div class="container_journey" v-on:scroll.passive="OnScroll">
+
+        <div class="journey_pg" id="section_1">
+
+            <div class="select-function">
+                <h1>Headlines.</h1>
+
+
+            </div>
+            <div id="top"></div>
+            <p>square function</p>
+            <p>
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div><!--
+      --><div class="journey_pg" id="section_2">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </div><!--
+      --><div class="journey_pg" id="section_3">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div><!--
+    --><div class="journey_pg" id="section_4">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+          </p>
+        <a href="#top">Return to top</a>
+
+      </div>
+    </div>
+
+    <div class="container_vis">
+
+
+
+        <div class="vis_pg" id="visualisation_1" v-if = "scrolling < pg_heights[0]" style = "background-color: blueviolet; color: #E1E1E1">
+            <transition name="slide-fade">
+            <div class="derivation" id="square" v-if="!show">
+                    <p style="font-style: bold; font-size:large">
+                        <!--Derivation of Square-->
+                    <h5>Square Function Fourier Series Derivation</h5>
+                    <div class="row">
+                        <div class="six columns">
+                            $$
+                            f(x)=\left\{
+                            \begin{array}{ll}
+                            -A \quad (-L < x < 0) \\
+                            A \quad (0< x < L)
+                            \end{array}
+                            \right.
+                            $$
+                            $$ \text{Split the integration into two: From -L to 0 and from 0 to L}$$
+                            $$ a_n=\frac{1}{L}\int_{-L}^0 -A\cdot \cos \left(\frac{n\pi x}{L}\right)dx + \frac{1}{L}\int_0^L A \cdot
+                            \cos \left(\frac{n \pi x}{L}\right)dx $$
+                            $$ a_n=\frac{2A}{L}\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L}\right)\biggr |_0^L=0 $$
+                            $$ \text{This can be found more quickly by simply noting that f(x) is odd} $$
+                            $$ \text{And so } a_n \text{ is 0 for all n.}$$
+                        </div>
+                        <div class="six columns">
+                            $$ b_n=\frac{1}{L}\int_{-L}^0 -A\cdot \sin \left(\frac{n\pi x}{L} \right)dx + \frac{1}{L}\int_0^L A \cdot
+                            \sin \left(\frac{n \pi x}{L} \right)dx $$
+                            $$ b_n=\frac{-2A}{L}\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L $$
+                            $$ b_n = \frac{2A}{n\pi}\left[1-\cos\left(n\pi \right) \right] $$
+                            $$ \text{Note that } \cos \left(n \pi\right)=(-1)^n $$
+                            $$ \text{hence } b_n=\frac{2A}{n\pi}(1-(-1)^n) $$
+                            $$ f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi}(1-(-1)^n)\sin \left(\frac{n\pi x}{L}\right) $$
+                        </div>
+                    </div>
+                    </p>
+
+                </div>
+                </transition>
+        </div>
+        <div class="vis_pg" id="visualisation_2" v-else-if = "scrolling<pg_heights[1]" style = "background-color: yellowgreen">
+
+
+            <div v-if="!show">
+                <p style="color: #2c3e50">content</p>
+            </div>
+
+
+        </div>
+        <div class="vis_pg" id="visualisation_3" v-else-if = "scrolling<pg_heights[2]" style = "background-color: blueviolet">
+
+            <div v-if="!show">
+                <p style="color: #E1E1E1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
+            </div>
+
+        </div>
+        <!--<div class="vis_pg" id="visualisation_4" style = "background-color: yellowgreen">
+        </div> -->
+    </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--progress bar-->
+
+<div id="footer">
+    <div class="progress-bar">
+        <ul>
+            <li><a href="#section_1">function 1</a></li>
+            <li id="line">-----</li>
+            <li><a href="#section_2">func 2</a></li>
+            <li id="line">-----</li>
+            <li><a href="#section_3">func3</a></li>
+            <li id="line">-----</li>
+            <li><a href="#section_4">func4</a></li>
+
+        </ul>
+    </div>
+
+
+
+</div>
+
+
+    <!-- THE BRAINS -->
+    <script src="scripts/journey-1.js"></script>
+</body>
+
+</html>
