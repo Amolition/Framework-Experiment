@@ -7,11 +7,11 @@ let pg_heights=[];
 let pg_heights2 = [];
 let h;
 
-<<<<<<< HEAD:scripts/journey-1.js
 
-=======
+
+
 window.onload = function() {
->>>>>>> 39bcbe4d0b1f02dc0c320643d3e3430fd5dfe2ba:scripts/journey.js
+
 for (i=0; i<journey_pg.length; i++) {
     //console.log(journey_pgs)
     pg_heights2.push($("#"+journey_pg[i].id).offset().top);
@@ -50,7 +50,7 @@ let app = new Vue({
     destroyed: function() {
         document.removeEventListener('scroll', this.test)
     }
-<<<<<<< HEAD:scripts/journey-1.js
+
 });
 
 
@@ -58,7 +58,3 @@ let app = new Vue({
 
 
 console.log('height:'+ pg_heights)
-=======
-})
-}
->>>>>>> 39bcbe4d0b1f02dc0c320643d3e3430fd5dfe2ba:scripts/journey.js
