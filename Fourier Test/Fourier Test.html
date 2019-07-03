@@ -15,32 +15,11 @@
 </head>
 
 <!--Color scheme for the ImpVis website:
-        Dark blue: #003e74        Darker blue: #002147          Light Blue: #
+        Dark blue: #003e74        Darker blue: #002147          Light Blue: #006eaf
         Red: #dd2501              Green: #66a40a                Magenta: #960178
-        Orange: #ff8900
-        Tints of blue: #003e74 #195181 #32648f #4c779d #668bab #7f9eb9 #99b1c7 #b2c5d5 #ccd8e3 #e5ebf1 -->
+        Orange: #ff8900-->
 
 <body>
-
-<div id="BigBox">
-
-<div class='NavBar'>
-
-    <a id="1" href=#section_1 ><h3>Section 1</h3></a>
-    <a id="2" href=#section_2 ><h3>Section 2</h3></a>
-    <a id="3" href=#section_3 ><h3>Section 3</h3></a>
-    <a id="4" href=#section_4 ><h3>Section 4</h3></a>
-
-</div>
-
-<!-- 
-v-bind:class="{'active':(currentSection === 1)}"
-v-bind:class="{'active':(currentSection === 2)}"
-v-bind:class="{'active':(currentSection === 3)}"
-v-bind:class="{'active':(currentSection === 4)}"
--->
-
-
 <div id="app">
     <div class="container_journey" v-on:scroll.passive="OnScroll">
         <div class="journey_pg" id="section_1">
@@ -80,9 +59,8 @@ v-bind:class="{'active':(currentSection === 4)}"
         <div class="vis_pg" id="visualisation_3" v-else-if = "scrolling<pg_heights[2]" style = "background-color: blueviolet">
         </div>
         <!--<div class="vis_pg" id="visualisation_4" style = "background-color: yellowgreen">
-        </div>-->
+        </div> -->
     </div>
-</div>
 </div>
 
     <!-- THE BRAINS -->

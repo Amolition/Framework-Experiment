@@ -86,7 +86,6 @@
   background-color: #f7f7f7;
   box-sizing: border-box;
   padding: 0px;
-  transition: 1s;
  }
 
  .journey_pg {
@@ -502,36 +501,3 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
-
-/* Navbar
-------------------------------------------*/
-
-
-
-.NavBar {
-  width: 100vw;
-  height: 10vh;
-  background-color: #003e74;
-  position: fixed;
-  bottom: 0;
-  color: white;
-  overflow: hidden;
-}
-
-
-
-.NavBar a {
-  color: white;
-  display:inline-block;
-  text-align: center;
-  margin-right: 7%;
-}
-
-.NavBar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.NavBar a .active {
-  color: lightblue;
-}
