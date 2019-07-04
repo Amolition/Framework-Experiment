@@ -1,0 +1,123 @@
+/* Style Layout for NavBar Template */
+
+* {
+    box-sizing: border-box;
+}
+
+.text {
+    font-family: "Fira Sans", sans-serif;
+}
+
+.container {
+    float: left;
+}
+
+.left {
+    height: fit-content;
+    width: 33vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.right {
+    height: 100vh;
+    width: 67vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #ffffff;
+}
+
+#vis-title {
+    height: 60px;
+    width: inherit;
+    margin:0;
+    position: fixed;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-weight: bolder;
+    top: 0;
+    min-height: 50px;
+    background: #003e74;
+    color: #ffffff;
+}
+
+.journey {
+    /*height: 100vh; */
+    width: inherit;
+    padding-right: 15px;
+    position: fixed;
+    top: 100px;
+    bottom: 60px;
+    background: #b8b8b8;
+    overflow-y:auto;
+}
+
+.placeholder {
+    height: 40px;
+    width:inherit;
+    margin: 0;
+}
+
+#sc0 {
+    height:40px;
+    position: fixed;
+    top: 60px;
+}
+
+#s0 {
+    position: fixed;
+    top: 60px;
+    background: #000000
+}
+
+#ph0 {
+    position: fixed;
+    top: 60px;
+}
+
+.section-container {
+    width:inherit;
+    padding-right: 15px;
+}
+
+.section-head {
+    height: 40px;
+    width:inherit;
+    padding: 0px 35px 0px 15px;
+    font-size: 20pt;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    background: #7eccfe;
+    color: #ffffff;
+}
+
+.section-body {
+    width: inherit;
+    margin:0;
+    padding: 15px 35px 15px 15px;
+    font-size: 12pt;
+    text-align: justify;
+    background: #c6d1fe;
+    color: #000000;
+}
+
+.navbar {
+    height: 60px;
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #003e74;
+}
+
+#loadspace {
+    top: 0;
+    bottom: 60px;
+    width: inherit;
+    position: fixed;
+}
