@@ -121,3 +121,23 @@
     width: inherit;
     position: fixed;
 }
+
+meter {
+    visibility: hidden;
+    align: center;
+}
+
+#container-progress {
+    display: flex;
+    justify-content: space-evenly;
+    width: 66vw;
+    position: fixed;
+    right: 0;
+    bottom: 25px;
+}
+
+.section-button {
+    line-height: inherit;
+    text-align: center;
+    vertical-align: middle;
+}

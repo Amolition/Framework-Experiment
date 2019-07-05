@@ -10,7 +10,8 @@ console.log(loadspace);
 
 // declare global variables needed
 let n=0;
-let i;
+let v=0;
+//let i;
 let x=0;
 let current1=0;
 let current2=0;
@@ -28,6 +29,9 @@ console.log("n: "+n);
 // function for creating event handlers to listen for respective sections reaching (and leaving) top of screen
 
 function scrollfunc () {
+    // absolute vertical position on journey panel
+    v = $(this).scrollTop() + $("#vis-title").outerHeight();
+    console.log("v: " + v)
     // measures top of journey div
     let y = $("#vis-title").outerHeight();
     // function to return and assign number of section at top of screen to x
@@ -100,3 +104,37 @@ function loadfunc() {
 $(".journey").scroll(scrollfunc);
 $(".journey").scroll($.throttle(stickyfunc, 10));
 $(".journey").scroll($.debounce(loadfunc, 100));
+
+
+
+for(i=1; i<n; i++) {
+
+    let topspace = $("#vis-title").outerHeight() + $("#sc0").outerHeight();
+    let ipos = $('#sc' + i).position().top;
+    let iheight = $('#sc' + i)[0].scrollHeight;
+
+    if (i !== n - 1) {
+        $("#m" + i).attr("min", ipos + topspace);
+        $("#m" + i).attr("max", ipos + iheight + topspace);
+        $("meter").css("visibility", "visible");
+    } else {
+        $("#m" + i).attr("min", ipos + topspace);
+    $("#m" + i).attr("max", ipos + iheight + topspace - $(".journey").height() -20);
+    $("meter").css("visibility", "visible");
+    }
+};
+
+//let topspace = $("#vis-title").outerHeight() + $("#sc0").outerHeight();
+//let ipos = $('#sc' + i).position().top;
+
+$(".journey").scroll(
+    () => {
+        for(i=1; i<n; i++) {
+
+            $("#m"+i).attr("value", v);
+        };
+    }
+);
+
+//$(document).resize(console.log("yes"));
+// $.debounce($(".scroll-progress").attr("max", $('.journey')[0].scrollHeight - $('.journey').height()), 1000)
