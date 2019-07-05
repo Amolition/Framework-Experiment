@@ -3,6 +3,9 @@
     top: 0;
     bottom: 60px;
     width: inherit;
+    text-align: center;
+    line-height: 100vh;
+    vertical-align: middle;
 }
 
 #loadout0 {

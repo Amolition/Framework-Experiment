@@ -1,4 +1,4 @@
-// Code for loading and unloading right panel as left panel is scrolled
+// Code for navigation functionality in visualisations main screen
 
 // uses jQuery .load method instead of vue to load the one appropriate right panel with respect to paragraph on left panel
 // right panels stored in separate html files which are called into main html as appropriate
@@ -22,11 +22,10 @@ loadspace.load("loadout.html #loadout" + current1);
 $(".section-container").each(function () {
     n++
 });
+
 console.log("n: "+n);
 
-// function for creating event handlers to listen for respective sections reaching (and leaving) top of screen in view
-// then load respective right panel (overwriting previous screen) when a new section comes to top of screen
-// hence only one right panel loaded at a time
+// function for creating event handlers to listen for respective sections reaching (and leaving) top of screen
 
 function scrollfunc () {
     // measures top of journey div
@@ -42,17 +41,10 @@ function scrollfunc () {
             if (y > top && y < bottom) {
                 //$(x).fadeIn();
                 x = section;
-                //console.log("section: "+section);
-                //console.log(section + " top: " + top);
-                //console.log(section + " bottom: " + bottom);
-                //console.log("y: "+y);
-                //console.log("x: "+x);
-                //console.log("current: "+current);
             };
         } else {
             if (y < $("#sc1").offset().top) {
                 x = section;
-                //console.log(section + " bottom: " + $("#sc1").offset().top);
             }
         }
     };
@@ -62,12 +54,11 @@ function scrollfunc () {
         handleElement(i);
 };
 
-
+// function to stick and unstick headers for each section
 function stickyfunc() {
 
     if(current1 !== x) {
 
-        //stick appropriate heading on left hand panel
         if(x>=0) {
 
             //label old heading to unstick
@@ -85,31 +76,10 @@ function stickyfunc() {
                 width: "33vw"
             });
         };
-        /*if(x===0) {
-
-            //label old heading to unstick
-            let unstick = $("#s"+(current));
-            current=x;
-
-            unstick.css({
-                position: "static"
-            });
-        }*/
-
-        // if x changes then old right panel changed to appropriate new right panel
-        /*
-        console.log("x: "+x);
-        console.log("current: "+current);
-
-        $("#loadspace").fadeOut(600, function() {loadspace.load("loadout.html #loadout" + current);});
-        //loadspace.html("");
-        //loadspace.load("test_div_" + "p" + current + ".html");
-        $("#loadspace").fadeIn(600);
-        */
-
     };
 };
 
+// function to load right panel for each section
 function loadfunc() {
 
     if (current2 !== x) {
@@ -121,42 +91,12 @@ function loadfunc() {
         $("#loadspace").fadeOut(600, function () {
             loadspace.load("loadout.html #loadout" + current2);
         });
-        //loadspace.html("");
-        //loadspace.load("test_div_" + "p" + current + ".html");
-        $("#loadspace").fadeIn(600);
 
+        $("#loadspace").fadeIn(600);
     };
 };
 
-
+// call to functions on left "journey" panel with throttling/debouncing to prevent repeated calls
 $(".journey").scroll(scrollfunc);
-$(".journey").scroll($.throttle(stickyfunc, 50));
-$(".journey").scroll($.throttle(loadfunc, 1000));
-
-// legacy code - had issues with reloading right div for every scroll - fixed in above code
-
-/*
-
-});
-
-$(document).scroll(function () {
-    let y = $(this).scrollTop();
-    // Show element after user scrolls past
-    // the top edge of its parent
-    $('#p1').each(function () {
-
-        let top = $(this).offset().top;
-        let bottom = top + $(this).outerHeight();
-        if (y > top && y < bottom) {
-            //$(x).fadeIn();
-            loadspace.load("test_div_" + this.id + ".html");
-        } else {
-            //$(x).fadeOut();
-            loadspace.html("");
-        }
-        //console.log(this.id)
-
-    });
-});
-
-*/
+$(".journey").scroll($.throttle(stickyfunc, 10));
+$(".journey").scroll($.debounce(loadfunc, 100));
