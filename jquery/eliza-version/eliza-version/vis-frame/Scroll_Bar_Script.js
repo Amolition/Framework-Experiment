@@ -22,14 +22,14 @@ $("p").each(function () {
     n++
 });
 console.log("n: "+n);
-$(document).ready(
+/*$(document).ready(
         function() {
           $(".left").niceScroll({
               cursorcolor: "#000000",
               autohidemode:true,
           });
         }
-      );
+      );*/
 // function for creating event handlers to listen for respective paragraphs reaching (and leaving) top of screen in view
 // then load respective right panel (overwriting previous screen) when a new paragraph comes to top of screen
 // hence only one right panel loaded at a time
@@ -48,8 +48,9 @@ $(document).scroll(function () {
             //$(x).fadeIn();
             x=para;
             console.log("para: "+para);
-            console.log('top:' + top)
-            console.log('height:' + bottom)
+            console.log('top:' + top);
+            console.log('height:' + bottom);
+            //light up the button for each section
             //('.progress-bar').on('mouseenter', () => {
             $("#" + "p" + para + "b").css({
                 backgroundColor: "#4afe82"
@@ -101,22 +102,86 @@ $(document).scroll(function () {
         // if x changes then old right panel changed to appropriate new right panel
         console.log("x: "+x);
         console.log("current: "+current);
-        $("#loadspace").fadeOut(600, function() {loadspace.load("test_div_" + "p" + current + ".html");});
+        $("#loadspace").hide(600, function() {loadspace.load("test_div_" + "p" + current + ".html");});
 
         //loadspace.html("");
         //loadspace.load("test_div_" + "p" + current + ".html");
-        $("#loadspace").fadeIn(600);
+        $("#loadspace").fadeIn(600)//, function() {loadspace.load("test_div_" + "p" + current + ".html");});
     }
 
 });
 
 
+$(function(){
+		$.mCustomScrollbar.defaults.scrollButtons.enable = true; //启用默认的滚动按钮
+		$(".left").mCustomScrollbar( {
+			theme : "dark"
+		});
+
+	});
+
+
 $(document).ready(() => {
+    $('#p1b').on('click',function () {
+        $('html,body').animate({scrollTop:$('#p1').offset().top - 120}, 500);
+    });
     $('#p2b').on('click',function () {
-        $('html,body').animate(scroll(), 500);
+        $('html,body').animate({scrollTop:$('#p2').offset().top -120}, 500);
+    });
+    $('#p3b').on('click',function () {
+        $('html,body').animate({scrollTop:$('#p3').offset().top -120}, 500);
+    });
+    $('#p4b').on('click',function () {
+        $('html,body').animate({scrollTop:$('#p4').offset().top -120}, 500);
     });
     $('#btn_top').on('click',function () {
         $('html,body').animate({scrollTop:0}, 500);
+    });
+    // different animation for the transition of the navigation menu
+    // hover
+    /*$('.nav-menu').on('mouseenter', () => {
+        $('.menu').removeClass('.hide');
+        $('.menu').slideDown()
+        $('.menu').on('mouseleave', () => {
+        $('.menu').fadeOut();
+        $('.menu').hide();
+    });
+
+
+    })*/
+    //click
+     $('.nav-menu').on('click', () => {
+        $('.menu').slideToggle();
+
+    });
+     // get tab name
+   $('#p1b').on('mouseenter',() => {
+        var name = $("#n1").html();
+        $('#text').html(name);
+        $('#p1b').on('mouseleave', () => {
+            $('#text').html('hover on the section button')
+        });
+    });
+   $('#p2b').on('mouseenter',() => {
+        var name = $("#n2").html();
+        $('#text').html(name);
+        $('#p2b').on('mouseleave', () => {
+            $('#text').html('hover on the section button')
+        });
+    });
+   $('#p3b').on('mouseenter',() => {
+        var name = $("#n3").html();
+        $('#text').html(name);
+        $('#p3b').on('mouseleave', () => {
+            $('#text').html('hover on the section button')
+        });
+    });
+   $('#p4b').on('mouseenter',() => {
+        var name = $("#n4").html();
+        $('#text').html(name);
+        $('#p4b').on('mouseleave', () => {
+            $('#text').html('hover on the section button')
+        });
     });
 });
 
