@@ -1,39 +1,35 @@
 .rightload {
     position: fixed;
     top: 0;
-    bottom: 60px;
+    right: 0;
+    height: 100vh;
     width: inherit;
     text-align: center;
     line-height: 100vh;
     vertical-align: middle;
+    font-size: 30pt;
 }
 
 #loadout0 {
-    background-color: #000000;
-    color: #ffffff;
+    color: #000000;
 }
 
 #loadout1 {
-    background-color: #75feea;
-    color: #000000;
+    color: #75feea;
 }
 
 #loadout2 {
-    background-color: #4afe82;
-    color: #000000;
+    color: #4afe82;
 }
 
 #loadout3 {
-    background-color: #feb13d;
-    color: #000000;
+    color: #feb13d;
 }
 
 #loadout4 {
-    background-color: #fe3149;
-    color: #000000;
+    color: #fe3149;
 }
 
 #loadout5 {
-    background-color: #8b30d5;
-    color: #000000;
+    color: #8b30d5;
 }

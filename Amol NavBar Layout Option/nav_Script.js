@@ -15,6 +15,7 @@ let v=0;
 let x=0;
 let current1=0;
 let current2=0;
+let topspace = $("#vis-title").outerHeight() + $("#container-progress").outerHeight();
 
 // load first screen when web page first accessed
 loadspace.load("loadout.html #loadout" + current1);
@@ -30,10 +31,10 @@ console.log("n: "+n);
 
 function scrollfunc () {
     // absolute vertical position on journey panel
-    v = $(this).scrollTop() + $("#vis-title").outerHeight();
+    v = $(this).scrollTop() + topspace;
     console.log("v: " + v)
     // measures top of journey div
-    let y = $("#vis-title").outerHeight();
+    let y = topspace;
     // function to return and assign number of section at top of screen to x
     function handleElement(section) {
 
@@ -54,8 +55,8 @@ function scrollfunc () {
     };
 
     // iteration of function for all sections
-    for(i=0; i<n; i++)
-        handleElement(i);
+    for(i=1; i<=n; i++) {
+        handleElement(i)};
 };
 
 // function to stick and unstick headers for each section
@@ -63,7 +64,7 @@ function stickyfunc() {
 
     if(current1 !== x) {
 
-        if(x>=0) {
+        if(x>=1) {
 
             //label old heading to unstick
             let unstick = $("#s"+(current1));
@@ -76,8 +77,8 @@ function stickyfunc() {
             });
             stick.css({
                 position: "fixed",
-                top: "60px",
-                width: "33vw"
+                top: "85px",
+                width: "33vw",
             });
         };
     };
@@ -102,24 +103,23 @@ function loadfunc() {
 
 // call to functions on left "journey" panel with throttling/debouncing to prevent repeated calls
 $(".journey").scroll(scrollfunc);
-$(".journey").scroll($.throttle(stickyfunc, 10));
+$(".journey").scroll($.throttle(stickyfunc, 0));
 $(".journey").scroll($.debounce(loadfunc, 100));
 
 
 
-for(i=1; i<n; i++) {
+for(i=1; i<=n; i++) {
 
-    let topspace = $("#vis-title").outerHeight() + $("#sc0").outerHeight();
     let ipos = $('#sc' + i).position().top;
     let iheight = $('#sc' + i)[0].scrollHeight;
 
-    if (i !== n - 1) {
+    if (i !== n) {
         $("#m" + i).attr("min", ipos + topspace);
         $("#m" + i).attr("max", ipos + iheight + topspace);
         $("meter").css("visibility", "visible");
     } else {
         $("#m" + i).attr("min", ipos + topspace);
-    $("#m" + i).attr("max", ipos + iheight + topspace - $(".journey").height() -20);
+    $("#m" + i).attr("max", ipos + iheight + topspace - $(".journey").height() - 40);
     $("meter").css("visibility", "visible");
     }
 };
@@ -129,12 +129,20 @@ for(i=1; i<n; i++) {
 
 $(".journey").scroll(
     () => {
-        for(i=1; i<n; i++) {
+        for(i=1; i<=n; i++) {
 
             $("#m"+i).attr("value", v);
         };
     }
 );
+
+
+
+
+
+//$("#sb1")[0].addEventListener("click", function () {
+//    $('.journey').animate({scrollTop:$('#sb1').position().top}, 500);
+//});
 
 //$(document).resize(console.log("yes"));
 // $.debounce($(".scroll-progress").attr("max", $('.journey')[0].scrollHeight - $('.journey').height()), 1000)
