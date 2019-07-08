@@ -471,8 +471,10 @@ button{
 
 button:hover{
   color:white;
-  border-color: none;
-  background-color:#a50030;
+  /*border-color: none;*/
+  /*background-color:#a50030;*/
+  border-color: black;
+  background-color:#aa3758;
 }
 button:focus{
   border-color:none;
