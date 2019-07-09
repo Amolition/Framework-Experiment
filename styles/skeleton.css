@@ -507,31 +507,53 @@ there.
 ------------------------------------------*/
 
 
-
-.NavBar {
+nav{
   width: 100vw;
-  height: 10vh;
+  height: 12vh;
   background-color: #003e74;
   position: fixed;
-  bottom: 0;
+  top: 0;
   color: white;
   overflow: hidden;
 }
 
 
-
-.NavBar a {
-  color: white;
-  display:inline-block;
-  text-align: center;
-  margin-right: 7%;
-}
-
-.NavBar a:hover {
-  background-color: #ddd;
+nav a:hover {
   color: black;
 }
 
-.NavBar a .active {
-  color: lightblue;
+
+
+.Title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  height: 50%;
+  width: 90%;
+  background: green;
 }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  height: 50%;
+  width: 90%;
+  text-align: center;
+}
+
+nav ul li {
+  display:inline-block;
+  text-align: center;
+  margin: 6px;
+  font-size: 20px;
+  border-radius: 15%;
+  border: black;
+  border-width: 3px;
+  background-color: #E40043;
+}
+/*
+#app {
+  margin-top: 12vh;
+  overflow-y: hidden;
+}*/

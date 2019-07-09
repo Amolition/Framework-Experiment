@@ -125,11 +125,11 @@ $(document).scroll(function () {
         // if x changes then old right panel changed to appropriate new right panel
         console.log("x: "+x);
         console.log("current: "+current);
-        $("#loadspace").fadeOut(600, function() {loadspace.load("http://localhost:8080/test_div_" + "p" + current + ".html");});
+        $("#loadspace").fadeOut(500, function() {loadspace.load("http://localhost:8080/test_div_" + "p" + current + ".html");});
 
         //loadspace.html("");
         //loadspace.load("test_div_" + "p" + current + ".html");
-        $("#loadspace").fadeIn(600);
+        $("#loadspace").fadeIn(500);
     }
 
 });

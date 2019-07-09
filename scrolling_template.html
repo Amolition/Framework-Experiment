@@ -22,26 +22,23 @@
 
 <body>
 
-<div id="BigBox">
-
-<div class='NavBar'>
-
-    <a id="1" href=#section_1 ><h3>Section 1</h3></a>
-    <a id="2" href=#section_2 ><h3>Section 2</h3></a>
-    <a id="3" href=#section_3 ><h3>Section 3</h3></a>
-    <a id="4" href=#section_4 ><h3>Section 4</h3></a>
-
+<div>
+    <nav>
+        <h4 class='Title'>Title</h4>
+         <ul>
+            <li><a id="sec4btn" href=#section_1 >Section 1</a></li>
+            <li><a id="sec4btn" href=#section_2 >Section 2</a></li>
+            <li><a id="sec4btn" href=#section_3 >Section 3</a></li>
+            <li><a id="sec4btn" href=#section_4 >Section 4</a></li>
+        </ul>
+    </nav>
 </div>
-
-<!-- 
-v-bind:class="{'active':(currentSection === 1)}"
-v-bind:class="{'active':(currentSection === 2)}"
-v-bind:class="{'active':(currentSection === 3)}"
-v-bind:class="{'active':(currentSection === 4)}"
--->
-
-
 <div id="app">
+
+    
+
+    
+
     <div class="container_journey" v-on:scroll.passive="OnScroll">
         <div class="journey_pg" id="section_1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
@@ -83,7 +80,10 @@ v-bind:class="{'active':(currentSection === 4)}"
         </div>-->
     </div>
 </div>
-</div>
+
+
+
+
 
     <!-- THE BRAINS -->
     <script src="scripts/journey.js"></script>
