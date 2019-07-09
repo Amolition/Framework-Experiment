@@ -1,0 +1,35 @@
+.rightload {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: inherit;
+    text-align: center;
+    line-height: 100vh;
+    vertical-align: middle;
+    font-size: 30pt;
+}
+
+#loadout0 {
+    color: #000000;
+}
+
+#loadout1 {
+    color: #75feea;
+}
+
+#loadout2 {
+    color: #4afe82;
+}
+
+#loadout3 {
+    color: #feb13d;
+}
+
+#loadout4 {
+    color: #fe3149;
+}
+
+#loadout5 {
+    color: #8b30d5;
+}
