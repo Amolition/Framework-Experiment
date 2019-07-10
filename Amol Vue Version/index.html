@@ -48,7 +48,7 @@
 
             </h2>
 
-            <div class="journey" id="main-journey">
+            <div class="journey" id="main-journey" v-on:scroll.passive="scrollFunc(); sectionPos();">
 
                 <div class="section-container" id="sc1">
 
@@ -196,41 +196,45 @@
 
         <div class="container right" id="right-container">
 
-            <div class="rightload text" id='loadout0' v-if = "test === 0">
+            <transition name="fade">
 
-                Welcome Screen
+                <div class="rightload text" id='loadout1' key="loadout1" v-if = "currentSection === 1">
 
-            </div>
+                    Interactive Zone 1
 
-            <div class="rightload text" id='loadout1' v-else-if = "test === 1">
+                </div>
 
-                Interactive Zone 1
+                <div class="rightload text" id='loadout2' key="loadout2" v-else-if = "currentSection === 2">
 
-            </div>
+                    Interactive Zone 2
 
-            <div class="rightload text" id='loadout2' v-else-if = "test === 2">
+                </div>
 
-                Interactive Zone 2
+                <div class="rightload text" id='loadout3' key="loadout3" v-else-if = "currentSection === 3">
 
-            </div>
+                    Interactive Zone 3
 
-            <div class="rightload text" id='loadout3' v-else-if = "test === 3">
+                </div>
 
-                Interactive Zone 3
+                <div class="rightload text" id='loadout4' key="loadout4" v-else-if = "currentSection === 4">
 
-            </div>
+                    Interactive Zone 4
 
-            <div class="rightload text" id='loadout4' v-else-if = "test === 4">
+                </div>
 
-                Interactive Zone 4
-
-            </div>
-
-            <div class="rightload text" id='loadout5' v-else>
+                <div class="rightload text" id='loadout5' key="loadout5" v-else-if = "currentSection === 5">
 
                 Interactive Zone 5
 
-            </div>
+                </div>
+
+                <div class="rightload text wait" id='loadoutblank' key="loadoutblank" v-else>
+
+                    please wait...
+
+                </div>
+
+            </transition>
 
         </div>
 

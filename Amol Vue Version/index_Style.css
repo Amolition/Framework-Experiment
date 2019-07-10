@@ -79,14 +79,25 @@ h3 {
 .journey {
     /*height: 100vh; */
     width: inherit;
-    padding: 0 25px;
+    padding: 0;
     position: fixed;
     top: 60px;
     bottom: 0;
-    background: #b8b8b8;
+    background: #ffffff;
     overflow-y:auto;
     overflow-x:hidden;
     text-align: justify;
+}
+
+.section-container {
+    width: inherit;
+    padding: 0 45px 0 25px;
+}
+
+.section-head {
+    background: #ffffff;
+    margin: 0;
+    padding: 0;
 }
 
 /* RIGHT SIDE STYLES */
@@ -97,7 +108,7 @@ h3 {
     top: 60px;
     bottom: 0;
     right: 0;
-    background: #ff70ec;
+    background: #e1ebff;
 }
 
 .banner {
@@ -147,4 +158,18 @@ nav {
 #menu-button {
     position:absolute;
     left: 20px;
+}
+
+.wait {
+    font-size: 12pt;
+}
+
+/* TRANSITION STYLES */
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 2s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
 }

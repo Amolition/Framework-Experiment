@@ -119,8 +119,8 @@ for(i=1; i<=n; i++) {
         $("meter").css("visibility", "visible");
     } else {
         $("#m" + i).attr("min", ipos + topspace);
-    $("#m" + i).attr("max", ipos + iheight + topspace - $(".journey").height() - 40);
-    $("meter").css("visibility", "visible");
+        $("#m" + i).attr("max", ipos + iheight + topspace - $(".journey").height() - 40);
+        $("meter").css("visibility", "visible");
     }
 };
 
