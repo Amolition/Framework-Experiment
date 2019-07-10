@@ -22,28 +22,9 @@
 
 <body>
 
-<div>
-    <nav>
-        <h4 class='Title'>Title</h4>
-         <ul>
-            <li><a id="sec4btn" href=#section_1 >Section 1</a></li>
-            <li><a id="sec4btn" href=#section_2 >Section 2</a></li>
-            <li><a id="sec4btn" href=#section_3 >Section 3</a></li>
-            <li><a id="sec4btn" href=#section_4 >Section 4</a></li>
-        </ul>
-    </nav>
-</div>
+
 <div id="app">
-<<<<<<< HEAD
-
-    
-
-    
-
-    <div class="container_journey" v-on:scroll.passive="OnScroll">
-=======
     <div class="container_journey" id="journey_cont" v-on:scroll.passive="OnScroll">
->>>>>>> master
         <div class="journey_pg" id="section_1">
                     <h3 class = section_title>Section 1</h3>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
@@ -85,10 +66,6 @@
         </div>
         <div class="vis_pg" id="visualisation_3" v-else-if = "scrolling<pg_heights[2]" style = "background-color: #bd75ff">
         </div>
-<<<<<<< HEAD
-        <!--<div class="vis_pg" id="visualisation_4" style = "background-color: yellowgreen">
-        </div>-->
-=======
         <div class="vis_pg" id="visualisation_4" v-else-if = "scrolling<pg_heights[3]" style = "background-color: white">
         </div>
     </div>
@@ -103,7 +80,6 @@
             <li id="line">-----</li>
             <li class = progress_button id="p4b" v-on:click="Scroll4">4</li>
         </ul>
->>>>>>> master
     </div>
 </div>
 

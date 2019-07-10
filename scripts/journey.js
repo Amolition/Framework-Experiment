@@ -62,37 +62,6 @@ handleElement(i);
 
 });
 
-<<<<<<< HEAD
-window.onload = function() {
-for (i=0; i<journey_pg.length; i++) {
-    //console.log(journey_pgs)
-    h=0;
-    for (j=0; j<(i+1); j++) {
-        //h+=parseFloat(journey_pg[j].scrollHeight)
-        h+=$("#"+journey_pg[j].id).outerHeight()
-    }
-    pg_heights.push(h)
-    console.log(pg_heights)
-    if (i%2===1) {
-        journey_pg[i].style = "background-color: #e3eae6";
-    } else {
-        //journey_pg[i].style = "background-color: #f7f7f7";
-        journey_pg[i].style = "background-color:  #878787"
-    }
-}
-
-
-
-let app = new Vue({
-    el: "#app",
-    data: {
-        pg_heights: pg_heights,
-        scrolling: 0,
-    },
-    methods: {
-        OnScroll: function(event){
-            this.scrolling = parseFloat($(".container_journey").scrollTop());
-=======
 window.onload = function () {
     progress_buttons[0].style = "background-color: #aa3758; color: white;"
 
@@ -103,15 +72,9 @@ window.onload = function () {
         for (j = 0; j < (i + 1); j++) {
             //h+=parseFloat(journey_pg[j].scrollHeight)
             h += $("#" + journey_pg[j].id).outerHeight()
->>>>>>> master
         }
         pg_heights.push(h)
     }
-<<<<<<< HEAD
-})
-}
-
-=======
 
     let app = new Vue({
         el: "#app",
@@ -165,4 +128,3 @@ window.onload = function () {
         }
     })
 }
->>>>>>> master

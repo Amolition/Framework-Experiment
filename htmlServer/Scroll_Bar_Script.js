@@ -75,7 +75,7 @@ $(document).scroll(function () {
                     color: '#4afe82'
                 })}
             } else {
-                for (i=1;i<=2;i++){
+                for (i=1;i<=3;i++){
                 $("#p" + para + "l"+i).css({
                     color: '#4afe82'
                 })}
