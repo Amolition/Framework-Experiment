@@ -24,47 +24,6 @@ for (i=0; i<journey_pg.length; i++) {
 }
 
 
-<<<<<<< HEAD
-=======
-
-
-
-$(".container_journey").scroll(function () {
-    alert('Hello World')
-let y = $(this).scrollTop()//+ $("nav").outerHeight();
-
-// function to return and assign number of paragraph at top of screen to x
-function handleElement(para) {
-
-    // update x if user scrolls past
-    // the top edge of its corresponding paragraph on left side
-    let top = $("#"+"section_"+para).offset().top;
-    let bottom = top + $("#"+"section_"+para).outerHeight();
-    if (y > top && y < bottom) {
-        //$(x).fadeIn();
-        x=para;
-        //('.progress-bar').on('mouseenter', () => {
-        $("#" + "sec" + para + "btn").css({
-            backgroundColor: "#4afe82"
-        //})
-    })
-    } else{
-        $("#" + "sec" + para + "btn").css({
-            backgroundColor: "#efefef"
-    })}
-    }
-
-
-// iteration of function for all paragraphs
-for(i=0; i<=n; i++)
-handleElement(i);
-
-
-
-
-});
-
->>>>>>> master
 window.onload = function () {
     progress_buttons[0].style = "background-color: #003e74; color: white;"
 

@@ -1,0 +1,161 @@
+* {margin: 0; padding: 0; text-align: center}
+
+nav {
+
+    padding-top: 2vh;
+    padding-right: 1vw;
+    padding-left: 1vw;
+    padding-bottom: 1vh;
+    width: 98vw;
+    height: 9vh;
+    position:fixed;
+    background-color: #003E74;
+    z-index: 2;
+}
+
+#leftnav {
+    width: 33vw;
+    height: 8vh;
+    position: fixed;
+    left: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 8vh;
+    color: white;
+    font-size: 5vh;
+    border-right: 1vh solid white;
+}
+
+#rightnav {
+    width: 66vw;
+    height: 8vh;
+    position: fixed;
+    right: 0;
+}
+
+#logo {
+
+    height: 8vh;
+    position: fixed;
+    right: 2vh;
+}
+
+.column {
+
+    float: left;
+}
+
+.left {
+
+    width: 33vw;
+    height: fit-content;
+    position: relative;
+    top:12vh;
+    background-color: white;
+    color: black;
+    overflow: scroll;
+}
+
+.right {
+
+    width: 66vw;
+    height:90vh;
+    background-color: white;
+    color: white;
+    position: fixed;
+    top: 12vh;
+    right: 0;
+    display: block;
+    visibility: visible;
+}
+
+h1 {
+
+    margin: 3vh 2vw;
+    text-align: center;
+    vertical-align: middle;
+    height: 8vh;
+    line-height: 8vh;
+}
+
+h2 {
+
+    background-color: #006ac7;
+    color: white;
+    height: 30px;
+    z-index: 1;
+}
+
+.placeholder {
+
+    height: 30px;
+}
+
+#ph0 {
+
+    height: 8vh;
+}
+
+p {
+
+    padding: 1.5vh 2vw;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.odd {
+
+    background-color: lightsteelblue;
+}
+
+.even {
+
+    background-color: white;
+}
+
+.rightload {
+
+    width: 66vw;
+    height: 90vh;
+    line-height: 100vh;
+    background-color: black;
+    color: white;
+    position: fixed;
+    text-align: center;
+    vertical-align: middle;
+    top: 12vh;
+    right: 0;
+    display: block;
+    visibility: visible;
+
+}
+
+#loadspace0 {
+    background-color: #000000;
+    color: #ffffff;
+
+}
+
+#loadspace1 {
+    background-color: #7eccfe;
+    color: #000000;
+
+}
+
+#loadspace2 {
+    background-color: #4afe82;
+    color: #000000;
+
+}
+
+#loadspace3 {
+    background-color: #feb13d;
+    color: #000000;
+
+}
+
+#loadspace4 {
+    background-color: #fe3149;
+    color: #000000;
+
+}
