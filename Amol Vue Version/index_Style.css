@@ -66,6 +66,24 @@ meter {
     border-right: #c6d1fe solid 17px;
 }
 
+button {
+    height: 25px;
+    flex-basis: 100vw;
+    margin: 0;
+    line-height: 25px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12pt;
+    background: none;
+    border: none;
+}
+
+button:hover {
+    color: #0000c6;
+    font-size: 13pt;
+    text-shadow: #000000;
+}
+
 h3 {
     height: 25px;
     flex-basis: 100vw;
@@ -74,6 +92,11 @@ h3 {
     text-align: center;
     vertical-align: middle;
     font-size: 12pt;
+}
+
+p {
+    margin: 0;
+    padding: 20px 0;
 }
 
 .journey {
@@ -95,7 +118,7 @@ h3 {
 }
 
 .section-head {
-    background: #ffffff;
+    background: #bcf7ff;
     margin: 0;
     padding: 0;
 }

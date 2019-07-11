@@ -26,21 +26,21 @@
 
                 <div class="" id="overlay">
 
-                    <h3>Section 1</h3>
-                    <h3>Section 2</h3>
-                    <h3>Section 3</h3>
-                    <h3>Section 4</h3>
-                    <h3>Section 5</h3>
+                    <button id = "sectionTitle1" data-no = 1 @click = "scrollTo($event)">Section 1</button>
+                    <button id = "sectionTitle2" data-no = 2 @click = "scrollTo($event)">Section 2</button>
+                    <button id = "sectionTitle3" data-no = 3 @click = "scrollTo($event)">Section 3</button>
+                    <button id = "sectionTitle4" data-no = 4 @click = "scrollTo($event)">Section 4</button>
+                    <button id = "sectionTitle5" data-no = 5 @click = "scrollTo($event)">Section 5</button>
 
                 </div>
 
-                <meter class="scroll-progress" id="m1" min="0" max="0" value="0"></meter>
-                <meter class="scroll-progress" id="m2" min="0" max="0" value="0"></meter>
-                <meter class="scroll-progress" id="m3" min="0" max="0" value="0"></meter>
-                <meter class="scroll-progress" id="m4" min="0" max="0" value="0"></meter>
-                <meter class="scroll-progress" id="m5" min="0" max="0" value="0"></meter>
+                <meter class="scroll-progress" id="m1" :min="sectionTops[0]" :max="sectionBottoms[0]" :value="scrollPos"></meter>
+                <meter class="scroll-progress" id="m2" :min="sectionTops[1]" :max="sectionBottoms[1]" :value="scrollPos"></meter>
+                <meter class="scroll-progress" id="m3" :min="sectionTops[2]" :max="sectionBottoms[2]" :value="scrollPos"></meter>
+                <meter class="scroll-progress" id="m4" :min="sectionTops[3]" :max="sectionBottoms[3]" :value="scrollPos"></meter>
+                <meter class="scroll-progress" id="m5" :min="sectionTops[4]" :max="sectionBottoms[4]" :value="scrollPos"></meter>
 
-        </div>
+            </div>
 
             <h2 class="" id="section-title">
 
@@ -48,7 +48,7 @@
 
             </h2>
 
-            <div class="journey" id="main-journey" v-on:scroll.passive="scrollFunc(); sectionPos();">
+            <div class="journey" id="main-journey" v-on:scroll.passive="scrollFunc()">
 
                 <div class="section-container" id="sc1">
 
