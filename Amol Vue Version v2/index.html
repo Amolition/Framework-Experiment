@@ -26,11 +26,40 @@
 
                 <div class="" id="overlay">
 
-                    <button :class="[currentSection === 1 ? 'activeButton' : '']" id = "sectionTitle1" data-no = 1 @click = "scrollTo($event)">{{currentSection === 1 ? sectionTitleLong[0] : sectionTitleShort[0]}}</button>
-                    <button :class="[currentSection === 2 ? 'activeButton' : '']" id = "sectionTitle2" data-no = 2 @click = "scrollTo($event)">{{currentSection === 2 ? sectionTitleLong[1] : sectionTitleShort[1]}}</button>
-                    <button :class="[currentSection === 3 ? 'activeButton' : '']" id = "sectionTitle3" data-no = 3 @click = "scrollTo($event)">{{currentSection === 3 ? sectionTitleLong[2] : sectionTitleShort[2]}}</button>
-                    <button :class="[currentSection === 4 ? 'activeButton' : '']" id = "sectionTitle4" data-no = 4 @click = "scrollTo($event)">{{currentSection === 4 ? sectionTitleLong[3] : sectionTitleShort[3]}}</button>
-                    <button :class="[currentSection === 5 ? 'activeButton' : '']" id = "sectionTitle5" data-no = 5 @click = "scrollTo($event)">{{currentSection === 5 ? sectionTitleLong[4] : sectionTitleShort[4]}}</button>
+                    <!--<transition name="fadeFast">-->
+
+                        <button class="" id = "sectionTitle1" key="sectionTitle1" data-no = 1 @click = "scrollTo($event)" v-if = "currentSection !== 1"> {{sectionTitleShort[0]}} </button>
+                        <button class='activeButton' id = "sectionTitle1-active" key="sectionTitle1-active" data-no = 1 @click = "scrollTo($event)" v-else>{{sectionTitleLong[0]}}</button>
+
+                    <!--</transition>-->
+
+                    <!--<transition name="fadeFast">-->
+
+                        <button class="" id = "sectionTitle2" key="sectionTitle2" data-no = 2 @click = "scrollTo($event)" v-if = "currentSection !== 2"> {{sectionTitleShort[1]}} </button>
+                        <button class='activeButton' id = "sectionTitle2-active" key="sectionTitle2-active" data-no = 2 @click = "scrollTo($event)" v-else>{{sectionTitleLong[1]}}</button>
+
+                    <!--</transition>-->
+
+                    <!--<transition name="fadeFast">-->
+
+                        <button class="" id = "sectionTitle3" key="sectionTitle3" data-no = 3 @click = "scrollTo($event)" v-if = "currentSection !== 3"> {{sectionTitleShort[2]}} </button>
+                        <button class='activeButton' id = "sectionTitle3-active" key="sectionTitle3-active" data-no = 3 @click = "scrollTo($event)" v-else>{{sectionTitleLong[2]}}</button>
+
+                    <!--</transition>-->
+
+                    <!--<transition name="fadeFast">-->
+
+                        <button class="" id = "sectionTitle4" key="sectionTitle4" data-no = 4 @click = "scrollTo($event)" v-if = "currentSection !== 4"> {{sectionTitleShort[3]}} </button>
+                        <button class='activeButton' id = "sectionTitle4-active" key="sectionTitle4-active" data-no = 4 @click = "scrollTo($event)" v-else>{{sectionTitleLong[3]}}</button>
+
+                    <!--</transition>-->
+
+                    <!--<transition name="fadeFast">-->
+
+                        <button class="" id = "sectionTitle5" key="sectionTitle5" data-no = 5 @click = "scrollTo($event)" v-if = "currentSection !== 5"> {{sectionTitleShort[4]}} </button>
+                        <button class='activeButton' id = "sectionTitle5-active" key="sectionTitle5-active" data-no = 5 @click = "scrollTo($event)" v-else> {{sectionTitleLong[4]}} </button>
+
+                    <!--</transition>-->
 
                 </div>
 
@@ -218,7 +247,7 @@
 
                 <div class="rightload text" id='loadout5' key="loadout5" v-else-if = "currentSection === 5">
 
-                Interactive Zone 5
+                    Interactive Zone 5
 
                 </div>
 
