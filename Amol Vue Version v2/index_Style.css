@@ -207,7 +207,7 @@ nav {
 }
 
 .fadeFast-enter-active {
-    transition: opacity 0s;
+    transition: opacity 1s;
 }
 
 .fadeFast-leave-active {
@@ -215,5 +215,5 @@ nav {
 }
 
 .fadeFast-enter, .fadeFast-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
+    opacity: 1;
 }

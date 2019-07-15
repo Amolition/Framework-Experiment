@@ -26,12 +26,12 @@
 
                 <div class="" id="overlay">
 
-                    <!--<transition name="fadeFast">-->
+                    <transition name="fadeFast" mode="out-in">
 
                         <button class="" id = "sectionTitle1" key="sectionTitle1" data-no = 1 @click = "scrollTo($event)" v-if = "currentSection !== 1"> {{sectionTitleShort[0]}} </button>
                         <button class='activeButton' id = "sectionTitle1-active" key="sectionTitle1-active" data-no = 1 @click = "scrollTo($event)" v-else>{{sectionTitleLong[0]}}</button>
 
-                    <!--</transition>-->
+                    </transition>
 
                     <!--<transition name="fadeFast">-->
 

@@ -12,6 +12,8 @@ let app = new Vue ({
         sectionBottoms: [],
         sectionTitleLong: ["Section 1", "Section 2", "Section 3", "Section 4", "Section 5"],
         sectionTitleShort: ["1","2","3","4","5"],
+        sectionTitle: [],
+        n: "",
     },
 
     methods: {
@@ -28,8 +30,8 @@ let app = new Vue ({
 
                 // update currentSection if user scrolls past
                 // the top edge of its corresponding paragraph on left side
-                let topSection = document.querySelectorAll("#"+"sc"+section)[0].offsetTop;
-                let bottomSection = topSection + document.querySelectorAll("#"+"sc"+section)[0].offsetHeight;
+                let topSection = document.querySelectorAll("#"+"sc"+section)[0].offsetTop - 2;
+                let bottomSection = topSection + document.querySelectorAll("#"+"sc"+section)[0].offsetHeight - 2;
                 if (app.scrollPos >= topSection && app.scrollPos < bottomSection) {
                     app.currentSection = section;
                     console.log(app.currentSection);
@@ -37,24 +39,23 @@ let app = new Vue ({
 
             };
 
-            for(let i=1; i<=5; i++) {
+            for(let i=1; i<=app.n; i++) {
             handleElement(i)};
         },
 
         sectionPos: function () {
             this.$nextTick (function () {
-                let n = document.querySelectorAll(".section-container").length;
                 let overallTop = document.querySelectorAll("#sc1")[0].offsetTop;
                 console.log(overallTop);
                 console.log("resized");
 
-                for (let i=1; i<=n; i++) {
+                for (let i=1; i<=app.n; i++) {
 
-                    if (i<n) {
+                    if (i<app.n) {
                         app.sectionTops[i-1] = (document.querySelectorAll("#"+"sc"+i)[0].offsetTop - overallTop);
                         app.sectionBottoms[i-1] = (app.sectionTops[i-1] + document.querySelectorAll("#"+"sc"+i)[0].offsetHeight);
                     } else {
-                        app.sectionTops[i-1] = (document.querySelectorAll("#"+"sc"+i)[0].offsetTop) - overallTop;
+                        app.sectionTops[i-1] = (document.querySelectorAll("#"+"sc"+i)[0].offsetTop - overallTop);
                         app.sectionBottoms[i-1] = (app.sectionTops[i-1] + document.querySelectorAll("#"+"sc"+i)[0].offsetHeight - document.querySelectorAll(".journey")[0].offsetHeight);
                     }
 
@@ -71,13 +72,28 @@ let app = new Vue ({
         //},
     },
 
-    computed: {
+    watch: {
+
+        currentSection: function (newValue, oldValue) {
+            for (let i=1; i<=app.n; i++) {
+
+                if (i !== newValue) {
+
+                    app.sectionTitle[i-1] = app.sectionTitleShort[i-1]
+                } else {
+
+                    setTimeout (function () {app.sectionTitle[i-1] = app.sectionTitleLong[i-1];}, 45);
+                    setTimeout (function () {app.$forceUpdate();}, 100);
+                }
+            }
+        }
     },
 
     mounted () {
 
         //window.addEventListener('resizeTest', this.test());
         this.$nextTick( function () {
+            app.n = document.querySelectorAll(".section-container").length;
             this.sectionPos();
             this.scrollFunc();}
     )},

@@ -89,7 +89,7 @@ button {
 }
 
 .activeButton {
-    flex-grow: 6;
+    flex-grow: 5.7;
 }
 
 button:hover {
