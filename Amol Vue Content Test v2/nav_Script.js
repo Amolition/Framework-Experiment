@@ -11,7 +11,7 @@ let app = new Vue ({
         previousSection: 0,
         sectionTops: [],
         sectionBottoms: [],
-        sectionTitleLong: ["Orthogonality", "Section 2", "Section 3", "Section 4", "Section 5", "Section 6"],
+        sectionTitleLong: ["Orthogonality", "Derivation", "Section 3", "Section 4", "Section 5", "Section 6"],
         sectionTitleShort: ["1","2","3","4","5", "6"],
         sectionTitle: [],
         n: "",
@@ -34,7 +34,7 @@ let app = new Vue ({
 
         scrollFunc: function () {
 
-            if (app.firstRunDone) {
+            if (app.firstRunDone === true) {
 
                 //let topSpace =  document.querySelectorAll("#vis-title")[0].offsetHeight;
 
@@ -148,9 +148,9 @@ let app = new Vue ({
             app.n = document.querySelectorAll(".section-container").length;
             this.sectionPos();
             setTimeout(function () {
-                app.scrollFunc();
                 app.firstRunDone = true;
-            }, 4000);
+                app.scrollFunc();
+            }, 0);
             app.journeyHeightOld = document.querySelectorAll(".journey")[0].scrollHeight;
             window.setInterval(() => {
                 app.journeyHeightNew = document.querySelectorAll(".journey")[0].scrollHeight;
@@ -185,6 +185,9 @@ let app = new Vue ({
                 //     app.previousSection = app.currentSection;
                 // }
             },2000);
+            // window.setInterval(() => {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]); console.log("running");
+            // },5000);
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]);
         }
     )},
 

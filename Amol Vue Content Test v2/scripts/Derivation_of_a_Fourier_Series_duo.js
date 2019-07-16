@@ -7,11 +7,11 @@
 
 function initFourier(type) {
     console.log("The function is being initiated")
-    Plotly.purge("graph3");
-    Plotly.purge("graph4");
+    Plotly.purge("graph1Sec2");
+    Plotly.purge("graph2Sec2");
 
-    Plotly.newPlot("graph3", plot_triangle_sine(), setLayoutSmall("Sines Function and Triangle Function"));
-    Plotly.newPlot("graph4", plot_combination(), setLayoutSmall("Multiplication of the two Functions"));
+    Plotly.newPlot("graph1Sec2", plot_triangle_sine(), setLayoutSmall("Sines Function and Triangle Function"));
+    Plotly.newPlot("graph2Sec2", plot_combination(), setLayoutSmall("Multiplication of the two Functions"));
 
     return;
 }
@@ -19,13 +19,13 @@ function initFourier(type) {
 // set a smaller layout with smaller height
 function setLayoutSmall(someTitles) {
     var new_layout = {
-        autosize: true,
+        //autosize: true,
         //width: 450, "height": 250,
         margin: {l: 30, r: 30, t: 30, b: 30},
         hovermode: "closest",
         showlegend: false,
-        xaxis: {range: [], zeroline: true, title: "x"},
-        yaxis: {range: [], zeroline: true, title: "y"},
+        xaxis: {range: [], zeroline: false, title: "", showticklabels: false},
+        yaxis: {range: [], zeroline: true, title: "", showticklabels: false},
         aspectratio: {x: 1, y: 1},
         title: someTitles
     }
@@ -197,7 +197,7 @@ function updatePlot() {
     data2 = plot_combination();
 
     Plotly.animate(
-        'graph3',
+        'graph1Sec2',
         {data: data},
         {
             fromcurrent: true,
@@ -207,7 +207,7 @@ function updatePlot() {
         }
     );
     Plotly.animate(
-        'graph4',
+        'graph2Sec2',
         {data: data2},
         {
             fromcurrent: true,

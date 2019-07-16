@@ -9,13 +9,13 @@ var initialPoint1 = [1.1, 0.1];
 var initialPoint2 = [0.1,1.1];
 var initialPoint3 = [1,1];
 var layout = {
-    autosize: true,
-    //width: 450, "height": 500,
+    //autosize: true,
+    //width: "40vw",
     margin: {l:30, r:30, t:30, b:30},
     hovermode: "closest",
     showlegend: false,
-    xaxis: {range: [-5, 5], zeroline: true},
-    yaxis: {range: [-5, 5], zeroline: true},
+    xaxis: {range: [-3, 3], zeroline: true},
+    yaxis: {range: [-3, 3], zeroline: true},
     aspectratio: {x:1, y:1},
 };
 var currentPoint = initialPoint;
@@ -230,6 +230,7 @@ function computeBasis(x1, y1,x2,y2 , x3,y3) {
         vertex7 = new Line2d([[0, 0], [0.005,0]]);
 
         $(document).ready(() => {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub,"popup1"]);
             $('.popup').show();
         });
 
@@ -278,7 +279,8 @@ function computeBasis(x1, y1,x2,y2 , x3,y3) {
      ]
     ;
 
-    $("#vectorComponents").text(`${scale1} x vector1 & ${scale2} x vector2`);
+    $("#vector1val").text(`${scale1}`);
+    $("#vector2val").text(`${scale2}`);
     return data;
 }
 
@@ -288,7 +290,7 @@ function computeBasis(x1, y1,x2,y2 , x3,y3) {
 Now we just have to actually obtain the user input from the HTML file by using JQuery and then plot everything relevant that we want to see*/
 
 function initCarte(type) {
-    Plotly.purge("graph");
+    Plotly.purge("graph1Sec1");
     initX1 = initialPoint1[0];
     initY1 = initialPoint1[1];
     initX2 = initialPoint2[0];
@@ -334,9 +336,9 @@ function initCarte(type) {
     var project_1 = scale_vector([x1,y1] , projection([x3,y3] , [x1,y1]));
     var project_2 = scale_vector([x2,y2] , projection([x3,y3] , [x2,y2]));
 
-    Plotly.newPlot("graph", computeBasis(x1, y1), layout);
-    Plotly.newPlot("graph", computeBasis(x2, y2), layout);
-    Plotly.newPlot("graph", computeBasis(x3, y3), layout);
+    Plotly.newPlot("graph1Sec1", computeBasis(x1, y1), layout);
+    Plotly.newPlot("graph1Sec1", computeBasis(x2, y2), layout);
+    Plotly.newPlot("graph1Sec1", computeBasis(x3, y3), layout);
 
     return;
 }
@@ -364,7 +366,7 @@ function updatePlot() {
     data = computeBasis(x1, y1 , x2, y2 ,x3,y3);
 
     Plotly.animate(
-        'graph',
+        'graph1Sec1',
         {data: data},
         {
             fromcurrent: true,

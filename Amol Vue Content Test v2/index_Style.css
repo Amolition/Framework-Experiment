@@ -113,6 +113,8 @@ h3 {
 .section-body {
     margin: 0;
     padding: 20px 0;
+    font-size: 14pt;
+    text-align: justify;
 }
 
 .journey {
@@ -136,7 +138,8 @@ h3 {
 .section-head {
     background: #bcf7ff;
     margin: 0;
-    padding: 0;
+    padding: 10px 0;
+    text-align: center;
 }
 
 /* RIGHT SIDE STYLES */
@@ -147,7 +150,7 @@ h3 {
     top: 40px;
     bottom: 0;
     right: 0;
-    background: #e1ebff;
+    background: #ffffff;
 }
 
 .banner {
@@ -221,7 +224,7 @@ nav {
 
 .divclass {
     width: inherit;
-    text-align: left;
+
 
 }
 
@@ -232,6 +235,7 @@ nav {
     border-width: 3px;
     padding: 20px;
     border-radius: 20px;
+    text-align: justify;
 }
 .bigdropdown {
     /* Indicates a drop down box to hide sections*/
@@ -240,6 +244,7 @@ nav {
     border-width: 3px;
     padding: 20px;
     border-radius: 20px;
+    text-align: justify;
 }
 
 .verticalline {

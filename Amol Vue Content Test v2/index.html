@@ -31,14 +31,15 @@
     </script>
     <script type="text/javascript" src="scripts/MathJax-master/MathJax.js"></script>
     <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
-    <script>
+    <script src ="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!--<script>
         setTimeout(function () {$(document).ready(function () {
            let script = document.createElement('script');
            script.src = "https://cdn.plot.ly/plotly-latest.min.js";
            document.getElementsByTagName('head')[0].appendChild(script);
            setTimeout(function () {})
        });}, 3000)
-    </script>
+    </script>-->
 
 </head>
 
@@ -127,15 +128,13 @@
 
                         <h2 class="text section-head" id="s2">
 
-                            Section 2
+                            Derivation
 
                         </h2>
 
                     </div>
 
                     <div class="text section-body odd" id="p2">
-
-                        <div class="verticalline">&nbsp;</div>
 
                         <div id="intro" class="divclass">
                             <h1> Introduction to Fourier series </h1>
@@ -646,123 +645,116 @@
 
                 <div class="rightload text" id='loadout1' key="loadout1" v-if = "currentSection === 1">
 
-                    <div class="right" style="background-color: white;"></div>
-                    <div class="container">
-                        <div class="row">
-                            <!-- Graph -->
-                            <div class="one-third column" style="padding-left: 2em;">
+                    <!-- Graph -->
+                    <div id='graph1Sec1'></div>
 
-                                <div id='graph' style="width:30vw; height:70vh;">
-                                    <p style="margin-left: 9em; padding: 1em;">Components of Projections:</p>
-                                    <div id="vectorComponents" style="font-size: 10pt;">0.83 x vector1 & 0.83 x vector2</div>
-                                    <div class="popup" onclick="myFunction()">
-                                        Vectors 1 and 2 are parallel <br> so R2 is not spanned.
-                                    </div>
-                                    <!-- Legend -->
-                                    <ul style="margin-top: -4em;">
-                                        <li style="color: rgb(255,0,0);">Basis Vector 1</li>
-                                        <li style="color: rgb(0,0,255);">Basis Vector 2</li>
-                                        <li style="color: rgb(0,255,0);">Target Vector</li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <div id="vectorComponents">
+                        <span style="font-weight: bolder">
+                            Components of Projections:
+                        </span>
+                        <span id="vector1val">
+                            0.83
+                        </span>
+                         x
+                        <span style="color: rgb(213,0,50);">
+                            vector 1
+                        </span>
+                         &
+                        <span id="vector2val">
+                            0.83
+                        </span>
+                         x
+                        <span style="color: rgb(0,0,255);">
+                            vector 2
+                        </span>
+                    </div>
 
+                    <div class="popup" id="popup1">
+                        Vectors 1 and 2 are parallel so $\Bbb{R}^2$ is not spanned.
+                    </div>
+                    <!--Buttons/Sliders-->
+                    <div class="overall-sliders-container">
+                        <!--BEGIN Slider-->
+                        <!--These Sliders are shared among all tabs-->
 
-                            <!--Buttons/Sliders-->
-                            <div class="one-third column" style="padding-left: 50px;">
+                        <!--Slider Display--> <!--Linked with the slider below-->
+                        <!--Linked with a slider and shows the live values of its corresponding slider-->
+                        <div class="partial-sliders-container">
+                            <h6 class="graphcolor1 slider-label">Basis vector 1:</h6>
+                            <!--BEGIN Slider-->
+                            <label class="slider">
+                                <input id="x1Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5" step="0.01" oninput="x1.value=x1Controller.value"/></input>
+                                <span> x: <output id="x1" for="x1Controller">1.1</output></span>
+                            </label>
+                            <!--END Slider-->
 
-                                <!--Main body contents-->
-                                <div class="tab-content">
-                                    <!--BEGIN Slider-->
-                                    <!--These Sliders are shared among all tabs-->
-
-                                    <!--Slider Display--> <!--Linked with the slider below-->
-                                    <!--Linked with a slider and shows the live values of its corresponding slider-->
-
-                                    <h6 style="border-left: solid 5px rgb(213,0,50); padding-left: 8px; margin: -5px; padding-top: 1vh;">Basis vector 1:</h6>
-                                    <!--BEGIN Slider-->
-                                    <label class="slider" style="position: relative; float: left;  width: 50%">
-                                        <input id="x1Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5" step="0.01" oninput="x1.value=x1Controller.value"/></input>
-                                        <br>
-                                        <span> x: <output id="x1" for="x1Controller">1.1</output></span>
-                                    </label>
-                                    <!--END Slider-->
-
-                                    <!--BEGIN Slider-->
-                                    <label class="slider" style="position: relative; float: right; width: 50%">
-                                        <input id="y1Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5" step="0.01" oninput="y1.value=y1Controller.value"/></input>
-                                        <br>
-                                        <span> y: <output id="y1" for="y1Controller">0.1</output></span>
-                                    </label>
-                                    <!--END Slider-->
-
-                                    <br>
-
-                                    <h6 style="border-left: solid 5px rgb(0,0,255); padding-left: 8px; margin: -5px; padding-top: 1vh; ">Basis vector 2:</h6>
-                                    <!--BEGIN Slider-->
-                                    <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
-                                        <input id="x2Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5" step="0.01" oninput="x2.value=x2Controller.value"/></input>
-                                        <br>
-                                        <span> x: <output id="x2" for="x2Controller">0.1</output></span>
-                                    </label>
-                                    <!--END Slider-->
-
-                                    <!--BEGIN Slider-->
-                                    <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
-                                        <input id="y2Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5" step="0.01" oninput="y2.value=y2Controller.value"/></input>
-                                        <br>
-                                        <span> y: <output id="y2" for="y2Controller">1.1</output></span>
-                                    </label>
-                                    <!--END Slider-->
-
-                                    <br>
-
-                                    <h6 style="border-left: solid 5px rgb(0,255,0); padding-left: 8px; margin: -5px; padding-top: 1vh; ">Target vector:</h6>
-                                    <!--BEGIN Slider-->
-                                    <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
-                                        <input id="x3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5" step="0.01" oninput="x3.value=x3Controller.value"/></input>
-                                        <br>
-                                        <span> x: <output id="x3" for="x3Controller">1</output></span>
-                                    </label>
-                                    <!--END Slider-->
-
-                                    <!--BEGIN Slider-->
-                                    <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
-                                        <input id="y3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5" step="0.01" oninput="y3.value=y3Controller.value"/></input>
-                                        <br>
-                                        <span> y: <output id="y3" for="y3Controller">1</output></span>
-                                    </label>
-                                    <!--END Slider-->
-
-                                    <!--Unique Areas-->
-                                    <!--BEGIN Basis Vector Area-->
-                                    <div class="tab-pane active" id="basis"></div> <!--NB: Also need 'active' here-->
-                                    <!--END Basis-->
-                                    <!--END Area-->
-                                </div>
-                            </div>
+                            <!--BEGIN Slider-->
+                            <label class="slider">
+                                <input id="y1Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5" step="0.01" oninput="y1.value=y1Controller.value"/></input>
+                                <span> y: <output id="y1" for="y1Controller">0.1</output></span>
+                            </label>
+                            <!--END Slider-->
                         </div>
+
+                        <div class="partial-sliders-container">
+                            <h6 class="graphcolor2 slider-label">Basis vector 2:</h6>
+                            <!--BEGIN Slider-->
+                            <label class="slider">
+                                <input id="x2Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5" step="0.01" oninput="x2.value=x2Controller.value"/></input>
+                                <span> x: <output id="x2" for="x2Controller">0.1</output></span>
+                            </label>
+                            <!--END Slider-->
+
+                            <!--BEGIN Slider-->
+                            <label class="slider">
+                                <input id="y2Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5" step="0.01" oninput="y2.value=y2Controller.value"/></input>
+                                <span> y: <output id="y2" for="y2Controller">1.1</output></span>
+                            </label>
+                            <!--END Slider-->
+                        </div>
+
+                        <div class="partial-sliders-container">
+                            <h6 class="graphcolor3 slider-label">Target vector:</h6>
+                            <!--BEGIN Slider-->
+                            <label class="slider">
+                                <input id="x3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5" step="0.01" oninput="x3.value=x3Controller.value"/></input>
+                                <span> x: <output id="x3" for="x3Controller">1</output></span>
+                            </label>
+                            <!--END Slider-->
+
+                            <!--BEGIN Slider-->
+                            <label class="slider">
+                                <input id="y3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5" step="0.01" oninput="y3.value=y3Controller.value"/></input>
+                                <span> y: <output id="y3" for="y3Controller">1</output></span>
+                            </label>
+                            <!--END Slider-->
+                        </div>
+
+                        <!--Unique Areas-->
+                        <!--BEGIN Basis Vector Area-->
+                        <div class="tab-pane active" id="basis"></div> <!--NB: Also need 'active' here-->
+                        <!--END Basis-->
+                        <!--END Area-->
                     </div>
 
                 </div>
 
                 <div class="rightload text" id='loadout2' key="loadout2" v-else-if = "currentSection === 2">
 
-                    <div class="six columns">
-                        <h5></h5>
-                        <div id='graph3' style="width:450px; height:250px;"></div>
-                        <div id='graph4' style="width:450px; height:250px;"></div>
-                    </div>
+                    <!-- Graph -->
+                    <div id='graph1Sec2'></div>
+                    <div id='graph2Sec2'></div>
 
-                    <div class="five columns">
+                    <div class="overall-sliders-container">
+
                         <!--BEGIN Slider n-->
-                        <label class="sliderTitle">Term Number:
+                        <label class="slider-label">Term Number:
                             <span id="N2ControllerDisplay" data-unit="">1</span>
                         </label>
                         <!--Slider n-->
                         <label class="slider">
                             <span class="sliderMin">0</span>
-                            <input id="N2Controller" class="inputs"min="0" type="range" value="1"  max="50" step="1"/>
+                            <input id="N2Controller" class="inputs" min="0" type="range" value="1"  max="50" step="1"/>
 
                             <span class="sliderMax">50</span>
                         </label>
@@ -770,7 +762,7 @@
 
                         <!--BEGIN Slider A-->
                         <!--Slider Display A-->
-                        <label class="sliderTitle">Amplitude:<!--Amplitude-->
+                        <label class="slider-label">Amplitude:<!--Amplitude-->
                             <span id="AControllerDisplay" data-unit="">1</span> <!--default: 1-->
                         </label>
                         <!--Slider A-->
@@ -781,7 +773,7 @@
                         <!--END Slider A-->
 
                         <!--BEGIN Slider L-->
-                        <label class="sliderTitle">Period:
+                        <label class="slider-label">Period:
                             <span id="LControllerDisplay" data-unit="">1</span>
                         </label>
                         <!--Slider L-->
@@ -791,6 +783,7 @@
                             <span class="sliderMax">1</span>
                         </label>
                         <!--END Slider L-->
+
                     </div>
 
                 </div>
@@ -827,7 +820,7 @@
 
             <h1 class="" id="vis-title">
 
-                Visualisation Title
+                FOURIER SERIES
 
             </h1>
 

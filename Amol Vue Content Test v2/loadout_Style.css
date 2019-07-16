@@ -1,24 +1,164 @@
 .rightload {
     position: fixed;
-    top: 40px;
+    top: 42px;
     right: 0;
     bottom: 0;
     width: inherit;
-    /*text-align: center;*/
-    /*line-height: 100vh;*/
-    /*vertical-align: middle;*/
-    /*font-size: 30pt;*/
 }
+
+/* SECTION 1 */
 
 #loadout1 {
-    /*color: #0076fe;*/
-    /*background: #b3d4ff;*/
 }
 
-#loadout2 {
-    color: #00b42a;
-    background: #96b49c;
+#loadout1 #graph1Sec1 {
+    box-sizing: content-box;
+    width: 40vw;
+    height: 40vw;
+    position: absolute;
+    left: 30px;
+    top: 50px;
+    padding: 10px;
+    border: solid 3px black;
 }
+
+#loadout1 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    width: 20vw;
+    height: 90vh;
+}
+
+#loadout1 .partial-sliders-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+#loadout1 .slider {
+    /*position: absolute;*/
+    /*right:50px;*/
+    /*width: 20vw;*/
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout1 .slider-label {
+    /*position: absolute;*/
+    /*right: 50px;*/
+    /*height: 10vh;*/
+    /*width: 15vw;*/
+    font-size: 20pt;
+    text-align: left;
+    padding-left: 8px;
+    margin: 0;
+    padding-top: 0;
+    flex-basis: 0;
+    flex-grow: 0.5;
+    flex-shrink: 1;
+}
+
+#loadout1 .graphcolor1 {
+    border-left: solid 5px rgb(213,0,50);
+    color: rgb(213,0,50);
+}
+
+#loadout1 .graphcolor2 {
+    border-left: solid 5px rgb(0,0,255);
+    color: rgb(0,0,255);
+}
+
+#loadout1 .graphcolor3 {
+    border-left: solid 5px rgb(0, 128, 0);
+    color: rgb(0, 128, 0);
+}
+
+#loadout1 #vectorComponents {
+    width: 30vw;
+    margin: 0 5vw;
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    text-align: center;
+    font-size: 14pt;
+}
+
+#loadout1 .popup {
+    width: 30vw;
+    margin: 0 5vw;
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    text-align: center;
+    color: white;
+    background-color: #D50032;
+}
+
+#vectorComponents {
+    font-size: 14pt;
+}
+
+/* SECTION 2 */
+
+#loadout2 {
+}
+
+#loadout2 #graph1Sec2 {
+    width: 35vw;
+    height: 22.5vw;
+    position: absolute;
+    left: 50px;
+    top: 20px;
+}
+
+#loadout2 #graph2Sec2 {
+    width: 35vw;
+    height: 22.5vw;
+    position: absolute;
+    left: 50px;
+    bottom: 20px;
+}
+
+#loadout2 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    width: 20vw;
+    height: 90vh;
+}
+
+#loadout2 .slider-label {
+    /*position: absolute;*/
+    /*right: 50px;*/
+    /*height: 10vh;*/
+    /*width: 15vw;*/
+    font-size: 20pt;
+    text-align: left;
+    padding-left: 8px;
+    margin: 0;
+    padding-top: 0;
+    flex-basis: 0;
+    flex-grow: 0.5;
+    flex-shrink: 1;
+}
+
+#loadout2 .slider {
+    /*position: absolute;*/
+    /*right:50px;*/
+    /*width: 20vw;*/
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+/* SECTION 3 */
 
 #loadout3 {
     color: #958023;
@@ -33,4 +173,11 @@
 #loadout5 {
     color: #6000b4;
     background: #a694b4;
+}
+
+#loadoutblank {
+    text-align: center;
+    line-height: 100vh;
+    vertical-align: middle;
+    font-size: 30pt;
 }
