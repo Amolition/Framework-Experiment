@@ -87,37 +87,73 @@
 
                     <div class="text section-body odd" id="p1">
 
-                        Given the vectors $ \vec{V}_{n}$ and $\vec{V}_{m},$ we define their inner product as $$\vec{V}_{n} \cdot \vec{V}_{m} = \sum_{i}V_{n}^{(i)} V_{m}^{(i)}, $$
-                        where $V_{n}^{(i)}$ is the $i^{\text{th}}$ component of the vector $\vec{V}_{n}$.
+                        Given the vectors <span>$\vec{V}_{n}$</span> and <span>$\vec{V}_{m},$</span> we define their inner product as
 
-                        If $$ \vec{V}_{n} \cdot \vec{V}_{m} = 0 \text{ for } m \neq n,$$ then we say the vectors are <strong>orthogonal</strong>.
+                        <span style="display:table; margin: 0 auto;">
+                            $$\vec{V}_{n} \cdot \vec{V}_{m} = \sum_{i}V_{n}^{(i)} V_{m}^{(i)}, $$
+                        </span>
+
+                        where $V_{n}^{(i)}$ is the $i^{\text{th}}$ component of the <span>vector $\vec{V}_{n}$</span>.
+
+                        If
+
+                        <span style="display:table; margin: 0 auto;">
+                            $$ \vec{V}_{n} \cdot \vec{V}_{m} = 0 \text{ for } m \neq n,$$
+                        </span>
+
+                        then we say the vectors are <strong>orthogonal</strong>.
                         If you move in the direction of any vector $\vec{a}$, you do not change the position component in the direction of any vector
-                        orthogonal to $\vec{a}$. In other words, orthogonal vectors are perpendicular. <!--(... talk about definition of orthogonality)-->
+                        orthogonal to <span>$\vec{a}$</span>. In other words, orthogonal vectors are perpendicular.
+
+                        <!--(... talk about definition of orthogonality)-->
+
                         <br><br>
-                        If $ \vec{V}_{n} \cdot \vec{V}_{m} = \delta_{nm}$ then the vectors are said to be <strong>orthonormal</strong>.
-                        $$\delta_{nm} = \left\{\begin{matrix}0 \quad \text{if } m\neq n
-                        \\ 1 \quad \text{if } m = n
-                        \end{matrix}\right. $$
+
+                        If <span>$ \vec{V}_{n} \cdot \vec{V}_{m} = \delta_{nm}$</span> then the vectors are said to be <strong>orthonormal</strong>.
+
+                        <span style="display:table; margin: 0 auto;">
+                            $$\delta_{nm} = \left\{\begin{matrix}0 \quad \text{if } m\neq n
+                            \\ 1 \quad \text{if } m = n
+                            \end{matrix}\right. $$
+                        </span>
+
                         This mean the vectors are orthogonal and conveniently normalised.
+
                         <br><br>
-                        Use the visualisation to see that when the basis vectors are not parallel they span $\mathbb{R}^{2}$, using
-                        these as basis vectors, we can construct any other vector in $\mathbb{R}^{2}$.
+
+                        Use the visualisation to see that when the basis vectors are not parallel they span <span>$\mathbb{R}^{2}$</span>,
+                        using these as basis vectors, we can construct any other vector in <span>$\mathbb{R}^{2}$</span>.
+
                         <br><br>
-                        If you can represent any vector in $\mathbb{R}^{n}$  using $n$ vectors, then the basis vectors form a <strong>complete set</strong>.
+
+                        If you can represent any vector in <span>$\mathbb{R}^{n}$</span>  using $n$ vectors, then the basis vectors form a <strong>complete set</strong>.
                         If the set of these vectors are all orthonormal, then we have a <strong>complete orthonormal set</strong>.
+
                         <br><br>
+
                         In the same way as before, we will now demonstrate what it means for <strong>functions</strong> to be complete.
-                        We define the functions $f_{n},f_{m}$ to exist on the domain $\left[a,b \right]$. <br><br>
+                        We define the functions <span>$f_{n},f_{m}$</span> to exist on the domain <span>$\left[a,b \right]$</span>.
 
-                        We define their inner
-                        product to be $$\langle  f_{n} , f_{m} \rangle = \int_{a}^{b} f_{n}\left(x \right)f_{m}^{*}\left(x \right)dx$$
-                        and say the functions are <strong>orthogonal</strong> if $\langle  f_{n} , f_{m} \rangle = 0 $ for $m \neq n$.
-
-                        We then say the functions are <strong>orthonormal</strong> if $\langle  f_{n} , f_{m} \rangle = \delta_{nm} $.
                         <br><br>
+
+                        We define their inner product to be
+
+                        <span style="display:table; margin: 0 auto;">
+                        $$\langle  f_{n} , f_{m} \rangle = \int_{a}^{b} f_{n}\left(x \right)f_{m}^{*}\left(x \right)dx$$
+                        </span>
+
+                        and say the functions are <strong>orthogonal</strong> if <span>$\langle  f_{n} , f_{m} \rangle = 0 $</span> for <span>$m \neq n$</span>.
+
+                        We then say the functions are <strong>orthonormal</strong> if <span>$\langle  f_{n} , f_{m} \rangle = \delta_{nm} $</span>.
+
+                        <br><br>
+
                         We now claim that you can construct any square integrable function from a <strong>complete set</strong> of basis
-                        functions in the same way vectors could be constructed from a complete set of basis vectors. A square integrable function $f$ is
+                        functions in the same way vectors could be constructed from a complete set of basis vectors. A square integrable function <span>$f$</span> is
                         a function whose inner product with itself, $ \langle f,f \rangle $ is finite.
+
+                        <hr>
+
                     </div>
 
                 </div>
@@ -137,334 +173,669 @@
                     <div class="text section-body odd" id="p2">
 
                         <div id="intro" class="divclass">
-                            <h1> Introduction to Fourier series </h1>
-                            <p> Consider a function $f(x)$ which is periodic over the domain $  -L \leq x < L $ where $L$ is positive.
-                                $f(x)$ can be represented as a sum of sines and cosines with varying frequencies.
-                                These trigonometric functions form orthogonal basis. </p>
-                            <p> The Fourier series of $f(x)$ is </p>
-                            $\displaystyle f(x) = \frac{a_0}{2}$ $+ \displaystyle\sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi nx}{L}\Big)$
-                            $\displaystyle+ b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big]$ $ \qquad \left[ 1 \right]$
-                            <p> where </p>
-                            $\displaystyle a_n = \displaystyle\frac{1}{L}\int_{-L}^{L} f(x)$ $\displaystyle \cos\Big(\frac{\pi nx}{L}\Big) dx, $
-                            <p></p>
-                            $\displaystyle b_n = \displaystyle\frac{1}{L}\int_{-L}^{L} f(x)$ $\displaystyle \sin\Big(\frac{\pi nx}{L}\Big) dx, $
-                            <p></p>
-                            $\displaystyle a_0 = \displaystyle\frac{1}{L}\int_{-L}^{L} f(x) dx, $
-                            <p> and</p> $$ n=0,1,2...$$
-                            <p><strong> Note:</strong> $a_0$$/2$ represents the average value of $f(x)$.</p>
-                            <p> The Fourier series representation of the function $f(x)$ in exponential (complex) form is </p>
-                            $\displaystyle f(x) =\sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L}$ $\displaystyle \qquad \left[ 2 \right]$
-                            <p> where </p>
-                            $\displaystyle c_n = \frac{1}{2L}\int_{-L}^{L} f(x)$ $\displaystyle e^{{-in \pi x}/L} dx, $
-                            <p><strong> Note:</strong> The constants in front of the integral(s) of the coefficient for the trigonometric and
-                                exponential fourier series are different. Also note the limit of the summations.</p>
+
+                            <h3 class="section-sub-head first-sub-head"> Introduction to Fourier series </h3>
+
+                            Consider a function <span>$f(x)$</span> which is periodic over the domain <span>$  -L \leq x < L $</span> where <span>$L$</span> is positive.
+                            <span>$f(x)$</span> can be represented as a sum of sines and cosines with varying frequencies.
+                            These trigonometric functions form orthogonal basis.
+
+                            The Fourier series of <span>$f(x)$</span> is
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi nx}{L}\Big) + b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big] \qquad \left[ 1 \right]$$
+                            </span>
+
+                            where
+
+                            <span style="display:table; margin: 0 auto;">
+                                \begin{align}
+                                a_n & = \frac{1}{L}\int_{-L}^{L} f(x) \cos\Big(\frac{\pi nx}{L}\Big) dx, \\
+                                b_n & = e\frac{1}{L}\int_{-L}^{L} f(x) \sin\Big(\frac{\pi nx}{L}\Big) dx, \\
+                                a_0 & = \frac{1}{L}\int_{-L}^{L} f(x) dx,
+                                \end{align}
+                            </span>
+
+                            and
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ n=0,1,2... $$
+                            </span>
+
+                            <strong> Note:</strong> <span>$a_0$$/2$</span> represents the average value of <span>$f(x)$</span>.
+
+                            The Fourier series representation of the function <span>$f(x)$</span> in exponential (complex) form is
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x) =\sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L} \qquad \left[ 2 \right]$$
+                            </span>
+
+                            where
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ c_n = \frac{1}{2L}\int_{-L}^{L} f(x) e^{{-in \pi x}/L} dx, $$
+                            </span>
+
+                            <strong> Note:</strong> The constants in front of the integral(s) of the coefficient for the trigonometric and
+                            exponential fourier series are different. Also note the limit of the summations.
+
                             <hr>
+
                         </div>
 
                         <div id="FSderivation" class="divclass">
-                            <h1> Derivation of the Fourier Series </h1>
-                            <p> We begin by assuming that $f(x)$ can be represented as a sum of exponential terms.</p>
-                            $\displaystyle f(x) = \displaystyle\sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L}$
-                            <p> Multiplying by $e^{{-im \pi x}/L}$, where $m=0,1,2...$, and integrating both sides gives the following:</p>
-                            $\displaystyle\int_{-L}^{L} f(x) e^{{-im \pi x}/L} dx$ $=\displaystyle\sum_{n=-\infty}^{\infty} c_n $ $\displaystyle \int_{-L}^{L}
-                            e^{{i(n-m) \pi x}/L} dx. $
-                            <p> Performing the integral on the R.H.S gives </p>
-                            $ \displaystyle\int_{-L}^L e^{(i\pi x/L)(n-m)}dx$ $\displaystyle =\left\{
-                            \begin{array}{ll}
-                            2L \qquad \text{(if n=m)} \\
-                            0 \qquad \quad \text{(if n≠m)}
-                            \end{array}
-                            \right \} $ $\displaystyle= 2L \cdot \delta_{nm}.$
-                            <p> This is the orthonormality of complex exponentials.</p>
-                            <p> Now since the only non-zero value of the sum is when $n=m$,</p>
-                            $\displaystyle\int_{-L}^L f(x) e^{-im\pi x/L}dx$ $\displaystyle= 2L \sum_{n=-\infty}^{+\infty}c_n\delta_{mn}$
-                            $\displaystyle=2L\cdot c_m, $
-                            <p> hence</p>
-                            $\displaystyle c_m=\frac{1}{2L}\int_{-L}^{+L}f(x) $ $\displaystyle e^{-im\pi x/L}dx. $
-                            <p><strong> Note:</strong> As $m$ is an arbitrary integer, it can be assigned as $n$ for simplicity.</p>
 
-                            <p> Given the previously derived equation, we can derive the trigonometric form of the Fourier series. By reorganising
-                                the sum, we get </p>
-                            $\displaystyle f(x)= \underbrace{c_0}_\text{n=0}$ $\displaystyle + \sum_{n=1}^{\infty} \big( \underbrace{c_n
-                            e^{in\pi x/L}}_\text{Positive n term}$ $\displaystyle + \underbrace{c_{-n} e^{-in\pi x/L}}_\text{Negative n terms}
-                            \big).$
-                            <p> We can regroup the terms in the summation in the following way:</p>
+                            <h3 class="section-sub-head"> Derivation of the Fourier Series </h3>
+
+                            We begin by assuming that <span>$f(x)$</span> can be represented as a sum of exponential terms.
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x) = \displaystyle\sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L}$$
+                            </span>
+
+                            Multiplying by <span>$e^{{-im \pi x}/L}$</span>, where <span>$m=0,1,2...$</span>, and integrating both sides gives the following:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$\int_{-L}^{L} f(x) e^{{-im \pi x}/L} dx = \sum_{n=-\infty}^{\infty} c_n \int_{-L}^{L} e^{{i(n-m) \pi x}/L} dx. $$
+                            </span>
+
+                            Performing the integral on the R.H.S gives
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ \int_{-L}^L e^{(i\pi x/L)(n-m)}dx =\left\{ \begin{array}{ll} 2L \qquad \text{(if n=m)} \\
+                                0 \qquad \quad \text{(if n≠m)} \end{array} \right \} = 2L \cdot \delta_{nm}. $$
+                            </span>
+
+                            This is the orthonormality of complex exponentials.
+                            Now since the only non-zero value of the sum is when <span>$n=m$</span>,
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ \int_{-L}^L f(x) e^{-im\pi x/L}dx = 2L \sum_{n=-\infty}^{+\infty}c_n\delta_{mn} = 2L\cdot c_m, $$
+                            </span>
+
+                            hence
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ c_m=\frac{1}{2L}\int_{-L}^{+L}f(x) e^{-im\pi x/L}dx. $$
+                            </span>
+
+                            <strong> Note:</strong> As <span>$m$</span> is an arbitrary integer, it can be assigned as $n$ for simplicity.
+
+                            Given the previously derived equation, we can derive the trigonometric form of the Fourier series. By reorganising
+                            the sum, we get
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x)= \underbrace{c_0}_\text{n=0} + \sum_{n=1}^{\infty} \big( \underbrace{c_n e^{in\pi x/L}}_\text{Positive n term} + \underbrace{c_{-n} e^{-in\pi x/L}}_\text{Negative n terms} \big).$$
+                            </span>
+
+                            We can regroup the terms in the summation in the following way:
 
                             <div id="regroupexplain" class="solidline">
-                                $ \displaystyle = \frac{1}{2} \Big[ 2c_n e^{in\pi x/L}$ $\displaystyle + 2c_{-n} e^{-in\pi x/L}$ $ \displaystyle +
-                                \underbrace{c_{-n} e^{in\pi x/L} - c_{-n} e^{in\pi x/L}}_\text{ =0}$ $\displaystyle + \underbrace{c_{n}
-                                e^{-in\pi x/L} -c_{n} e^{-in\pi x/L}}_\text{ =0} \Big] $
-                                <p></p>
-                                $ \displaystyle = \frac{1}{2} \Big[ c_n e^{in\pi x/L} $ $\displaystyle +c_{-n} e^{in\pi x/L}$ $ \displaystyle + c_n e^{-in\pi
-                                x/L} $ $\displaystyle + c_{-n} e^{-in\pi x/L}$ $ \displaystyle + c_n e^{in\pi x/L} $ $\displaystyle - c_{-n} e^{in\pi x/L}$ $ \displaystyle - c_n
-                                e^{-in\pi x/L} $ $\displaystyle +c_{-n} e^{-in\pi x/L}\Big] $
+
+                                <span style="display:table; margin: 0 auto;">
+                                    \begin{align}
+                                    = \frac{1}{2} \Big[  2c_n e^{in\pi x/L} + 2c_{-n} e^{-in\pi x/L} & \\
+                                    + \underbrace{c_{-n} e^{in\pi x/L} - c_{-n} e^{in\pi x/L}}_\text{ =0} & \\
+                                    + \underbrace{c_{n} e^{-in\pi x/L} -c_{n} e^{-in\pi x/L}}_\text{ =0} & \Big] \\
+                                    \end{align}
+                                    <br>
+                                    \begin{align}
+                                    = \frac{1}{2} \Big[ c_n e^{in\pi x/L} +c_{-n} e^{in\pi x/L} & \\
+                                    + c_n e^{-in\pi x/L} + c_{-n} e^{-in\pi x/L} & \\
+                                    + c_n e^{in\pi x/L} - c_{-n} e^{in\pi x/L} & \\
+                                    - c_n e^{-in\pi x/L} + c_{-n} e^{-in\pi x/L} & \Big] \\
+                                    \end{align}
+
+                                    <hr>
+
+                                </span>
 
                             </div>
-                            <p></p>
 
-                            $\displaystyle f(x)= c_0 + \sum_{n=1}^{\infty}$ $\displaystyle \Big( \frac{c_n + c_{-n}}{2} \big(e^{in\pi
-                            x/L}$ $\displaystyle +e^{-in\pi x/L} \big)$ $+ \displaystyle \frac{c_n - c_{-n}}{2} \big(e^{in\pi x/L} $ $\displaystyle -e^{-in\pi x/L} \big) \Big) $
-                            <p> Now define $ a_n = c_n + c_{-n}$ and $ b_n = i(c_n - c_{-n})$ and use that these exponentials can we written as sines
-                                and cosines.</p>
-                            <p><strong>Note:</strong> $a_0 = 2c_0$ and $b_0=0$.</p>
-                            <p> Hence</p>
-                            $ f(x) = \displaystyle\frac{a_0}{2}$ $+ \displaystyle\sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi nx}{L}\Big)$
-                            $+ \displaystyle b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big]$
+                            <span style="display:table; margin: 0 auto;">
+                                \begin{align}
+                                f(x)= c_0 + \sum_{n=1}^{\infty} \Big[ & \frac{c_n + c_{-n}}{2} \big(e^{in\pi x/L} +e^{-in\pi x/L} \big) \\
+                                & \frac{c_n - c_{-n}}{2} \big(e^{in\pi x/L} -e^{-in\pi x/L} \big) \Big]
+                                \end{align}
+                            </span>
 
-                            <p> $a_n$ can be derived by using the expression from $c_n$</p>
-                            $\displaystyle a_n = c_n + c_{-n}$
-                            $\displaystyle =\frac{1}{2L}\int_{-L}^{+L}f(x)$ $\displaystyle e^{-in\pi x/L}dx$ $\displaystyle +\frac{1}{2L}\int_{-L}^{+L}f(x)$ $\displaystyle
-                            e^{in\pi x/L}dx$
-                            <p> Factorise and spot the exponential form of $\cos$.</p>
-                            $\displaystyle =\frac{1}{L}\int_{-L}^{+L}f(x)$ $\displaystyle \Big[\frac{e^{in\pi x/L} +e^{-in\pi x/L}}{2}\Big]dx$
-                            $\displaystyle= \displaystyle\frac{1}{L}\int_{-L}^{L} f(x)$ $\displaystyle \cos\Big(\frac{\pi nx}{L}\Big) dx$
-                            <p> Similarly for $b_n$,</p>
-                            $ b_n = \displaystyle\frac{1}{L}\int_{-L}^{L} f(x)$ $\displaystyle \sin\Big(\frac{\pi nx}{L}\Big) dx. $
+                            Now define <span>$ a_n = c_n + c_{-n}$</span> and <span>$ b_n = i(c_n - c_{-n})$</span> and use that these exponentials can we written as sines
+                            and cosines.
+
+                            <br><br>
+
+                            <strong>Note:</strong> <span>$a_0 = 2c_0$</span> and <span>$b_0=0$</span>.
+
+                            <br><br>
+
+                            Hence
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi nx}{L}\Big) + b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big]$$
+                            </span>
+
+                            <span>$a_n$</span> can be derived by using the expression from <span>$c_n$</span>
+
+                            <span style="display:table; margin: 0 auto;">
+                                \begin{align}
+                                a_n = c_n + c_{-n} = & \frac{1}{2L}\int_{-L}^{+L}f(x) e^{-in\pi x/L}dx \\
+                                + & \frac{1}{2L} \int_{-L}^{+L}f(x) e^{in\pi x/L}dx
+                                \end{align}
+                            </span>
+
+                            Factorise and spot the exponential form of <span>$\cos$</span>.
+
+                            <span style="display:table; margin: 0 auto;">
+                                \begin{align}
+                                & =\frac{1}{L}\int_{-L}^{+L}f(x) \Big[\frac{e^{in\pi x/L} +e^{-in\pi x/L}}{2}\Big]dx \\
+                                & =\frac{1}{L}\int_{-L}^{L} f(x) \cos\Big(\frac{\pi nx}{L}\Big) dx
+                                \end{align}
+                            </span>
+
+                            Similarly for <span>$b_n$</span>,
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n =\frac{1}{L}\int_{-L}^{L} f(x) \sin\Big(\frac{\pi nx}{L}\Big) dx. $$
+                            </span>
+
                             <hr>
+
                         </div>
 
                         <div id="triangular" class="divclass">
-                            <h1> Triangular Fourier Series Derivation </h1>
-                            <p>The triangular function is defined by the following:</p>
-                            $\displaystyle f(x)=\left\{
-                            \begin{array}{ll}
-                            \frac{-2A}{L} (x+L) \quad (-L \leq x < -L/2) \\
-                            \frac{2A}{L} x \qquad \qquad (-L/2\leq x < L/2) \\
-                            \frac{-2A}{L} (x-L) \quad (L/2\leq x < L)
-                            \end{array}
-                            \right. $
-                            <p> First notice that $f(x)$ is odd about $x=0$, hence $a_n=0$ for all $n$. Also, since the $b_n$ integrand is even about $x=0$,</p>
-                            $\displaystyle b_n=\frac{2}{L}\int_0^L f(x)$ $\displaystyle \sin \left(\frac{n \pi x}{L}\right)dx. $
 
-                            <p> Notice that for even $n$, $b_n$ is odd about $x=L/2$. Hence, </p>
-                            $ \displaystyle b_n=\frac{2}{L}\int_0^{L} f(x)$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right) dx$ $\displaystyle = 0 $ $\displaystyle\quad \text{for even n}. $
-                            <p> The integral from $0$ to $L/2$ is equal in magnitude but opposite in sign to the integral from $L/2$ to $L$, for
-                                even $n$. </p>
-                            <p> For odd $n$, the function is even around $L/2$, so we only have to integrate from $0$ to $L/2$ then multiply by
-                                $2$.This has made our job much easier.</p>
-                            $\displaystyle b_n=2\frac{2}{L}\int_0^{L/2} f(x)$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right) dx$ $\displaystyle \quad \text{for odd n} $
-                            <p> Play around with the visualisation to the right to convince yourself this is true. </p>
-                            $ \displaystyle \text{For 0 < x < L/2:}$ $\displaystyle \quad f(x)=\frac{2Ax}{L} $
-                            <p> Remembering that for even $n$, $b_n=0$, therefore only consider odd $n$.</p>
-                            $\displaystyle b_n = \frac{4}{L} \frac{2A}{L}\int_0^{L/2} x $ $\displaystyle \sin \left(\frac{n\pi x}{L} \right) dx $
-                            <p></p>
+                            <h3 class="section-sub-head"> Triangular Fourier Series Derivation </h3>
+
+                            The triangular function is defined by the following:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x)=\left\{
+                                \begin{array}{ll}
+                                \frac{-2A}{L} (x+L) \quad (-L \leq x < -L/2) \\
+                                \frac{2A}{L} x \qquad \qquad (-L/2\leq x < L/2) \\
+                                \frac{-2A}{L} (x-L) \quad (L/2\leq x < L)
+                                \end{array}
+                                \right. $$
+                            </span>
+
+                            First notice that <span>$f(x)$</span> is odd about <span>$x=0$</span>, hence <span>$a_n=0$</span> for all <span>$n$</span>. Also, since the <span>$b_n$</span> integrand is even about <span>$x=0$</span>,
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n=\frac{2}{L}\int_0^L f(x) \sin \left(\frac{n \pi x}{L}\right)dx. $$
+                            </span>
+
+                            Notice that for even <span>$n$</span>, <span>$b_n$</span> is odd about <span>$x=L/2$</span>. Hence,
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ b_n=\frac{2}{L}\int_0^{L} f(x) \sin \left(\frac{n\pi x}{L} \right) dx = 0 \quad \text{for even n}. $$
+                            </span>
+
+                            The integral from <span>$0$</span> to <span>$L/2$</span> is equal in magnitude but opposite in sign to the integral from <span>$L/2$</span> to <span>$L$</span>, for
+                            even <span>$n$</span>.
+
+                            For odd <span>$n$</span>, the function is even around <span>$L/2$</span>, so we only have to integrate from <span>$0$</span> to <span>$L/2$</span> then multiply by
+                            <span>$2$</span>. This has made our job much easier.
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n=2\frac{2}{L}\int_0^{L/2} f(x) \sin \left(\frac{n\pi x}{L} \right) dx \quad \text{for odd n} $$
+                            </span>
+
+                            Play around with the visualisation to the right to convince yourself this is true.
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ \text{For 0 < x < L/2:} \quad f(x)=\frac{2Ax}{L} $$
+                            </span>
+
+                            Remembering that for even <span>$n$</span>, <span>$b_n=0$</span>, therefore only consider odd <span>$n$</span>.
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n = \frac{4}{L} \frac{2A}{L}\int_0^{L/2} x \sin \left(\frac{n\pi x}{L} \right) dx $$
+                            </span>
+
                             <div id="BypartsTriangular" class="solidline">
-                                $\displaystyle u=x \qquad $ $\displaystyle dv= \sin \left(\frac{n\pi x}{L} \right)dx $
-                                <p></p>
-                                $\displaystyle du=dx \qquad $ $\displaystyle v=\frac{-L}{n\pi} \cos \left(\frac{n\pi x}{L} \right) $
-                                <p></p>
-                                $\displaystyle b_n=\frac{8A}{L^2}$ $\displaystyle \Bigg[ \Big[ \frac{-xL}{n\pi}$ $\displaystyle \cos \Big(\frac{n\pi
-                                x}{L}\Big) \Big] \Bigr|_0^{L/2} $ $\displaystyle -\int_0^{L/2}\frac{-L}{n\pi}$ $\displaystyle \cos \Big(\frac{n\pi x}{L} \Big)dx \Bigg] $
-                                <p> For odd n,</p>
-                                $\displaystyle \cos \left(\frac{n\pi}{2} \right)=0 $
-                                <p> Therefore,</p>
-                                $\displaystyle b_n=\frac{8A}{L^2} \Bigg[0+ $ $\displaystyle \int_0^{L/2}\frac{L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L}
-                                \right)dx \Bigg]$
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ u=x \qquad dv= \sin \left(\frac{n\pi x}{L} \right)dx $$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ du=dx \qquad v=\frac{-L}{n\pi} \cos \left(\frac{n\pi x}{L} \right) $$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    \begin{align}
+                                    b_n=\frac{8A}{L^2} \Bigg[ \Big[ \frac{-xL}{n\pi} & \cos \Big(\frac{n\pi x}{L}\Big) \Big] \Bigr|_0^{L/2} \\
+                                    -\int_0^{L/2}\frac{-L}{n\pi} & \cos \Big(\frac{n\pi x}{L} \Big)dx \Bigg]
+                                    \end{align}
+                                </span>
+
+                                For odd n,
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ \cos \left(\frac{n\pi}{2} \right)=0 $$
+                                </span>
+
+                                Therefore,
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ b_n=\frac{8A}{L^2} \Bigg[0+ \int_0^{L/2}\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L}
+                                    \right)dx \Bigg]$$
+                                </span>
+
                             </div>
-                            <p></p>
-                            $\displaystyle b_n=\frac{8A}{L^2} \frac{L^2}{(n\pi)^2}$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right) \biggr |_0^{L/2} $
 
-                            <p> Note for odd $n$ :</p>
-                            $ \displaystyle \sin \left(\frac{n\pi}{2} \right)=(-1)^{\frac{n-1}{2}} $
-                            <p> Therefore,</p>
-                            $ \displaystyle b_n=\frac{8A}{n^2\pi^2}(-1)^{\frac{n-1}{2}} $
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n=\frac{8A}{L^2} \frac{L^2}{(n\pi)^2} \sin \left(\frac{n\pi x}{L} \right) \biggr |_0^{L/2} $$
+                            </span>
 
-                            <p> Finally,</p>
-                            $\displaystyle f(x)=\sum_{n=1,3,5...}^\infty \frac{8A}{n^2\pi^2}$ $\displaystyle(-1)^{\frac{n-1}{2}} $ $\displaystyle \sin \left(\frac{n\pi
-                            x}{L} \right) $
-                            <p> And the using that an odd number is given by $2n +1$ for any $n$, </p>
-                            $ \displaystyle f(x)=\sum_{n=1,2,3...}^\infty $ $\displaystyle \frac{8A}{(2n-1)^2\pi^2}(-1)^n $ $\displaystyle \sin \left(\frac{(2n-1)\pi x}{L}
-                            \right) $
+                            Note for odd <span>$n$</span> :
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ \sin \left(\frac{n\pi}{2} \right)=(-1)^{\frac{n-1}{2}} $$
+                            </span>
+
+                            Therefore,
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ b_n=\frac{8A}{n^2\pi^2}(-1)^{\frac{n-1}{2}} $$
+                            </span>
+
+                            Finally,
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ f(x)=\sum_{n=1,3,5...}^\infty \frac{8A}{n^2\pi^2} (-1)^{\frac{n-1}{2}} \sin \left(\frac{n\pi x}{L} \right) $$
+                            </span>
+
+                            And the using that an odd number is given by <span>$2n +1$</span> for any <span>$n$</span>,
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ f(x)=\sum_{n=1,2,3...}^\infty \frac{8A}{(2n-1)^2\pi^2}(-1)^n \sin \left(\frac{(2n-1)\pi x}{L} \right) $$
+                            </span>
+
+
                             <hr>
                         </div>
 
                         <div id="parabolic" class="divclass bigdropdown">
-                            <h1> Parabolic Fourier Series Derivation </h1>
-                            <p>The parabolic function is defined as:</p>
-                            $ \displaystyle f(x)=Ax^2 \quad \text{for:} -L\leq x< L$
-                            <p> and forced to be periodic. $A$ is a constant.</p>
-                            <p>Therefore, $a_n$ and $b_n$ coefficients are given as  </p>
-                            $\displaystyle b_n = \frac{1}{L}\int_{-L}^{+L} Ax^2$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx $
-                            <p> </p>
-                            $\displaystyle a_n= \frac{1}{L}\int_{-L}^{+L} Ax^2$ $\displaystyle \cos \left(\frac{n \pi x}{L} \right)dx $
 
-                            <p> The $b_n$ integral is odd about $x=0$, hence $b_n=0$ for all $n$. $f(x)$ is even about $x=0$. Hence </p>
-                            $\displaystyle a_n=\frac{2}{L}\int_{0}^{+L} Ax^2$ $\displaystyle \cos \left(\frac{n \pi x}{L} \right)dx $
-                            <p> For $n=0$:</p>
-                            $\displaystyle a_0 = \frac{2}{L} \int _{0}^{+L} Ax^2 dx $
-                            $\displaystyle a_0 = \frac{2AL^2}{3} $
+                            <h3 class="section-sub-head"> Parabolic Fourier Series Derivation </h3>
 
-                            <p> For $n\neq 0 $:</p>
-                            $\displaystyle a_n = \frac{2A}{L}\int_0^L x^2$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx $
-                            <p>This Eqn. can be solved by integrating by parts.</p>
+                            The parabolic function is defined as:
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ f(x)=Ax^2 \quad \text{for:} -L\leq x< L$$
+                            </span>
+
+                            and forced to be periodic. <span>$A$</span> is a constant.
+
+                            Therefore, <span>$a_n$</span> and <span>$b_n$</span> coefficients are given as
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ b_n = \frac{1}{L}\int_{-L}^{+L} Ax^2 \sin \left(\frac{n \pi x}{L} \right)dx $$
+                            </span>
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ a_n= \frac{1}{L}\int_{-L}^{+L} Ax^2 \cos \left(\frac{n \pi x}{L} \right)dx $$
+                            </span>
+
+                            The <span>$b_n$</span> integral is odd about <span>$x=0$</span>, hence <span>$b_n=0$</span> for all <span>$n$</span>. <span>$f(x)$</span> is even about <span>$x=0$</span>. Hence
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ a_n=\frac{2}{L}\int_{0}^{+L} Ax^2 \cos \left(\frac{n \pi x}{L} \right)dx $$
+                            </span>
+
+                            For <span>$n=0$</span>:
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ a_0 = \frac{2}{L} \int _{0}^{+L} Ax^2 dx a_0 = \frac{2AL^2}{3} $$
+                            </span>
+
+                            For <span>$n\neq 0 $</span>:
+
+                            <span style="display:table; margin: 0 auto;">
+                            $$ a_n = \frac{2A}{L}\int_0^L x^2 \cos \left(\frac{n\pi x}{L} \right)dx $$
+                            </span>
+
+                            This Eqn. can be solved by integrating by parts.
+
                             <div class="solidline">
-                                $\displaystyle du = 2x\cdot dx \qquad$ $\displaystyle v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $
-                                <p></p>
-                                $\displaystyle u=x^2 \qquad$ $\displaystyle dv= \cos \left(\frac{n \pi x}{L} \right)dx $
-                                <p></p>
-                                $\displaystyle a_n = \frac{2A}{L}$ $\displaystyle \Bigg[ \Big[\frac{Lx^2}{n\pi}$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right) \Big] \biggr |_0^L $
-                                $\displaystyle -\int_0^L\frac{2xL}{n\pi}$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx \Bigg] $
-                                <p> </p>
-                                $\displaystyle = \frac{2A}{L}$ $\displaystyle \Bigg[0$ $\displaystyle -\int_0^L\frac{2xL}{n\pi}$ $\displaystyle \sin\left(\frac{n \pi x}{L}\right)dx \Bigg] $
-                            </div>
-                            <p></p>
 
-                            $\displaystyle a_n = -\frac{4A}{n\pi}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx $
-                            <p> </p>
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ du = 2x\cdot dx \qquad v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ u=x^2 \qquad dv= \cos \left(\frac{n \pi x}{L} \right)dx $$
+                                </span>
+
+
+                                <span style="display:table; margin: 0 auto;">
+                                    \begin{align}
+                                    a_n = \frac{2A}{L} \Bigg[ \Big[\frac{Lx^2}{n\pi} & \sin \left(\frac{n\pi x}{L} \right) \Big] \biggr |_0^L \\
+                                    -\int_0^L\frac{2xL}{n\pi} & \sin \left(\frac{n \pi x}{L} \right)dx \Bigg]
+                                    \end{align}
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ = \frac{2A}{L} \Bigg[0 -\int_0^L\frac{2xL}{n\pi} \sin\left(\frac{n \pi x}{L}\right)dx \Bigg] $$
+                                </span>
+
+                            </div>
+
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_n = -\frac{4A}{n\pi}\int_{0}^{L} x \sin \left(\frac{n \pi x}{L} \right)dx $$
+                            </span>
+
                             <div class="solidline">
-                                $\displaystyle u = x \qquad$ $\displaystyle dv = \sin \left(\frac{n\pi x}{L} \right) dx$
-                                <p></p>
-                                $\displaystyle du = dx \qquad$ $\displaystyle v = -\frac{L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right) $
-                                <p></p>
-                                $\displaystyle a_n = \frac{-4A}{n\pi}$ $\displaystyle \Bigg[\Big[-\frac{xL}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)\Big] \biggr |_0^L $ $\displaystyle -
-                                \int_0^L\frac{-L}{n\pi} $ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx \Bigg] $
-                            </div>
-                            <p></p>
-                            $\displaystyle a_n = \frac{4A}{n\pi} \Bigg[\frac{xL}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right) \Bigg] \biggr |_0^L $
 
-                            $\displaystyle = \frac{4AL^2}{n^2\pi^2}(-1)^n $
-                            <p>Therefore, the fourier series can be written as </p>
-                            $\displaystyle f(x) = \frac{AL^2}{3}$ $\displaystyle + \sum_{n=1}^\infty \frac{4AL^2}{n^2\pi^2}$ $\displaystyle (-1)^n
-                            \cos \left(\frac{n\pi x}{L} \right) $
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ u = x \qquad dv = \sin \left(\frac{n\pi x}{L} \right) dx$$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ du = dx \qquad v = -\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L} \right) $$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    \begin{align}
+                                    a_n = \frac{-4A}{n\pi} \Bigg[\Big[-\frac{xL}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)\Big] \biggr |_0^L \\
+                                    - \int_0^L\frac{-L}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)dx \Bigg]
+                                    \end{align}
+                                </span>
+
+                            </div>
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_n = \frac{4A}{n\pi} \Bigg[\frac{xL}{n\pi} \cos \left(\frac{n\pi x}{L} \right) \Bigg] \biggr |_0^L $$
+                            </span>
+
+
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ = \frac{4AL^2}{n^2\pi^2}(-1)^n $$
+                            </span>
+
+                            Therefore, the fourier series can be written as
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x) = \frac{AL^2}{3} + \sum_{n=1}^\infty \frac{4AL^2}{n^2\pi^2} (-1)^n \cos \left(\frac{n\pi x}{L} \right) $$
+                            </span>
+
                             <hr>
+
                         </div>
 
                         <div id="delta" class="divclass bigdropdown">
-                            <h1> Dirac-Delta Fourier Series Derivation </h1>
-                            <p> The Dirac-delta function can be thought of as a infinite spike at $x=0$. </p>
-                            $\displaystyle
-                            f(x) = \delta(x)=\left\{
-                            \begin{array}{ll}
-                            +\infty \quad (x=0) \\
-                            0 \qquad (x \neq 0)
-                            \end{array}
-                            \right.
-                            $
-                            <p> </p>
-                            $\displaystyle a_n=\frac{1}{L}\int_{-L}^{+L} \delta (x)$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx $
-                            <p> </p>
-                            $\displaystyle b_n=\frac{1}{L}\int_{-L}^{+L}\delta(x)$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx $
-                            <p> $\delta(x)$ is an even function. Hence $b_n=0 $ and </p>
-                            $\displaystyle a_n=\frac{1}{L} $
-                            <p></p>
+                            <h3 class="section-sub-head"> Dirac-Delta Fourier Series Derivation </h3>
+
+                            The Dirac-delta function can be thought of as a infinite spike at $x=0$.
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$
+                                f(x) = \delta(x)=\left\{
+                                \begin{array}{ll}
+                                +\infty \quad (x=0) \\
+                                0 \qquad (x \neq 0)
+                                \end{array}
+                                \right.
+                                $$
+                            </span>
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_n=\frac{1}{L}\int_{-L}^{+L} \delta (x) \cos \left(\frac{n\pi x}{L} \right)dx $$
+                            </span>
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n=\frac{1}{L}\int_{-L}^{+L}\delta(x) \sin \left(\frac{n\pi x}{L} \right)dx $$
+                            </span>
+
+                            $\delta(x)$ is an even function. Hence $b_n=0 $ and
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_n=\frac{1}{L} $$
+                            </span>
+
                             <div class="solidline">
-                                <p> By considering the shifting property of the Dirac-Delta function,</p>
-                                $\displaystyle \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha)$
-                                <p> For us, $\alpha=0, \epsilon=L,$ and $g(x)= \sin \left(n \pi x/L \right).$</p>
-                                <p> Therfore,</p>
-                                $\displaystyle a_n=\frac{1}{L}\cos \left(\frac{n\pi \times 0}{L} \right)=\frac{1}{L}$
-                                <p></p>
-                                $\displaystyle b_n=\frac{1}{L}\sin \left(\frac{n\pi \times 0}{L} \right)=0$
+                                By considering the shifting property of the Dirac-Delta function,
+
+                                <span style="display:table; margin: 0 auto;">
+                                $$ \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha)$$
+                                </span>
+
+                                For us, $\alpha=0, \epsilon=L,$ and $g(x)= \sin \left(n \pi x/L \right).$
+
+                                Therefore,
+
+                                <span style="display:table; margin: 0 auto;">
+                                $$ a_n=\frac{1}{L}\cos \left(\frac{n\pi \times 0}{L} \right)=\frac{1}{L}$$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                $$ b_n=\frac{1}{L}\sin \left(\frac{n\pi \times 0}{L} \right)=0$$
+                                </span>
 
                             </div>
-                            <p>Therefore, the fourier series for positive $L$ can be written as </p>
-                            $\displaystyle f(x)=\frac{1}{2L}+\sum_{n=1}^\infty \frac{1}{L}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right). $
+
+                            Therefore, the fourier series for positive $L$ can be written as
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x)=\frac{1}{2L}+\sum_{n=1}^\infty \frac{1}{L} \cos \left(\frac{n\pi x}{L} \right). $$
+                            </span>
 
                             <hr>
 
                         </div>
 
                         <div id="square" class="divclass bigdropdown">
-                            <h1>Square Wave Derivation</h1>
-                            <p>The square wave is defined as the following:</p>
-                            $\displaystyle
-                            f(x)=\left\{
-                            \begin{array}{ll}
-                            -A \quad (-L \leq x < 0) \\
-                            A \quad (0\leq x < L)
-                            \end{array}
-                            \right.
-                            $
-                            <p>The $a_{n}$ terms can be found be noting that $f(x)$ is odd, so $a_n$ is $0$ for all $n$. </p>
 
-                            <p>To find the $b_n$ terms, the integration can be split into two parts: $-L\leq x <0$ and $ 0\leq x < L.$
-                                This gives the following integration:</p>
-                            $\displaystyle b_n=\frac{1}{L}\int_{-L}^0 -A$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx$ $\displaystyle +
-                            \frac{1}{L}\int_0^L A$ $\displaystyle
-                            \sin \left(\frac{n \pi x}{L} \right)dx $
-                            <p>which can be evaluated to:</p>
-                            $\displaystyle b_n=\frac{-2A}{L}\frac{L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L$
-                            $\displaystyle =\frac{2A}{n\pi}\left[1-\cos\left(n\pi \right) \right] $
-                            <p>Note that $\displaystyle\cos \left(n \pi\right)=(-1)^n$ </p>
-                            <p>Hence $\displaystyle b_n=\frac{2A}{n\pi}(1-(-1)^n)$ </p>
-                            <p>Therefore the final fourier series is:</p>
-                            $\displaystyle f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi}$ $\displaystyle (1-(-1)^n)$ $\displaystyle\sin \left(\frac{n\pi x}{L}\right).
-                            $
+                            <h3 class="section-sub-head">Square Wave Derivation</h3>
+
+                            The square wave is defined as the following:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$
+                                f(x)=\left\{
+                                \begin{array}{ll}
+                                -A \quad (-L \leq x < 0) \\
+                                A \quad (0\leq x < L)
+                                \end{array}
+                                \right.
+                                $$
+                            </span>
+
+                            The $a_{n}$ terms can be found be noting that $f(x)$ is odd, so $a_n$ is $0$ for all $n$.
+
+                            To find the $b_n$ terms, the integration can be split into two parts: $-L\leq x <0$ and $ 0\leq x < L.$
+
+                            This gives the following integration:
+
+                            <span style="display:table; margin: 0 auto;">
+                                \begin{align}
+                                b_n & =\frac{1}{L}\int_{-L}^0 -A \sin \left(\frac{n\pi x}{L} \right)dx \\
+                                & + \frac{1}{L}\int_0^L A \sin \left(\frac{n \pi x}{L} \right)dx
+                                \end{align}
+                            </span>
+
+                            which can be evaluated to:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n=\frac{-2A}{L}\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L
+                                =\frac{2A}{n\pi}\left[1-\cos\left(n\pi \right) \right] $$
+                            </span>
+
+                            Note that
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$\cos \left(n \pi\right)=(-1)^n $$
+                            </span>
+
+                            Hence
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n=\frac{2A}{n\pi}(1-(-1)^n)$$
+                            </span>
+
+                            Therefore the final fourier series is:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi} (1-(-1)^n)\sin \left(\frac{n\pi x}{L}\right).$$
+                            </span>
+
                             <hr>
+
                         </div>
 
                         <div id="sawtooth" class="divclass bigdropdown">
-                            <h1>Sawtooth Wave Derivation</h1>
-                            <p>The Sawtooth wave is defined as the following:</p>
-                            $\displaystyle f(x)=\frac{Ax}{L} $ $\displaystyle \quad (-L \leq x < L). $
-                            <p>$f(x)$ is odd, so $a_n= 0$ for all $n$.</p>
-                            <p>The $b_n$ terms are given by the following integration:</p>
-                            $\displaystyle b_n=\frac{1}{L}\int_{-L}^{L} \frac{Ax}{L}$ $\displaystyle\sin \left(\frac{n\pi x}{L} \right)dx $
-                            $\displaystyle =\frac{2A}{L^{2}}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx. $
-                            <p>Using Integration by parts it can be shown that:</p>
-                            <div class="solidline">
-                                $\displaystyle u=x \quad $ $\displaystyle dv=\sin \left(\frac{n\pi x}{L} \right)dx $
-                                <p></p>
-                                $\displaystyle du=dx \quad$ $\displaystyle v=\frac{-L}{n\pi}\cos \left(\frac{n\pi x}{L} \right) $
-                                <p></p>
-                                $\displaystyle b_n=\frac{2A}{L^{2}} \Bigg[ \frac{-Lx}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi
-                                x}{L} \right)\biggr |_0^L $ $\displaystyle-\int_0^L\frac{-L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx \Bigg]
-                                $
-                                <p>Note that the second integrand is zero as it is of cosine over a full period.</p>
 
-                                $\displaystyle b_n=-\frac{2A}{n\pi} \cos \left(n\pi \right)$ $\displaystyle=-\frac{2A}{n\pi}(-1)^n $
+                            <h3 class="section-sub-head">Sawtooth Wave Derivation</h3>
+
+                            The Sawtooth wave is defined as the following:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x)=\frac{Ax}{L}  \quad (-L \leq x < L). $$
+                            </span>
+
+
+                            $f(x)$ is odd, so $a_n= 0$ for all $n$.
+
+                            The $b_n$ terms are given by the following integration:
+
+                            <span style="display:table; margin: 0 auto;">
+                                \begin{align}
+                                b_n & =\frac{1}{L}\int_{-L}^{L} \frac{Ax}{L}\sin \left(\frac{n\pi x}{L} \right)dx \\
+                                & =\frac{2A}{L^{2}}\int_{0}^{L} x \sin \left(\frac{n\pi x}{L} \right)dx.
+                                \end{align}
+                            </span>
+
+                            Using Integration by parts it can be shown that:
+
+                            <div class="solidline">
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ u=x \quad  dv=\sin \left(\frac{n\pi x}{L} \right)dx $$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ du=dx \quad v=\frac{-L}{n\pi}\cos \left(\frac{n\pi x}{L} \right) $$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    \begin{align}
+                                    b_n=\frac{2A}{L^{2}} \Bigg[ \frac{-Lx}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L \\
+                                    -\int_0^L\frac{-L}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)dx \Bigg]
+                                    \end{align}
+                                </span>
+
+                                Note that the second integrand is zero as it is of cosine over a full period.
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ b_n=-\frac{2A}{n\pi} \cos \left(n\pi \right)=-\frac{2A}{n\pi}(-1)^n $$
+                                </span>
+
                             </div>
-                            <p></p>
-                            $\displaystyle b_n=\frac{2A}{n\pi}(-1)^{n+1}. $
-                            <p>Therefore the final fourier series is:</p>
-                            $\displaystyle f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1}$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right). $
+
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n=\frac{2A}{n\pi}(-1)^{n+1}. $$
+                            </span>
+
+                            Therefore the final fourier series is:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1} \sin \left(\frac{n\pi x}{L} \right). $$
+                            </span>
+
                             <hr>
+
                         </div>
 
                         <div class="divclass bigdropdown" id="modx">
-                            <h1>Mod x Derivation</h1>
-                            <p>The $|x|$ function is defined as the following:</p>
-                            $\displaystyle f(x)=A|x| \quad (-L \leq x < L). $
-                            <p></p>
-                            $\displaystyle a_n = \frac{1}{L}\int_{-L}^{+L} A|x| \cos \left(\frac{n \pi x}{L} \right)dx $
-                            <p></p>
-                            $\displaystyle b_n = \frac{1}{L}\int_{-L}^{+L} A|x|$ $\displaystyle \sin \left( \frac{n\pi x}{L}\right) dx $
-                            <p> $f(x)$ is even about $x=0$. Hence $b_n=0 $</p>
-                            <p> The $a_n$ integral is even about $x=0$. Hence, </p>
-                            $\displaystyle a_n = \frac{2}{L}\int_{0}^{+L} Ax $ $\displaystyle \cos \left(\frac{n \pi x}{L}\right)dx. $
 
-                            <p> For $n=0$:</p>
-                            $\displaystyle a_0 = \frac{2A}{L}\int_0^L x dx $
-                            $\displaystyle = \frac{2A}{L}\frac{x^2}{2} \biggr |_0^L $
-                            $\displaystyle = AL .$
-                            <p> For $n \neq 0$: </p>
-                            $\displaystyle a_n = \frac{2A}{L}\int_{0}^{+L} x $ $\displaystyle  \cos \left(\frac{n \pi x}{L} \right)dx. $
-                            <p> By integrating by parts,</p>
+                            <h3 class="section-sub-head">Mod x Derivation</h3>
+
+                            The $|x|$ function is defined as the following:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x)=A|x| \quad (-L \leq x < L). $$
+                            </span>
+
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_n = \frac{1}{L}\int_{-L}^{+L} A|x| \cos \left(\frac{n \pi x}{L} \right)dx $$
+                            </span>
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ b_n = \frac{1}{L}\int_{-L}^{+L} A|x| \sin \left( \frac{n\pi x}{L}\right) dx $$
+                            </span>
+
+                            $f(x)$ is even about $x=0$. Hence $b_n=0 $
+
+                            The $a_n$ integral is even about $x=0$. Hence,
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_n = \frac{2}{L}\int_{0}^{+L} Ax  \cos \left(\frac{n \pi x}{L}\right)dx. $$
+                            </span>
+
+                            For $n=0$
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_0 = \frac{2A}{L}\int_0^L x dx = \frac{2A}{L}\frac{x^2}{2} \biggr |_0^L = AL .$$
+                            </span>
+
+                            For $n \neq 0$:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_n = \frac{2A}{L}\int_{0}^{+L} x   \cos \left(\frac{n \pi x}{L} \right)dx. $$
+                            </span>
+
+                            By integrating by parts,
 
                             <div class="solidline">
-                                $\displaystyle u=x \qquad$ $\displaystyle  dv= \cos\left(\frac{n\pi x}{L}\right)dx$
-                                <p></p>
-                                $\displaystyle du=dx \qquad$ $\displaystyle  v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $
-                                <p></p>
-                                $\displaystyle a_n = \frac{2A}{L}$ $\displaystyle \Bigg[ \Big[\frac{Lx}{n\pi}$ $\displaystyle \sin \left( \frac{n \pi
-                                x}{L} \right) \Big] \Biggr|_0^L$ $\displaystyle -\int_0^{+L} \frac{L}{n\pi}$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx \Bigg]$
-                                $\displaystyle  = \frac{2A}{L} \Bigg[ 0 $ $\displaystyle -\int_0^{+L}\frac{L}{n\pi}$ $\displaystyle  \sin \left(\frac{n\pi x}{L} \right)dx \Bigg]$
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ u=x \qquad  dv= \cos\left(\frac{n\pi x}{L}\right)dx$$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ du=dx \qquad  v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $$
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    \begin{align}
+                                    a_n = \frac{2A}{L} \Bigg[ \Big[\frac{Lx}{n\pi} & \sin \left( \frac{n \pi x}{L} \right) \Big] \Biggr|_0^L \\
+                                    -\int_0^{+L} \frac{L}{n\pi} & \sin \left(\frac{n \pi x}{L} \right)dx \Bigg]
+                                    \end{align}
+                                </span>
+
+                                <span style="display:table; margin: 0 auto;">
+                                    $$ a_n = \frac{2A}{L} \Bigg[ 0  -\int_0^{+L}\frac{L}{n\pi}  \sin \left(\frac{n\pi x}{L} \right)dx \Bigg] $$
+                                </span>
 
                             </div>
-                            <p></p>
-                            $\displaystyle a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}$ $\displaystyle  \cos \left( \frac{n\pi x}{L} \right)\biggr |_0^L . $
-                            <p>Hence,</p>
-                            $\displaystyle a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}$ $\displaystyle  \left[(-1)^n-1 \right] $
-                            $\displaystyle = \frac{2AL}{(n\pi)^2}\left[(-1)^n-1 \right]. $
-                            <p>Therefore the final fourier series is:</p>
-                            $\displaystyle f(x)=\frac{AL}{2}+$ $\displaystyle \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2}$ $\displaystyle \left[(-1)^n-1 \right]$ $\displaystyle  \cos \left(\frac{n\pi
-                            x}{L} \right). $
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}  \cos \left( \frac{n\pi x}{L} \right)\biggr |_0^L . $$
+                            </span>
+
+                            Hence,
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}  \left[(-1)^n-1 \right] = \frac{2AL}{(n\pi)^2}\left[(-1)^n-1 \right]. $$
+                            </span>
+
+                            Therefore the final fourier series is:
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x)=\frac{AL}{2}+ \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2} \left[(-1)^n-1 \right]  \cos \left(\frac{n\pi
+                                x}{L} \right). $$
+                            </span>
+
                             <hr>
+
                         </div>
 
-                    </p>
-
-                </div>
+                    </div>
 
                 </div>
 
@@ -483,16 +854,19 @@
                     <div class="text section-body odd" id="p3">
 
                         <div>
-                            <p> The 0<sup>th</sup> term of the series is the constant term before the sum;</p>
-                            $$\frac{a_0}{2}.$$ <p> This is labelled as the 0<sup>th</sup> term
-                            so that the series may start indexing its terms from $n=1$. </p>
-                            $\displaystyle f(x)=\frac{a_0}{2}$ $\displaystyle+\sum_{n=1}^{\infty}a_n \cos\left(\frac{n\pi x}{L}\right)$ $\displaystyle+b_n \sin\left(\frac{n \pi x}{L}\right) $
-                            <p/>
-                            <p> If the function is not periodic, then we may cut the function, forcing it to be periodic
-                                over some $$ -L < x < L. $$ This means that we can prescribe a Fourier series
-                                that is now valid for the function over the selected range. If we take the limit as $L \rightarrow \infty$,
-                                then a Fourier transform need be used. This is a different problem entirely!
-                            </p>
+
+                            The 0<sup>th</sup> term of the series is the constant term before the sum; $\frac{a_0}{2}.$
+
+                            This is labelled as the 0<sup>th</sup> term so that the series may start indexing its terms from $n=1$.
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}a_n \cos\left(\frac{n\pi x}{L}\right)+b_n \sin\left(\frac{n \pi x}{L}\right) $$
+                            </span>
+
+                            If the function is not periodic, then we may cut the function, forcing it to be periodic over some $ -L < x < L. $ This means that we can prescribe a Fourier series
+                            that is now valid for the function over the selected range. If we take the limit as $L \rightarrow \infty$,
+                            then a Fourier transform need be used. This is a different problem entirely!
+
                         </div>
 
                     </div>
@@ -514,15 +888,19 @@
                     <div class="text section-body odd" id="p4">
 
                         <div>
-                            <h4 align="center">Decomposition of a function into odd and even parts</h4>
-                            <p> Representing a function in terms of a trigonometric Fourier series is analogous to representing a vector in
-                                terms of basis vectors. Here sines and cosines are our basis functions, we have a method for finding the projection
-                                of the function in the direction of each basis function ($a_{n}$ and $b_{n}$ are the "projections" of $f(x)$ onto
-                                $\sin\left(\frac{n\pi x}{L} \right)$ and $\cos\left(\frac{n \pi x}{L} \right)$ respectively).</p>
+                            <h3 class="section-sub-head">Decomposition of a function into odd and even parts</h3>
+
+                            Representing a function in terms of a trigonometric Fourier series is analogous to representing a vector in
+                            terms of basis vectors. Here sines and cosines are our basis functions, we have a method for finding the projection
+                            of the function in the direction of each basis function ($a_{n}$ and $b_{n}$ are the "projections" of $f(x)$ onto
+                            $\sin\left(\frac{n\pi x}{L} \right)$ and $\cos\left(\frac{n \pi x}{L} \right)$ respectively).
+
                             <br><br>
-                            <p>This visualisation shows how the first ten terms are introduced to the series, notice that
-                                usually as the number of terms included in the series increases, new terms become less
-                                significant (their amplitude decreases).</p>
+
+                            This visualisation shows how the first ten terms are introduced to the series, notice that
+                            usually as the number of terms included in the series increases, new terms become less
+                            significant (their amplitude decreases).
+
                         </div>
 
                     </div>
@@ -545,30 +923,45 @@
 
                         <div id="Explanation" class = "divclass">
 
-                            <h5 align="center">Power spectrum</h5>
-                            <p align="center">The power spectrum form is a different representation of a continuous signal.
-                                One can think of a signal as a sound wave that is a superposition of different frequencies $\omega_n$, each with amplitude $\alpha_n$, and relative phases $\theta_n$.
-                                Any signal of period $2L$ can be decomposed in terms of the amplitude and relative phase of its discrete frequency modes. Its two parameters $\alpha_n$ and $\theta_n$, enable us to measure the amount of
-                                each frequency $\omega_n=\frac{n\pi}{L}$ contained in the signal, and the relative phase difference between the $n^{th}$ frequency and a cosine wave centered at $x=0$. This is simply a different way to represent a signal
-                                rather than decomposing it into its even and odd parts.</p>
-                            $$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\alpha_n \cos\bigg(\frac{n\pi x}{L} - \theta_n\bigg)$$
-                            $$ \alpha_n = \sqrt{a^2_n + b^2_n}$$
-                            $$\theta_n = \tan^{-1} \bigg(\frac{b_n}{a_n}\bigg)$$
+                            <h3 class="section-sub-head">Power spectrum</h3>
+                            The power spectrum form is a different representation of a continuous signal.
+
+                            One can think of a signal as a sound wave that is a superposition of different frequencies $\omega_n$, each with amplitude $\alpha_n$, and relative phases $\theta_n$.
+                            Any signal of period $2L$ can be decomposed in terms of the amplitude and relative phase of its discrete frequency modes. Its two parameters $\alpha_n$ and $\theta_n$, enable us to measure the amount of
+                            each frequency $\omega_n=\frac{n\pi}{L}$ contained in the signal, and the relative phase difference between the $n^{th}$ frequency and a cosine wave centered at $x=0$. This is simply a different way to represent a signal
+                            rather than decomposing it into its even and odd parts.
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\alpha_n \cos\bigg(\frac{n\pi x}{L} - \theta_n\bigg)$$
+                            </span>
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$ \alpha_n = \sqrt{a^2_n + b^2_n}$$
+                            </span>
+
+                            <span style="display:table; margin: 0 auto;">
+                                $$\theta_n = \tan^{-1} \bigg(\frac{b_n}{a_n}\bigg)$$
+                            </span>
 
                             <div id = "Popup" class="divclass solidline">
-                                <p align="center"> For some even functions, when the period transitions from 0 to negative, the value of
-                                    $\theta_n$ change from $0$ to $\pi$ or vice versa. Why do you think
-                                    this happens? (This happens because the value of $a_n$ changes sign ($b_n$ is 0) causing the value of
-                                    $\theta_n$ to change. For $b_n = 0$, $\tan^{-1}(\frac{b_n}{a_n})$ can be both
-                                    0 or $\pi$ depending on whether $a_n$ is positive or negative. Not all even functions exhibit this.
-                                    The parabola for example, has its $a_n$ proportional to $L^2$, so its sign does not change when L changes sign.</p>
+
+                                For some even functions, when the period transitions from 0 to negative, the value of
+                                $\theta_n$ change from $0$ to $\pi$ or vice versa. Why do you think
+                                this happens? (This happens because the value of $a_n$ changes sign ($b_n$ is 0) causing the value of
+                                $\theta_n$ to change. For $b_n = 0$, $\tan^{-1}(\frac{b_n}{a_n})$ can be both
+                                0 or $\pi$ depending on whether $a_n$ is positive or negative. Not all even functions exhibit this.
+                                The parabola for example, has its $a_n$ proportional to $L^2$, so its sign does not change when L changes sign.
+
                             </div>
-                            <h5 align="center">Orthogonal functions</h5>
-                            <p align="center">Two functions $f$ and $g$ are said to be orthogonal if their inner product $\langle f,g\rangle$ is 0. Just like basis vectors in a finite vector space,
-                                a set of orthogonal functions can form an infinite basis in a function space and a linear sum of these basis functions can describe any function in that function space.
-                                For functions that are periodic over $-L < x \leq L$ with a period of $2L$, the fourier components $\rightarrow$ $\sin(\frac{\pi x}{L}), \cos(\frac{\pi x}{L}),
-                                \sin(\frac{2\pi x}{L}), \cos(\frac{2\pi x}{L})...$ and so on form a complete orthogonal set that can be used to describe these functions. This means that increasing the amplitude of one of the components does not affect the other components, so changing the amount of any frequency contained
-                                in a signal leaves all the other frequencies unaffected.</p>
+
+                            <h3 class="section-sub-head">Orthogonal functions</h3>
+
+                            Two functions $f$ and $g$ are said to be orthogonal if their inner product $\langle f,g\rangle$ is 0. Just like basis vectors in a finite vector space,
+                            a set of orthogonal functions can form an infinite basis in a function space and a linear sum of these basis functions can describe any function in that function space.
+                            For functions that are periodic over $-L < x \leq L$ with a period of $2L$, the fourier components $\rightarrow$ $\sin(\frac{\pi x}{L}), \cos(\frac{\pi x}{L}),
+                            \sin(\frac{2\pi x}{L}), \cos(\frac{2\pi x}{L})...$ and so on form a complete orthogonal set that can be used to describe these functions. This means that increasing the amplitude of one of the components does not affect the other components, so changing the amount of any frequency contained
+                            in a signal leaves all the other frequencies unaffected.
+
                         </div>
 
                     </div>
@@ -589,47 +982,57 @@
 
                     <div class="text section-body odd" id="p6">
 
-                        <p style="font-style: bold; font-size:large">
+
                             <!--Derivation of Dirac-Delta-->
-                        <center><h5>Description</h5></center>
-                        <p>
-                            Finally, you can see the components of the series, the power spectrum
-                            and the resultant Fourier series displayed all at once.
-                            You can select one of the example functions from the previous sections, or input your own custom function,
-                            and see how all the elements work together to build a Fourier series.
-                        </p>
+                        <h3 class="section-sub-head">Description</h3>
 
-                        <center><h5>How To Use Custom Functions</h5></center>
-                        <p>
-                            To specify a custom function, select custom from the drop down menu and input your desired function into the
-                            input for $f(x)$.
-                            <br> The period slider forces the function you have specified to be periodic over $-L < x \leq L$.
-                            For example if $f(x) = \sin(x)$ with $L = 1$, this is the sine function but cut at $x = \pm 1$ and forced
-                            to be periodic over just this range (not the full $2\pi$ period).
-                            <br><br>
-                            The following functions can be used:
-                            <ul>
-                                <li>Trigonometric functions (e.g. sin(), cos())</li>
-                                <li>Trigonometric inverses (e.g. arcsin(), arccos())</li>
-                                <li>Hyperbolic functions (e.g. sinh(), cosh())</li>
-                                <li>Hyperbolic inverses (e.g. arsinh(), arcosh())</li>
-                                <li>Exponentials and logs (e.g. exp(), log())</li>
-                            </ul>
-                        </p>
+                        Finally, you can see the components of the series, the power spectrum
+                        and the resultant Fourier series displayed all at once.
+                        You can select one of the example functions from the previous sections, or input your own custom function,
+                        and see how all the elements work together to build a Fourier series.
 
-                        <h6>Syntax:</h6>
-                        <p>
-                            Entering 5x does not work: instead you should write 5*x.
-                            Write exponents as a^(exponent), so $x^2$ is writen as x^2.<br><br>
-                            Functions should be real and fully defined over the domain, for example log(x) is imaginary
-                            for values less than zero, so does not work.
-                            log(x+1) does not work either (with a period of 1), since log is undefined at zero, however
-                            log(1+x^2) does work for all periods, since it is defined over the whole domain and is real.
-                            <br><br>
-                            Sometimes due to the numerical integration methods used, the power spectrum shows very small values ($10^{-17}$).
-                            These are simply due to the inexact integration and should be treated as zero.
 
-                        </p>
+                        <h3 class="section-sub-head">How To Use Custom Functions</h3>
+
+
+                        To specify a custom function, select custom from the drop down menu and input your desired function into the
+                        input for $f(x)$.
+
+                        <br>
+
+                        The period slider forces the function you have specified to be periodic over $-L < x \leq L$.
+                        For example if $f(x) = \sin(x)$ with $L = 1$, this is the sine function but cut at $x = \pm 1$ and forced
+                        to be periodic over just this range (not the full $2\pi$ period).
+                        <br><br>
+
+                        The following functions can be used:
+
+                        <ul>
+                            <li>Trigonometric functions (e.g. sin(), cos())</li>
+                            <li>Trigonometric inverses (e.g. arcsin(), arccos())</li>
+                            <li>Hyperbolic functions (e.g. sinh(), cosh())</li>
+                            <li>Hyperbolic inverses (e.g. arsinh(), arcosh())</li>
+                            <li>Exponentials and logs (e.g. exp(), log())</li>
+                        </ul>
+
+
+                        <h3 class="section-sub-head">Syntax:</h3>
+
+
+                        Entering 5x does not work: instead you should write 5*x.
+                        Write exponents as a^(exponent), so $x^2$ is writen as x^2.
+
+                        <br><br>
+
+                        Functions should be real and fully defined over the domain, for example log(x) is imaginary
+                        for values less than zero, so does not work.
+                        log(x+1) does not work either (with a period of 1), since log is undefined at zero, however
+                        log(1+x^2) does work for all periods, since it is defined over the whole domain and is real.
+
+                        <br><br>
+
+                        Sometimes due to the numerical integration methods used, the power spectrum shows very small values ($10^{-17}$).
+                        These are simply due to the inexact integration and should be treated as zero.
 
                     </div>
 
@@ -803,6 +1206,12 @@
                 <div class="rightload text" id='loadout5' key="loadout5" v-else-if = "currentSection === 5">
 
                 Interactive Zone 5
+
+                </div>
+
+                <div class="rightload text" id='loadout6' key="loadout6" v-else-if = "currentSection === 6">
+
+                    Interactive Zone 6
 
                 </div>
 

@@ -134,7 +134,7 @@ let app = new Vue ({
 
                 } else {
 
-                    setTimeout (function () {app.sectionTitle[i-1] = app.sectionTitleLong[i-1];}, 45);
+                    setTimeout (function () {app.sectionTitle[i-1] = app.sectionTitleLong[i-1];}, 20);
                     setTimeout (function () {app.$forceUpdate();}, 100);
                 }
             }
