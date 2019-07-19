@@ -12,7 +12,7 @@ let app = new Vue ({
         sectionTops: [],
         sectionBottoms: [],
         sectionTitleLong: ["Orthogonality", "Derivation", "Section 3", "Section 4", "Section 5", "Section 6"],
-        sectionTitleShort: ["1","2","3","4","5", "6"],
+        sectionTitleShort: ["1","2","3","4","5","6"],
         sectionTitle: [],
         n: "",
         journeyHeightOld: "",
@@ -27,7 +27,9 @@ let app = new Vue ({
         ],
         removeScript: "",
         addScript: "",
-        firstRunDone: "false"
+        firstRunDone: "false",
+        derivationSubSection: 0,
+        derivationScripts: [],
     },
 
     methods: {
@@ -83,9 +85,18 @@ let app = new Vue ({
             document.querySelectorAll("#"+"sc"+event.currentTarget.dataset.no)[0].scrollIntoView({behavior: "smooth"});
         },
 
-        //resizeTest: function () {
-        //    console.log("resized")
-        //},
+        subScrollTo: function (event) {
+            let scrollTarget = event.currentTarget;
+            setTimeout(function () {scrollTarget.scrollIntoView({behavior: "smooth"});}, 500);
+        },
+
+        updateSubSection: function (newSubSection) {
+            if (app.derivationSubSection !== newSubSection) {
+                app.derivationSubSection = newSubSection
+            } else {
+                app.derivationSubSection = 0
+            }
+        },
     },
 
     watch: {
@@ -100,9 +111,7 @@ let app = new Vue ({
                     document.querySelectorAll('.scriptSpace')[0].removeChild(app.removeScript);
                 }
             }
-
-
-
+            
             for (let i=1; i<=app.rightScripts[newValue-1].length; i++) {
 
                 app.addScript = document.createElement("script");
@@ -111,20 +120,6 @@ let app = new Vue ({
                 app.addScript.async = false;
                 document.querySelectorAll('.scriptSpace')[0].appendChild(app.addScript);
             }
-
-
-
-            // this.$nextTick (function () {
-            //     app.activeScript = app.rightScripts[newValue-1];
-            // });
-
-            // let addScript = document.createElement("script")
-            // addScript.id ="'app.rightScript' + newValue";
-            // addScript.src = ("'app.rightScripts[' + newValue-1 + ']'");
-            // document.querySelectorAll('.scriptSpace')[0].appendChild(addScript);
-
-            // let element = document.getElementById("rightScript"+oldValue);
-            // element.getElementsByTagName('scriptSpace')[0].removeChild(element);
 
             for (let i=1; i<=app.n; i++) {
 
@@ -161,32 +156,8 @@ let app = new Vue ({
 
                     this.sectionPos();
                 }
+            },5000);
 
-                // if (app.currentSection !== app.previousSection){
-                //
-                //     if (app.previousSection !== 0) {
-                //
-                //         for (let i = 1; i <= app.rightScripts[app.previousSection - 1].length; i++) {
-                //
-                //             let removeScript = document.getElementById("scriptS" + app.previousSection + "E" + i);
-                //             document.querySelectorAll('.scriptSpace')[0].removeChild(removeScript);
-                //         }
-                //     }
-                //
-                //
-                //     for (let i=1; i<=app.rightScripts[app.currentSection-1].length; i++) {
-                //
-                //         let addScript = document.createElement("script")
-                //         addScript.id ="scriptS" + app.currentSection + "E" + i;
-                //         addScript.src = (app.rightScripts[app.currentSection-1][i-1]);
-                //         document.querySelectorAll('.scriptSpace')[0].appendChild(addScript);
-                //     }
-                //
-                //     app.previousSection = app.currentSection;
-                // }
-            },2000);
-            // window.setInterval(() => {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]); console.log("running");
-            // },5000);
             MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]);
         }
     )},
