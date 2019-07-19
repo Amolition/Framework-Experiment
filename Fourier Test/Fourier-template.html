@@ -1,0 +1,787 @@
+<!doctype html>
+<html>
+
+<head>
+    <!--Page Info-->
+    <title>Scrolling Template</title>
+    <!--css link-->
+    <link rel="stylesheet" href="template-styles/skeleton.css">
+    <link rel="stylesheet" href="template-styles/style.css">
+
+
+    <!--Required JS resources-->
+    <!--NB: better to have resources before the main body but still works even if they are not-->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="Fourier-Series/scripts/numeric/src/numeric.js"></script>
+    <script src="Fourier-Series/scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+        },
+        "HTML-CSS": { fonts: ["TeX"] }
+        });
+
+    </script>
+    <script type="text/javascript" src="Fourier-Series/scripts/MathJax-master/MathJax.js"></script>
+
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+    <script src="Fourier-Series/scripts/plotly-1.47.4.min.js"></script>
+
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+
+<!--Color scheme for the ImpVis website:
+        Dark blue: #003e74        Darker blue: #002147          Light Blue: #
+        Red: #dd2501              Green: #66a40a                Magenta: #960178
+        Orange: #ff8900
+        Tints of blue: #003e74 #195181 #32648f #4c779d #668bab #7f9eb9 #99b1c7 #b2c5d5 #ccd8e3 #e5ebf1 -->
+
+<body>
+
+
+    <div id="app">
+        <div class="container_journey" id="journey_cont" v-on:scroll.passive="OnScroll">
+            <div class="journey_pg" id="section_1">
+                <h1></h1>
+                <!--Added an empty headline to fix a bug with the scrolling-->
+                <h3 class=section_title>Orthogonality of Vectors & Functions:</h3>
+                <p>Given the vectors $ \vec{V}_{n}$ and $\vec{V}_{m},$ we define their inner product as $$\vec{V}_{n}
+                    \cdot \vec{V}_{m} = \sum_{i}V_{n}^{(i)} V_{m}^{(i)}, $$
+                    where $V_{n}^{(i)}$ is the $i^{\text{th}}$ component of the vector $\vec{V}_{n}$.
+
+                    If $$ \vec{V}_{n} \cdot \vec{V}_{m} = 0 \text{ for } m \neq n,$$ then we say the vectors are
+                    <strong>orthogonal</strong>.
+                    If you move in the direction of any vector $\vec{a}$, you do not change the position component in
+                    the direction of any vector
+                    orthogonal to $\vec{a}$. In other words, orthogonal vectors are perpendicular.
+                    <!--(... talk about definition of orthogonality)-->
+                    <br><br>
+                    If $ \vec{V}_{n} \cdot \vec{V}_{m} = \delta_{nm}$ then the vectors are said to be
+                    <strong>orthonormal</strong>.
+                    $$\delta_{nm} = \left\{\begin{matrix}0 \quad \text{if } m\neq n
+                    \\ 1 \quad \text{if } m = n
+                    \end{matrix}\right. $$
+                    This mean the vectors are orthogonal and conveniently normalised.
+                    <br><br>
+                    Use the visualisation to see that when the basis vectors are not parallel they span
+                    $\mathbb{R}^{2}$, using
+                    these as basis vectors, we can construct any other vector in $\mathbb{R}^{2}$.
+                    <br><br>
+                    If you can represent any vector in $\mathbb{R}^{n}$ using $n$ vectors, then the basis vectors form a
+                    <strong>complete set</strong>.
+                    If the set of these vectors are all orthonormal, then we have a <strong>complete orthonormal
+                        set</strong>.
+                    <br><br>
+                    In the same way as before, we will now demonstrate what it means for <strong>functions</strong> to
+                    be complete.
+                    We define the functions $f_{n},f_{m}$ to exist on the domain $\left[a,b \right]$. <br><br>
+
+                    We define their inner
+                    product to be $$\langle f_{n} , f_{m} \rangle = \int_{a}^{b} f_{n}\left(x \right)f_{m}^{*}\left(x
+                    \right)dx$$
+                    and say the functions are <strong>orthogonal</strong> if $\langle f_{n} , f_{m} \rangle = 0 $ for $m
+                    \neq n$.
+
+                    We then say the functions are <strong>orthonormal</strong> if $\langle f_{n} , f_{m} \rangle =
+                    \delta_{nm} $.
+                    <br><br>
+                    We now claim that you can construct any square integrable function from a <strong>complete
+                        set</strong> of basis
+                    functions in the same way vectors could be constructed from a complete set of basis vectors. A
+                    square integrable function $f$ is
+                    a function whose inner product with itself, $ \langle f,f \rangle $ is finite.</p>
+                <br>
+                
+                <!--Use code above for any pop ups in the journey section, just need to add isActive1... in the #app data-->
+            </div>
+            <!--
+      -->
+            <div class="journey_pg" id="section_2">
+                <h1></h1>
+                <h3 class=section_title>Derivation of the Fourier Series</h3>
+                <div id="intro" class="divclass">
+                    <h4> Introduction</h4>
+                    <p> Consider a function $f(x)$ which is periodic over the domain $ -L \leq x < L $ where $L$ is
+                            positive. $f(x)$ can be represented as a sum of sines and cosines with varying frequencies.
+                            These trigonometric functions form orthogonal basis. </p> <p> The Fourier series of $f(x)$
+                            is </p>
+                    $\displaystyle f(x) = \frac{a_0}{2}$ $+ \displaystyle\sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi
+                    nx}{L}\Big)$
+                    $\displaystyle+ b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big]$ 
+                    <p> where </p>
+                    $\displaystyle a_n = \displaystyle\frac{1}{L}\int_{-L}^{L} f(x)$ $\displaystyle \cos\Big(\frac{\pi
+                    nx}{L}\Big) dx, $
+                    <p></p>
+                    $\displaystyle b_n = \displaystyle\frac{1}{L}\int_{-L}^{L} f(x)$ $\displaystyle \sin\Big(\frac{\pi
+                    nx}{L}\Big) dx, $
+                    <p></p>
+                    $\displaystyle a_0 = \displaystyle\frac{1}{L}\int_{-L}^{L} f(x) dx, $
+                    <p> and</p> $$ n=0,1,2...$$
+                    <p><strong> Note:</strong> $a_0$$/2$ represents the average value of $f(x)$.</p>
+                    <p> The Fourier series representation of the function $f(x)$ in exponential (complex) form is </p>
+                    $\displaystyle f(x) =\sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L}$ 
+                        <p> where </p>
+                        $\displaystyle c_n = \frac{1}{2L}\int_{-L}^{L} f(x)$ $\displaystyle e^{{-in \pi x}/L} dx, $
+                        <p><strong> Note:</strong> The constants in front of the integral(s) of the coefficient for the trigonometric and
+                            exponential fourier series are different. Also note the limit of the summations.</p>
+  
+                    </div>
+                    
+                    <div id="derivation" class="divclass">
+                        <h4> Derivation </h4>
+                        <p> We begin by assuming that $f(x)$ can be represented as a sum of exponential terms.</p>
+                        $\displaystyle f(x) = \displaystyle\sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L}$
+                        <p> Multiplying by $e^{{-im \pi x}/L}$, where $m=0,1,2...$, and integrating both sides gives the following:</p>
+                        $\displaystyle\int_{-L}^{L} f(x) e^{{-im \pi x}/L} dx$ $=\displaystyle\sum_{n=-\infty}^{\infty} c_n $ $\displaystyle \int_{-L}^{L}
+                        e^{{i(n-m) \pi x}/L} dx. $
+                        <p> Performing the integral on the R.H.S gives </p>
+                        $ \displaystyle\int_{-L}^L e^{(i\pi x/L)(n-m)}dx$ $\displaystyle =\left\{
+                        \begin{array}{ll}
+                        2L \qquad \text{(if n=m)} \\
+                        0 \qquad \quad \text{(if n≠m)}
+                        \end{array}
+                        \right \} $ $\displaystyle= 2L \cdot \delta_{nm}.$
+                        <p> This is the orthonormality of complex exponentials.</p>
+                        <p> Now since the only non-zero value of the sum is when $n=m$,</p>
+                        $\displaystyle\int_{-L}^L f(x) e^{-im\pi x/L}dx$ $\displaystyle= 2L \sum_{n=-\infty}^{+\infty}c_n\delta_{mn}$
+                        $\displaystyle=2L\cdot c_m, $
+                        <p> hence</p>
+                        $\displaystyle c_m=\frac{1}{2L}\int_{-L}^{+L}f(x) $ $\displaystyle e^{-im\pi x/L}dx. $
+                        <p><strong> Note:</strong> As $m$ is an arbitrary integer, it can be assigned as $n$ for simplicity.</p>
+                    
+                        <p> Given the previously derived equation, we can derive the trigonometric form of the Fourier series. By reorganising
+                            the sum, we get </p>
+                        $\displaystyle f(x)= \underbrace{c_0}_\text{n=0}$ $\displaystyle + \sum_{n=1}^{\infty} \big( \underbrace{c_n
+                        e^{in\pi x/L}}_\text{Positive n term}$ $\displaystyle + \underbrace{c_{-n} e^{-in\pi
+                    x/L}}_\text{Negative n terms}
+                    \big).$
+                    <p> We can regroup the terms in the summation in the following way:</p>
+
+                    <div id="derivation_regroup" class="collapsable sub" v-bind:class="{shown:isActive['derivation_regroup']}">
+                        $ \displaystyle = \frac{1}{2} \Big[ 2c_n e^{in\pi x/L}$ $\displaystyle + 2c_{-n} e^{-in\pi x/L}$
+                        $ \displaystyle +
+                        \underbrace{c_{-n} e^{in\pi x/L} - c_{-n} e^{in\pi x/L}}_\text{ =0}$ $\displaystyle +
+                        \underbrace{c_{n}
+                        e^{-in\pi x/L} -c_{n} e^{-in\pi x/L}}_\text{ =0} \Big] $
+                        <p></p>
+                        $ \displaystyle = \frac{1}{2} \Big[ c_n e^{in\pi x/L} $ $\displaystyle +c_{-n} e^{in\pi x/L}$ $
+                        \displaystyle + c_n e^{-in\pi
+                        x/L} $ $\displaystyle + c_{-n} e^{-in\pi x/L}$ $ \displaystyle + c_n e^{in\pi x/L} $
+                        $\displaystyle - c_{-n} e^{in\pi x/L}$ $ \displaystyle - c_n
+                        e^{-in\pi x/L} $ $\displaystyle +c_{-n} e^{-in\pi x/L}\Big] $
+
+                    </div>
+                    <a href="#derivation_regroup"><button class="button_collapse sub" v-on:click="OnClick('derivation_regroup')">Regrouping</button></a>
+                    <p></p>
+
+                    $\displaystyle f(x)= c_0 + \sum_{n=1}^{\infty}$ $\displaystyle \Big( \frac{c_n + c_{-n}}{2}
+                    \big(e^{in\pi
+                    x/L}$ $\displaystyle +e^{-in\pi x/L} \big)$ $+ \displaystyle \frac{c_n - c_{-n}}{2} \big(e^{in\pi
+                    x/L} $ $\displaystyle -e^{-in\pi x/L} \big) \Big) $
+                    <p> Now define $ a_n = c_n + c_{-n}$ and $ b_n = i(c_n - c_{-n})$ and use that these exponentials
+                        can we written as sines
+                        and cosines.</p>
+                    <p><strong>Note:</strong> $a_0 = 2c_0$ and $b_0=0$.</p>
+                    <p> Hence</p>
+                    $ f(x) = \displaystyle\frac{a_0}{2}$ $+ \displaystyle\sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi
+                    nx}{L}\Big)$
+                    $+ \displaystyle b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big]$
+
+                    <p> $a_n$ can be derived by using the expression from $c_n$</p>
+                    $\displaystyle a_n = c_n + c_{-n}$
+                    $\displaystyle =\frac{1}{2L}\int_{-L}^{+L}f(x)$ $\displaystyle e^{-in\pi x/L}dx$ $\displaystyle
+                    +\frac{1}{2L}\int_{-L}^{+L}f(x)$ $\displaystyle
+                    e^{in\pi x/L}dx$
+                    <p> Factorise and spot the exponential form of $\cos$.</p>
+                    $\displaystyle =\frac{1}{L}\int_{-L}^{+L}f(x)$ $\displaystyle \Big[\frac{e^{in\pi x/L} +e^{-in\pi
+                    x/L}}{2}\Big]dx$
+                    $\displaystyle= \displaystyle\frac{1}{L}\int_{-L}^{L} f(x)$ $\displaystyle \cos\Big(\frac{\pi
+                    nx}{L}\Big) dx$
+                    <p> Similarly for $b_n$,</p>
+                    $ b_n = \displaystyle\frac{1}{L}\int_{-L}^{L} f(x)$ $\displaystyle \sin\Big(\frac{\pi nx}{L}\Big)
+                    dx. $
+                </div>
+                <br>
+                <div class="collapsable" id="triangular" v-bind:class="{shown:isActive['triangular']}">
+                    <h4> Triangular Fourier Series Derivation </h4>
+                    <p>The triangular function is defined by the following:</p>
+                    $\displaystyle f(x)=\left\{
+                    \begin{array}{ll}
+                    \frac{-2A}{L} (x+L) \quad (-L \leq x < -L/2) \\ \frac{2A}{L} x \qquad \qquad (-L/2\leq x < L/2) \\
+                        \frac{-2A}{L} (x-L) \quad (L/2\leq x < L) \end{array} \right. $ <p> First notice that $f(x)$ is
+                        odd about $x=0$, hence $a_n=0$ for all $n$. Also, since the $b_n$ integrand is even about $x=0$,
+                        </p>
+                        $\displaystyle b_n=\frac{2}{L}\int_0^L f(x)$ $\displaystyle \sin \left(\frac{n \pi
+                        x}{L}\right)dx. $
+
+                        <p> Notice that for even $n$, $b_n$ is odd about $x=L/2$. Hence, </p>
+                        $ \displaystyle b_n=\frac{2}{L}\int_0^{L} f(x)$ $\displaystyle \sin \left(\frac{n\pi x}{L}
+                        \right) dx$ $\displaystyle = 0 $ $\displaystyle\quad \text{for even n}. $
+                        <p> The integral from $0$ to $L/2$ is equal in magnitude but opposite in sign to the integral
+                            from $L/2$ to $L$, for
+                            even $n$. </p>
+                        <p> For odd $n$, the function is even around $L/2$, so we only have to integrate from $0$ to
+                            $L/2$ then multiply by
+                            $2$.This has made our job much easier.</p>
+                        $\displaystyle b_n=2\frac{2}{L}\int_0^{L/2} f(x)$ $\displaystyle \sin \left(\frac{n\pi x}{L}
+                        \right) dx$ $\displaystyle \quad \text{for odd n} $
+                        <p> Play around with the visualisation to the right to convince yourself this is true. </p>
+                        $ \displaystyle \text{For 0 < x < L/2:}$ $\displaystyle \quad f(x)=\frac{2Ax}{L} $ <p>
+                            Remembering that for even $n$, $b_n=0$, therefore only consider odd $n$.</p>
+                            $\displaystyle b_n = \frac{4}{L} \frac{2A}{L}\int_0^{L/2} x $ $\displaystyle \sin
+                            \left(\frac{n\pi x}{L} \right) dx $
+                            <p></p>
+                            <div class="collapsable sub" id="triangular_byParts" v-bind:class="{shown:isActive['triangular_byParts']}">
+                                $\displaystyle u=x \qquad $ $\displaystyle dv= \sin \left(\frac{n\pi x}{L} \right)dx $
+                                <p></p>
+                                $\displaystyle du=dx \qquad $ $\displaystyle v=\frac{-L}{n\pi} \cos \left(\frac{n\pi
+                                x}{L} \right) $
+                                <p></p>
+                                $\displaystyle b_n=\frac{8A}{L^2}$ $\displaystyle \Bigg[ \Big[ \frac{-xL}{n\pi}$
+                                $\displaystyle \cos \Big(\frac{n\pi
+                                x}{L}\Big) \Big] \Bigr|_0^{L/2} $ $\displaystyle -\int_0^{L/2}\frac{-L}{n\pi}$
+                                $\displaystyle \cos \Big(\frac{n\pi x}{L} \Big)dx \Bigg] $
+                                <p> For odd n,</p>
+                                $\displaystyle \cos \left(\frac{n\pi}{2} \right)=0 $
+                                <p> Therefore,</p>
+                                $\displaystyle b_n=\frac{8A}{L^2} \Bigg[0+ $ $\displaystyle \int_0^{L/2}\frac{L}{n\pi}$
+                                $\displaystyle \cos \left(\frac{n\pi x}{L}
+                                \right)dx \Bigg]$
+                            </div>
+                            <a href="#triangular_byParts"><button class="button_collapse sub" v-on:click="OnClick('triangular_byParts')">Integration by parts</button></a>
+                            <p></p>
+                            $\displaystyle b_n=\frac{8A}{L^2} \frac{L^2}{(n\pi)^2}$ $\displaystyle \sin \left(\frac{n\pi
+                            x}{L} \right) \biggr |_0^{L/2} $
+
+                            <p> Note for odd $n$ :</p>
+                            $ \displaystyle \sin \left(\frac{n\pi}{2} \right)=(-1)^{\frac{n-1}{2}} $
+                            <p> Therefore,</p>
+                            $ \displaystyle b_n=\frac{8A}{n^2\pi^2}(-1)^{\frac{n-1}{2}} $
+
+                            <p> Finally,</p>
+                            $\displaystyle f(x)=\sum_{n=1,3,5...}^\infty \frac{8A}{n^2\pi^2}$
+                            $\displaystyle(-1)^{\frac{n-1}{2}} $ $\displaystyle \sin \left(\frac{n\pi
+                            x}{L} \right) $
+                            <p> And the using that an odd number is given by $2n +1$ for any $n$, </p>
+                            $ \displaystyle f(x)=\sum_{n=1,2,3...}^\infty $ $\displaystyle
+                            \frac{8A}{(2n-1)^2\pi^2}(-1)^n $ $\displaystyle \sin \left(\frac{(2n-1)\pi x}{L}
+                            \right) $
+                </div>
+                <br>
+                <a href="#triangular"><button class="button_collapse" v-on:click="OnClick('triangular')">Triangular
+                        Function</button></a>
+
+                <div class="collapsable" id="parabola" v-bind:class="{shown:isActive['parabola']}">
+                    <h4> Parabolic Fourier Series Derivation </h4>
+                    <p>The parabolic function is defined as:</p>
+                    $ \displaystyle f(x)=Ax^2 \quad \text{for:} -L\leq x< L$ <p> and forced to be periodic. $A$ is a
+                        constant.</p>
+                        <p>Therefore, $a_n$ and $b_n$ coefficients are given as </p>
+                        $\displaystyle b_n = \frac{1}{L}\int_{-L}^{+L} Ax^2$ $\displaystyle \sin \left(\frac{n \pi x}{L}
+                        \right)dx $
+                        <p> </p>
+                        $\displaystyle a_n= \frac{1}{L}\int_{-L}^{+L} Ax^2$ $\displaystyle \cos \left(\frac{n \pi x}{L}
+                        \right)dx $
+
+                        <p> The $b_n$ integral is odd about $x=0$, hence $b_n=0$ for all $n$. $f(x)$ is even about
+                            $x=0$. Hence </p>
+                        $\displaystyle a_n=\frac{2}{L}\int_{0}^{+L} Ax^2$ $\displaystyle \cos \left(\frac{n \pi x}{L}
+                        \right)dx $
+                        <p> For $n=0$:</p>
+                        $\displaystyle a_0 = \frac{2}{L} \int _{0}^{+L} Ax^2 dx $
+                        $\displaystyle a_0 = \frac{2AL^2}{3} $
+
+                        <p> For $n\neq 0 $:</p>
+                        $\displaystyle a_n = \frac{2A}{L}\int_0^L x^2$ $\displaystyle \cos \left(\frac{n\pi x}{L}
+                        \right)dx $
+                        <p>This Eqn. can be solved by integrating by parts.</p>
+                        <div id='parabola_byParts1' class="collapsable sub" v-bind:class="{shown:isActive['parabola_byParts1']}">
+                            $\displaystyle du = 2x\cdot dx \qquad$ $\displaystyle v=\frac{L}{n\pi} \sin \left(\frac{n\pi
+                            x}{L} \right) $
+                            <p></p>
+                            $\displaystyle u=x^2 \qquad$ $\displaystyle dv= \cos \left(\frac{n \pi x}{L} \right)dx $
+                            <p></p>
+                            $\displaystyle a_n = \frac{2A}{L}$ $\displaystyle \Bigg[ \Big[\frac{Lx^2}{n\pi}$
+                            $\displaystyle \sin \left(\frac{n\pi x}{L} \right) \Big] \biggr |_0^L $
+                            $\displaystyle -\int_0^L\frac{2xL}{n\pi}$ $\displaystyle \sin \left(\frac{n \pi x}{L}
+                            \right)dx \Bigg] $
+                            <p> </p>
+                            $\displaystyle = \frac{2A}{L}$ $\displaystyle \Bigg[0$ $\displaystyle
+                            -\int_0^L\frac{2xL}{n\pi}$ $\displaystyle \sin\left(\frac{n \pi x}{L}\right)dx \Bigg] $
+                        </div>
+                        <a href="#parabola_byParts1"><button class="button_collapse sub" v-on:click="OnClick('parabola_byParts1')">Integration by parts</button></a>
+                        <p></p>
+
+                        $\displaystyle a_n = -\frac{4A}{n\pi}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n \pi x}{L}
+                        \right)dx $
+                        <p> </p>
+                        <div id='parabola_byParts2' class="collapsable sub" v-bind:class="{shown:isActive['parabola_byParts2']}">
+                            $\displaystyle u = x \qquad$ $\displaystyle dv = \sin \left(\frac{n\pi x}{L} \right) dx$
+                            <p></p>
+                            $\displaystyle du = dx \qquad$ $\displaystyle v = -\frac{L}{n\pi}$ $\displaystyle \cos
+                            \left(\frac{n\pi x}{L} \right) $
+                            <p></p>
+                            $\displaystyle a_n = \frac{-4A}{n\pi}$ $\displaystyle \Bigg[\Big[-\frac{xL}{n\pi}$
+                            $\displaystyle \cos \left(\frac{n\pi x}{L} \right)\Big] \biggr |_0^L $ $\displaystyle -
+                            \int_0^L\frac{-L}{n\pi} $ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx \Bigg] $
+                        </div>
+                        <a href="#parabola_byParts2"><button class="button_collapse sub" v-on:click="OnClick('parabola_byParts2')">Integration by parts</button></a>
+                        <p></p>
+                        $\displaystyle a_n = \frac{4A}{n\pi} \Bigg[\frac{xL}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi
+                        x}{L} \right) \Bigg] \biggr |_0^L $
+
+                        $\displaystyle = \frac{4AL^2}{n^2\pi^2}(-1)^n $
+                        <p>Therefore, the fourier series can be written as </p>
+                        $\displaystyle f(x) = \frac{AL^2}{3}$ $\displaystyle + \sum_{n=1}^\infty \frac{4AL^2}{n^2\pi^2}$
+                        $\displaystyle (-1)^n
+                        \cos \left(\frac{n\pi x}{L} \right) $
+                </div>
+                <br>
+                <a href="#parabola"><button class="button_collapse" v-on:click="OnClick('parabola')">Parabola</button></a>
+
+                <div class="collapsable" id="dirac" v-bind:class="{shown:isActive['dirac']}">
+                    <h4> Dirac-Delta Fourier Series Derivation </h4>
+                    <p> The Dirac-delta function can be thought of as a infinite spike at $x=0$. </p>
+                    $\displaystyle
+                    f(x) = \delta(x)=\left\{
+                    \begin{array}{ll}
+                    +\infty \quad (x=0) \\
+                    0 \qquad (x \neq 0)
+                    \end{array}
+                    \right.
+                    $
+                    <p> </p>
+                    $\displaystyle a_n=\frac{1}{L}\int_{-L}^{+L} \delta (x)$ $\displaystyle \cos \left(\frac{n\pi x}{L}
+                    \right)dx $
+                    <p> </p>
+                    $\displaystyle b_n=\frac{1}{L}\int_{-L}^{+L}\delta(x)$ $\displaystyle \sin \left(\frac{n\pi x}{L}
+                    \right)dx $
+                    <p> $\delta(x)$ is an even function. Hence $b_n=0 $ and </p>
+                    $\displaystyle a_n=\frac{1}{L} $
+                    <p></p>
+                    <div id='dirac_derivation' class="collapsable sub" v-bind:class="{shown:isActive['dirac_derivation']}">
+                        <p> By considering the shifting property of the Dirac-Delta function,</p>
+                        $\displaystyle \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha)$
+                        <p> For us, $\alpha=0, \epsilon=L,$ and $g(x)= \sin \left(n \pi x/L \right).$</p>
+                        <p> Therefore,</p>
+                        $\displaystyle a_n=\frac{1}{L}\cos \left(\frac{n\pi \times 0}{L} \right)=\frac{1}{L}$
+                        <p></p>
+                        $\displaystyle b_n=\frac{1}{L}\sin \left(\frac{n\pi \times 0}{L} \right)=0$
+
+                    </div>
+                    <a href="#dirac_derivation"><button class="button_collapse sub" v-on:click="OnClick('dirac_derivation')">Derivation</button></a>
+                    <p>Therefore, the fourier series for positive $L$ can be written as </p>
+                    $\displaystyle f(x)=\frac{1}{2L}+\sum_{n=1}^\infty \frac{1}{L}$ $\displaystyle \cos \left(\frac{n\pi
+                    x}{L} \right). $
+
+                </div>
+                <br>
+                <a href="#dirac"><button class="button_collapse" v-on:click="OnClick('dirac')">Dirac-Delta</button></a>
+
+
+                <br>
+                <div class="collapsable" id="square" v-bind:class="{shown:isActive['square']}">
+                    <h4>Square Wave Derivation</h4>
+                    <p>The square wave is defined as the following:</p>
+                    $\displaystyle
+                    f(x)=\left\{
+                    \begin{array}{ll}
+                    -A \quad (-L \leq x < 0) \\ A \quad (0\leq x < L) \end{array} \right. $ <p>The $a_{n}$ terms can be
+                        found be noting that $f(x)$ is odd, so $a_n$ is $0$ for all $n$. </p>
+
+                        <p>To find the $b_n$ terms, the integration can be split into two parts: $-L\leq x <0$ and $
+                                0\leq x < L.$ This gives the following integration:</p> $\displaystyle
+                                b_n=\frac{1}{L}\int_{-L}^0 -A$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx$
+                                $\displaystyle + \frac{1}{L}\int_0^L A$ $\displaystyle \sin \left(\frac{n \pi x}{L}
+                                \right)dx $ <p>which can be evaluated to:</p>
+                        $\displaystyle b_n=\frac{-2A}{L}\frac{L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L}
+                        \right)\biggr |_0^L$
+                        $\displaystyle =\frac{2A}{n\pi}\left[1-\cos\left(n\pi \right) \right] $
+                        <p>Note that $\displaystyle\cos \left(n \pi\right)=(-1)^n$ </p>
+                        <p>Hence $\displaystyle b_n=\frac{2A}{n\pi}(1-(-1)^n)$ </p>
+                        <p>Therefore the final fourier series is:</p>
+                        $\displaystyle f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi}$ $\displaystyle (1-(-1)^n)$
+                        $\displaystyle\sin \left(\frac{n\pi x}{L}\right).
+                        $
+                </div>
+                <br>
+                <a href="#square"><button class="button_collapse" v-on:click="OnClick('square')">Square
+                        Function</button></a>
+
+
+
+                <br>
+                <div class="collapsable" id="sawtooth" v-bind:class="{shown:isActive['sawtooth']}">
+                    <h4>Sawtooth Wave Derivation</h4>
+                    <p>The Sawtooth wave is defined as the following:</p>
+                    $\displaystyle f(x)=\frac{Ax}{L} $ $\displaystyle \quad (-L \leq x < L). $ <p>$f(x)$ is odd, so
+                        $a_n= 0$ for all $n$.</p>
+                        <p>The $b_n$ terms are given by the following integration:</p>
+                        $\displaystyle b_n=\frac{1}{L}\int_{-L}^{L} \frac{Ax}{L}$ $\displaystyle\sin \left(\frac{n\pi
+                        x}{L} \right)dx $
+                        $\displaystyle =\frac{2A}{L^{2}}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n\pi x}{L}
+                        \right)dx. $
+                        <p>Using Integration by parts it can be shown that:</p>
+                        <div id='sawtooth_byParts' class="collapsable sub" v-bind:class="{shown:isActive['sawtooth_byParts']}">
+                            $\displaystyle u=x \quad $ $\displaystyle dv=\sin \left(\frac{n\pi x}{L} \right)dx $
+                            <p></p>
+                            $\displaystyle du=dx \quad$ $\displaystyle v=\frac{-L}{n\pi}\cos \left(\frac{n\pi x}{L}
+                            \right) $
+                            <p></p>
+                            $\displaystyle b_n=\frac{2A}{L^{2}} \Bigg[ \frac{-Lx}{n\pi}$ $\displaystyle \cos
+                            \left(\frac{n\pi
+                            x}{L} \right)\biggr |_0^L $ $\displaystyle-\int_0^L\frac{-L}{n\pi}$ $\displaystyle \cos
+                            \left(\frac{n\pi x}{L} \right)dx \Bigg]
+                            $
+                            <p>Note that the second integrand is zero as it is of cosine over a full period.</p>
+
+                            $\displaystyle b_n=-\frac{2A}{n\pi} \cos \left(n\pi \right)$
+                            $\displaystyle=-\frac{2A}{n\pi}(-1)^n $
+                        </div>
+                        <a href="#sawtooth_byParts"><button class="button_collapse sub" v-on:click="OnClick('sawtooth_byParts')">Integration by parts</button></a>
+                        <p></p>
+                        $\displaystyle b_n=\frac{2A}{n\pi}(-1)^{n+1}. $
+                        <p>Therefore the final fourier series is:</p>
+                        $\displaystyle f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1}$ $\displaystyle \sin
+                        \left(\frac{n\pi x}{L} \right). $
+                </div>
+                <br>
+                <a href="#sawtooth"><button class="button_collapse" v-on:click="OnClick('sawtooth')">Sawtooth
+                        Function</button></a>
+
+
+                <br>
+                <div class="collapsable" id="mod" v-bind:class="{shown:isActive['mod']}">
+                    <h4>Mod x Derivation</h4>
+                    <p>The $|x|$ function is defined as the following:</p>
+                    $\displaystyle f(x)=A|x| \quad (-L \leq x < L). $ <p>
+                        </p>
+                        $\displaystyle a_n = \frac{1}{L}\int_{-L}^{+L} A|x| \cos \left(\frac{n \pi x}{L} \right)dx $
+                        <p></p>
+                        $\displaystyle b_n = \frac{1}{L}\int_{-L}^{+L} A|x|$ $\displaystyle \sin \left( \frac{n\pi
+                        x}{L}\right) dx $
+                        <p> $f(x)$ is even about $x=0$. Hence $b_n=0 $</p>
+                        <p> The $a_n$ integral is even about $x=0$. Hence, </p>
+                        $\displaystyle a_n = \frac{2}{L}\int_{0}^{+L} Ax $ $\displaystyle \cos \left(\frac{n \pi
+                        x}{L}\right)dx. $
+
+                        <p> For $n=0$:</p>
+                        $\displaystyle a_0 = \frac{2A}{L}\int_0^L x dx $
+                        $\displaystyle = \frac{2A}{L}\frac{x^2}{2} \biggr |_0^L $
+                        $\displaystyle = AL .$
+                        <p> For $n \neq 0$: </p>
+                        $\displaystyle a_n = \frac{2A}{L}\int_{0}^{+L} x $ $\displaystyle \cos \left(\frac{n \pi x}{L}
+                        \right)dx. $
+                        <p> By integrating by parts,</p>
+
+                        <div id='mod_byParts' class="collapsable sub" v-bind:class="{shown:isActive['mod_byParts']}">
+                            $\displaystyle u=x \qquad$ $\displaystyle dv= \cos\left(\frac{n\pi x}{L}\right)dx$
+                            <p></p>
+                            $\displaystyle du=dx \qquad$ $\displaystyle v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L}
+                            \right) $
+                            <p></p>
+                            $\displaystyle a_n = \frac{2A}{L}$ $\displaystyle \Bigg[ \Big[\frac{Lx}{n\pi}$
+                            $\displaystyle \sin \left( \frac{n \pi
+                            x}{L} \right) \Big] \Biggr|_0^L$ $\displaystyle -\int_0^{+L} \frac{L}{n\pi}$ $\displaystyle
+                            \sin \left(\frac{n \pi x}{L} \right)dx \Bigg]$
+                            $\displaystyle = \frac{2A}{L} \Bigg[ 0 $ $\displaystyle -\int_0^{+L}\frac{L}{n\pi}$
+                            $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx \Bigg]$
+
+                        </div>
+                        <a href="#mod_byParts"><button class="button_collapse sub" v-on:click="OnClick('mod_byParts')">Integration by parts</button></a>
+                        <p></p>
+                        $\displaystyle a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}$ $\displaystyle \cos \left( \frac{n\pi
+                        x}{L} \right)\biggr |_0^L . $
+                        <p>Hence,</p>
+                        $\displaystyle a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}$ $\displaystyle \left[(-1)^n-1 \right] $
+                        $\displaystyle = \frac{2AL}{(n\pi)^2}\left[(-1)^n-1 \right]. $
+                        <p>Therefore the final fourier series is:</p>
+                        $\displaystyle f(x)=\frac{AL}{2}+$ $\displaystyle \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2}$
+                        $\displaystyle \left[(-1)^n-1 \right]$ $\displaystyle \cos \left(\frac{n\pi
+                        x}{L} \right). $
+                </div>
+                <br>
+                <a href="#mod"><button class="button_collapse" v-on:click="OnClick('mod')">Mod(x) Function</button></a>
+
+
+            </div>
+            <!--
+      -->
+            <div class="journey_pg" id="section_3">
+                <h1></h1>
+                <h3 class=section_title>Section 3</h3>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </div>
+            <!--
+    -->
+            <div class="journey_pg" id="section_4">
+                <h1></h1>
+                <h3 class=section_title>Section 4</h3>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div class="container_vis">
+            <div class="vis_pg" id="visualisation_1" v-if="scrolling < pg_heights[0]">
+                <div class="left-half"
+                    style="padding-left: 1%; width: 50%; height: 100%; display:inline-block; ">
+                    <div id='graph' style="width:90%; height:70%;"></div>
+                    <p style="margin-left: 5%; margin-top: 5%; padding: 1em;">Components of Projections:</p>
+                        <div id="vectorComponents" style="font-size: 10pt;">0.83 x vector1 & 0.83 x vector2</div>
+                        <div class="popup" onclick="myFunction()">
+                            Vectors 1 and 2 are parallel <br> so R2 is not spanned.
+                        </div>
+                        <!-- Legend -->
+                      
+
+
+
+                </div>
+
+
+                <!--Buttons/Sliders-->
+                <div class="right-half"
+                    style="padding-left: 50px; width: 40%; height:100%; float:right; ">
+
+                    <!--Main body contents-->
+                    <div class="tab-content" style=" display:flex; flex-direction: column; width:95%; height:50%; padding-top: 20%;">
+                        <!--BEGIN Slider-->
+                        <!--These Sliders are shared among all tabs-->
+
+                        <!--Slider Display-->
+                        <!--Linked with the slider below-->
+                        <!--Linked with a slider and shows the live values of its corresponding slider-->
+
+                        <h6
+                            style="border-left: solid 5px rgb(213,0,50); padding-left: 8px; margin: -5px; padding-top: 1vh;">
+                            Basis vector 1:</h6>
+                        <!--BEGIN Slider-->
+                        <div style="flex-grow: 1">
+                        <label class="slider" style="position: relative; float: left;  width: 50%">
+                            <input id="x1Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5"
+                                step="0.01" oninput="x1.value=x1Controller.value" /></input>
+                            <br>
+                            <span> x: <output id="x1" for="x1Controller">1.1</output></span>
+                        </label>
+                   
+                        <!--END Slider-->
+
+                        <!--BEGIN Slider-->
+                        
+                        <label class="slider" style="position: relative; float: right; width: 50%">
+                            <input id="y1Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5"
+                                step="0.01" oninput="y1.value=y1Controller.value" /></input>
+                            <br>
+                            <span> y: <output id="y1" for="y1Controller">0.1</output></span>
+                        </label>
+                    </div>
+                        <!--END Slider-->
+
+                        <br>
+
+                        <h6
+                            style="border-left: solid 5px rgb(0,0,255); padding-left: 8px; margin: -5px; padding-top: 1vh; ">
+                            Basis vector 2:</h6>
+                        <!--BEGIN Slider-->
+                        <div style="flex-grow: 1">
+                        <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
+                            <input id="x2Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5"
+                                step="0.01" oninput="x2.value=x2Controller.value" /></input>
+                            <br>
+                            <span> x: <output id="x2" for="x2Controller">0.1</output></span>
+                        </label>
+                   
+                        <!--END Slider-->
+
+                        <!--BEGIN Slider-->
+                        
+                        <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
+                            <input id="y2Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5"
+                                step="0.01" oninput="y2.value=y2Controller.value" /></input>
+                            <br>
+                            <span> y: <output id="y2" for="y2Controller">1.1</output></span>
+                        </label>
+                    </div>
+                        <!--END Slider-->
+
+                        <br>
+
+                        <h6
+                            style="border-left: solid 5px rgb(0,255,0); padding-left: 8px; margin: -5px; padding-top: 1vh; ">
+                            Target vector:</h6>
+                        <!--BEGIN Slider-->
+                        <div style="flex-grow: 1">
+                        <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
+                            <input id="x3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5"
+                                step="0.01" oninput="x3.value=x3Controller.value" /></input>
+                            <br>
+                            <span> x: <output id="x3" for="x3Controller">1</output></span>
+                        </label>
+                    
+                        <!--END Slider-->
+
+                        <!--BEGIN Slider-->
+                        
+                        <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
+                            <input id="y3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5"
+                                step="0.01" oninput="y3.value=y3Controller.value" /></input>
+                            <br>
+                            <span> y: <output id="y3" for="y3Controller">1</output></span>
+                        </label>
+                    </div>
+                        <!--END Slider-->
+
+                        <!--Unique Areas-->
+                        <!--BEGIN Basis Vector Area-->
+                        <div class="tab-pane active" id="basis"></div>
+                        <!--NB: Also need 'active' here-->
+                        <!--END Basis-->
+                        <!--END Area-->
+                    </div>
+                </div>
+            </div>
+            <div class="vis_pg" id="visualisation_2" v-else-if="scrolling<pg_heights[1]"
+                style="background-color: white">
+
+
+                <div class="six columns" style="width:50%; margin-left: 1%">
+                    <h5></h5>
+                    <div id='graph3' style="width:450px; height:250px;"></div>
+                    <div id='graph4' style="width:450px; height:250px;"></div>
+                </div>
+
+                <div class="five columns" style="width:45%; display:flex; flex-direction: column; height:100%;">
+                    <!--BEGIN Slider n-->
+                    <div style="flex-grow: 1">
+                        <label class="sliderTitle">Term Number:
+                            <span id="N2ControllerDisplay" data-unit="">1</span>
+                        </label>
+                        <!--Slider n-->
+                        <label class="slider">
+                            <span class="sliderMin">0</span>
+                            <input id="N2Controller" class="inputs" min="0" type="range" value="1" max="50" step="1" />
+
+                            <span class="sliderMax">50</span>
+                        </label>
+                    </div>
+                    <!--END Slider n-->
+
+                    <!--BEGIN Slider A-->
+                    <div style="flex-grow: 1">
+                        <!--Slider Display A-->
+                        <label class="sliderTitle">Amplitude:
+                            <!--Amplitude-->
+                            <span id="AControllerDisplay" data-unit="">1</span>
+                            <!--default: 1-->
+                        </label>
+                        <!--Slider A-->
+                        <label class="slider">
+                            <span class="sliderMin">-1</span>
+                            <input id="AController" class="inputs" type="range" value="1" min="-1" max="3" step="0.1" />
+                            <span class="sliderMax">3</span></label>
+                    </div>
+                    <!--END Slider A-->
+
+                    <!--BEGIN Slider L-->
+                    <div style="flex-grow: 1">
+                        <label class="sliderTitle">Period:
+                            <span id="LControllerDisplay" data-unit="">1</span>
+                        </label>
+                        <!--Slider L-->
+                        <label class="slider">
+                            <span class="sliderMin">0</span>
+                            <input id="LController" class="inputs" type="range" value="1" min="0" max="1" step="0.05" />
+                            <span class="sliderMax">1</span>
+                        </label>
+                    </div>
+                    <!--END Slider L-->
+                </div>
+
+            </div>
+            <div class="vis_pg" id="visualisation_3" v-else-if="scrolling<pg_heights[2]"
+                style="background-color: #bd75ff">
+            </div>
+            <div class="vis_pg" id="visualisation_4" v-else-if="scrolling<pg_heights[3]"
+                style="background-color: white">
+            </div>
+        </div>
+
+
+        <div class=nav id=lownav>
+            <ul>
+                <li class=progress_button id="p1b" v-on:click="Scroll(1)">1</li>
+                <li id="line">-----</li>
+                <li class=progress_button id="p2b" v-on:click="Scroll(2)">2</li>
+                <li id="line">-----</li>
+                <li class=progress_button id="p3b" v-on:click="Scroll(3)">3</li>
+                <li id="line">-----</li>
+                <li class=progress_button id="p4b" v-on:click="Scroll(4)">4</li>
+            </ul>
+            <div class="VisTitle">Fourier Series</div>
+            <img src="logo_lorentz.png" alt='Imperial Visualisation Logo'>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- THE BRAINS -->
+    <script src="template-scripts/journey.js"></script>
+    <script src=Fourier-Series/scripts/0Orthogonality.js> </script> <script
+        src=Fourier-Series/scripts/orthogonality_object.js> </script> <script
+        src=Fourier-Series/scripts/Derivation_of_a_Fourier_Series_duo.js> </script> </body> </html>

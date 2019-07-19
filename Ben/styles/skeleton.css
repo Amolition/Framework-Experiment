@@ -38,19 +38,19 @@
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #b2b2b2;
+  background-color: #adadad;
   width: 10px;
-  -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5);
+  /*-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5);*/
 }
 
 ::-webkit-scrollbar-thumb:active {
   background-color: #969696;
-  -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5); 
+  /*-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5); */
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #969696;
-  -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5);
+  /*-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.5);*/
 }
 
 .container {
@@ -63,6 +63,7 @@
 .container_journey {
   float: left;
   width: 33%;
+  top:7vh;
   height: 100vh;
   /*background-color: #f7f7f7;*/
   /*background-color: #e3eae6;*/
@@ -72,11 +73,8 @@
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
-}
-
-.journey_pg{
-  padding-left:5px;
-  /*padding-right: 10px;*/
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 0px -1px 2px 0px rgba(100, 100, 150, 0.3);
 }
 
 .vis_pg {
@@ -86,19 +84,52 @@
   background-color: #f7f7f7;
   box-sizing: border-box;
   padding: 0px;
+  transition: 1s;
  }
 
  .journey_pg {
+   padding-top:0px;
+   padding-left:5px;
    float: top;
    margin-bottom:0px;
    margin-top: 0px;
+   border-bottom: 1px solid #e0e0e0;
  }
 
-.derivation_collapse {
+ .section_title {
+   background: white;
+   padding-left: 5px;
+   float: top;
+   border-bottom: 1px solid #e0e0e0;
+ }
+
+/*.derivation_collapse {
   margin-bottom: 1rem;
   border: 1px solid #EBEEEE;
   border-radius: 5px;
+}*/
+
+.derivation_collapse {
+  border-radius:40px;
+  background-color: white;
+  color: black;
+  border-color: black;
 }
+
+.collapsableBox {
+  margin: 2px;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 5px;
+  visibility: hidden;
+  height: 0;
+}
+
+.collapsableBox.shown {
+  visibility: visible;
+  height: auto;
+}
+
 .panel-title {
   font-size: large;
   background-color: #E40043;
@@ -107,14 +138,109 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 .panel-body {
   padding: 0.01em 16px;
 }
 
+.nav {
+  padding-top: 0;
+  padding-right: 0vw;
+  padding-left: 0vw;
+  padding-bottom: 0;
+  /*width: 98vw;*/
+  position:fixed;
+  /*z-index: 2;*/
+  background-color:white;
+  box-shadow: 0px -1px 2px 0px rgba(100, 100, 150, 0.3);
+}
+
+#hinav {
+  width: 33%;
+  height: 7vh;
+  background-color: white;
+}
+
+#spacing {
+  height: 5vh;
+}
+
+#sidenav {
+  position:absolute;
+  right:0;
+  width:7vh;
+  height: 100vh;
+  /*bottom: 0;*/
+}
+
+#sidenav{
+  /*background-color: #003E74;*/
+  background-color: white;
+  text-align: center;
+  /*border-top: 1px solid #e0e0e0;*/
+  /*background-image: linear-gradient(-90deg, rgba(0,62,116,1), white);*/
+}
+
+#sidenav ul {
+  float: center;
+  /*widows: 35%;
+  display: block;*/
+  list-style-position: inside;
+}
+
+#sidenav li{
+  display: block;
+  /*text-align: center;*/
+  font-size: 20px;
+  margin: 0vh;
+  margin-bottom: 2vh;
+  margin-top: 6vh;
+}
+
+.progress_button {
+  border: 1px solid rgba(150,150,170,1);
+  color: rgba(10,10,10,1);
+  border-radius: 100%;
+  line-height: 4vh;
+  line-width: 4vh;
+  font-size: 20px;
+  /*height: 100%;*/
+  height: 4vh;
+  width: 4vh;
+  padding-top:3px;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: 1vh;
+}
+
+.progress_button:hover {
+  font-weight: 1000;
+  cursor: pointer;
+}
 
 
+#line{
+    /*background-color: #003E74;*/
+    border: none;
+    color: rgba(0,62,116,0.5);
+    font-weight: bold;
+}
 
+.nav img {
+  float: right;
+  height: 100%;
+  margin-right:1%;
+  display: block;
+}
 
+.VisTitle {
+  width: 35%;
+  display: inline-block;
+  font-size: 250%;
+  height: 100%;
+  line-height: 100%;
+}
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -501,3 +627,58 @@ there.
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
+
+/* Navbar
+------------------------------------------*/
+
+
+nav{
+  width: 100vw;
+  height: 12vh;
+  background-color: #003e74;
+  position: fixed;
+  top: 0;
+  color: white;
+  overflow: hidden;
+}
+
+
+nav a:hover {
+  color: black;
+}
+
+
+
+.Title {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  height: 50%;
+  width: 90%;
+  background: green;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  height: 50%;
+  width: 90%;
+  text-align: center;
+}
+
+nav ul li {
+  display:inline-block;
+  text-align: center;
+  margin: 6px;
+  font-size: 20px;
+  border-radius: 15%;
+  border: black;
+  border-width: 3px;
+  background-color: #E40043;
+}
+/*
+#app {
+  margin-top: 12vh;
+  overflow-y: hidden;
+}*/
