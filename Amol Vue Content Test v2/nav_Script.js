@@ -19,7 +19,7 @@ let app = new Vue ({
         journeyHeightNew: "",
         rightScripts: [
             ["scripts/orthogonality_object.js", "scripts/0Orthogonality.js"],
-            ["scripts/Derivation_of_a_Fourier_Series_duo.js"],
+            [],
             [],
             [],
             [],
@@ -29,7 +29,18 @@ let app = new Vue ({
         addScript: "",
         firstRunDone: "false",
         derivationSubSection: 0,
-        derivationScripts: [],
+        derivationScripts: [
+            [],
+            [],
+            [],
+            ["scripts/Derivation_of_a_Fourier_Series_duo.js"],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+        ],
     },
 
     methods: {
@@ -104,22 +115,15 @@ let app = new Vue ({
 
         currentSection: function (newValue, oldValue) {
 
-            if (oldValue !== 0) {
-
-                for (let i=1; i<=app.rightScripts[oldValue-1].length; i++) {
-
-                    app.removeScript = document.getElementById("scriptS" + oldValue + "E" + i);
-                    document.querySelectorAll('.scriptSpace')[0].removeChild(app.removeScript);
-                }
-            }
+            document.querySelectorAll('.rightScriptSpace')[0].innerHTML = "";
 
             for (let i=1; i<=app.rightScripts[newValue-1].length; i++) {
 
                 app.addScript = document.createElement("script");
-                app.addScript.id ="scriptS" + newValue + "E" + i;
+                app.addScript.id ="rightScriptS" + newValue + "E" + i;
                 app.addScript.src = (app.rightScripts[newValue-1][i-1]);
                 app.addScript.async = false;
-                document.querySelectorAll('.scriptSpace')[0].appendChild(app.addScript);
+                document.querySelectorAll('.rightScriptSpace')[0].appendChild(app.addScript);
             }
 
             for (let i=1; i<=app.n; i++) {
@@ -134,12 +138,37 @@ let app = new Vue ({
                     setTimeout (function () {app.$forceUpdate();}, 100);
                 }
             }
+
+            if (oldValue === 2) {
+                document.querySelectorAll('.derivationScriptSpace')[0].innerHTML = "";
+            }
+
+            if (newValue === 2) {
+                for (let i=1; i<=app.derivationScripts[app.derivationSubSection].length; i++) {
+
+                    app.addScript = document.createElement("script");
+                    app.addScript.id ="derivationScriptS" + app.derivationSubSection + "E" + i;
+                    app.addScript.src = (app.derivationScripts[app.derivationSubSection][i-1]);
+                    app.addScript.async = false;
+                    document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                }
+            }
         },
 
         derivationSubSection: function (newValue, oldValue) {
 
+            document.querySelectorAll('.derivationScriptSpace')[0].innerHTML = "";
+
             if (app.currentSection === 2) {
-                
+
+                for (let i=1; i<=app.derivationScripts[newValue].length; i++) {
+
+                    app.addScript = document.createElement("script");
+                    app.addScript.id ="derivationScriptS" + newValue + "E" + i;
+                    app.addScript.src = (app.derivationScripts[newValue][i-1]);
+                    app.addScript.async = false;
+                    document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                }
             }
         }
     },
