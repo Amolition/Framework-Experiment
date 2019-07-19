@@ -1276,48 +1276,76 @@
 
                 <div class="rightload text" id='loadout2' key="loadout2" v-else-if = "currentSection === 2">
 
-                    <!-- Graph -->
-                    <div id='graph1Sec2'></div>
-                    <div id='graph2Sec2'></div>
+                    <div class="rightload text" id='loadout2sub0' key="loadout2sub0" v-if = "derivationSubSection === 0">
 
-                    <div class="overall-sliders-container">
+                        Interactive Zone 2 - MAIN
 
-                        <!--BEGIN Slider n-->
-                        <label class="slider-label">Term Number:
-                            <span id="N2ControllerDisplay" data-unit="">1</span>
-                        </label>
-                        <!--Slider n-->
-                        <label class="slider">
-                            <span class="sliderMin">0</span>
-                            <input id="N2Controller" class="inputs" min="0" type="range" value="1"  max="50" step="1"/>
+                    </div>
 
-                            <span class="sliderMax">50</span>
-                        </label>
-                        <!--END Slider n-->
+                    <div class="rightload text" id='loadout2sub1' key="loadout2sub1" v-else-if = "derivationSubSection === 1">
 
-                        <!--BEGIN Slider A-->
-                        <!--Slider Display A-->
-                        <label class="slider-label">Amplitude:<!--Amplitude-->
-                            <span id="AControllerDisplay" data-unit="">1</span> <!--default: 1-->
-                        </label>
-                        <!--Slider A-->
-                        <label class="slider">
-                            <span class="sliderMin">-1</span>
-                            <input id="AController" class="inputs" type="range" value="1" min="-1" max="3" step="0.1"/>
-                            <span class="sliderMax">3</span></label>
-                        <!--END Slider A-->
+                        Interactive Zone 2 - SUB-1
 
-                        <!--BEGIN Slider L-->
-                        <label class="slider-label">Period:
-                            <span id="LControllerDisplay" data-unit="">1</span>
-                        </label>
-                        <!--Slider L-->
-                        <label class="slider">
-                            <span class="sliderMin">0</span>
-                            <input id="LController" class="inputs" type="range" value="1" min="0" max="1" step="0.05"/>
-                            <span class="sliderMax">1</span>
-                        </label>
-                        <!--END Slider L-->
+                    </div>
+
+                    <div class="rightload text" id='loadout2sub2' key="loadout2sub2" v-else-if = "derivationSubSection === 2">
+
+                        Interactive Zone 2 - SUB-2
+
+                    </div>
+
+                    <div class="rightload text" id='loadout2sub3' key="loadout2sub3" v-else-if = "derivationSubSection === 3">
+
+                        <!-- Graph -->
+                        <div id='graph1Sec2'></div>
+                        <div id='graph2Sec2'></div>
+
+                        <div class="overall-sliders-container">
+
+                            <!--BEGIN Slider n-->
+                            <label class="slider-label">Term Number:
+                                <span id="N2ControllerDisplay" data-unit="">1</span>
+                            </label>
+                            <!--Slider n-->
+                            <label class="slider">
+                                <span class="sliderMin">0</span>
+                                <input id="N2Controller" class="inputs" min="0" type="range" value="1"  max="50" step="1"/>
+
+                                <span class="sliderMax">50</span>
+                            </label>
+                            <!--END Slider n-->
+
+                            <!--BEGIN Slider A-->
+                            <!--Slider Display A-->
+                            <label class="slider-label">Amplitude:<!--Amplitude-->
+                                <span id="AControllerDisplay" data-unit="">1</span> <!--default: 1-->
+                            </label>
+                            <!--Slider A-->
+                            <label class="slider">
+                                <span class="sliderMin">-1</span>
+                                <input id="AController" class="inputs" type="range" value="1" min="-1" max="3" step="0.1"/>
+                                <span class="sliderMax">3</span></label>
+                            <!--END Slider A-->
+
+                            <!--BEGIN Slider L-->
+                            <label class="slider-label">Period:
+                                <span id="LControllerDisplay" data-unit="">1</span>
+                            </label>
+                            <!--Slider L-->
+                            <label class="slider">
+                                <span class="sliderMin">0</span>
+                                <input id="LController" class="inputs" type="range" value="1" min="0" max="1" step="0.05"/>
+                                <span class="sliderMax">1</span>
+                            </label>
+                            <!--END Slider L-->
+
+                        </div>
+
+                    </div>
+
+                    <div class="rightload text" id='loadout2sub4' key="loadout2sub4" v-else>
+
+                        Interactive Zone 2 - BLANK
 
                     </div>
 

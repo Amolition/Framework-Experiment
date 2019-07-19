@@ -92,10 +92,11 @@ let app = new Vue ({
 
         updateSubSection: function (newSubSection) {
             if (app.derivationSubSection !== newSubSection) {
-                app.derivationSubSection = newSubSection
+                app.derivationSubSection = newSubSection;
             } else {
-                app.derivationSubSection = 0
+                app.derivationSubSection = 0;
             }
+            app.$forceUpdate();
         },
     },
 
@@ -111,7 +112,7 @@ let app = new Vue ({
                     document.querySelectorAll('.scriptSpace')[0].removeChild(app.removeScript);
                 }
             }
-            
+
             for (let i=1; i<=app.rightScripts[newValue-1].length; i++) {
 
                 app.addScript = document.createElement("script");
@@ -132,6 +133,13 @@ let app = new Vue ({
                     setTimeout (function () {app.sectionTitle[i-1] = app.sectionTitleLong[i-1];}, 20);
                     setTimeout (function () {app.$forceUpdate();}, 100);
                 }
+            }
+        },
+
+        derivationSubSection: function (newValue, oldValue) {
+
+            if (app.currentSection === 2) {
+                
             }
         }
     },
