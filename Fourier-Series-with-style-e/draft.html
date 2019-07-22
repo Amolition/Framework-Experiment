@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script type="module">
+  import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.js'
+</script>-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+
+
+<div id="topBar"> <a href ="#" onclick="load_home()"> HOME </a> </div>
+<div id ="content"> </div>
+<iframe src="0Orthogonality.html">
+    alternative content for browsers which do not support iframe.
+</iframe>
+
+<script>
+    /*function load_home() {
+     document.getElementById("content").html='<object type="text/html" data="0Orthogonality.html" ></object>';
+}*/
+    $(document).ready(() => {
+        function load_home(){
+            $("#content")
+            .html('<object data="0Orthogonality.html"/>');
+        }
+        $('#topBar').on('click', () => {
+            $("#content")
+            .html('<object data="0Orthogonality.html"/>');
+        })
+    });
+
+</script>
+<!--
+
+
+<div id="example-1" class="demo">
+  <button v-on:click="counter += 1">Add 1</button>
+  <p>The button above has been clicked {{ counter }} times.</p>
+</div>
+<script>
+var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    counter: 0
+  }
+})
+</script>
+
+
+<div id="demo">
+  <button v-on:click="show = !show">
+    Toggle
+  </button>
+  <transition name="demo-transition">
+    <p v-if="show">hello</p>
+  </transition>
+</div>
+<script>
+new Vue({
+  el: '#demo',
+  data: {
+    show: true
+  }
+})
+</script>
+<style>
+.demo-transition-enter-active, .demo-transition-leave-active {
+  transition: opacity .5s
+}
+.demo-transition-enter, .demo-transition-leave-to {
+  opacity: 0
+}
+</style>
+
+<div id="button-1">
+
+                <button class="derivation_collapse" id="derive" v-on:click="show = !show" >Derivation</button>
+&lt;!&ndash; v-bind, write a function for click, style the hidden section, recalculate the height, update each time&ndash;&gt;
+                <transition name="slide-fade">
+                    <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                    </p>
+                </transition>
+                </div>
+            <script>
+                    new Vue({
+                      el: '#button-1',
+                      data: {
+                        show: false
+                      }
+                    })
+                </script>
+            <style>
+
+                .slide-fade-enter-active, .slide-fade-leave-active {
+                  transition: opacity .3s;
+                }
+                .slide-fade-enter, .slide-fade-leave-to {
+                  opacity: 0;
+                }
+
+            </style>
+-->
+
+
+</body>
+</html>
