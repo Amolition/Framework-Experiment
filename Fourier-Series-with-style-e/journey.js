@@ -221,6 +221,48 @@ window.onload = function () {
 
             },
 
+            showinfo: function(event){
+                let value = document.getElementById("fourierselect").value;
+                    //show div
+            if (value==1){
+                $("#parabolic").show();
+                //$('#parabolic').scrollIntoView({behavior: "smooth"});
+                $("#delta").hide();
+                $("#square").hide();
+                $("#sawtooth").hide();
+                $("#modx").hide();
+            } else if (value==2){
+                $("#parabolic").hide();
+                $("#delta").show();
+                //setTimeout(function () {$('#delta').scrollIntoView({behavior: "smooth"});}, 500);
+                $("#square").hide();
+                $("#sawtooth").hide();
+                $("#modx").hide();
+            } else if (value==3){
+                $("#parabolic").hide();
+                $("#delta").hide();
+                $("#square").show();
+                //setTimeout(function () {$('#square').scrollIntoView({behavior: "smooth"});}, 500);
+                $("#sawtooth").hide();
+                $("#modx").hide();
+            } else if (value==4){
+                $("#parabolic").hide();
+                $("#delta").hide();
+                $("#square").hide();
+                $("#sawtooth").show();
+                //setTimeout(function () {$('#sawtooth').scrollIntoView({behavior: "smooth"});}, 500);
+                $("#modx").hide();
+            } else if (value==5){
+                $("#parabolic").hide();
+                $("#delta").hide();
+                $("#square").hide();
+                $("#sawtooth").hide();
+                $("#modx").show();
+                //setTimeout(function () {$('#modx').scrollIntoView({behavior: "smooth"});}, 500);
+            }
+
+            },
+
             /*OnScroll: function (event) {
                 this.scrolling = parseFloat($(".container_journey").scrollTop());
                 if (this.scrolling < pg_heights[0]) {
@@ -319,7 +361,7 @@ window.onload = function () {
         // to show the function content selected
 
         function showinfo() {
-            var value = document.getElementById("fourierselect").value;
+            let value = document.getElementById("fourierselect").value;
                     //show div
             if (value==1){
                 $("#parabolic").show();
@@ -360,13 +402,13 @@ window.onload = function () {
 
         }
 
-        function unlock(){
+        /*function unlock(){
             let v1=document.querySelector('.container_vis');
             let v2=document.querySelector(".container_vis_2");
             v1.classList.toggle('hide');
             v2.classList.toggle('hide');
 
-        }
+        }*/
 
     //console.log('executed')
         $("#fourierselect").on('click',() => {

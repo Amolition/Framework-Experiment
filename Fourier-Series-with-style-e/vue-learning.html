@@ -340,7 +340,7 @@
 </div>
 <div>
 
-    <select id="fourierselect" class="derivation_collapse" onchange="showinfo()">
+    <select id="fourierselect" class="derivation_collapse" >
         <option selected="selected">Select a function</option>
         <option value="1">Parabolic Fourier Series Derivation</option>
         <option value="2">Dirac-Delta Fourier Series Derivation</option>
@@ -351,10 +351,10 @@
 
 </div>
 <hr>
-<!--<transition
+<transition
     name="custom-classes-transition"
     enter-active-class="animated slideInDown"
-    >-->
+    >
 <div id="parabolic" class="divclass bigdropdown hide">
     <h4 style="border: blue solid 1px"> Parabolic Fourier Series Derivation </h4>
     <p>The parabolic function is defined as:</p>
@@ -426,6 +426,7 @@
 
     <!--<a href="#fourierselect" id="close" v-on:click="hide" style="background-color: #b3d3e6; border-radius: 3px; border: 2px #b0b0ff solid">Close</a>-->
 </div>
+</transition>
 
 <div id="delta" class="divclass bigdropdown hide">
     <h4 style="border: blue solid 1px"> Dirac-Delta Fourier Series Derivation </h4>
