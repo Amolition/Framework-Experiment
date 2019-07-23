@@ -91,7 +91,12 @@ window.onload = function () {
             showpage4: false,
             showpage5: false,
             currentsec: 0,
-
+            active1: false,
+            active2: false,
+            active3: false,
+            active4: false,
+            active5: false,
+            lock: true,
             
         },
         methods: {
@@ -101,7 +106,10 @@ window.onload = function () {
                 // need simplification
 
                 if (this.scrolling < pg_heights[0]) {
-                    app.currentsec=1;
+                    if(this.lock){
+                        this.currentsec=1;
+                    }
+
                     progress_buttons[0].style = "background-color: #ccffff";//; color: white;";
                     /*progress_buttons[1].style = "background-color: white;" //"background-color: white; color: black;";
                     progress_buttons[2].style = "background-color: white;";
@@ -119,7 +127,10 @@ window.onload = function () {
 
 
                 } else if (this.scrolling <= pg_heights[1]) {
-                    app.currentsec=2;
+                    if(this.lock){
+                        app.currentsec=2;
+                    }
+
                     //progress_buttons[0].style = "background-color: white;";
                     progress_buttons[1].style = "background-color: #ccffff"; //; color: white;";
                     /*progress_buttons[2].style = "background-color: white;";
@@ -135,7 +146,10 @@ window.onload = function () {
                     section_titles[2].style = "display: none";
                     section_titles[3].style = "display: none";
                 } else if (this.scrolling <= pg_heights[2]) {
-                    app.currentsec=3;
+                    if(this.lock){
+                        app.currentsec=3;
+                    }
+
                     /*progress_buttons[0].style = "background-color: white;";
                     progress_buttons[1].style = "background-color: white;";
                     */
@@ -152,7 +166,10 @@ window.onload = function () {
                     section_titles[2].style = "position: fixed; top: 0; z-index: 997; display: block"
 
                 } else if (this.scrolling <= pg_heights[3]) {
-                    app.currentsec=4;
+                    if(this.lock){
+                        app.currentsec=4;
+                    }
+
                     /*progress_buttons[0].style = "background-color: white;";
                     progress_buttons[1].style = "background-color: white;";
                     progress_buttons[2].style = "background-color: white;";
@@ -169,7 +186,10 @@ window.onload = function () {
                     section_titles[3].style = "position: fixed; top: 0; z-index: 996; display: block"
 
                 } else if (this.scrolling <= pg_heights[4]) {
-                    app.currentsec=5;
+                    if(this.lock){
+                        app.currentsec=5;
+                    }
+
                     /*progress_buttons[0].style = "background-color: white;";
                     progress_buttons[1].style = "background-color: white;";
                     progress_buttons[2].style = "background-color: white;";
@@ -186,6 +206,19 @@ window.onload = function () {
                     section_titles[4].style = "position: fixed; top: 0; z-index: 996; display: block"
 
                 }
+            },
+            unlock: function (event){
+                if(app.currentsec==10){
+                    app.currentsec=0;
+                    this.lock = true;
+                    document.getElementById("unlock").innerHTML="Unlock page";
+                } else {
+                    app.currentsec=10;
+                    this.lock=false;
+                    document.getElementById("unlock").innerHTML="Lock page";
+                }
+
+
             },
 
             /*OnScroll: function (event) {
@@ -212,6 +245,27 @@ window.onload = function () {
             let scrollTarget = event.currentTarget;
             setTimeout(function () {scrollTarget.scrollIntoView({behavior: "smooth"});}, 500);
         },
+            mouseOver1: function(){
+            this.active1 = !this.active1;
+        },
+        mouseOver2: function(){
+            this.active2 = !this.active2;
+        },
+        mouseOver3: function(){
+            this.active3 = !this.active3;
+        },
+        mouseOver4: function(){
+            this.active4 = !this.active4;
+        },
+        mouseOver5: function(){
+            this.active5 = !this.active5;
+        },
+            /*checksec: function(){
+                this.scrolling = parseFloat($(".container_journey").scrollTop());
+                if(this.scrolling < pg_heights[0]){
+
+                }
+            }*/
 
 
         },
@@ -269,6 +323,7 @@ window.onload = function () {
                     //show div
             if (value==1){
                 $("#parabolic").show();
+                //$('#parabolic').scrollIntoView({behavior: "smooth"});
                 $("#delta").hide();
                 $("#square").hide();
                 $("#sawtooth").hide();
@@ -276,6 +331,7 @@ window.onload = function () {
             } else if (value==2){
                 $("#parabolic").hide();
                 $("#delta").show();
+                //setTimeout(function () {$('#delta').scrollIntoView({behavior: "smooth"});}, 500);
                 $("#square").hide();
                 $("#sawtooth").hide();
                 $("#modx").hide();
@@ -283,6 +339,7 @@ window.onload = function () {
                 $("#parabolic").hide();
                 $("#delta").hide();
                 $("#square").show();
+                //setTimeout(function () {$('#square').scrollIntoView({behavior: "smooth"});}, 500);
                 $("#sawtooth").hide();
                 $("#modx").hide();
             } else if (value==4){
@@ -290,6 +347,7 @@ window.onload = function () {
                 $("#delta").hide();
                 $("#square").hide();
                 $("#sawtooth").show();
+                //setTimeout(function () {$('#sawtooth').scrollIntoView({behavior: "smooth"});}, 500);
                 $("#modx").hide();
             } else if (value==5){
                 $("#parabolic").hide();
@@ -297,9 +355,19 @@ window.onload = function () {
                 $("#square").hide();
                 $("#sawtooth").hide();
                 $("#modx").show();
+                //setTimeout(function () {$('#modx').scrollIntoView({behavior: "smooth"});}, 500);
             }
 
         }
+
+        function unlock(){
+            let v1=document.querySelector('.container_vis');
+            let v2=document.querySelector(".container_vis_2");
+            v1.classList.toggle('hide');
+            v2.classList.toggle('hide');
+
+        }
+
     //console.log('executed')
         $("#fourierselect").on('click',() => {
             showinfo()
