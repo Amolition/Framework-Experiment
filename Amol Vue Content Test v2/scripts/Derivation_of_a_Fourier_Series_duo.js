@@ -86,10 +86,10 @@ function combination(y_triangle, y_sine) {
 // By recalling the sine_n function and the triangular_function, plot out but functions in the first graph
 function plot_triangle_sine() {
     var resolution = 2000;
-    var L = parseFloat(document.getElementById('LController').value);
+    var L = parseFloat(document.getElementById('LControllerSec2Sub2').value);
     //console.log(L);
-    var A = parseFloat(document.getElementById('AController').value);
-    var n = parseFloat(document.getElementById('N2Controller').value);
+    var A = parseFloat(document.getElementById('AControllerSec2Sub2').value);
+    var n = parseFloat(document.getElementById('NControllerSec2Sub2').value);
     var x = numeric.linspace(0, L, resolution);
     var mid_x = L / 2;
     var mid_y
@@ -131,9 +131,9 @@ function plot_triangle_sine() {
 // plot out the product of triangular function and the sine function.
 function plot_combination() {
     var resolution = 2000;
-    var L = parseFloat(document.getElementById('LController').value);
-    var A = parseFloat(document.getElementById('AController').value);
-    var n = parseFloat(document.getElementById('N2Controller').value);
+    var L = parseFloat(document.getElementById('LControllerSec2Sub2').value);
+    var A = parseFloat(document.getElementById('AControllerSec2Sub2').value);
+    var n = parseFloat(document.getElementById('NControllerSec2Sub2').value);
     var x = numeric.linspace(0, L, resolution);
 
     [x_triangle, y_triangle] = triangle_function(x, L, A);

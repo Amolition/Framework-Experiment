@@ -11,7 +11,7 @@ let app = new Vue ({
         previousSection: 0,
         sectionTops: [],
         sectionBottoms: [],
-        sectionTitleLong: ["Orthogonality", "Derivation", "Section 3", "Section 4", "Section 5", "Section 6"],
+        sectionTitleLong: ["Orthogonality", "Derivation", "Components", "Power Spectrum", "Overview"],
         sectionTitleShort: ["1","2","3","4","5","6"],
         sectionTitle: [],
         n: "",
@@ -20,27 +20,20 @@ let app = new Vue ({
         rightScripts: [
             ["scripts/orthogonality_object.js", "scripts/0Orthogonality.js"],
             [],
-            [],
-            [],
-            [],
-            [],
+            ["scripts/Components_of_a_Fourier_Series.js"],
+            ["scripts/Power_Spectrum_of_a_Fourier_Series.js"],
+            ["scripts/Generalised_Fourier_Decomposition.js"],
         ],
         removeScript: "",
         addScript: "",
         firstRunDone: "false",
         derivationSubSection: 0,
         derivationScripts: [
-            [],
-            [],
-            [],
+            ["scripts/Visualising_Simple_Periodic_Functions.js"],
             ["scripts/Derivation_of_a_Fourier_Series_duo.js"],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
         ],
+        showEq: true,
+        equationID: "triangular",
     },
 
     methods: {
@@ -53,7 +46,7 @@ let app = new Vue ({
 
                 app.scrollPos = document.querySelectorAll(".journey")[0].scrollTop;
 
-                console.log("scrollPos: " + app.scrollPos);
+                // console.log("scrollPos: " + app.scrollPos);
 
                 function handleElement(section) {
 
@@ -63,7 +56,7 @@ let app = new Vue ({
                     let bottomSection = topSection + document.querySelectorAll("#"+"sc"+section)[0].offsetHeight - 2;
                     if (app.scrollPos >= topSection && app.scrollPos < bottomSection) {
                         app.currentSection = section;
-                        console.log(app.currentSection);
+                        // console.log(app.currentSection);
                     };
 
                 };
@@ -98,7 +91,14 @@ let app = new Vue ({
 
         subScrollTo: function (event) {
             let scrollTarget = event.currentTarget;
-            setTimeout(function () {scrollTarget.scrollIntoView({behavior: "smooth"});}, 500);
+
+            console.log(scrollTarget);
+
+            setTimeout(function () {
+                if (document.querySelectorAll(scrollTarget.dataset.target)[0].classList.contains("show")===true) {
+                    scrollTarget.scrollIntoView({behavior: "smooth"});
+                    }},
+                500);
         },
 
         updateSubSection: function (newSubSection) {
@@ -144,14 +144,57 @@ let app = new Vue ({
             }
 
             if (newValue === 2) {
-                for (let i=1; i<=app.derivationScripts[app.derivationSubSection].length; i++) {
 
-                    app.addScript = document.createElement("script");
-                    app.addScript.id ="derivationScriptS" + app.derivationSubSection + "E" + i;
-                    app.addScript.src = (app.derivationScripts[app.derivationSubSection][i-1]);
-                    app.addScript.async = false;
-                    document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                if (app.derivationSubSection !==3) {
+
+                    for (let i=1; i<=app.derivationScripts[0].length; i++) {
+
+                        app.addScript = document.createElement("script");
+                        app.addScript.id ="derivationScriptS" + 0 + "E" + i;
+                        app.addScript.src = (app.derivationScripts[0][i-1]);
+                        app.addScript.async = false;
+                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                    }
+
+                    setTimeout(function () {
+
+                        if (app.derivationSubSection > 3) {
+
+                            document.querySelectorAll('#opt' + (app.derivationSubSection - 3))[0].setAttribute("selected", "true");
+
+                            document.querySelectorAll('#SelectSec2Sub1')[0].setAttribute("disabled", "true");
+
+                            console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
+
+                            document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
+
+                            setTimeout(function () {
+
+                                selectorFunc();
+                                document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(app.derivationSubSection-3))[0].title;
+                                document.querySelectorAll("#subSecTitle")[0].style.display="block";
+
+                            }, 200);
+
+                        }
+
+                    }, 200);
+
+                } else {
+
+                    for (let i=1; i<=app.derivationScripts[1].length; i++) {
+
+                        app.addScript = document.createElement("script");
+                        app.addScript.id ="derivationScriptS" + 1 + "E" + i;
+                        app.addScript.src = (app.derivationScripts[1][i-1]);
+                        app.addScript.async = false;
+                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                    }
                 }
+            }
+
+            if (newValue === 3) {setTimeout(function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
+                }, 50)
             }
         },
 
@@ -161,16 +204,78 @@ let app = new Vue ({
 
             if (app.currentSection === 2) {
 
-                for (let i=1; i<=app.derivationScripts[newValue].length; i++) {
+                if (newValue !==3) {
 
-                    app.addScript = document.createElement("script");
-                    app.addScript.id ="derivationScriptS" + newValue + "E" + i;
-                    app.addScript.src = (app.derivationScripts[newValue][i-1]);
-                    app.addScript.async = false;
-                    document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                    for (let i=1; i<=app.derivationScripts[0].length; i++) {
+
+                        app.addScript = document.createElement("script");
+                        app.addScript.id ="derivationScriptS" + 0 + "E" + i;
+                        app.addScript.src = (app.derivationScripts[0][i-1]);
+                        app.addScript.async = false;
+                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                    }
+
+                    setTimeout(function () {
+
+                        if (oldValue > 3) {
+
+                            document.querySelectorAll('#opt' + (oldValue - 3))[0].removeAttribute("selected");
+
+                            document.querySelectorAll('#SelectSec2Sub1')[0].removeAttribute("disabled");
+
+                            document.querySelectorAll("#subSecTitle")[0].style.display = "none";
+
+                            document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "block";
+                        }
+
+                        if (newValue > 3) {
+
+                            document.querySelectorAll('#opt' + (newValue - 3))[0].setAttribute("selected", "true");
+
+                            document.querySelectorAll('#SelectSec2Sub1')[0].setAttribute("disabled", "true");
+
+                            console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
+
+                            document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
+
+                            setTimeout(function () {
+
+                                selectorFunc();
+                                document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(newValue-3))[0].title;
+                                document.querySelectorAll("#subSecTitle")[0].style.display="block";
+
+                            }, 200);
+
+                        }
+
+                    }, 200);
+
+                } else {
+
+                    for (let i=1; i<=app.derivationScripts[1].length; i++) {
+
+                        app.addScript = document.createElement("script");
+                        app.addScript.id ="derivationScriptS" + 1 + "E" + i;
+                        app.addScript.src = (app.derivationScripts[1][i-1]);
+                        app.addScript.async = false;
+                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                    }
                 }
             }
-        }
+        },
+
+        equationID: function () {
+
+            app.showEq=false;
+
+            setTimeout(
+                function () {app.showEq=true
+            }, 50);
+
+            setTimeout(
+                function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
+            }, 100)
+        },
     },
 
     mounted () {
@@ -193,7 +298,7 @@ let app = new Vue ({
 
                     this.sectionPos();
                 }
-            },5000);
+            },2000);
 
             MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]);
         }

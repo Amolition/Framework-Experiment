@@ -36,10 +36,10 @@ function setLayoutSmall(someTitles){
 
 // initialize the Cartesian coordinates for the plots and the functions
 function initFourier() {
-    Plotly.purge("graph3");
-    Plotly.purge("graph4");
-    Plotly.react("graph3", plot_decision1(label),setLayoutSmall(title1));
-    Plotly.react("graph4",plot_decision2(label),setLayoutSmall(title2));
+    Plotly.purge("graph1Sec4");
+    Plotly.purge("graph2Sec4");
+    Plotly.react("graph1Sec4", plot_decision1(label),setLayoutSmall(title1));
+    Plotly.react("graph2Sec4",plot_decision2(label),setLayoutSmall(title2));
 
     return;
 
@@ -62,8 +62,8 @@ function adding(array){
 
 // return the amplitude of a_n of the Fourier Series
 function a_n (shape, n){
-    var L = parseFloat(document.getElementById('LController').value);
-    var A = parseFloat(document.getElementById('AController').value);
+    var L = parseFloat(document.getElementById('LControllerSec4').value);
+    var A = parseFloat(document.getElementById('AControllerSec4').value);
 
     var amplitude;
     if (shape === 0) {
@@ -94,8 +94,8 @@ function a_n (shape, n){
 
 // return the amplitude of b_n of the Fourier Series
 function b_n(shape,n){
-    var L = parseFloat(document.getElementById('LController').value);
-    var A = parseFloat(document.getElementById('AController').value);
+    var L = parseFloat(document.getElementById('LControllerSec4').value);
+    var A = parseFloat(document.getElementById('AControllerSec4').value);
 
     var amplitude;
     if (n===0){
@@ -153,7 +153,7 @@ function coefficient (N){
 
 // plot the bar charts to visualize the amplitude of a_n
 function plot_an(){
-    var N = parseFloat(document.getElementById('NController').value)+1;
+    var N = parseFloat(document.getElementById('NControllerSec4').value)+1;
     [n, an, bn, alpha_n, theta_n] = coefficient(N);
     var data =
     [{
@@ -172,7 +172,7 @@ function plot_an(){
 
 // plot the bar charts to visualize the amplitude of b_n
 function plot_bn(){
-    var N = parseFloat(document.getElementById('NController').value)+1;
+    var N = parseFloat(document.getElementById('NControllerSec4').value)+1;
     [n, an, bn, alpha_n, theta_n] = coefficient(N);
     var data =
     [{
@@ -191,7 +191,7 @@ function plot_bn(){
 
 // plot the bar charts to visualize the amplitude of alpha_n
 function plot_alpha(){
-    var N = parseFloat(document.getElementById('NController').value)+1;
+    var N = parseFloat(document.getElementById('NControllerSec4').value)+1;
     [n, an, bn, alpha_n, theta_n] = coefficient(N);
 
     var data =
@@ -212,7 +212,7 @@ function plot_alpha(){
 
 // plot the bar charts to visualize the amplitude of theta_n
 function plot_theta(){
-    var N = parseFloat(document.getElementById('NController').value)+1;
+    var N = parseFloat(document.getElementById('NControllerSec4').value)+1;
 
     [n, an, bn, alpha_n, theta_n] = coefficient(N);
 
@@ -257,7 +257,7 @@ function plot_decision2(coefficient){
 function updatePlot() {
     var data;
     // NB: updates according to the active tab
-    var selectedValue = document.getElementById("Select").value; // finds out which function is active
+    var selectedValue = document.getElementById("SelectSec4").value; // finds out which function is active
     initFourier();
     // NB: updates according to the active tab
    
@@ -266,7 +266,7 @@ function updatePlot() {
         } else {
            $('#A').show(); console.log('shown');
         }});
-    var L = parseFloat(document.getElementById('LController').value);
+    var L = parseFloat(document.getElementById('LControllerSec4').value);
     
     if ((L<=0 && shape==3)||(L<=0 && shape==6)){ 
         $(document).ready(() => {
@@ -316,8 +316,8 @@ function main() {
     // as you select the functions you want from the scroll down
     // change the shape and the plots
     // change the titles and the math derivations
-    $('#Select').change(function(){
-        var selectedValue = document.getElementById("Select").value;
+    $('#SelectSec4').change(function(){
+        var selectedValue = document.getElementById("SelectSec4").value;
         if (selectedValue==="main"){
             shape = 0;
         } else if (selectedValue==="triangular"){

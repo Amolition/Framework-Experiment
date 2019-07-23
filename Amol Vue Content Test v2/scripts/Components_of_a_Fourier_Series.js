@@ -1,10 +1,10 @@
 /*jshint esversion: 7 */
 //Global Initial Parameters:
-const layout = {
-    autosize: true,
+var layout = {
+    //autosize: true,
     margin: {l: 30, r: 40, t: 30, b: 30},
     hovermode: "closest",
-    xaxis: {range: [-5, 5], zeroline: true, title: "x"},
+    xaxis: {range: [-5, 5], zeroline: true, title: ""},
     yaxis: {
         range: [0, 305], zeroline: true, title: "$N$", showticklabels: true, tickmode: 'array',
         tickvals: [30, 60, 90, 120, 150, 180, 210, 240, 270,300],
@@ -21,9 +21,9 @@ var resolution = 4000;
 var z = numeric.linspace(-2 * Math.PI, 2 * Math.PI, resolution);
 // Define our interacting Jquery elements
 
-var Nslider = $("#NController");
-var Lslider = $("#LController");
-var Aslider = $("#AController");
+var Nslider = $("#NControllerSec3");
+var Lslider = $("#LControllerSec3");
+var Aslider = $("#AControllerSec3");
 
 //----------------------------------------------------------------------------------------------------------------------
 //VERY IMPORTANT!!!
@@ -46,11 +46,11 @@ function setLayout() {
         y_lab.push(29.5 * (i + 1));
     }
     const new_layout = {
-        autosize: true,
+        // autosize: true,
         showlegend: false,
         margin: {l: 45, r: 60, t: 0, b: 30},
         hovermode: "closest",
-        xaxis: {range: [], zeroline: true, title: "$x$"},
+        xaxis: {range: [], zeroline: true, title: ""},
         yaxis: {
             range: [0, 305], zeroline: true, title: "", showticklabels: true, tickmode: 'array',
             tickvals: y_lab,
@@ -67,15 +67,15 @@ function setLayout() {
 
 // initialize the Cartesian coordinates for the plots and the functions
 function initFourier() {
-    Plotly.purge("graph");
+    Plotly.purge("graph1Sec3");
     console.log(computeComponents());
-    Plotly.newPlot("graph", computeComponents(z), setLayout());
-    $("#Triangle_eqn").show();
-    $("#Square_eqn").hide();
-    $("#Sawtooth_eqn").hide();
-    $("#Dirac_eqn").hide();
-    $("#Parabola_eqn").hide();
-    $("#Modx_eqn").hide();
+    Plotly.newPlot("graph1Sec3", computeComponents(z), setLayout());
+    // $("#Triangle_eqn").show();
+    // $("#Square_eqn").hide();
+    // $("#Sawtooth_eqn").hide();
+    // $("#Dirac_eqn").hide();
+    // $("#Parabola_eqn").hide();
+    // $("#Modx_eqn").hide();
 }
 
 
@@ -213,60 +213,60 @@ function computeComponents(x) {
 function updatePlot() {
     var data;
     // NB: updates according to the active tab
-    var selectedValue = document.getElementById("Select").value; // finds out which function is active
+    var selectedValue = document.getElementById("SelectSec3").value; // finds out which function is active
     $(document).ready(() => {
         if (shape === 3) {
-            $('#A').hide();
-
-            $("#Triangle_eqn").hide();
-            $("#Square_eqn").hide();
-            $("#Sawtooth_eqn").hide();
-            $("#Dirac_eqn").show();
-            $("#Parabola_eqn").hide();
-            $("#Modx_eqn").hide();
+            $('#ASec3').hide();
+            //
+            // $("#Triangle_eqn").hide();
+            // $("#Square_eqn").hide();
+            // $("#Sawtooth_eqn").hide();
+            // $("#Dirac_eqn").show();
+            // $("#Parabola_eqn").hide();
+            // $("#Modx_eqn").hide();
 
         } else {
-            $('#A').show();
-            if (shape === 0)  $(document).ready(() => {
-                $("#Triangle_eqn").show();
-                $("#Square_eqn").hide();
-                $("#Sawtooth_eqn").hide();
-                $("#Dirac_eqn").hide();
-                $("#Parabola_eqn").hide();
-                $("#Modx_eqn").hide();
-            });
-            else if (shape === 1)  $(document).ready(() => {
-                $("#Triangle_eqn").hide();
-                $("#Square_eqn").show();
-                $("#Sawtooth_eqn").hide();
-                $("#Dirac_eqn").hide();
-                $("#Parabola_eqn").hide();
-                $("#Modx_eqn").hide();
-            });
-            else if (shape === 2)  $(document).ready(() => {
-                $("#Triangle_eqn").hide();
-                $("#Square_eqn").hide();
-                $("#Sawtooth_eqn").show();
-                $("#Dirac_eqn").hide();
-                $("#Parabola_eqn").hide();
-                $("#Modx_eqn").hide();
-            });
-            else if (shape === 4)  $(document).ready(() => {
-                $("#Triangle_eqn").hide();
-                $("#Square_eqn").hide();
-                $("#Sawtooth_eqn").hide();
-                $("#Dirac_eqn").hide();
-                $("#Parabola_eqn").show();
-                $("#Modx_eqn").hide();
-            });
-            else if (shape === 6)  $(document).ready(() => {
-                $("#Triangle_eqn").hide();
-                $("#Square_eqn").hide();
-                $("#Sawtooth_eqn").hide();
-                $("#Dirac_eqn").hide();
-                $("#Parabola_eqn").hide();
-                $("#Modx_eqn").show();
-            });
+            $('#ASec3').show();
+            // if (shape === 0)  $(document).ready(() => {
+            //     $("#Triangle_eqn").show();
+            //     $("#Square_eqn").hide();
+            //     $("#Sawtooth_eqn").hide();
+            //     $("#Dirac_eqn").hide();
+            //     $("#Parabola_eqn").hide();
+            //     $("#Modx_eqn").hide();
+            // });
+            // else if (shape === 1)  $(document).ready(() => {
+            //     $("#Triangle_eqn").hide();
+            //     $("#Square_eqn").show();
+            //     $("#Sawtooth_eqn").hide();
+            //     $("#Dirac_eqn").hide();
+            //     $("#Parabola_eqn").hide();
+            //     $("#Modx_eqn").hide();
+            // });
+            // else if (shape === 2)  $(document).ready(() => {
+            //     $("#Triangle_eqn").hide();
+            //     $("#Square_eqn").hide();
+            //     $("#Sawtooth_eqn").show();
+            //     $("#Dirac_eqn").hide();
+            //     $("#Parabola_eqn").hide();
+            //     $("#Modx_eqn").hide();
+            // });
+            // else if (shape === 4)  $(document).ready(() => {
+            //     $("#Triangle_eqn").hide();
+            //     $("#Square_eqn").hide();
+            //     $("#Sawtooth_eqn").hide();
+            //     $("#Dirac_eqn").hide();
+            //     $("#Parabola_eqn").show();
+            //     $("#Modx_eqn").hide();
+            // });
+            // else if (shape === 6)  $(document).ready(() => {
+            //     $("#Triangle_eqn").hide();
+            //     $("#Square_eqn").hide();
+            //     $("#Sawtooth_eqn").hide();
+            //     $("#Dirac_eqn").hide();
+            //     $("#Parabola_eqn").hide();
+            //     $("#Modx_eqn").show();
+            // });
 
         }
     });
@@ -275,9 +275,12 @@ function updatePlot() {
 
 function main() {
 
+    console.log("mainRunning");
+
     /*Jquery*/ //NB: Put Jquery stuff in the main not in HTML
     $("input[type=range]").each(function () {
         /*Allows for live update for display values*/
+        console.log("fired");
         $(this).on('input', function () {
             //Displays: (FLT Value) + (Corresponding Unit(if defined))
             $("#" + $(this).attr("id") + "Display").text($(this).val() + $("#" + $(this).attr("id") + "Display").attr("data-unit"));
@@ -290,8 +293,9 @@ function main() {
     // as you select the functions you want from the scroll down
     // change the shape and the plots
     // change the titles and the math derivations
-    $('#Select').change(function () {
-        var selectedValue = document.getElementById("Select").value;
+    $('#SelectSec3').change(function () {
+        var selectedValue = document.getElementById("SelectSec3").value;
+        console.log(selectedValue);
         if (selectedValue === "main") {
             shape = 0;
             updatePlot();
