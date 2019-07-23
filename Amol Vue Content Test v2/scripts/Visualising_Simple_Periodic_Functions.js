@@ -1,6 +1,6 @@
 //Global Initial Parameters:
-const layout = {
-    autosize: true,
+var layout = {
+    // autosize: true,
     hovermode: "closest",
     margin: {l:30, r:30, t:30, b:30},
     showlegend: false,
@@ -9,22 +9,22 @@ const layout = {
     aspectratio: {x:1, y:1}
 };
 
-let defaultHref = window.location.href;
-let initX = 0, initY = 0;
-let resolution = 2000;
+var defaultHref = window.location.href;
+var initX = 0, initY = 0;
+var resolution = 2000;
 // set the step of the x axis from -2pi to 2pi
-let z = numeric.linspace(-2*Math.PI,2*Math.PI,resolution);
+var z = numeric.linspace(-2*Math.PI,2*Math.PI,resolution);
 //----------------------------------------------------------------------------------------------------------------------
 //VERY IMPORTANT!!!
 // 0 is triangular, 1 is square, 2 is sawtooth, 3 is delta's, 4 is parabola, 5 is x, 6 is |x|,
-let shape = 0;
+var shape = 0;
 //----------------------------------------------------------------------------------------------------------------------
 
 
 // initialize the Cartesian coordinates for the plots and the functions
 function initFourier() {
-    Plotly.purge("graph");
-    Plotly.newPlot("graph", computePlot(z), layout);
+    Plotly.purge("graph0Sec2");
+    Plotly.newPlot("graph0Sec2", computePlot(z), layout);
     return;
 }
 
@@ -72,9 +72,9 @@ function selection(n,A,L,x,type){
 // so at x, we have terms n=0, n=1, n=2..., we sum up all the amplitudes y=y0+y1+y2+... y0 at n=0, y1 at n=1, y2 at n=2...
 function summation(x) {
     //Goes through and sums up each component of the summand up to N
-    let N = parseFloat(document.getElementById('NController').value);
-    let L = parseFloat(document.getElementById('LController').value);
-    let A = parseFloat(document.getElementById('AController').value);
+    let N = parseFloat(document.getElementById('NControllerSec2Sub1').value);
+    let L = parseFloat(document.getElementById('LControllerSec2Sub1').value);
+    let A = parseFloat(document.getElementById('AControllerSec2Sub1').value);
 
     n = numeric.linspace(1,N,N);
 
@@ -125,9 +125,9 @@ function c_intercept(shape, N,A,L) {
 // so all the y_value_cheat starts at the midpoint of the y_value (equivalently, it's the average value)
 function computePlot(x){
     //Just plots the sum approximation of the function
-    let N = parseFloat(document.getElementById('NController').value);
-    let L = parseFloat(document.getElementById('LController').value);
-    let A = parseFloat(document.getElementById('AController').value);
+    let N = parseFloat(document.getElementById('NControllerSec2Sub1').value);
+    let L = parseFloat(document.getElementById('LControllerSec2Sub1').value);
+    let A = parseFloat(document.getElementById('AControllerSec2Sub1').value);
 
     let x_values = [];
     let y_values = [];
@@ -181,16 +181,16 @@ function computePlot(x){
 function updatePlot() {
     let data;
     // NB: updates according to the active tab
-    let selectedValue = document.getElementById("Select").value; // finds out which function is active
+    let selectedValue = document.getElementById("SelectSec2Sub1").value; // finds out which function is active
         $(document).ready(() => { if (shape===3) {
-            $('#A').hide(); console.log('hidden')
+            $('#ASec2Sub1').hide(); console.log('hidden')
         } else {
-           $('#A').show(); console.log('shown')
+           $('#ASec2Sub1').show(); console.log('shown')
         }})
     data = computePlot(z);
     //This is animation bit.
     Plotly.animate(
-        'graph',
+        'graph0Sec2',
         {data: data},
         {
             fromcurrent: true,
@@ -200,6 +200,33 @@ function updatePlot() {
         }
     );
 }
+
+function selectorFunc () {
+    let selectedValue = document.getElementById("SelectSec2Sub1").value;
+    if (selectedValue==="main"){
+        shape = 0;
+    } else if (selectedValue==="triangular"){
+        shape = 0;
+        updatePlot();
+    } else if (selectedValue==="square"){
+        shape = 1;
+        updatePlot();
+    } else if (selectedValue==="sawtooth"){
+        shape = 2;
+        updatePlot();
+    } else if (selectedValue==="dirac"){
+        shape = 3;
+        updatePlot();
+    } else if (selectedValue==="parabola"){
+        shape = 4;
+        updatePlot();
+    }  else if (selectedValue==="mode"){
+        shape = 6;
+        updatePlot();
+    };
+
+    initFourier();
+};
 
 function main() {
 
@@ -218,34 +245,9 @@ function main() {
     // as you select the functions you want from the scroll down
     // change the shape and the plots
     // change the titles and the math derivations
-    $('#Select').change(function(){
-        let selectedValue = document.getElementById("Select").value;
-        if (selectedValue==="main"){
-            shape = 0;
-        } else if (selectedValue==="triangular"){
-            shape = 0;
-            updatePlot();
-        } else if (selectedValue==="square"){
-            shape = 1;
-            updatePlot();
-        } else if (selectedValue==="sawtooth"){
-            shape = 2;
-            updatePlot();
-        } else if (selectedValue==="dirac"){
-            shape = 3;
-            updatePlot();
-        } else if (selectedValue==="parabola"){
-            shape = 4;
-            updatePlot();
-        }  else if (selectedValue==="mode"){
-            shape = 6;
-            updatePlot();
-        }
-        $(".title").hide();
-        $("#"+selectedValue+"Title").show();
-        initFourier();
-    })
+    $('#SelectSec2Sub1').change(selectorFunc);
 
     initFourier();
 }
+
 $(document).ready(main); //Load main when document is ready.

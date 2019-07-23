@@ -108,6 +108,70 @@
 #loadout2 {
 }
 
+#loadout2 #graph0Sec2 {
+    width: 60vw;
+    height: 30vw;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+}
+
+#loadout2 #scrollSec2Sub1 {
+    width: 67vw;
+    position: absolute;
+    top: 20px;
+    display: table;
+    margin: 0 auto;
+}
+
+#loadout2 .scroll_down {
+    display: table;
+    margin: 0 auto;
+}
+
+#loadout2 #loadout2sub0 #subSecTitle {
+    display: none;
+    width: inherit;
+    position: absolute;
+    top:20px;
+    text-align: center;
+}
+
+#loadout2 #loadout2sub0 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    width: 60vw;
+    height: 25vh;
+}
+
+#loadout2 #loadout2sub0 .partial-sliders-container {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout2 #loadout2sub0 .slider-label {
+    font-size: 14pt;
+    text-align: left;
+    padding-left: 8px;
+    margin: 0;
+    padding-top: 0;
+    flex-basis: 0;
+    flex-grow: 0.5;
+    flex-shrink: 1;
+}
+
+#loadout2 #loadout2sub0 .slider {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
 #loadout2 #graph1Sec2 {
     width: 35vw;
     height: 22.5vw;
@@ -124,7 +188,7 @@
     bottom: 20px;
 }
 
-#loadout2 .overall-sliders-container {
+#loadout2 #loadout2sub3 .overall-sliders-container {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -134,11 +198,7 @@
     height: 90vh;
 }
 
-#loadout2 .slider-label {
-    /*position: absolute;*/
-    /*right: 50px;*/
-    /*height: 10vh;*/
-    /*width: 15vw;*/
+#loadout2 #loadout2sub3 .slider-label {
     font-size: 20pt;
     text-align: left;
     padding-left: 8px;
@@ -149,10 +209,7 @@
     flex-shrink: 1;
 }
 
-#loadout2 .slider {
-    /*position: absolute;*/
-    /*right:50px;*/
-    /*width: 20vw;*/
+#loadout2 #loadout2sub3 .slider {
     flex-basis: 0;
     flex-grow: 1;
     flex-shrink: 1;
@@ -161,18 +218,235 @@
 /* SECTION 3 */
 
 #loadout3 {
-    color: #958023;
-    background: #b4b391;
 }
+
+#loadout3 #graph1Sec3 {
+    width: 60vw;
+    height: 30vw;
+    position: absolute;
+    left: 50px;
+    top: 75px;
+}
+
+#loadout3 #scrollSec3 {
+    width: 67vw;
+    position: absolute;
+    top: 20px;
+    display: table;
+    margin: 0 auto;
+}
+
+#loadout3 .scroll_down {
+    display: table;
+    margin: 0 auto;
+}
+
+#loadout3 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    width: 40vw;
+    height: 25vh;
+}
+
+#loadout3 .partial-sliders-container {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout3 .slider-label {
+    font-size: 14pt;
+    text-align: left;
+    padding-left: 8px;
+    margin: 0;
+    padding-top: 0;
+    flex-basis: 0;
+    flex-grow: 0.5;
+    flex-shrink: 1;
+}
+
+#loadout3 .slider {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+#loadout3 #equationSpace {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    width: 25vw;
+    height: 25vh;
+}
+
+#loadout3 #eqnTitle {
+    width: inherit;
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+
+/* SECTION 4 */
 
 #loadout4 {
-    color: #b4313d;
-    background: #b49093;
 }
 
+#loadout4 #graph1Sec4 {
+    width: 35vw;
+    height: 22.5vw;
+    position: absolute;
+    left: 50px;
+    top: 20px;
+}
+
+#loadout4 #graph2Sec4 {
+    width: 35vw;
+    height: 22.5vw;
+    position: absolute;
+    left: 50px;
+    bottom: 20px;
+}
+
+#loadout4 .inputsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    width: 25vw;
+    height: 90vh;
+}
+
+#loadout4 .selectorContainer {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+#loadout4 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 4;
+}
+
+#loadout4 .partial-sliders-container {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: center;
+}
+
+#loadout4 .slider-label {
+    font-size: 14pt;
+    text-align: left;
+    padding-left: 8px;
+    margin: 0;
+    padding-top: 0;
+    flex-basis: 0;
+    flex-grow: 0.5;
+    flex-shrink: 1;
+}
+
+#loadout4 .slider {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+/* SECTION 5 */
+
 #loadout5 {
-    color: #6000b4;
-    background: #a694b4;
+}
+
+#loadout5 #graph1Sec5 {
+    width: 30vw;
+    height: 22.5vw;
+    position: absolute;
+    left: 50px;
+    top: 20px;
+}
+
+#loadout5 #graph2Sec5 {
+    width: 30vw;
+    height: 22.5vw;
+    position: absolute;
+    left: 50px;
+    bottom: 20px;
+}
+
+#loadout5 #graph3Sec5 {
+    width: 30vw;
+    height: 22.5vw;
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+}
+
+#loadout5 #inputSec5 {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+#loadout5 #coefficientSec5 {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+#loadout5 .inputsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    width: 30vw;
+    height: 40vh;
+}
+
+#loadout5 .selectorContainer {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+#loadout5 .overall-sliders-container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 4;
+}
+
+#loadout5 .partial-sliders-container {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: center;
+}
+
+#loadout5 .slider-label {
+    font-size: 14pt;
+    text-align: left;
+    padding-left: 8px;
+    margin: 0;
+    padding-top: 0;
+    flex-basis: 0;
+    flex-grow: 0.5;
+    flex-shrink: 1;
+}
+
+#loadout5 .slider {
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 #loadoutblank {
