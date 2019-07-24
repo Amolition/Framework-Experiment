@@ -32,8 +32,6 @@
     },
     "HTML-CSS": { fonts: ["TeX"] }
   });
-
-
     </script>
     <script type="text/javascript" src="scripts/MathJax-master/MathJax.js">
     </script>
@@ -41,13 +39,16 @@
 </head>
 
 <body>
-    <div class="six columns">
+<div style="width:100%;">
+    <div class="six columns" style="top: 20vh">
         <h5></h5>
         <div id='graph3' style="width:450px; height:250px;"></div>
+        <br>
+        <br>
         <div id='graph4' style="width:450px; height:250px;"></div>
     </div>
 
-    <div class="five columns">
+    <div class="five columns" style="top: 25vh; right: 2vw; position: absolute">
         <!--BEGIN Slider n-->
         <label class="sliderTitle">Term Number:
             <span id="N2ControllerDisplay" data-unit="">1</span>
@@ -85,8 +86,8 @@
         </label>
         <!--END Slider L-->
     </div>
-
-    <script src=scripts/Derivation_of_a_Fourier_Series_duo.js></script>
+</div>
+    <script src=scripts/scripts/Derivation_of_a_Fourier_Series_duo.js></script>
 </body>
 
 </html>

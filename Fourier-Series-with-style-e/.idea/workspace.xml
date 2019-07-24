@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fffd6940-2464-450d-a064-dd088e74ef8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-learning.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue-learning.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/0Orthogonality.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/0Orthogonality.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/1Fourier_derivation_graphs.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/1Fourier_derivation_graphs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/2SPF_Interactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/2SPF_Interactive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/3CoFS_Interactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/3CoFS_Interactive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/4PSFS_Interactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/4PSFS_Interactive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/5Generalised_Fourier_Decomposition.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/5Generalised_Fourier_Decomposition.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/index_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/index_Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/nav_Script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/nav_Script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VisualisationsLogoWhite.svg" beforeDir="false" afterPath="$PROJECT_DIR$/VisualisationsLogoWhite.svg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vue-learning.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2076">
-              <caret line="772" column="95" lean-forward="true" selection-start-line="768" selection-start-column="4" selection-end-line="772" selection-end-column="95" />
+            <state relative-caret-position="14383">
+              <caret line="775" column="106" lean-forward="true" selection-start-line="775" selection-start-column="4" selection-end-line="775" selection-end-column="106" />
               <folding>
                 <element signature="n#style#0;n#h4#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h4#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -127,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="152" column="18" selection-start-line="152" selection-start-column="18" selection-end-line="152" selection-end-column="18" />
+            <state relative-caret-position="15">
+              <caret line="114" column="1" lean-forward="true" selection-start-line="103" selection-end-line="114" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -136,8 +146,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/journey.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1748">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="342">
+              <caret line="249" column="14" lean-forward="true" selection-start-line="237" selection-start-column="12" selection-end-line="249" selection-end-column="14" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -223,7 +233,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>3.</find>
       <find>detail</find>
       <find>showpage</find>
       <find>v-show</find>
@@ -253,6 +262,7 @@
       <find>sec</find>
       <find>section_t</find>
       <find>pg</find>
+      <find>container_v</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -293,10 +303,10 @@
       <path value="$PROJECT_DIR$/scripts/MathJax-master/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="952" />
-    <option name="width" value="978" />
-    <option name="height" value="1038" />
+    <option name="width" value="974" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -357,7 +367,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
+    <frame x="-6" y="-6" width="1381" height="885" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15117158" />
@@ -576,27 +586,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="152" column="18" selection-start-line="152" selection-start-column="18" selection-end-line="152" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/journey.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1748">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="342">
+          <caret line="249" column="14" lean-forward="true" selection-start-line="237" selection-start-column="12" selection-end-line="249" selection-end-column="14" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="114" column="1" lean-forward="true" selection-start-line="103" selection-end-line="114" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vue-learning.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2076">
-          <caret line="772" column="95" lean-forward="true" selection-start-line="768" selection-start-column="4" selection-end-line="772" selection-end-column="95" />
+        <state relative-caret-position="14383">
+          <caret line="775" column="106" lean-forward="true" selection-start-line="775" selection-start-column="4" selection-end-line="775" selection-end-column="106" />
           <folding>
             <element signature="n#style#0;n#h4#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
