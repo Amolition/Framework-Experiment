@@ -238,7 +238,7 @@
                             $\displaystyle b_n = \frac{4}{L} \frac{2A}{L}\int_0^{L/2} x $ $\displaystyle \sin
                             \left(\frac{n\pi x}{L} \right) dx $
                             <p></p>
-                            <div class="collapsable sub" id="triangular_byParts" v-bind:class="{shown:isActive['triangular_byParts']}">
+                            <div class="collapsable sub" id="triangular_byParts" v-bind:class="{shown:isActive['triangular_byParts'] && isActive['triangular']}">
                                 $\displaystyle u=x \qquad $ $\displaystyle dv= \sin \left(\frac{n\pi x}{L} \right)dx $
                                 <p></p>
                                 $\displaystyle du=dx \qquad $ $\displaystyle v=\frac{-L}{n\pi} \cos \left(\frac{n\pi
@@ -302,7 +302,7 @@
                         $\displaystyle a_n = \frac{2A}{L}\int_0^L x^2$ $\displaystyle \cos \left(\frac{n\pi x}{L}
                         \right)dx $
                         <p>This Eqn. can be solved by integrating by parts.</p>
-                        <div id='parabola_byParts1' class="collapsable sub" v-bind:class="{shown:isActive['parabola_byParts1']}">
+                        <div id='parabola_byParts1' class="collapsable sub" v-bind:class="{shown:isActive['parabola_byParts1'] && isActive['parabola']}">
                             $\displaystyle du = 2x\cdot dx \qquad$ $\displaystyle v=\frac{L}{n\pi} \sin \left(\frac{n\pi
                             x}{L} \right) $
                             <p></p>
@@ -322,7 +322,7 @@
                         $\displaystyle a_n = -\frac{4A}{n\pi}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n \pi x}{L}
                         \right)dx $
                         <p> </p>
-                        <div id='parabola_byParts2' class="collapsable sub" v-bind:class="{shown:isActive['parabola_byParts2']}">
+                        <div id='parabola_byParts2' class="collapsable sub" v-bind:class="{shown:isActive['parabola_byParts2'] && isActive['parabola']}">
                             $\displaystyle u = x \qquad$ $\displaystyle dv = \sin \left(\frac{n\pi x}{L} \right) dx$
                             <p></p>
                             $\displaystyle du = dx \qquad$ $\displaystyle v = -\frac{L}{n\pi}$ $\displaystyle \cos
@@ -366,7 +366,7 @@
                     <p> $\delta(x)$ is an even function. Hence $b_n=0 $ and </p>
                     $\displaystyle a_n=\frac{1}{L} $
                     <p></p>
-                    <div id='dirac_derivation' class="collapsable sub" v-bind:class="{shown:isActive['dirac_derivation']}">
+                    <div id='dirac_derivation' class="collapsable sub" v-bind:class="{shown:isActive['dirac_derivation'] && isActive['dirac']}">
                         <p> By considering the shifting property of the Dirac-Delta function,</p>
                         $\displaystyle \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha)$
                         <p> For us, $\alpha=0, \epsilon=L,$ and $g(x)= \sin \left(n \pi x/L \right).$</p>
@@ -429,7 +429,7 @@
                         $\displaystyle =\frac{2A}{L^{2}}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n\pi x}{L}
                         \right)dx. $
                         <p>Using Integration by parts it can be shown that:</p>
-                        <div id='sawtooth_byParts' class="collapsable sub" v-bind:class="{shown:isActive['sawtooth_byParts']}">
+                        <div id='sawtooth_byParts' class="collapsable sub" v-bind:class="{shown:isActive['sawtooth_byParts'] && isActive['sawtooth']}">
                             $\displaystyle u=x \quad $ $\displaystyle dv=\sin \left(\frac{n\pi x}{L} \right)dx $
                             <p></p>
                             $\displaystyle du=dx \quad$ $\displaystyle v=\frac{-L}{n\pi}\cos \left(\frac{n\pi x}{L}
@@ -481,7 +481,7 @@
                         \right)dx. $
                         <p> By integrating by parts,</p>
 
-                        <div id='mod_byParts' class="collapsable sub" v-bind:class="{shown:isActive['mod_byParts']}">
+                        <div id='mod_byParts' class="collapsable sub" v-bind:class="{shown:isActive['mod_byParts'] && isActive['mod']}">
                             $\displaystyle u=x \qquad$ $\displaystyle dv= \cos\left(\frac{n\pi x}{L}\right)dx$
                             <p></p>
                             $\displaystyle du=dx \qquad$ $\displaystyle v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L}
@@ -696,7 +696,7 @@
             </div>
             <div class="vis_pg" id="visualisation_2" v-else-if="scrolling<pg_heights[1]"
                 style="background-color: white">
-
+            <!--add to the if statement && !boolean-->
 
                 <div class="six columns" style="width:50%; margin-left: 1%">
                     <h5></h5>
@@ -752,6 +752,10 @@
                 </div>
 
             </div>
+            <!--add a div with class subVis and id visualisation_2_triangular
+            with a v-if when subVis['triangular'] is true
+            we then do the same for every possible graph-->
+
             <div class="vis_pg" id="visualisation_3" v-else-if="scrolling<pg_heights[2]"
                 style="background-color: #bd75ff">
             </div>
@@ -784,4 +788,6 @@
     <script src="template-scripts/journey.js"></script>
     <script src=Fourier-Series/scripts/0Orthogonality.js> </script> <script
         src=Fourier-Series/scripts/orthogonality_object.js> </script> <script
-        src=Fourier-Series/scripts/Derivation_of_a_Fourier_Series_duo.js> </script> </body> </html>
+        src=Fourier-Series/scripts/Derivation_of_a_Fourier_Series_duo.js> </script> 
+    <script src=Fourier-Series\scripts\Visualising_Simple_Periodic_Functions.js></script>
+    </body> </html>

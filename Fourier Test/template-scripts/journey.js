@@ -9,18 +9,20 @@ let scrolling;
 let pg_heights = [];
 let pg_heights2 = [];
 let h;
-let n;
+let n = 0;
 
 
 
 
 
+//When the page loads this sets all the buttons to inactive and calculates the height of each section.
 window.onload = function () {
     progress_buttons[0].style = "background-color: #003e74; color: white;"
 
     for (i = 0; i < journey_pg.length; i++) {
         //console.log(journey_pgs)
-        h = 0
+        h = 0;
+        n++;
         for (j = 0; j < (i + 1); j++) {
             //h+=parseFloat(journey_pg[j].scrollHeight)
             h += $("#" + journey_pg[j].id).outerHeight()
@@ -32,8 +34,8 @@ window.onload = function () {
         el: "#app",
         data: {
             pg_heights: pg_heights,
-            scrolling: 0,
-            isActive: {
+            scrolling: 0, //position of the scrollbar
+            isActive: {   //true for any active collapsable box
                 'derivation_regroup': false, 
                 'triangular': false,
                 'triangular_byParts': false,
@@ -48,42 +50,65 @@ window.onload = function () {
                 'mod': false,
                 'mod_byParts': false,
             },
-            current: 1,
+            subVis: {
+                'triangular': false,
+                'parabola': false,
+                'dirac': false,
+                'square': false,
+                'sawtooth': false,  
+                'mod': false,
+            },
+           // boolean: false,
+            current: 1,  //keeps track of the current section
         },
         methods: {
-            OnScroll: function (event) {
+            OnScroll: function (event) {  //method called onScroll to check the section heights 
+                                          //and change the colors of the buttons according to the position
+                                          //on the page
                 this.scrolling = parseFloat($(".container_journey").scrollTop());
                 if (this.scrolling < this.pg_heights[0]) {
-                    progress_buttons[0].style = "background-color: #003e74; color: white;";
-                    progress_buttons[1].style = "background-color: white; color: black;";
-                    progress_buttons[2].style = "background-color: white; color: black;";
-                    progress_buttons[3].style = "background-color: white; color: black;";
-                    if (this.current!==1) {
+                    for (i=0;i<n;i++) {
+                        if (i===0) {
+                            progress_buttons[i].style = "background-color: #003e74; color: white;";
+                        } else {
+                            progress_buttons[i].style = "background-color: white; color: black;";
+                        }
+                    };
+                    if (this.current!==1) {  //calls the function that draws the plotly graph for this section
                         main_0();
                         this.current = 1;
                     }
                 } else if (this.scrolling<this.pg_heights[1]) {
-                    progress_buttons[0].style = "background-color: white; color: black;";
-                    progress_buttons[1].style = "background-color: #003e74; color: white;";
-                    progress_buttons[2].style = "background-color: white; color: black;";
-                    progress_buttons[3].style = "background-color: white; color: black;";
+                    for (i=0;i<n;i++) {
+                        if (i===1) {
+                            progress_buttons[i].style = "background-color: #003e74; color: white;";
+                        } else {
+                            progress_buttons[i].style = "background-color: white; color: black;";
+                        }
+                    };
                     if (this.current!==2) {
                         main_1();
                         this.current = 2;
                     }
                 } else if (this.scrolling<this.pg_heights[2]) {
-                    progress_buttons[0].style = "background-color: white; color: black;";
-                    progress_buttons[1].style = "background-color: white; color: black;";
-                    progress_buttons[2].style = "background-color: #003e74; color: white;";
-                    progress_buttons[3].style = "background-color: white; color: black;";
+                    for (i=0;i<n;i++) {
+                        if (i===2) {
+                            progress_buttons[i].style = "background-color: #003e74; color: white;";
+                        } else {
+                            progress_buttons[i].style = "background-color: white; color: black;";
+                        }
+                    };
                     if (this.current!==3) {
                         this.current = 3;
                     }
                 } else if (this.scrolling<this.pg_heights[3]) {
-                    progress_buttons[0].style = "background-color: white; color: black;";
-                    progress_buttons[1].style = "background-color: white; color: black;";
-                    progress_buttons[2].style = "background-color: white; color: black;";
-                    progress_buttons[3].style = "background-color: #003e74; color: white;";
+                    for (i=0;i<n;i++) {
+                        if (i===3) {
+                            progress_buttons[i].style = "background-color: #003e74; color: white;";
+                        } else {
+                            progress_buttons[i].style = "background-color: white; color: black;";
+                        }
+                    }
                     if (this.current!==4) {
                         this.current = 4;
                     }
@@ -98,21 +123,30 @@ window.onload = function () {
                     }
                     this.pg_heights.push(h)
                 };
+                //for (let key in this.subVis) {
+                  //  this.boolean = this.boolean || subVis[key];
+                  //  top = getElementById(key).scrollTop()
+                  //  height = getElementById(key).outerHeight()
+                //}
+         
                 
             },
-            OnClick: function (section) {
+            OnClick: function (section) {  //function to toggle collapsable divs on click
                 this.isActive[section] = !this.isActive[section]   
             },
-            Scroll: function (numb) {
+            Scroll: function (numb) {  //scroll to the right section
                 journey_pg[numb-1].scrollIntoView({behavior:'smooth'})
             },
         },
         mounted: function () {
             document.addEventListener('scroll', this.OnScroll);
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]);
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]); //reloads mathjax 
         },
         destroyed: function () {
             document.removeEventListener('scroll', this.OnScroll)
         }
     })
 }
+
+
+
