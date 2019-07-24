@@ -1,9 +1,9 @@
 /* goals 2019/07/19
-* fix the scrolling problem
+* fix the scrolling problem Y
 * try to incorporate the transition animation between pages and sections
-* simplify coding
+* simplify coding y
 * colorful loading bar
-* section name hover
+* section name hover Y
 * */
 let journey_pg = document.getElementsByClassName("journey_pg");
 let progress_buttons = document.getElementsByClassName("progress_button");
@@ -61,11 +61,39 @@ window.onload = function () {
             }
         }
         // call the update function each time you click the button
+        //setTimeout(function () {$('#delta').scrollIntoView({behavior: "smooth"});}, 500);
         $(".derivation_collapse").on('click', () => {
-            updateHeight()
+            setTimeout(function () {
+            pg_heights=[];
+            for (i = 0; i < journey_pg.length; i++) {
+                //console.log(journey_pgs)
+                //pg_heights2.push($("#" + journey_pg[i].id).offset().top);
+                h = 0;
+                for (j = 0; j < (i + 1); j++) {
+                    //h+=parseFloat(journey_pg[j].scrollHeight)
+                    h += $("#" + journey_pg[j].id).outerHeight()
+                }
+                pg_heights.push(h);
+                console.log('newp:' + pg_heights);
+        console.log('newh:' + h)
+
+            }
+        },1000);
+            //updateHeight()
+        });
+let executed = 1;
+        $(".container_journey").on('scroll',() => {
+            //let executed = 1;
+            if(executed===1){
+                executed -= 1;
+                updateHeight();
+            }
         })
 
+
     });
+
+
 
 
 
@@ -221,47 +249,6 @@ window.onload = function () {
 
             },
 
-            showinfo: function(event){
-                let value = document.getElementById("fourierselect").value;
-                    //show div
-            if (value==1){
-                $("#parabolic").show();
-                //$('#parabolic').scrollIntoView({behavior: "smooth"});
-                $("#delta").hide();
-                $("#square").hide();
-                $("#sawtooth").hide();
-                $("#modx").hide();
-            } else if (value==2){
-                $("#parabolic").hide();
-                $("#delta").show();
-                //setTimeout(function () {$('#delta').scrollIntoView({behavior: "smooth"});}, 500);
-                $("#square").hide();
-                $("#sawtooth").hide();
-                $("#modx").hide();
-            } else if (value==3){
-                $("#parabolic").hide();
-                $("#delta").hide();
-                $("#square").show();
-                //setTimeout(function () {$('#square').scrollIntoView({behavior: "smooth"});}, 500);
-                $("#sawtooth").hide();
-                $("#modx").hide();
-            } else if (value==4){
-                $("#parabolic").hide();
-                $("#delta").hide();
-                $("#square").hide();
-                $("#sawtooth").show();
-                //setTimeout(function () {$('#sawtooth').scrollIntoView({behavior: "smooth"});}, 500);
-                $("#modx").hide();
-            } else if (value==5){
-                $("#parabolic").hide();
-                $("#delta").hide();
-                $("#square").hide();
-                $("#sawtooth").hide();
-                $("#modx").show();
-                //setTimeout(function () {$('#modx').scrollIntoView({behavior: "smooth"});}, 500);
-            }
-
-            },
 
             /*OnScroll: function (event) {
                 this.scrolling = parseFloat($(".container_journey").scrollTop());
@@ -302,6 +289,7 @@ window.onload = function () {
         mouseOver5: function(){
             this.active5 = !this.active5;
         },
+
             /*checksec: function(){
                 this.scrolling = parseFloat($(".container_journey").scrollTop());
                 if(this.scrolling < pg_heights[0]){
@@ -330,16 +318,22 @@ window.onload = function () {
 
         function scroll_fn() {
 
-            let heights = h - 600; //journey_pg[journey_pg.length-1]
+            let heights = h - 100; //journey_pg[journey_pg.length-1]
             //$('#main-journey').height()//-$('#main-journey').offset().top;
 
             //var document_height = $(document).height();
             let scroll_so_far = $('#journey_cont').scrollTop();
+            /*let sc1p = pg_heights[0]/(h / 100);
+            let sc2p = pg_heights[1]/(h / 100);
+            let sc3p = pg_heights[2]/(h / 100);
+            let sc4p = pg_heights[3]/(h / 100);
+            let sc5p = pg_heights[4]/(h / 100);*/
 
             let scroll_percentage = scroll_so_far / (heights / 100);
 
             //$('#loading').width(scroll_percentage + '%');
             $('#loading').css('width', (scroll_percentage + '%'));
+
             //console.log('height:'+heights);
             //console.log('scroll:'+scroll_so_far);
             //console.log('window_height'+window_height);

@@ -196,10 +196,6 @@ button.section-sub-head {
     color: #033482;
 }
 
-button.section-sub-head.active, button.section-sub-head.collapsibleButton:hover {
-    background-color: #3a49cc;
-}
-
 h3.section-sub-head {
     width: 100%;
     margin: 50px 0 20px 0;
@@ -310,18 +306,6 @@ nav {
     opacity: 0;
 }
 
-.slide-enter-active {
-    transition: height 1s;
-}
-
-.slide-leave-active {
-    transition: height 1s;
-}
-
-.slide-enter, .slide-leave-to {
-    height: 0;
-}
-
 /* IMPORTED STYLE FROM LEARNING EXPERIENCE TEAM */
 
 .divclass {
@@ -365,7 +349,7 @@ nav {
 #unlock{
     position: fixed;
     left: 35vw;
-    top: 0.2vh;
+    top: 0.5vh;
 
 }
 

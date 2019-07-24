@@ -123,546 +123,530 @@
                         <hr>
                     </div>
                     <div class="text section-body odd" id="p2">
-                            <div id="intro" class="divclass">
-                                <button id="ssh1" class="section-sub-head first-sub-head" key="ssh1" @click="updateSubSection(1); subScrollTo($event)" data-target="#introContent">
-                                    Introduction to Fourier series
-                                </button>
-                                <div id="introContent" class="section-sub-content" key="introContent" v-show="derivationSubSection === 1">
-                                    Consider a function <span>$ f(x) $</span> which is periodic over the domain <span>$ -L \leq x < L $</span>
-                                    where <span>$ L $</span> is positive. <span>$ f(x) $</span> can be represented as a sum of sines and cosines with varying
-                                    frequencies.
-                                    <br><br>
-                                    These trigonometric functions form orthogonal basis.
-                                    <br><br>
-                                    The Fourier series of <span>$ f(x) $</span> is
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi nx}{L}\Big) + b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big] $$
-                                    </span>
-                                    where
-                                    <span class="mathJaxDisplay">
-                                        \begin{align}
-                                        a_n & = \frac{1}{L}\int_{-L}^{L} f(x) \cos\Big(\frac{\pi nx}{L}\Big) dx, \\
-                                        b_n & = e\frac{1}{L}\int_{-L}^{L} f(x) \sin\Big(\frac{\pi nx}{L}\Big) dx, \\
-                                        a_0 & = \frac{1}{L}\int_{-L}^{L} f(x) dx,
-                                        \end{align}
-                                    </span>
-                                    and
-                                    <span class="mathJaxDisplay">
-                                        $$ n=0,1,2... $$
-                                    </span>
-                                    <strong> Note:</strong> <span>$ {a_0}/2 $</span> represents the average value of <span>$ f(x) $</span>.
-                                    <br><br>
-                                    The Fourier series representation of the function <span>$ f(x) $</span> in exponential
-                                    (complex) form is
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x) =\sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L} \qquad $$
-                                    </span>
-                                    where
-                                    <span class="mathJaxDisplay">
-                                        $$ c_n = \frac{1}{2L}\int_{-L}^{L} f(x) e^{{-in \pi x}/L} dx, $$
-                                    </span>
-                                    <strong>Note:</strong> The constants in front of the integral(s) of the coefficient for
-                                    the trigonometric and exponential fourier series are different. Also note the limit of the summations.
-                                </div>
+                        <div id="intro" class="divclass">
+                            <button id="ssh1" class="section-sub-head first-sub-head" @click="updateSubSection(1); subScrollTo($event);" data-toggle="collapse" data-target="#introContent">
+                                Introduction to Fourier series
+                            </button>
+                            <div id="introContent" class="section-sub-content collapse" data-parent="#p2">
+                                Consider a function <span>$ f(x) $</span> which is periodic over the domain <span>$ -L \leq x < L $</span>
+                                where <span>$ L $</span> is positive. <span>$ f(x) $</span> can be represented as a sum of sines and cosines with varying
+                                frequencies.
+                                <br><br>
+                                These trigonometric functions form orthogonal basis.
+                                <br><br>
+                                The Fourier series of <span>$ f(x) $</span> is
+                                <span class="mathJaxDisplay">
+                                    $$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi nx}{L}\Big) + b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big] $$
+                                </span>
+                                where
+                                <span class="mathJaxDisplay">
+                                    \begin{align}
+                                    a_n & = \frac{1}{L}\int_{-L}^{L} f(x) \cos\Big(\frac{\pi nx}{L}\Big) dx, \\
+                                    b_n & = e\frac{1}{L}\int_{-L}^{L} f(x) \sin\Big(\frac{\pi nx}{L}\Big) dx, \\
+                                    a_0 & = \frac{1}{L}\int_{-L}^{L} f(x) dx,
+                                    \end{align}
+                                </span>
+                                and
+                                <span class="mathJaxDisplay">
+                                    $$ n=0,1,2... $$
+                                </span>
+                                <strong> Note:</strong> <span>$ {a_0}/2 $</span> represents the average value of <span>$ f(x) $</span>.
+                                <br><br>
+                                The Fourier series representation of the function <span>$ f(x) $</span> in exponential
+                                (complex) form is
+                                <span class="mathJaxDisplay">
+                                    $$ f(x) =\sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L} \qquad $$
+                                </span>
+                                where
+                                <span class="mathJaxDisplay">
+                                    $$ c_n = \frac{1}{2L}\int_{-L}^{L} f(x) e^{{-in \pi x}/L} dx, $$
+                                </span>
+                                <strong>Note:</strong> The constants in front of the integral(s) of the coefficient for
+                                the trigonometric and exponential fourier series are different. Also note the limit of the summations.
                             </div>
-                            <div id="FSderivation" class="divclass">
-                                <button id="ssh2" class="section-sub-head" key="ssh2" @click="updateSubSection(2); subScrollTo($event)" data-target="#FSderivationContent">
-                                    General Derivation
-                                </button>
-                                <div id="FSderivationContent" class="section-sub-content" key="FSderivationContent" v-show="derivationSubSection === 2">
-                                    We begin by assuming that <span>$ f(x) $</span> can be represented as a sum of
-                                    exponential terms.
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x) = \sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L} $$
-                                    </span>
-                                    Multiplying by <span>$ e^{{-im \pi x}/L} $</span>, where <span>$ m=0,1,2... $</span>,
-                                    and integrating both sides gives the following:
-                                    <span class="mathJaxDisplay">
-                                        $$ \int_{-L}^{L} f(x) e^{{-im \pi x}/L} dx = \sum_{n=-\infty}^{\infty} c_n \int_{-L}^{L} e^{{i(n-m) \pi x}/L} dx. $$
-                                    </span>
-                                    Performing the integral on the R.H.S gives
-                                    <span class="mathJaxDisplay">
-                                        $$ \int_{-L}^L e^{(i\pi x/L)(n-m)}dx =\left\{ \begin{array}{ll} 2L \qquad \text{(if n=m)} \\
-                                        0 \qquad \quad \text{(if n≠m)} \end{array} \right \} = 2L \cdot \delta_{nm}. $$
-                                    </span>
-                                    This is the orthonormality of complex exponentials.
-                                    <br><br>
-                                    Now since the only non-zero value of the sum is when <span>$ n=m $</span>,
-                                    <span class="mathJaxDisplay">
-                                        $$ \int_{-L}^L f(x) e^{-im\pi x/L}dx = 2L \sum_{n=-\infty}^{+\infty}c_n\delta_{mn} = 2L\cdot c_m, $$
-                                    </span>
-                                    hence
-                                    <span class="mathJaxDisplay">
-                                        $$ c_m=\frac{1}{2L}\int_{-L}^{+L}f(x) e^{-im\pi x/L}dx. $$
-                                    </span>
-                                    <strong>Note:</strong> As <span>$ m $</span> is an arbitrary integer, it can be assigned
-                                    as <span>$ n $</span> for simplicity.
-                                    <br><br>
-                                    Given the previously derived equation, we can derive the trigonometric form of the
-                                    Fourier series. By reorganising the sum, we get
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x)= \underbrace{c_0}_\text{n=0} + \sum_{n=1}^{\infty} \big( \underbrace{c_n e^{in\pi x/L}}_\text{Positive n term} + \underbrace{c_{-n} e^{-in\pi x/L}}_\text{Negative n terms} \big).$$
-                                    </span>
-                                    We can regroup the terms in the summation in the following way:
-                                    <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse" data-target="#regroupexplainContainer"> Show Full Calculation </button>
-                                    </span>
-                                    <div id="regroupexplainContainer" class="collapse">
-                                        <div id="regroupexplain" class="solidline">
-                                            <span class="mathJaxDisplay">
-                                                \begin{align}
-                                                = \frac{1}{2} \Big[  2c_n e^{in\pi x/L} + 2c_{-n} e^{-in\pi x/L} & \\
-                                                + \underbrace{c_{-n} e^{in\pi x/L} - c_{-n} e^{in\pi x/L}}_\text{ =0} & \\
-                                                + \underbrace{c_{n} e^{-in\pi x/L} -c_{n} e^{-in\pi x/L}}_\text{ =0} & \Big] \\
-                                                \end{align}
-                                                <br>
-                                                \begin{align}
-                                                = \frac{1}{2} \Big[ c_n e^{in\pi x/L} +c_{-n} e^{in\pi x/L} & \\
-                                                + c_n e^{-in\pi x/L} + c_{-n} e^{-in\pi x/L} & \\
-                                                + c_n e^{in\pi x/L} - c_{-n} e^{in\pi x/L} & \\
-                                                - c_n e^{-in\pi x/L} + c_{-n} e^{-in\pi x/L} & \Big] \\
-                                                \end{align}
-                                            </span>
-                                        </div>
-                                    </div>
+                        </div>
+                        <div id="FSderivation" class="divclass">
+                            <button id="ssh2" class="section-sub-head" @click="updateSubSection(2); subScrollTo($event);" data-toggle="collapse" data-target="#FSderivationContent">
+                                General Derivation
+                            </button>
+                            <div id="FSderivationContent" class="section-sub-content collapse"  data-parent="#p2">
+                                We begin by assuming that <span>$ f(x) $</span> can be represented as a sum of
+                                exponential terms.
+                                <span class="mathJaxDisplay">
+                                    $$ f(x) = \sum_{n=-\infty}^{\infty} c_n e^{{in \pi x}/L} $$
+                                </span>
+                                Multiplying by <span>$ e^{{-im \pi x}/L} $</span>, where <span>$ m=0,1,2... $</span>,
+                                and integrating both sides gives the following:
+                                <span class="mathJaxDisplay">
+                                    $$ \int_{-L}^{L} f(x) e^{{-im \pi x}/L} dx = \sum_{n=-\infty}^{\infty} c_n \int_{-L}^{L} e^{{i(n-m) \pi x}/L} dx. $$
+                                </span>
+                                Performing the integral on the R.H.S gives
+                                <span class="mathJaxDisplay">
+                                    $$ \int_{-L}^L e^{(i\pi x/L)(n-m)}dx =\left\{ \begin{array}{ll} 2L \qquad \text{(if n=m)} \\
+                                    0 \qquad \quad \text{(if n≠m)} \end{array} \right \} = 2L \cdot \delta_{nm}. $$
+                                </span>
+                                This is the orthonormality of complex exponentials.
+                                <br><br>
+                                Now since the only non-zero value of the sum is when <span>$ n=m $</span>,
+                                <span class="mathJaxDisplay">
+                                    $$ \int_{-L}^L f(x) e^{-im\pi x/L}dx = 2L \sum_{n=-\infty}^{+\infty}c_n\delta_{mn} = 2L\cdot c_m, $$
+                                </span>
+                                hence
+                                <span class="mathJaxDisplay">
+                                    $$ c_m=\frac{1}{2L}\int_{-L}^{+L}f(x) e^{-im\pi x/L}dx. $$
+                                </span>
+                                <strong>Note:</strong> As <span>$ m $</span> is an arbitrary integer, it can be assigned
+                                as <span>$ n $</span> for simplicity.
+                                <br><br>
+                                Given the previously derived equation, we can derive the trigonometric form of the
+                                Fourier series. By reorganising the sum, we get
+                                <span class="mathJaxDisplay">
+                                    $$ f(x)= \underbrace{c_0}_\text{n=0} + \sum_{n=1}^{\infty} \big( \underbrace{c_n e^{in\pi x/L}}_\text{Positive n term} + \underbrace{c_{-n} e^{-in\pi x/L}}_\text{Negative n terms} \big).$$
+                                </span>
+                                We can regroup the terms in the summation in the following way:
+                                <span class="section-extra-head-container">
+                                    <button class="section-extra-head" data-toggle="collapse" data-target="#regroupexplain"> Show Full Calculation </button>
+                                </span>
+                                <div id="regroupexplain" class="solidline collapse">
                                     <span class="mathJaxDisplay">
                                         \begin{align}
-                                        f(x)= c_0 + \sum_{n=1}^{\infty} \Big[ & \frac{c_n + c_{-n}}{2} \big(e^{in\pi x/L} +e^{-in\pi x/L} \big) \\
-                                        & \frac{c_n - c_{-n}}{2} \big(e^{in\pi x/L} -e^{-in\pi x/L} \big) \Big]
+                                        = \frac{1}{2} \Big[  2c_n e^{in\pi x/L} + 2c_{-n} e^{-in\pi x/L} & \\
+                                        + \underbrace{c_{-n} e^{in\pi x/L} - c_{-n} e^{in\pi x/L}}_\text{ =0} & \\
+                                        + \underbrace{c_{n} e^{-in\pi x/L} -c_{n} e^{-in\pi x/L}}_\text{ =0} & \Big] \\
                                         \end{align}
-                                    </span>
-                                    Now define <span>$ a_n = c_n + c_{-n} $</span> and <span>$ b_n = i(c_n - c_{-n}) $</span> and use that these exponentials can we written as
-                                    sines and cosines.
-                                    <br><br>
-                                    <strong>Note:</strong> <span>$ a_0 = 2c_0 $</span> and <span>$ b_0=0 $</span>.
-                                    <br><br>
-                                    Hence
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi nx}{L}\Big) + b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big] $$
-                                    </span>
-                                    <span>$ a_n $</span> can be derived by using the expression from <span>$ c_n $</span>
-                                    <span class="mathJaxDisplay">
+                                        <br>
                                         \begin{align}
-                                        a_n = c_n + c_{-n} = & \frac{1}{2L}\int_{-L}^{+L}f(x) e^{-in\pi x/L}dx \\
-                                        + & \frac{1}{2L} \int_{-L}^{+L}f(x) e^{in\pi x/L}dx
+                                        = \frac{1}{2} \Big[ c_n e^{in\pi x/L} +c_{-n} e^{in\pi x/L} & \\
+                                        + c_n e^{-in\pi x/L} + c_{-n} e^{-in\pi x/L} & \\
+                                        + c_n e^{in\pi x/L} - c_{-n} e^{in\pi x/L} & \\
+                                        - c_n e^{-in\pi x/L} + c_{-n} e^{-in\pi x/L} & \Big] \\
                                         \end{align}
-                                    </span>
-                                    Factorise and spot the exponential form of <span>$ \cos $</span>.
-                                    <span class="mathJaxDisplay">
-                                        \begin{align}
-                                        & =\frac{1}{L}\int_{-L}^{+L}f(x) \Big[\frac{e^{in\pi x/L} +e^{-in\pi x/L}}{2}\Big]dx \\
-                                        & =\frac{1}{L}\int_{-L}^{L} f(x) \cos\Big(\frac{\pi nx}{L}\Big) dx
-                                        \end{align}
-                                    </span>
-                                    Similarly for <span>$ b_n $</span>,
-                                    <span class="mathJaxDisplay">
-                                        $$ b_n =\frac{1}{L}\int_{-L}^{L} f(x) \sin\Big(\frac{\pi nx}{L}\Big) dx. $$
                                     </span>
                                 </div>
+                                <span class="mathJaxDisplay">
+                                    \begin{align}
+                                    f(x)= c_0 + \sum_{n=1}^{\infty} \Big[ & \frac{c_n + c_{-n}}{2} \big(e^{in\pi x/L} +e^{-in\pi x/L} \big) \\
+                                    & \frac{c_n - c_{-n}}{2} \big(e^{in\pi x/L} -e^{-in\pi x/L} \big) \Big]
+                                    \end{align}
+                                </span>
+                                Now define <span>$ a_n = c_n + c_{-n} $</span> and <span>$ b_n = i(c_n - c_{-n}) $</span> and use that these exponentials can we written as
+                                sines and cosines.
+                                <br><br>
+                                <strong>Note:</strong> <span>$ a_0 = 2c_0 $</span> and <span>$ b_0=0 $</span>.
+                                <br><br>
+                                Hence
+                                <span class="mathJaxDisplay">
+                                    $$ f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi nx}{L}\Big) + b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big] $$
+                                </span>
+                                <span>$ a_n $</span> can be derived by using the expression from <span>$ c_n $</span>
+                                <span class="mathJaxDisplay">
+                                    \begin{align}
+                                    a_n = c_n + c_{-n} = & \frac{1}{2L}\int_{-L}^{+L}f(x) e^{-in\pi x/L}dx \\
+                                    + & \frac{1}{2L} \int_{-L}^{+L}f(x) e^{in\pi x/L}dx
+                                    \end{align}
+                                </span>
+                                Factorise and spot the exponential form of <span>$ \cos $</span>.
+                                <span class="mathJaxDisplay">
+                                    \begin{align}
+                                    & =\frac{1}{L}\int_{-L}^{+L}f(x) \Big[\frac{e^{in\pi x/L} +e^{-in\pi x/L}}{2}\Big]dx \\
+                                    & =\frac{1}{L}\int_{-L}^{L} f(x) \cos\Big(\frac{\pi nx}{L}\Big) dx
+                                    \end{align}
+                                </span>
+                                Similarly for <span>$ b_n $</span>,
+                                <span class="mathJaxDisplay">
+                                    $$ b_n =\frac{1}{L}\int_{-L}^{L} f(x) \sin\Big(\frac{\pi nx}{L}\Big) dx. $$
+                                </span>
                             </div>
-                            <div id="triangular1" class="divclass">
-                                <button id="ssh3" class="section-sub-head" key="ssh3" @click="updateSubSection(3); subScrollTo($event)" data-target="#triangular1Content">
-                                    Triangular Function Part 1
-                                </button>
-                                <div id="triangular1Content" class="section-sub-content" key="triangular1Content" v-show="derivationSubSection === 3">
-                                    The triangular function is defined by the following:
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x)=\left\{
-                                        \begin{array}{ll}
-                                        \frac{-2A}{L} (x+L) \quad (-L \leq x < -L/2) \\
-                                        \frac{2A}{L} x \qquad \qquad (-L/2\leq x < L/2) \\
-                                        \frac{-2A}{L} (x-L) \quad (L/2\leq x < L)
-                                        \end{array}
-                                        \right. $$
-                                    </span>
-                                    First notice that <span>$ f(x) $</span> is odd about <span>$ x=0 $</span>, hence <span>$ a_n=0 $</span>
-                                    for all <span>$ n $</span>. Also, since the <span>$ b_n $</span> integrand is even about
-                                    <span>$ x=0 $</span>,
-                                    <span class="mathJaxDisplay">
-                                        $$ b_n=\frac{2}{L}\int_0^L f(x) \sin \left(\frac{n \pi x}{L}\right)dx. $$
-                                    </span>
-                                    Notice that for even <span>$ n $</span>, <span>$ b_n $</span> is odd about <span>$ x=L/2 $</span>.
-                                    Hence,
-                                    <span class="mathJaxDisplay">
-                                        $$ b_n=\frac{2}{L}\int_0^{L} f(x) \sin \left(\frac{n\pi x}{L} \right) dx = 0 \quad \text{for even n}. $$
-                                    </span>
-                                    The integral from <span>$ 0 $</span> to <span>$ L/2 $</span> is equal in magnitude but
-                                    opposite in sign to the integral from <span>$ L/2 $</span> to <span>$ L $</span>, for
-                                    even <span>$ n $</span>.
-                                    <br><br>
-                                    For odd <span>$ n $</span>, the function is even around <span>$ L/2 $</span>, so we only
-                                    have to integrate from <span>$ 0 $</span> to <span>$ L/2 $</span> then multiply by
-                                    <span>$ 2 $</span>. This has made our job much easier.
-                                    <span class="mathJaxDisplay">
-                                        $$ b_n=2\frac{2}{L}\int_0^{L/2} f(x) \sin \left(\frac{n\pi x}{L} \right) dx \quad \text{for odd n} $$
-                                    </span>
-                                    Play around with the visualisation to the right to convince yourself this is true.
-                                </div>
+                        </div>
+                        <div id="triangular1" class="divclass">
+                            <button id="ssh3" class="section-sub-head" @click="updateSubSection(3); subScrollTo($event);" data-toggle="collapse" data-target="#triangular1Content">
+                                Triangular Function Part 1
+                            </button>
+                            <div id="triangular1Content" class="section-sub-content collapse" data-parent="#p2">
+                                The triangular function is defined by the following:
+                                <span class="mathJaxDisplay">
+                                    $$ f(x)=\left\{
+                                    \begin{array}{ll}
+                                    \frac{-2A}{L} (x+L) \quad (-L \leq x < -L/2) \\
+                                    \frac{2A}{L} x \qquad \qquad (-L/2\leq x < L/2) \\
+                                    \frac{-2A}{L} (x-L) \quad (L/2\leq x < L)
+                                    \end{array}
+                                    \right. $$
+                                </span>
+                                First notice that <span>$ f(x) $</span> is odd about <span>$ x=0 $</span>, hence <span>$ a_n=0 $</span>
+                                for all <span>$ n $</span>. Also, since the <span>$ b_n $</span> integrand is even about
+                                <span>$ x=0 $</span>,
+                                <span class="mathJaxDisplay">
+                                    $$ b_n=\frac{2}{L}\int_0^L f(x) \sin \left(\frac{n \pi x}{L}\right)dx. $$
+                                </span>
+                                Notice that for even <span>$ n $</span>, <span>$ b_n $</span> is odd about <span>$ x=L/2 $</span>.
+                                Hence,
+                                <span class="mathJaxDisplay">
+                                    $$ b_n=\frac{2}{L}\int_0^{L} f(x) \sin \left(\frac{n\pi x}{L} \right) dx = 0 \quad \text{for even n}. $$
+                                </span>
+                                The integral from <span>$ 0 $</span> to <span>$ L/2 $</span> is equal in magnitude but
+                                opposite in sign to the integral from <span>$ L/2 $</span> to <span>$ L $</span>, for
+                                even <span>$ n $</span>.
+                                <br><br>
+                                For odd <span>$ n $</span>, the function is even around <span>$ L/2 $</span>, so we only
+                                have to integrate from <span>$ 0 $</span> to <span>$ L/2 $</span> then multiply by
+                                <span>$ 2 $</span>. This has made our job much easier.
+                                <span class="mathJaxDisplay">
+                                    $$ b_n=2\frac{2}{L}\int_0^{L/2} f(x) \sin \left(\frac{n\pi x}{L} \right) dx \quad \text{for odd n} $$
+                                </span>
+                                Play around with the visualisation to the right to convince yourself this is true.
                             </div>
-                            <div id="triangular2" class="divclass">
-                                <button id="ssh4" class="section-sub-head" key="ssh4" @click="updateSubSection(4); subScrollTo($event)" data-target="#triangular2Content">
-                                    Triangular Function Part 2
-                                </button>
-                                <div id="triangular2Content" class="section-sub-content" key="triangular2Content" v-show="derivationSubSection === 4">
+                        </div>
+                        <div id="triangular2" class="divclass">
+                            <button id="ssh4" class="section-sub-head" @click="updateSubSection(4); subScrollTo($event);" data-toggle="collapse" data-target="#triangular2Content">
+                                Triangular Function Part 2
+                            </button>
+
+                            <div id="triangular2Content" class="section-sub-content collapse" data-parent="#p2">
+                                <span class="mathJaxDisplay">
+                                    $$ \text{For 0 < x < L/2:} \quad f(x)=\frac{2Ax}{L} $$
+                                </span>
+                                Remembering that for even <span>$ n $</span>, <span>$ b_n=0 $</span>, therefore only
+                                consider odd <span>$ n $</span>.
+                                <span class="mathJaxDisplay">
+                                    $$ b_n = \frac{4}{L} \frac{2A}{L}\int_0^{L/2} x \sin \left(\frac{n\pi x}{L} \right) dx $$
+                                </span>
+                                This integral can be performed by parts.
+                                <span class="section-extra-head-container">
+                                    <button class="section-extra-head" data-toggle="collapse" data-target="#BypartsTriangular"> Show Full Calculation </button>
+                                </span>
+                                <div id="BypartsTriangular" class="solidline collapse">
                                     <span class="mathJaxDisplay">
-                                        $$ \text{For 0 < x < L/2:} \quad f(x)=\frac{2Ax}{L} $$
+                                        $$ u=x \qquad dv= \sin \left(\frac{n\pi x}{L} \right)dx $$
                                     </span>
-                                    Remembering that for even <span>$ n $</span>, <span>$ b_n=0 $</span>, therefore only
-                                    consider odd <span>$ n $</span>.
                                     <span class="mathJaxDisplay">
-                                        $$ b_n = \frac{4}{L} \frac{2A}{L}\int_0^{L/2} x \sin \left(\frac{n\pi x}{L} \right) dx $$
+                                        $$ du=dx \qquad v=\frac{-L}{n\pi} \cos \left(\frac{n\pi x}{L} \right) $$
                                     </span>
-                                    This integral can be performed by parts.
-                                    <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse" data-target="#BypartsTriangularContainer"> Show Full Calculation </button>
-                                    </span>
-                                    <div id="BypartsTriangularContainer" class="collapse">
-                                        <div id="BypartsTriangular" class="solidline">
-                                            <span class="mathJaxDisplay">
-                                                $$ u=x \qquad dv= \sin \left(\frac{n\pi x}{L} \right)dx $$
-                                            </span>
-                                            <span class="mathJaxDisplay">
-                                                $$ du=dx \qquad v=\frac{-L}{n\pi} \cos \left(\frac{n\pi x}{L} \right) $$
-                                            </span>
-                                            <span class="mathJaxDisplay">
-                                                \begin{align}
-                                                b_n=\frac{8A}{L^2} \Bigg[ \Big[ \frac{-xL}{n\pi} & \cos \Big(\frac{n\pi x}{L}\Big) \Big] \Bigr|_0^{L/2} \\
-                                                -\int_0^{L/2}\frac{-L}{n\pi} & \cos \Big(\frac{n\pi x}{L} \Big)dx \Bigg]
-                                                \end{align}
-                                            </span>
-                                            For odd n,
-                                            <span class="mathJaxDisplay">
-                                                $$ \cos \left(\frac{n\pi}{2} \right)=0 $$
-                                            </span>
-                                            Therefore,
-                                            <span class="mathJaxDisplay">
-                                                $$ b_n=\frac{8A}{L^2} \Bigg[0+ \int_0^{L/2}\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L}
-                                                \right)dx \Bigg] $$
-                                            </span>
-                                        </div>
-                                    </div>
                                     <span class="mathJaxDisplay">
-                                        $$ b_n=\frac{8A}{L^2} \frac{L^2}{(n\pi)^2} \sin \left(\frac{n\pi x}{L} \right) \biggr |_0^{L/2} $$
+                                        \begin{align}
+                                        b_n=\frac{8A}{L^2} \Bigg[ \Big[ \frac{-xL}{n\pi} & \cos \Big(\frac{n\pi x}{L}\Big) \Big] \Bigr|_0^{L/2} \\
+                                        -\int_0^{L/2}\frac{-L}{n\pi} & \cos \Big(\frac{n\pi x}{L} \Big)dx \Bigg]
+                                        \end{align}
                                     </span>
-                                    Note for odd <span>$ n $</span>:
+                                    For odd n,
                                     <span class="mathJaxDisplay">
-                                    $$ \sin \left(\frac{n\pi}{2} \right)=(-1)^{\frac{n-1}{2}} $$
+                                        $$ \cos \left(\frac{n\pi}{2} \right)=0 $$
                                     </span>
                                     Therefore,
                                     <span class="mathJaxDisplay">
-                                    $$ b_n=\frac{8A}{n^2\pi^2}(-1)^{\frac{n-1}{2}} $$
-                                    </span>
-                                    Finally,
-                                    <span class="mathJaxDisplay">
-                                    $$ f(x)=\sum_{n=1,3,5...}^\infty \frac{8A}{n^2\pi^2} (-1)^{\frac{n-1}{2}} \sin \left(\frac{n\pi x}{L} \right) $$
-                                    </span>
-                                    And the using that an odd number is given by <span>$ 2n +1 $</span> for any <span>$ n $</span>,
-                                    <span class="mathJaxDisplay">
-                                    $$ f(x)=\sum_{n=1,2,3...}^\infty \frac{8A}{(2n-1)^2\pi^2}(-1)^n \sin \left(\frac{(2n-1)\pi x}{L} \right) $$
+                                        $$ b_n=\frac{8A}{L^2} \Bigg[0+ \int_0^{L/2}\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L}
+                                        \right)dx \Bigg] $$
                                     </span>
                                 </div>
+                                <span class="mathJaxDisplay">
+                                    $$ b_n=\frac{8A}{L^2} \frac{L^2}{(n\pi)^2} \sin \left(\frac{n\pi x}{L} \right) \biggr |_0^{L/2} $$
+                                </span>
+                                Note for odd <span>$ n $</span>:
+                                <span class="mathJaxDisplay">
+                                $$ \sin \left(\frac{n\pi}{2} \right)=(-1)^{\frac{n-1}{2}} $$
+                                </span>
+                                Therefore,
+                                <span class="mathJaxDisplay">
+                                $$ b_n=\frac{8A}{n^2\pi^2}(-1)^{\frac{n-1}{2}} $$
+                                </span>
+                                Finally,
+                                <span class="mathJaxDisplay">
+                                $$ f(x)=\sum_{n=1,3,5...}^\infty \frac{8A}{n^2\pi^2} (-1)^{\frac{n-1}{2}} \sin \left(\frac{n\pi x}{L} \right) $$
+                                </span>
+                                And the using that an odd number is given by <span>$ 2n +1 $</span> for any <span>$ n $</span>,
+                                <span class="mathJaxDisplay">
+                                $$ f(x)=\sum_{n=1,2,3...}^\infty \frac{8A}{(2n-1)^2\pi^2}(-1)^n \sin \left(\frac{(2n-1)\pi x}{L} \right) $$
+                                </span>
                             </div>
-                            <div id="parabolic" class="divclass">
-                                <button id="ssh5" class="section-sub-head" key="ssh5" @click="updateSubSection(5); subScrollTo($event)" data-target="#parabolicContent">
-                                    Parabolic Function
-                                </button>
-                                <div id="parabolicContent" class="section-sub-content" key="parabolicContent" v-show="derivationSubSection === 5">
-                                    The parabolic function is defined as:
+                        </div>
+                        <div id="parabolic" class="divclass">
+                            <button id="ssh5" class="section-sub-head" @click="updateSubSection(5); subScrollTo($event);" data-toggle="collapse" data-target="#parabolicContent">
+                                Parabolic Function
+                            </button>
+                            <div id="parabolicContent" class="section-sub-content collapse" data-parent="#p2">
+                                The parabolic function is defined as:
+                                <span class="mathJaxDisplay">
+                                    $$ f(x)=Ax^2 \quad \text{for:} -L\leq x< L$$
+                                </span>
+                                and forced to be periodic. <span>$ A $</span> is a constant.
+                                Therefore, <span>$ a_n $</span> and <span>$ b_n $</span> coefficients are given as
+                                <span class="mathJaxDisplay">
+                                    $$ b_n = \frac{1}{L}\int_{-L}^{+L} Ax^2 \sin \left(\frac{n \pi x}{L} \right)dx $$
+                                </span>
+                                <span class="mathJaxDisplay">
+                                    $$ a_n= \frac{1}{L}\int_{-L}^{+L} Ax^2 \cos \left(\frac{n \pi x}{L} \right)dx $$
+                                </span>
+                                The <span>$ b_n $</span> integral is odd about <span>$ x=0 $</span>, hence <span>$ b_n=0 $</span> for all <span>$ n $</span>. <span>$ f(x) $</span> is even about <span>$ x=0 $</span>. Hence
+                                <span class="mathJaxDisplay">
+                                    $$ a_n=\frac{2}{L}\int_{0}^{+L} Ax^2 \cos \left(\frac{n \pi x}{L} \right)dx $$
+                                </span>
+                                For <span>$ n=0 $</span>:
+                                <span class="mathJaxDisplay">
+                                    $$ a_0 = \frac{2}{L} \int _{0}^{+L} Ax^2 dx a_0 = \frac{2AL^2}{3} $$
+                                </span>
+                                For <span>$ n\neq 0 $</span>:
+                                <span class="mathJaxDisplay">
+                                    $$ a_n = \frac{2A}{L}\int_0^L x^2 \cos \left(\frac{n\pi x}{L} \right)dx $$
+                                </span>
+                                This Eqn. can be solved by integrating by parts.
+                                <span class="section-extra-head-container">
+                                    <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsParabolic1"> Show Full Calculation </button>
+                                </span>
+                                <div id="ByPartsParabolic1" class="solidline collapse">
                                     <span class="mathJaxDisplay">
-                                        $$ f(x)=Ax^2 \quad \text{for:} -L\leq x< L$$
-                                    </span>
-                                    and forced to be periodic. <span>$ A $</span> is a constant.
-                                    Therefore, <span>$ a_n $</span> and <span>$ b_n $</span> coefficients are given as
-                                    <span class="mathJaxDisplay">
-                                        $$ b_n = \frac{1}{L}\int_{-L}^{+L} Ax^2 \sin \left(\frac{n \pi x}{L} \right)dx $$
-                                    </span>
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n= \frac{1}{L}\int_{-L}^{+L} Ax^2 \cos \left(\frac{n \pi x}{L} \right)dx $$
-                                    </span>
-                                    The <span>$ b_n $</span> integral is odd about <span>$ x=0 $</span>, hence <span>$ b_n=0 $</span> for all <span>$ n $</span>. <span>$ f(x) $</span> is even about <span>$ x=0 $</span>. Hence
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n=\frac{2}{L}\int_{0}^{+L} Ax^2 \cos \left(\frac{n \pi x}{L} \right)dx $$
-                                    </span>
-                                    For <span>$ n=0 $</span>:
-                                    <span class="mathJaxDisplay">
-                                        $$ a_0 = \frac{2}{L} \int _{0}^{+L} Ax^2 dx a_0 = \frac{2AL^2}{3} $$
-                                    </span>
-                                    For <span>$ n\neq 0 $</span>:
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n = \frac{2A}{L}\int_0^L x^2 \cos \left(\frac{n\pi x}{L} \right)dx $$
-                                    </span>
-                                    This Eqn. can be solved by integrating by parts.
-                                    <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsParabolic1Container"> Show Full Calculation </button>
-                                    </span>
-                                    <div id="ByPartsParabolic1Container" class="collapse">
-                                        <div id="ByPartsParabolic1" class="solidline">
-                                        <span class="mathJaxDisplay">
-                                            $$ du = 2x\cdot dx \qquad v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $$
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            $$ u=x^2 \qquad dv= \cos \left(\frac{n \pi x}{L} \right)dx $$
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            \begin{align}
-                                            a_n = \frac{2A}{L} \Bigg[ \Big[\frac{Lx^2}{n\pi} & \sin \left(\frac{n\pi x}{L} \right) \Big] \biggr |_0^L \\
-                                            -\int_0^L\frac{2xL}{n\pi} & \sin \left(\frac{n \pi x}{L} \right)dx \Bigg]
-                                            \end{align}
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            $$ = \frac{2A}{L} \Bigg[0 -\int_0^L\frac{2xL}{n\pi} \sin\left(\frac{n \pi x}{L}\right)dx \Bigg] $$
-                                        </span>
-                                        </div>
-                                    </div>
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n = -\frac{4A}{n\pi}\int_{0}^{L} x \sin \left(\frac{n \pi x}{L} \right)dx $$
-                                    </span>
-                                    <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsParabolic2Container"> Show Full Calculation </button>
-                                    </span>
-                                    <div id="ByPartsParabolic2Container" class="collapse">
-                                        <div id="ByPartsParabolic2" class="solidline">
-                                        <span class="mathJaxDisplay">
-                                            $$ u = x \qquad dv = \sin \left(\frac{n\pi x}{L} \right) dx $$
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            $$ du = dx \qquad v = -\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L} \right) $$
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            \begin{align}
-                                            a_n = \frac{-4A}{n\pi} \Bigg[\Big[-\frac{xL}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)\Big] \biggr |_0^L \\
-                                            - \int_0^L\frac{-L}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)dx \Bigg]
-                                            \end{align}
-                                        </span>
-                                        </div>
-                                    </div>
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n = \frac{4A}{n\pi} \Bigg[\frac{xL}{n\pi} \cos \left(\frac{n\pi x}{L} \right) \Bigg] \biggr |_0^L $$
+                                        $$ du = 2x\cdot dx \qquad v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $$
                                     </span>
                                     <span class="mathJaxDisplay">
-                                        $$ = \frac{4AL^2}{n^2\pi^2}(-1)^n $$
+                                        $$ u=x^2 \qquad dv= \cos \left(\frac{n \pi x}{L} \right)dx $$
                                     </span>
-                                    Therefore, the fourier series can be written as
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x) = \frac{AL^2}{3} + \sum_{n=1}^\infty \frac{4AL^2}{n^2\pi^2} (-1)^n \cos \left(\frac{n\pi x}{L} \right) $$
-                                    </span>
-                                </div>
-                            </div>
-                            <div id="delta" class="divclass">
-                                <button id="ssh6" class="section-sub-head" key="ssh6" @click="updateSubSection(6); subScrollTo($event)" data-target="#deltaContent">
-                                    Dirac-Delta Function
-                                </button>
-                                <div id="deltaContent" class="section-sub-content" key="deltaContent" v-show="derivationSubSection === 6">
-                                    The Dirac-delta function can be thought of as a infinite spike at <span>$ x=0 $</span>.
-                                    <span class="mathJaxDisplay">
-                                        $$
-                                        f(x) = \delta(x)=\left\{
-                                        \begin{array}{ll}
-                                        +\infty \quad (x=0) \\
-                                        0 \qquad (x \neq 0)
-                                        \end{array}
-                                        \right.
-                                        $$
-                                    </span>
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n=\frac{1}{L}\int_{-L}^{+L} \delta (x) \cos \left(\frac{n\pi x}{L} \right)dx $$
-                                    </span>
-                                    <span class="mathJaxDisplay">
-                                        $$ b_n=\frac{1}{L}\int_{-L}^{+L}\delta(x) \sin \left(\frac{n\pi x}{L} \right)dx $$
-                                    </span>
-                                    <span>$ \delta(x) $</span>is an even function. Hence <span>$ b_n=0 $</span> and
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n=\frac{1}{L} $$
-                                    </span>
-                                    <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsDiracContainer"> Show Full Calculation </button>
-                                    </span>
-                                    <div id="ByPartsDiracContainer" class="collapse">
-                                        <div id="ByPartsDirac" class="solidline">
-                                            By considering the shifting property of the Dirac-Delta function,
-                                            <span class="mathJaxDisplay">
-                                        $$ \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha) $$
-                                        </span>
-                                            For us,<span>$ \alpha=0, \epsilon=L, $</span>and <span>$ g(x)= \sin \left(n \pi x/L \right) $</span>.
-                                            <br><br>
-                                            Therefore,
-                                            <span class="mathJaxDisplay">
-                                        $$ a_n=\frac{1}{L}\cos \left(\frac{n\pi \times 0}{L} \right)=\frac{1}{L} $$
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                        $$ b_n=\frac{1}{L}\sin \left(\frac{n\pi \times 0}{L} \right)=0 $$
-                                        </span>
-                                        </div>
-                                    </div>
-                                    Therefore, the fourier series for positive <span>$ L $</span> can be written as
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x)=\frac{1}{2L}+\sum_{n=1}^\infty \frac{1}{L} \cos \left(\frac{n\pi x}{L} \right). $$
-                                    </span>
-                                </div>
-                            </div>
-                            <div id="square" class="divclass">
-                                <button id="ssh7" class="section-sub-head" key="ssh7" @click="updateSubSection(7); subScrollTo($event)" data-target="#squareContent">
-                                    Square Wave
-                                </button>
-                                <div id="squareContent" class="section-sub-content" key="squareContent" v-show="derivationSubSection === 7">
-                                    The square wave is defined as the following:
-                                    <span class="mathJaxDisplay">
-                                        $$
-                                        f(x)=\left\{
-                                        \begin{array}{ll}
-                                        -A \quad (-L \leq x < 0) \\
-                                        A \quad (0\leq x < L)
-                                        \end{array}
-                                        \right.
-                                        $$
-                                    </span>
-                                    The <span>$ a_{n} $</span> terms can be found be noting that <span>$ f(x) $</span> is odd, so <span>$ a_n $</span> is <span>$ 0 $</span> for all <span>$ n $</span>.
-                                    <br><br>
-                                    To find the <span>$ b_n $</span> terms, the integration can be split into two parts: <span>$ -L\leq x <0 $</span> and <span>$ 0\leq x < L $</span>.
-                                    <br><br>
-                                    This gives the following integration:
                                     <span class="mathJaxDisplay">
                                         \begin{align}
-                                        b_n & =\frac{1}{L}\int_{-L}^0 -A \sin \left(\frac{n\pi x}{L} \right)dx \\
-                                        & + \frac{1}{L}\int_0^L A \sin \left(\frac{n \pi x}{L} \right)dx
+                                        a_n = \frac{2A}{L} \Bigg[ \Big[\frac{Lx^2}{n\pi} & \sin \left(\frac{n\pi x}{L} \right) \Big] \biggr |_0^L \\
+                                        -\int_0^L\frac{2xL}{n\pi} & \sin \left(\frac{n \pi x}{L} \right)dx \Bigg]
                                         \end{align}
                                     </span>
-                                    which can be evaluated to:
                                     <span class="mathJaxDisplay">
-                                        $$ b_n=\frac{-2A}{L}\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L
-                                        =\frac{2A}{n\pi}\left[1-\cos\left(n\pi \right) \right] $$
-                                    </span>
-                                    Note that
-                                    <span class="mathJaxDisplay">
-                                        $$ \cos \left(n \pi\right)=(-1)^n $$
-                                    </span>
-                                    Hence
-                                    <span class="mathJaxDisplay">
-                                        $$ b_n=\frac{2A}{n\pi}(1-(-1)^n)$$
-                                    </span>
-                                    Therefore the final fourier series is:
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi} (1-(-1)^n)\sin \left(\frac{n\pi x}{L}\right). $$
+                                        $$ = \frac{2A}{L} \Bigg[0 -\int_0^L\frac{2xL}{n\pi} \sin\left(\frac{n \pi x}{L}\right)dx \Bigg] $$
                                     </span>
                                 </div>
-                            </div>
-                            <div id="sawtooth" class="divclass">
-                                <button id="ssh8" class="section-sub-head" key="ssh8" @click="updateSubSection(8); subScrollTo($event)" data-target="#sawtoothContent">
-                                    Sawtooth Wave
-                                </button>
-                                <div id="sawtoothContent" class="section-sub-content" key="sawtoothContent" v-show="derivationSubSection === 8" >
-                                    The Sawtooth wave is defined as the following:
+                                <span class="mathJaxDisplay">
+                                    $$ a_n = -\frac{4A}{n\pi}\int_{0}^{L} x \sin \left(\frac{n \pi x}{L} \right)dx $$
+                                </span>
+                                <span class="section-extra-head-container">
+                                    <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsParabolic2"> Show Full Calculation </button>
+                                </span>
+                                <div id="ByPartsParabolic2" class="solidline collapse">
                                     <span class="mathJaxDisplay">
-                                        $$ f(x)=\frac{Ax}{L}  \quad (-L \leq x < L). $$
+                                        $$ u = x \qquad dv = \sin \left(\frac{n\pi x}{L} \right) dx $$
                                     </span>
-                                    <span>$ f(x) $</span> is odd, so <span>$ a_n= 0 $</span> for all <span>$ n $</span>.
-                                    <br><br>
-                                    The <span>$ b_n $</span> terms are given by the following integration:
+                                    <span class="mathJaxDisplay">
+                                        $$ du = dx \qquad v = -\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L} \right) $$
+                                    </span>
                                     <span class="mathJaxDisplay">
                                         \begin{align}
-                                        b_n & =\frac{1}{L}\int_{-L}^{L} \frac{Ax}{L}\sin \left(\frac{n\pi x}{L} \right)dx \\
-                                        & =\frac{2A}{L^{2}}\int_{0}^{L} x \sin \left(\frac{n\pi x}{L} \right)dx.
+                                        a_n = \frac{-4A}{n\pi} \Bigg[\Big[-\frac{xL}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)\Big] \biggr |_0^L \\
+                                        - \int_0^L\frac{-L}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)dx \Bigg]
                                         \end{align}
                                     </span>
-                                    Using Integration by parts it can be shown that:
-                                    <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsSawtoothContainer"> Show Full Calculation </button>
-                                    </span>
-                                    <div id="ByPartsSawtoothContainer" class="collapse">
-                                        <div id="ByPartsSawtooth" class="solidline">
-                                        <span class="mathJaxDisplay">
-                                            $$ u=x \quad  dv=\sin \left(\frac{n\pi x}{L} \right)dx $$
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            $$ du=dx \quad v=\frac{-L}{n\pi}\cos \left(\frac{n\pi x}{L} \right) $$
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            \begin{align}
-                                            b_n=\frac{2A}{L^{2}} \Bigg[ \frac{-Lx}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L \\
-                                            -\int_0^L\frac{-L}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)dx \Bigg]
-                                            \end{align}
-                                        </span>
-                                            Note that the second integrand is zero as it is of cosine over a full
-                                            period.
-                                            <span class="mathJaxDisplay">
-                                            $$ b_n=-\frac{2A}{n\pi} \cos \left(n\pi \right)=-\frac{2A}{n\pi}(-1)^n $$
-                                        </span>
-                                        </div>
-                                    </div>
+                                </div>
+                                <span class="mathJaxDisplay">
+                                    $$ a_n = \frac{4A}{n\pi} \Bigg[\frac{xL}{n\pi} \cos \left(\frac{n\pi x}{L} \right) \Bigg] \biggr |_0^L $$
+                                </span>
+                                <span class="mathJaxDisplay">
+                                    $$ = \frac{4AL^2}{n^2\pi^2}(-1)^n $$
+                                </span>
+                                Therefore, the fourier series can be written as
+                                <span class="mathJaxDisplay">
+                                    $$ f(x) = \frac{AL^2}{3} + \sum_{n=1}^\infty \frac{4AL^2}{n^2\pi^2} (-1)^n \cos \left(\frac{n\pi x}{L} \right) $$
+                                </span>
+                            </div>
+                        </div>
+                        <div id="delta" class="divclass">
+                            <button id="ssh6" class="section-sub-head" @click="updateSubSection(6); subScrollTo($event);" data-toggle="collapse" data-target="#deltaContent">
+                                Dirac-Delta Function
+                            </button>
+                            <div id="deltaContent" class="section-sub-content collapse" data-parent="#p2">
+                                The Dirac-delta function can be thought of as a infinite spike at <span>$ x=0 $</span>.
+                                <span class="mathJaxDisplay">
+                                    $$
+                                    f(x) = \delta(x)=\left\{
+                                    \begin{array}{ll}
+                                    +\infty \quad (x=0) \\
+                                    0 \qquad (x \neq 0)
+                                    \end{array}
+                                    \right.
+                                    $$
+                                </span>
+                                <span class="mathJaxDisplay">
+                                    $$ a_n=\frac{1}{L}\int_{-L}^{+L} \delta (x) \cos \left(\frac{n\pi x}{L} \right)dx $$
+                                </span>
+                                <span class="mathJaxDisplay">
+                                    $$ b_n=\frac{1}{L}\int_{-L}^{+L}\delta(x) \sin \left(\frac{n\pi x}{L} \right)dx $$
+                                </span>
+                                <span>$ \delta(x) $</span>is an even function. Hence <span>$ b_n=0 $</span> and
+                                <span class="mathJaxDisplay">
+                                    $$ a_n=\frac{1}{L} $$
+                                </span>
+                                <span class="section-extra-head-container">
+                                    <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsDirac"> Show Full Calculation </button>
+                                </span>
+                                <div id="ByPartsDirac" class="solidline collapse">
+                                    By considering the shifting property of the Dirac-Delta function,
                                     <span class="mathJaxDisplay">
-                                        $$ b_n=\frac{2A}{n\pi}(-1)^{n+1}. $$
+                                    $$ \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha) $$
                                     </span>
-                                    Therefore the final fourier series is:
+                                    For us,<span>$ \alpha=0, \epsilon=L, $</span>and <span>$ g(x)= \sin \left(n \pi x/L \right) $</span>.
+                                    <br><br>
+                                    Therefore,
                                     <span class="mathJaxDisplay">
-                                        $$ f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1} \sin \left(\frac{n\pi x}{L} \right). $$
+                                    $$ a_n=\frac{1}{L}\cos \left(\frac{n\pi \times 0}{L} \right)=\frac{1}{L} $$
+                                    </span>
+                                    <span class="mathJaxDisplay">
+                                    $$ b_n=\frac{1}{L}\sin \left(\frac{n\pi \times 0}{L} \right)=0 $$
                                     </span>
                                 </div>
+                                Therefore, the fourier series for positive <span>$ L $</span> can be written as
+                                <span class="mathJaxDisplay">
+                                    $$ f(x)=\frac{1}{2L}+\sum_{n=1}^\infty \frac{1}{L} \cos \left(\frac{n\pi x}{L} \right). $$
+                                </span>
                             </div>
-                            <div id="modx" class="divclass">
-                                <button id="ssh9" class="section-sub-head" key="ssh9" @click="updateSubSection(9); subScrollTo($event)" data-target="#modxContent">
-                                    Mod x Function
-                                </button>
-                                <div id="modxContent" class="section-sub-content" key="modxContent" v-show="derivationSubSection === 9">
-                                    The <span>$ |x| $</span> function is defined as the following:
+                        </div>
+                        <div id="square" class="divclass">
+                            <button id="ssh7" class="section-sub-head" @click="updateSubSection(7); subScrollTo($event);" data-toggle="collapse" data-target="#squareContent">
+                                Square Wave
+                            </button>
+                            <div id="squareContent" class="section-sub-content collapse" data-parent="#p2">
+                                The square wave is defined as the following:
+                                <span class="mathJaxDisplay">
+                                    $$
+                                    f(x)=\left\{
+                                    \begin{array}{ll}
+                                    -A \quad (-L \leq x < 0) \\
+                                    A \quad (0\leq x < L)
+                                    \end{array}
+                                    \right.
+                                    $$
+                                </span>
+                                The <span>$ a_{n} $</span> terms can be found be noting that <span>$ f(x) $</span> is odd, so <span>$ a_n $</span> is <span>$ 0 $</span> for all <span>$ n $</span>.
+                                <br><br>
+                                To find the <span>$ b_n $</span> terms, the integration can be split into two parts: <span>$ -L\leq x <0 $</span> and <span>$ 0\leq x < L $</span>.
+                                <br><br>
+                                This gives the following integration:
+                                <span class="mathJaxDisplay">
+                                    \begin{align}
+                                    b_n & =\frac{1}{L}\int_{-L}^0 -A \sin \left(\frac{n\pi x}{L} \right)dx \\
+                                    & + \frac{1}{L}\int_0^L A \sin \left(\frac{n \pi x}{L} \right)dx
+                                    \end{align}
+                                </span>
+                                which can be evaluated to:
+                                <span class="mathJaxDisplay">
+                                    $$ b_n=\frac{-2A}{L}\frac{L}{n\pi} \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L
+                                    =\frac{2A}{n\pi}\left[1-\cos\left(n\pi \right) \right] $$
+                                </span>
+                                Note that
+                                <span class="mathJaxDisplay">
+                                    $$ \cos \left(n \pi\right)=(-1)^n $$
+                                </span>
+                                Hence
+                                <span class="mathJaxDisplay">
+                                    $$ b_n=\frac{2A}{n\pi}(1-(-1)^n)$$
+                                </span>
+                                Therefore the final fourier series is:
+                                <span class="mathJaxDisplay">
+                                    $$ f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi} (1-(-1)^n)\sin \left(\frac{n\pi x}{L}\right). $$
+                                </span>
+                            </div>
+                        </div>
+                        <div id="sawtooth" class="divclass">
+                            <button id="ssh8" class="section-sub-head" @click="updateSubSection(8); subScrollTo($event);" data-toggle="collapse" data-target="#sawtoothContent"> Sawtooth Wave </button>
+                            <div id="sawtoothContent" class="section-sub-content collapse"  data-parent="#p2">
+                                The Sawtooth wave is defined as the following:
+                                <span class="mathJaxDisplay">
+                                    $$ f(x)=\frac{Ax}{L}  \quad (-L \leq x < L). $$
+                                </span>
+                                <span>$ f(x) $</span> is odd, so <span>$ a_n= 0 $</span> for all <span>$ n $</span>.
+                                <br><br>
+                                The <span>$ b_n $</span> terms are given by the following integration:
+                                <span class="mathJaxDisplay">
+                                    \begin{align}
+                                    b_n & =\frac{1}{L}\int_{-L}^{L} \frac{Ax}{L}\sin \left(\frac{n\pi x}{L} \right)dx \\
+                                    & =\frac{2A}{L^{2}}\int_{0}^{L} x \sin \left(\frac{n\pi x}{L} \right)dx.
+                                    \end{align}
+                                </span>
+                                Using Integration by parts it can be shown that:
+                                <span class="section-extra-head-container">
+                                    <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsSawtooth"> Show Full Calculation </button>
+                                </span>
+                                <div id="ByPartsSawtooth" class="solidline collapse">
                                     <span class="mathJaxDisplay">
-                                        $$ f(x)=A|x| \quad (-L \leq x < L). $$
+                                        $$ u=x \quad  dv=\sin \left(\frac{n\pi x}{L} \right)dx $$
                                     </span>
                                     <span class="mathJaxDisplay">
-                                        $$ a_n = \frac{1}{L}\int_{-L}^{+L} A|x| \cos \left(\frac{n \pi x}{L} \right)dx $$
+                                        $$ du=dx \quad v=\frac{-L}{n\pi}\cos \left(\frac{n\pi x}{L} \right) $$
                                     </span>
                                     <span class="mathJaxDisplay">
-                                        $$ b_n = \frac{1}{L}\int_{-L}^{+L} A|x| \sin \left( \frac{n\pi x}{L}\right) dx $$
+                                        \begin{align}
+                                        b_n=\frac{2A}{L^{2}} \Bigg[ \frac{-Lx}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L \\
+                                        -\int_0^L\frac{-L}{n\pi} & \cos \left(\frac{n\pi x}{L} \right)dx \Bigg]
+                                        \end{align}
                                     </span>
-                                    <span>$ f(x) $</span> is even about <span>$ x=0 $</span>. Hence <span>$ b_n=0 $</span>.
-                                    The <span>$ a_n $</span> integral is even about <span>$ x=0 $</span>. Hence,
+                                    Note that the second integrand is zero as it is of cosine over a full period.
                                     <span class="mathJaxDisplay">
-                                        $$ a_n = \frac{2}{L}\int_{0}^{+L} Ax  \cos \left(\frac{n \pi x}{L}\right)dx. $$
-                                    </span>
-                                    For <span>$ n=0 $</span>
-                                    <span class="mathJaxDisplay">
-                                        $$ a_0 = \frac{2A}{L}\int_0^L x dx = \frac{2A}{L}\frac{x^2}{2} \biggr |_0^L = AL. $$
-                                    </span>
-                                    For <span>$ n \neq 0 $</span>:
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n = \frac{2A}{L}\int_{0}^{+L} x   \cos \left(\frac{n \pi x}{L} \right)dx. $$
-                                    </span>
-                                    By integrating by parts,
-                                    <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsModxContainer"> Show Full Calculation </button>
-                                    </span>
-                                    <div id="ByPartsModxContainer" class="collapse">
-                                        <div id="ByPartsModx" class="solidline">
-                                        <span class="mathJaxDisplay">
-                                            $$ u=x \qquad  dv= \cos\left(\frac{n\pi x}{L}\right)dx $$
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            $$ du=dx \qquad  v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $$
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            \begin{align}
-                                            a_n = \frac{2A}{L} \Bigg[ \Big[\frac{Lx}{n\pi} & \sin \left( \frac{n \pi x}{L} \right) \Big] \Biggr|_0^L \\
-                                            -\int_0^{+L} \frac{L}{n\pi} & \sin \left(\frac{n \pi x}{L} \right)dx \Bigg]
-                                            \end{align}
-                                        </span>
-                                            <span class="mathJaxDisplay">
-                                            $$ a_n = \frac{2A}{L} \Bigg[ 0  -\int_0^{+L}\frac{L}{n\pi}  \sin \left(\frac{n\pi x}{L} \right)dx \Bigg] $$
-                                        </span>
-                                        </div>
-                                    </div>
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}  \cos \left( \frac{n\pi x}{L} \right)\biggr |_0^L . $$
-                                    </span>
-                                    Hence,
-                                    <span class="mathJaxDisplay">
-                                        $$ a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}  \left[(-1)^n-1 \right] = \frac{2AL}{(n\pi)^2}\left[(-1)^n-1 \right]. $$
-                                    </span>
-                                    Therefore the final fourier series is:
-                                    <span class="mathJaxDisplay">
-                                        $$ f(x)=\frac{AL}{2}+ \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2} \left[(-1)^n-1 \right]  \cos \left(\frac{n\pi
-                                        x}{L} \right). $$
+                                        $$ b_n=-\frac{2A}{n\pi} \cos \left(n\pi \right)=-\frac{2A}{n\pi}(-1)^n $$
                                     </span>
                                 </div>
+                                <span class="mathJaxDisplay">
+                                    $$ b_n=\frac{2A}{n\pi}(-1)^{n+1}. $$
+                                </span>
+                                Therefore the final fourier series is:
+                                <span class="mathJaxDisplay">
+                                    $$ f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1} \sin \left(\frac{n\pi x}{L} \right). $$
+                                </span>
                             </div>
+                        </div>
+                        <div id="modx" class="divclass">
+                            <button id="ssh9" class="section-sub-head" @click="updateSubSection(9); subScrollTo($event);" data-toggle="collapse" data-target="#modxContent">
+                                Mod x Function
+                            </button>
+                            <div id="modxContent" class="section-sub-content collapse" data-parent="#p2">
+                                The <span>$ |x| $</span> function is defined as the following:
+                                <span class="mathJaxDisplay">
+                                    $$ f(x)=A|x| \quad (-L \leq x < L). $$
+                                </span>
+                                <span class="mathJaxDisplay">
+                                    $$ a_n = \frac{1}{L}\int_{-L}^{+L} A|x| \cos \left(\frac{n \pi x}{L} \right)dx $$
+                                </span>
+                                <span class="mathJaxDisplay">
+                                    $$ b_n = \frac{1}{L}\int_{-L}^{+L} A|x| \sin \left( \frac{n\pi x}{L}\right) dx $$
+                                </span>
+                                <span>$ f(x) $</span> is even about <span>$ x=0 $</span>. Hence <span>$ b_n=0 $</span>.
+                                The <span>$ a_n $</span> integral is even about <span>$ x=0 $</span>. Hence,
+                                <span class="mathJaxDisplay">
+                                    $$ a_n = \frac{2}{L}\int_{0}^{+L} Ax  \cos \left(\frac{n \pi x}{L}\right)dx. $$
+                                </span>
+                                For <span>$ n=0 $</span>
+                                <span class="mathJaxDisplay">
+                                    $$ a_0 = \frac{2A}{L}\int_0^L x dx = \frac{2A}{L}\frac{x^2}{2} \biggr |_0^L = AL. $$
+                                </span>
+                                For <span>$ n \neq 0 $</span>:
+                                <span class="mathJaxDisplay">
+                                    $$ a_n = \frac{2A}{L}\int_{0}^{+L} x   \cos \left(\frac{n \pi x}{L} \right)dx. $$
+                                </span>
+                                By integrating by parts,
+                                <span class="section-extra-head-container">
+                                    <button class="section-extra-head" data-toggle="collapse" data-target="#ByPartsModx"> Show Full Calculation </button>
+                                </span>
+                                <div id="ByPartsModx" class="solidline collapse">
+                                    <span class="mathJaxDisplay">
+                                        $$ u=x \qquad  dv= \cos\left(\frac{n\pi x}{L}\right)dx $$
+                                    </span>
+                                    <span class="mathJaxDisplay">
+                                        $$ du=dx \qquad  v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $$
+                                    </span>
+                                    <span class="mathJaxDisplay">
+                                        \begin{align}
+                                        a_n = \frac{2A}{L} \Bigg[ \Big[\frac{Lx}{n\pi} & \sin \left( \frac{n \pi x}{L} \right) \Big] \Biggr|_0^L \\
+                                        -\int_0^{+L} \frac{L}{n\pi} & \sin \left(\frac{n \pi x}{L} \right)dx \Bigg]
+                                        \end{align}
+                                    </span>
+                                    <span class="mathJaxDisplay">
+                                        $$ a_n = \frac{2A}{L} \Bigg[ 0  -\int_0^{+L}\frac{L}{n\pi}  \sin \left(\frac{n\pi x}{L} \right)dx \Bigg] $$
+                                    </span>
+                                </div>
+                                <span class="mathJaxDisplay">
+                                    $$ a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}  \cos \left( \frac{n\pi x}{L} \right)\biggr |_0^L . $$
+                                </span>
+                                Hence,
+                                <span class="mathJaxDisplay">
+                                    $$ a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}  \left[(-1)^n-1 \right] = \frac{2AL}{(n\pi)^2}\left[(-1)^n-1 \right]. $$
+                                </span>
+                                Therefore the final fourier series is:
+                                <span class="mathJaxDisplay">
+                                    $$ f(x)=\frac{AL}{2}+ \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2} \left[(-1)^n-1 \right]  \cos \left(\frac{n\pi
+                                    x}{L} \right). $$
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="section-container" id="sc3">
@@ -727,19 +711,13 @@
                         <span>$ \theta_n $</span> change from <span>$ 0 $</span> to <span>$ \pi $</span> or vice versa. Why do you think
                         this happens?
                         <span class="section-extra-head-container">
-                            <button class="section-extra-head" data-toggle="collapse" data-target="#evenThetaAnswerContainer"> Show Answer </button>
+                            <button class="section-extra-head" data-toggle="collapse" data-target="#evenThetaAnswer"> Show Answer </button>
                         </span>
-                        <div id="ByPartsModxContainer" class="collapse">
-                            <div id="evenThetaAnswer" class="solidline">
-                                This happens because the value of <span>$ a_n $</span> changes sign
-                                (<span>$ b_n $</span> is 0) causing the value of
-                                <span>$ \theta_n $</span>to change. For <span>$ b_n = 0 $</span>, <span>$ \tan^{-1}(\frac{b_n}{a_n}) $</span>
-                                can be both
-                                0 or<span>$ \pi $</span> depending on whether <span>$ a_n $</span> is positive or
-                                negative. Not all even functions exhibit this.
-                                The parabola for example, has its <span>$ a_n $</span> proportional to
-                                <span>$ L^2 $</span>, so its sign does not change when L changes sign.
-                            </div>
+                        <div id="evenThetaAnswer" class="solidline collapse">
+                            This happens because the value of <span>$ a_n $</span> changes sign (<span>$ b_n $</span> is 0) causing the value of
+                            <span>$ \theta_n $</span>to change. For <span>$ b_n = 0 $</span>, <span>$ \tan^{-1}(\frac{b_n}{a_n}) $</span> can be both
+                            0 or<span>$ \pi $</span> depending on whether <span>$ a_n $</span> is positive or negative. Not all even functions exhibit this.
+                            The parabola for example, has its <span>$ a_n $</span> proportional to <span>$ L^2 $</span>, so its sign does not change when L changes sign.
                         </div>
                         <h3 class="section-sub-head">
                             Orthogonal functions
@@ -790,15 +768,13 @@
                         <h3 class="section-sub-head">
                             Syntax:
                         </h3>
-                        Entering <span>$ 5x $</span> does not work: instead you should write 5*x.
+                        Entering 5x does not work: instead you should write 5*x.
+                        Write exponents as a^(exponent), so <span>$ x^2 $</span> is writen as x^2.
                         <br><br>
-                        Write exponents as a^(exponent), so <span>$ x^2 $</span> is written as x^2.
-                        <br><br>
-                        Functions should be real and fully defined over the domain, for example <span>$ log(x) $</span> is imaginary
+                        Functions should be real and fully defined over the domain, for example log(x) is imaginary
                         for values less than zero, so does not work.
-                        <br><br>
-                        <span>$ log(x+1) $</span> does not work either (with a period of 1), since log is undefined at zero, however
-                        <span>$ log(1+x^2) $</span> does work for all periods, since it is defined over the whole domain and is real.
+                        log(x+1) does not work either (with a period of 1), since log is undefined at zero, however
+                        log(1+x^2) does work for all periods, since it is defined over the whole domain and is real.
                         <br><br>
                         Sometimes due to the numerical integration methods used, the power spectrum shows very small values (<span>$ 10^{-17} $</span>).
                         These are simply due to the inexact integration and should be treated as zero.

@@ -85,7 +85,7 @@
 <!-- -------------------------------------------------------------left sec 1 orthogonality----------------------------------------------------------------------------- -->
         <div class="journey_pg" id="section_1">
 
-                    <h3 class = section_title >1. Orthogonality</h3>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll1">1. Orthogonality</h3>
                     <h4 class="subtitle">&#3898   Orthogonality of Vectors & Functions   &#3899</h4>
                     <!--<div class="container_journey">-->
                      <!--<center><h4>Orthogonality of Vectors & Functions:</h4></center>-->
@@ -126,18 +126,19 @@
             <br><!--
             <button class="derivation_collapse" id="derive" >Derivation</button>
             -->
+<!--
 <button class="derivation_collapse" id="derive" v-on:click="show1 = !show1" >Derivation</button>
 <div id="button-1">
 
 
-<!-- v-bind, write a function for click, style the hidden section, recalculate the height, update each time-->
+&lt;!&ndash; v-bind, write a function for click, style the hidden section, recalculate the height, update each time&ndash;&gt;
 
                 <transition name="slide-fade">
 <p v-show="show1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
                     </p>
                 </transition>
-                </div>
+                </div>-->
 
 
 
@@ -150,7 +151,7 @@
         </div><!--
       -->
         <div class="journey_pg" id="section_2">
-                    <h3 class = section_title >2. Derivation</h3>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll2">2. Derivation</h3>
                     <h4 class="subtitle">&#3898   Derivation   &#3899</h4>
 
             <!--<style>
@@ -596,7 +597,7 @@
         </div><!--
       -->
         <div class="journey_pg" id="section_3">
-                  <h3 class = section_title >3. Decomposition</h3>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll3">3. Decomposition</h3>
                   <h4 align="center" class="subtitle">&#3898 Decomposition of a function into odd and even parts &#3898</h4>
     <p> Representing a function in terms of a trigonometric Fourier series is analogous to representing a vector in
     terms of basis vectors. Here sines and cosines are our basis functions, we have a method for finding the projection
@@ -627,7 +628,7 @@
 
 
         <div class="journey_pg" id="section_4">
-                  <h3 class = section_title >4. Power Spectrum</h3>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll4">4. Power Spectrum</h3>
                   <h4 class="subtitle">&#3898   Power Spectrum   &#3899</h4>
                   <h5 align="center" style="border: blue solid 1px">Power spectrum</h5>
             <p>The power spectrum form is a different representation of a continuous signal.
@@ -651,7 +652,7 @@
         </div>
 
         <div class="journey_pg" id="section_5">
-                  <h3 class = section_title >5. Generalised Content</h3>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll5">5. Generalised Content</h3>
                   <h4 class="subtitle">&#3898   Generalised Content   &#3899</h4>
             <p style="font-weight: bold; font-size:large">
             <!--Derivation of Dirac-Delta-->
@@ -764,6 +765,12 @@
         </div>-->
     </div>
     <!------------------------------------------------------------------------------------------------------------------------------------------>
+    <!--section progress bar-->
+    <!--<meter v-if="currentsec==1"  min="pg_heights[0]" max="pg_heights[1]" value="scrolling"></meter>
+    <meter v-else-if="currentsec==2"  min="pg_heights[1]" max="pg_heights[2]" value="scrolling"></meter>
+    <meter v-else-if="currentsec==3"  min="pg_heights[2]" max="pg_heights[3]" value="scrolling"></meter>
+    <meter v-else-if="currentsec==4"  min="pg_heights[3]" max="pg_heights[4]" value="scrolling"></meter>
+    <meter v-else-if="currentsec==5"  min="pg_heights[4]" max="h" value="scrolling"></meter>-->
 
     <!-- ---------------------------------------right side--------------------------------------------------------------------------------------- -->
     <button id="unlock" v-on:click="unlock" style="color: #f8ac59; font-weight: bold">Unlock Page</button>
