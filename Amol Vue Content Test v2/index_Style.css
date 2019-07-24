@@ -10,6 +10,11 @@ hr {
     margin: 10px 0;
 }
 
+.mathJaxDisplay {
+    display:table;
+    margin: 10px auto;
+}
+
 .vis-container {
     float: left;
 }
@@ -205,6 +210,11 @@ h3.section-sub-head {
     margin-bottom: 50px;
 }
 
+.section-extra-head-container {
+    display: table;
+    margin: 30px auto 10px auto;
+}
+
 .section-extra-head {
     font-size: 10pt;
 }
@@ -251,7 +261,7 @@ h3.section-sub-head {
     font-weight: bolder;
     top: 0;
     left: 33vw;
-    right: 200px;
+    right: 0;
     min-height: 40px;
     background: none;
     color: #ffffff;
