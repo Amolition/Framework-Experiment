@@ -83,11 +83,9 @@ let app = new Vue ({
         // Delay added to allow time for div size changes
         subScrollTo: function (event) {
             let scrollTarget = event.currentTarget;
-            setTimeout(function () {
-                if (document.querySelectorAll(scrollTarget.dataset.target)[0].classList.contains("show")===true) {
-                    scrollTarget.scrollIntoView({behavior: "smooth"});
-                }
-            }, 500);
+            if (scrollTarget.id === "ssh" + app.derivationSubSection) {
+                    setTimeout(function () {scrollTarget.scrollIntoView();}, 500)
+            }
         },
 
         // Updates derivationSubSection variable to reflect active subsection in derivatives section
@@ -204,6 +202,9 @@ let app = new Vue ({
                         app.addScript.async = false;
                         document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
                     }
+                }
+                if (oldValue !== 0) {
+                    document.querySelectorAll("ssh" + oldValue)
                 }
             }
         },

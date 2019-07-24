@@ -196,6 +196,10 @@ button.section-sub-head {
     color: #033482;
 }
 
+button.section-sub-head.active, button.section-sub-head.collapsibleButton:hover {
+    background-color: #3a49cc;
+}
+
 h3.section-sub-head {
     width: 100%;
     margin: 50px 0 20px 0;
@@ -304,6 +308,18 @@ nav {
 
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
+}
+
+.slide-enter-active {
+    transition: height 1s;
+}
+
+.slide-leave-active {
+    transition: height 1s;
+}
+
+.slide-enter, .slide-leave-to {
+    height: 0;
 }
 
 /* IMPORTED STYLE FROM LEARNING EXPERIENCE TEAM */
