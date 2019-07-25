@@ -35,7 +35,7 @@ let app = new Vue ({
         showEq: true,
         equationID: "triangular",
         /*-----------------Eliza Version code---------------*/
-        lock: true,
+        locked: true,
         currentSec: 0,
     },
 
@@ -102,22 +102,21 @@ let app = new Vue ({
             }
             app.$forceUpdate();
         },
+
         //               Eliza version code---------------------------------------------------------------------------------------
-    unlock: function (event){
-                if(app.currentSection===10){
-                    app.currentSection=0;
-                    app.currentSec=0;
-                    this.lock = true;
-                    document.getElementById("unlock").innerHTML="Unlock page";
-                } else {
-                    app.currentSection=10;
-                    app.currentSec=10;
-                    this.lock=false;
-                    document.getElementById("unlock").innerHTML="Lock page";
-                }
-
-
-            },
+        unlock: function (event){
+            if(app.currentSection===10){
+                app.currentSection=0;
+                app.currentSec=0;
+                this.lock = true;
+                document.getElementById("unlock").innerHTML="Unlock page";
+            } else {
+                app.currentSection=10;
+                app.currentSec=10;
+                this.lock=false;
+                document.getElementById("unlock").innerHTML="Lock page";
+            }
+        },
     },
 
     watch: {
