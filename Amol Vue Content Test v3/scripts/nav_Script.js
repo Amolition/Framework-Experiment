@@ -34,9 +34,7 @@ let app = new Vue ({
         ],
         showEq: true,
         equationID: "triangular",
-        /*-----------------Eliza Version code---------------*/
         locked: true,
-        currentSec: 0,
     },
 
     methods: {
@@ -91,8 +89,6 @@ let app = new Vue ({
             }
         },
 
-
-
         // Updates derivationSubSection variable to reflect active subsection in derivatives section
         updateSubSection: function (newSubSection) {
             if (app.derivationSubSection !== newSubSection) {
@@ -101,21 +97,6 @@ let app = new Vue ({
                 app.derivationSubSection = 0;
             }
             app.$forceUpdate();
-        },
-
-        //               Eliza version code---------------------------------------------------------------------------------------
-        unlock: function (event){
-            if(app.currentSection===10){
-                app.currentSection=0;
-                app.currentSec=0;
-                this.lock = true;
-                document.getElementById("unlock").innerHTML="Unlock page";
-            } else {
-                app.currentSection=10;
-                app.currentSec=10;
-                this.lock=false;
-                document.getElementById("unlock").innerHTML="Lock page";
-            }
         },
     },
 
@@ -297,27 +278,26 @@ let app = new Vue ({
                 }
             } else {
                 // load all scripts simultaneously for unlocked mode
-
-                    for (let j=1; j<=app.rightScripts.length; j++) {
-                            for (let i=1; i<=app.rightScripts[j-1].length; i++) {
-                                setTimeout ( function () {
-                                    app.addScript = document.createElement("script");
-                                    app.addScript.id ="rightScriptS" + j + "E" + i;
-                                    app.addScript.src = (app.rightScripts[j-1][i-1]);
-                                    app.addScript.async = false;
-                                    document.querySelectorAll('.rightScriptSpace')[0].appendChild(app.addScript);
-                                }, 1000)
-                            }
-                    }
-                    for (let i=1; i<=app.derivationScripts[0].length; i++) {
-                        setTimeout ( function () {
-                            app.addScript = document.createElement("script");
-                            app.addScript.id ="derivationScriptS" + 0 + "E" + i;
-                            app.addScript.src = (app.derivationScripts[0][i-1]);
-                            app.addScript.async = false;
-                            document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
-                        }, 1000)
-                    }
+                for (let j=1; j<=app.rightScripts.length; j++) {
+                        for (let i=1; i<=app.rightScripts[j-1].length; i++) {
+                            setTimeout ( function () {
+                                app.addScript = document.createElement("script");
+                                app.addScript.id ="rightScriptS" + j + "E" + i;
+                                app.addScript.src = (app.rightScripts[j-1][i-1]);
+                                app.addScript.async = false;
+                                document.querySelectorAll('.rightScriptSpace')[0].appendChild(app.addScript);
+                            }, 100)
+                        }
+                }
+                for (let i=1; i<=app.derivationScripts[0].length; i++) {
+                    setTimeout ( function () {
+                        app.addScript = document.createElement("script");
+                        app.addScript.id ="derivationScriptS" + 0 + "E" + i;
+                        app.addScript.src = (app.derivationScripts[0][i-1]);
+                        app.addScript.async = false;
+                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                    }, 100)
+                }
 
             }
         }
@@ -348,7 +328,4 @@ let app = new Vue ({
             MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]);
         }
     )},
-
-
-
 });
