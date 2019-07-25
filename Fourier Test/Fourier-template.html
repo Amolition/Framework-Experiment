@@ -98,7 +98,7 @@
                     square integrable function $f$ is
                     a function whose inner product with itself, $ \langle f,f \rangle $ is finite.</p>
                 <br>
-                
+
                 <!--Use code above for any pop ups in the journey section, just need to add isActive1... in the #app data-->
             </div>
             <!--
@@ -114,7 +114,7 @@
                             is </p>
                     $\displaystyle f(x) = \frac{a_0}{2}$ $+ \displaystyle\sum_{n=1}^{\infty} \Big[ a_n\cos\Big(\frac{\pi
                     nx}{L}\Big)$
-                    $\displaystyle+ b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big]$ 
+                    $\displaystyle+ b_n\sin\Big(\frac{\pi nx}{L}\Big) \Big]$
                     <p> where </p>
                     $\displaystyle a_n = \displaystyle\frac{1}{L}\int_{-L}^{L} f(x)$ $\displaystyle \cos\Big(\frac{\pi
                     nx}{L}\Big) dx, $
@@ -164,7 +164,8 @@
                     \big).$
                     <p> We can regroup the terms in the summation in the following way:</p>
 
-                    <div id="derivation_regroup" class="collapsable sub" v-bind:class="{shown:isActive['derivation_regroup']}">
+                    <div id="derivation_regroup" class="collapsable sub"
+                        v-bind:class="{shown:isActive['derivation_regroup']}">
                         $ \displaystyle = \frac{1}{2} \Big[ 2c_n e^{in\pi x/L}$ $\displaystyle + 2c_{-n} e^{-in\pi x/L}$
                         $ \displaystyle +
                         \underbrace{c_{-n} e^{in\pi x/L} - c_{-n} e^{in\pi x/L}}_\text{ =0}$ $\displaystyle +
@@ -178,7 +179,8 @@
                         e^{-in\pi x/L} $ $\displaystyle +c_{-n} e^{-in\pi x/L}\Big] $
 
                     </div>
-                    <a href="#derivation_regroup"><button class="button_collapse sub" v-on:click="OnClick('derivation_regroup')">Regrouping</button></a>
+                    <a href="#derivation_regroup"><button class="button_collapse sub"
+                            v-on:click="OnClick('derivation_regroup')">Regrouping</button></a>
                     <p></p>
 
                     $\displaystyle f(x)= c_0 + \sum_{n=1}^{\infty}$ $\displaystyle \Big( \frac{c_n + c_{-n}}{2}
@@ -238,7 +240,8 @@
                             $\displaystyle b_n = \frac{4}{L} \frac{2A}{L}\int_0^{L/2} x $ $\displaystyle \sin
                             \left(\frac{n\pi x}{L} \right) dx $
                             <p></p>
-                            <div class="collapsable sub" id="triangular_byParts" v-bind:class="{shown:isActive['triangular_byParts'] && isActive['triangular']}">
+                            <div class="collapsable sub" id="triangular_byParts"
+                                v-bind:class="{shown:isActive['triangular_byParts'] && isActive['triangular']}">
                                 $\displaystyle u=x \qquad $ $\displaystyle dv= \sin \left(\frac{n\pi x}{L} \right)dx $
                                 <p></p>
                                 $\displaystyle du=dx \qquad $ $\displaystyle v=\frac{-L}{n\pi} \cos \left(\frac{n\pi
@@ -255,7 +258,8 @@
                                 $\displaystyle \cos \left(\frac{n\pi x}{L}
                                 \right)dx \Bigg]$
                             </div>
-                            <a href="#triangular_byParts"><button class="button_collapse sub" v-on:click="OnClick('triangular_byParts')">Integration by parts</button></a>
+                            <a href="#triangular_byParts"><button class="button_collapse sub"
+                                    v-on:click="OnClick('triangular_byParts')">Integration by parts</button></a>
                             <p></p>
                             $\displaystyle b_n=\frac{8A}{L^2} \frac{L^2}{(n\pi)^2}$ $\displaystyle \sin \left(\frac{n\pi
                             x}{L} \right) \biggr |_0^{L/2} $
@@ -302,7 +306,8 @@
                         $\displaystyle a_n = \frac{2A}{L}\int_0^L x^2$ $\displaystyle \cos \left(\frac{n\pi x}{L}
                         \right)dx $
                         <p>This Eqn. can be solved by integrating by parts.</p>
-                        <div id='parabola_byParts1' class="collapsable sub" v-bind:class="{shown:isActive['parabola_byParts1'] && isActive['parabola']}">
+                        <div id='parabola_byParts1' class="collapsable sub"
+                            v-bind:class="{shown:isActive['parabola_byParts1'] && isActive['parabola']}">
                             $\displaystyle du = 2x\cdot dx \qquad$ $\displaystyle v=\frac{L}{n\pi} \sin \left(\frac{n\pi
                             x}{L} \right) $
                             <p></p>
@@ -316,13 +321,15 @@
                             $\displaystyle = \frac{2A}{L}$ $\displaystyle \Bigg[0$ $\displaystyle
                             -\int_0^L\frac{2xL}{n\pi}$ $\displaystyle \sin\left(\frac{n \pi x}{L}\right)dx \Bigg] $
                         </div>
-                        <a href="#parabola_byParts1"><button class="button_collapse sub" v-on:click="OnClick('parabola_byParts1')">Integration by parts</button></a>
+                        <a href="#parabola_byParts1"><button class="button_collapse sub"
+                                v-on:click="OnClick('parabola_byParts1')">Integration by parts</button></a>
                         <p></p>
 
                         $\displaystyle a_n = -\frac{4A}{n\pi}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n \pi x}{L}
                         \right)dx $
                         <p> </p>
-                        <div id='parabola_byParts2' class="collapsable sub" v-bind:class="{shown:isActive['parabola_byParts2'] && isActive['parabola']}">
+                        <div id='parabola_byParts2' class="collapsable sub"
+                            v-bind:class="{shown:isActive['parabola_byParts2'] && isActive['parabola']}">
                             $\displaystyle u = x \qquad$ $\displaystyle dv = \sin \left(\frac{n\pi x}{L} \right) dx$
                             <p></p>
                             $\displaystyle du = dx \qquad$ $\displaystyle v = -\frac{L}{n\pi}$ $\displaystyle \cos
@@ -332,7 +339,8 @@
                             $\displaystyle \cos \left(\frac{n\pi x}{L} \right)\Big] \biggr |_0^L $ $\displaystyle -
                             \int_0^L\frac{-L}{n\pi} $ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx \Bigg] $
                         </div>
-                        <a href="#parabola_byParts2"><button class="button_collapse sub" v-on:click="OnClick('parabola_byParts2')">Integration by parts</button></a>
+                        <a href="#parabola_byParts2"><button class="button_collapse sub"
+                                v-on:click="OnClick('parabola_byParts2')">Integration by parts</button></a>
                         <p></p>
                         $\displaystyle a_n = \frac{4A}{n\pi} \Bigg[\frac{xL}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi
                         x}{L} \right) \Bigg] \biggr |_0^L $
@@ -344,7 +352,8 @@
                         \cos \left(\frac{n\pi x}{L} \right) $
                 </div>
                 <br>
-                <a href="#parabola"><button class="button_collapse" v-on:click="OnClick('parabola')">Parabola</button></a>
+                <a href="#parabola"><button class="button_collapse"
+                        v-on:click="OnClick('parabola')">Parabola</button></a>
 
                 <div class="collapsable" id="dirac" v-bind:class="{shown:isActive['dirac']}">
                     <h4> Dirac-Delta Fourier Series Derivation </h4>
@@ -366,7 +375,8 @@
                     <p> $\delta(x)$ is an even function. Hence $b_n=0 $ and </p>
                     $\displaystyle a_n=\frac{1}{L} $
                     <p></p>
-                    <div id='dirac_derivation' class="collapsable sub" v-bind:class="{shown:isActive['dirac_derivation'] && isActive['dirac']}">
+                    <div id='dirac_derivation' class="collapsable sub"
+                        v-bind:class="{shown:isActive['dirac_derivation'] && isActive['dirac']}">
                         <p> By considering the shifting property of the Dirac-Delta function,</p>
                         $\displaystyle \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha)$
                         <p> For us, $\alpha=0, \epsilon=L,$ and $g(x)= \sin \left(n \pi x/L \right).$</p>
@@ -376,7 +386,8 @@
                         $\displaystyle b_n=\frac{1}{L}\sin \left(\frac{n\pi \times 0}{L} \right)=0$
 
                     </div>
-                    <a href="#dirac_derivation"><button class="button_collapse sub" v-on:click="OnClick('dirac_derivation')">Derivation</button></a>
+                    <a href="#dirac_derivation"><button class="button_collapse sub"
+                            v-on:click="OnClick('dirac_derivation')">Derivation</button></a>
                     <p>Therefore, the fourier series for positive $L$ can be written as </p>
                     $\displaystyle f(x)=\frac{1}{2L}+\sum_{n=1}^\infty \frac{1}{L}$ $\displaystyle \cos \left(\frac{n\pi
                     x}{L} \right). $
@@ -429,7 +440,8 @@
                         $\displaystyle =\frac{2A}{L^{2}}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n\pi x}{L}
                         \right)dx. $
                         <p>Using Integration by parts it can be shown that:</p>
-                        <div id='sawtooth_byParts' class="collapsable sub" v-bind:class="{shown:isActive['sawtooth_byParts'] && isActive['sawtooth']}">
+                        <div id='sawtooth_byParts' class="collapsable sub"
+                            v-bind:class="{shown:isActive['sawtooth_byParts'] && isActive['sawtooth']}">
                             $\displaystyle u=x \quad $ $\displaystyle dv=\sin \left(\frac{n\pi x}{L} \right)dx $
                             <p></p>
                             $\displaystyle du=dx \quad$ $\displaystyle v=\frac{-L}{n\pi}\cos \left(\frac{n\pi x}{L}
@@ -445,7 +457,8 @@
                             $\displaystyle b_n=-\frac{2A}{n\pi} \cos \left(n\pi \right)$
                             $\displaystyle=-\frac{2A}{n\pi}(-1)^n $
                         </div>
-                        <a href="#sawtooth_byParts"><button class="button_collapse sub" v-on:click="OnClick('sawtooth_byParts')">Integration by parts</button></a>
+                        <a href="#sawtooth_byParts"><button class="button_collapse sub"
+                                v-on:click="OnClick('sawtooth_byParts')">Integration by parts</button></a>
                         <p></p>
                         $\displaystyle b_n=\frac{2A}{n\pi}(-1)^{n+1}. $
                         <p>Therefore the final fourier series is:</p>
@@ -481,7 +494,8 @@
                         \right)dx. $
                         <p> By integrating by parts,</p>
 
-                        <div id='mod_byParts' class="collapsable sub" v-bind:class="{shown:isActive['mod_byParts'] && isActive['mod']}">
+                        <div id='mod_byParts' class="collapsable sub"
+                            v-bind:class="{shown:isActive['mod_byParts'] && isActive['mod']}">
                             $\displaystyle u=x \qquad$ $\displaystyle dv= \cos\left(\frac{n\pi x}{L}\right)dx$
                             <p></p>
                             $\displaystyle du=dx \qquad$ $\displaystyle v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L}
@@ -495,7 +509,8 @@
                             $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx \Bigg]$
 
                         </div>
-                        <a href="#mod_byParts"><button class="button_collapse sub" v-on:click="OnClick('mod_byParts')">Integration by parts</button></a>
+                        <a href="#mod_byParts"><button class="button_collapse sub"
+                                v-on:click="OnClick('mod_byParts')">Integration by parts</button></a>
                         <p></p>
                         $\displaystyle a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}$ $\displaystyle \cos \left( \frac{n\pi
                         x}{L} \right)\biggr |_0^L . $
@@ -577,16 +592,15 @@
         </div>
         <div class="container_vis">
             <div class="vis_pg" id="visualisation_1" v-if="scrolling < pg_heights[0]">
-                <div class="left-half"
-                    style="padding-left: 1%; width: 50%; height: 100%; display:inline-block; ">
+                <div class="left-half" style="padding-left: 1%; width: 50%; height: 100%; display:inline-block; ">
                     <div id='graph' style="width:90%; height:70%;"></div>
                     <p style="margin-left: 5%; margin-top: 5%; padding: 1em;">Components of Projections:</p>
-                        <div id="vectorComponents" style="font-size: 10pt;">0.83 x vector1 & 0.83 x vector2</div>
-                        <div class="popup" onclick="myFunction()">
-                            Vectors 1 and 2 are parallel <br> so R2 is not spanned.
-                        </div>
-                        <!-- Legend -->
-                      
+                    <div id="vectorComponents" style="font-size: 10pt;">0.83 x vector1 & 0.83 x vector2</div>
+                    <div class="popup" onclick="myFunction()">
+                        Vectors 1 and 2 are parallel <br> so R2 is not spanned.
+                    </div>
+                    <!-- Legend -->
+
 
 
 
@@ -594,11 +608,11 @@
 
 
                 <!--Buttons/Sliders-->
-                <div class="right-half"
-                    style="padding-left: 50px; width: 40%; height:100%; float:right; ">
+                <div class="right-half" style="padding-left: 50px; width: 40%; height:100%; float:right; ">
 
-                    <!--Main body contents-->
-                    <div class="tab-content" style=" display:flex; flex-direction: column; width:95%; height:50%; padding-top: 20%;">
+                    <!-- body contents-->
+                    <div class="tab-content"
+                        style=" display:flex; flex-direction: column; width:95%; height:50%; padding-top: 20%;">
                         <!--BEGIN Slider-->
                         <!--These Sliders are shared among all tabs-->
 
@@ -611,24 +625,24 @@
                             Basis vector 1:</h6>
                         <!--BEGIN Slider-->
                         <div style="flex-grow: 1">
-                        <label class="slider" style="position: relative; float: left;  width: 50%">
-                            <input id="x1Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5"
-                                step="0.01" oninput="x1.value=x1Controller.value" /></input>
-                            <br>
-                            <span> x: <output id="x1" for="x1Controller">1.1</output></span>
-                        </label>
-                   
-                        <!--END Slider-->
+                            <label class="slider" style="position: relative; float: left;  width: 50%">
+                                <input id="x1Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5"
+                                    step="0.01" oninput="x1.value=x1Controller.value" /></input>
+                                <br>
+                                <span> x: <output id="x1" for="x1Controller">1.1</output></span>
+                            </label>
 
-                        <!--BEGIN Slider-->
-                        
-                        <label class="slider" style="position: relative; float: right; width: 50%">
-                            <input id="y1Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5"
-                                step="0.01" oninput="y1.value=y1Controller.value" /></input>
-                            <br>
-                            <span> y: <output id="y1" for="y1Controller">0.1</output></span>
-                        </label>
-                    </div>
+                            <!--END Slider-->
+
+                            <!--BEGIN Slider-->
+
+                            <label class="slider" style="position: relative; float: right; width: 50%">
+                                <input id="y1Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5"
+                                    step="0.01" oninput="y1.value=y1Controller.value" /></input>
+                                <br>
+                                <span> y: <output id="y1" for="y1Controller">0.1</output></span>
+                            </label>
+                        </div>
                         <!--END Slider-->
 
                         <br>
@@ -638,24 +652,24 @@
                             Basis vector 2:</h6>
                         <!--BEGIN Slider-->
                         <div style="flex-grow: 1">
-                        <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
-                            <input id="x2Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5"
-                                step="0.01" oninput="x2.value=x2Controller.value" /></input>
-                            <br>
-                            <span> x: <output id="x2" for="x2Controller">0.1</output></span>
-                        </label>
-                   
-                        <!--END Slider-->
+                            <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
+                                <input id="x2Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5"
+                                    step="0.01" oninput="x2.value=x2Controller.value" /></input>
+                                <br>
+                                <span> x: <output id="x2" for="x2Controller">0.1</output></span>
+                            </label>
 
-                        <!--BEGIN Slider-->
-                        
-                        <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
-                            <input id="y2Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5"
-                                step="0.01" oninput="y2.value=y2Controller.value" /></input>
-                            <br>
-                            <span> y: <output id="y2" for="y2Controller">1.1</output></span>
-                        </label>
-                    </div>
+                            <!--END Slider-->
+
+                            <!--BEGIN Slider-->
+
+                            <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
+                                <input id="y2Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5"
+                                    step="0.01" oninput="y2.value=y2Controller.value" /></input>
+                                <br>
+                                <span> y: <output id="y2" for="y2Controller">1.1</output></span>
+                            </label>
+                        </div>
                         <!--END Slider-->
 
                         <br>
@@ -665,24 +679,24 @@
                             Target vector:</h6>
                         <!--BEGIN Slider-->
                         <div style="flex-grow: 1">
-                        <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
-                            <input id="x3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5"
-                                step="0.01" oninput="x3.value=x3Controller.value" /></input>
-                            <br>
-                            <span> x: <output id="x3" for="x3Controller">1</output></span>
-                        </label>
-                    
-                        <!--END Slider-->
+                            <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
+                                <input id="x3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5"
+                                    step="0.01" oninput="x3.value=x3Controller.value" /></input>
+                                <br>
+                                <span> x: <output id="x3" for="x3Controller">1</output></span>
+                            </label>
 
-                        <!--BEGIN Slider-->
-                        
-                        <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
-                            <input id="y3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5"
-                                step="0.01" oninput="y3.value=y3Controller.value" /></input>
-                            <br>
-                            <span> y: <output id="y3" for="y3Controller">1</output></span>
-                        </label>
-                    </div>
+                            <!--END Slider-->
+
+                            <!--BEGIN Slider-->
+
+                            <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
+                                <input id="y3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5"
+                                    step="0.01" oninput="y3.value=y3Controller.value" /></input>
+                                <br>
+                                <span> y: <output id="y3" for="y3Controller">1</output></span>
+                            </label>
+                        </div>
                         <!--END Slider-->
 
                         <!--Unique Areas-->
@@ -694,9 +708,9 @@
                     </div>
                 </div>
             </div>
-            <div class="vis_pg" id="visualisation_2" v-else-if="scrolling<pg_heights[1]"
+            <div class="vis_pg" id="visualisation_2" v-else-if="scrolling<pg_heights[1] && !boolean"
                 style="background-color: white">
-
+                <!--add to the if statement && !boolean-->
 
                 <div class="six columns" style="width:50%; margin-left: 1%">
                     <h5></h5>
@@ -752,6 +766,74 @@
                 </div>
 
             </div>
+
+            <div class='vis_pg subVis' id='subVis' v-else-if='boolean'>
+                <!--add style='overflow: scroll;' for debugging-->
+                <div class='upperHalf' style='height:60%; margin-left: 1%; display: block'>
+                    <div id='graph_subVis' style='height: 95%; width: 100%'></div>
+                </div>
+                <div class='lowerHalf' style='height:40%; margin-left: 1%; display:block'>
+                    <div class="tab-content" style='width:100%; height:95%'>
+                        <!--Slider-->
+                        <div class="allSliders" style='width:100%; height:100%; display: flex; flex-direction: column'>
+                            <!--NB: Be careful with classes and types-->
+                            <!--BEGIN Slider A-->
+                            <p></p>
+                            <div id="A" style='flex-grow: 1'>
+                                <!--Slider Display A-->
+                                <label class="sliderTitle">Amplitude:
+                                    <!--Amplitude-->
+                                    <span id="AControllerDisplay2" data-unit="">1</span>
+                                    <!--default: 1-->
+                                </label>
+                                <!--Slider A-->
+                                <label class="slider">
+                                    <span class="sliderMin">-5</span>
+                                    <input id="AController2" class="inputs" type="range" value="1.0" min="-5.0"
+                                        max="5.0" step="0.1" />
+                                    <span class="sliderMax">5</span></label>
+                            </div>
+                            <!--END Slider A-->
+
+                            <!--BEGIN Slider N-->
+                            <div id="N" style='flex-grow: 1'>
+                                <!--Slider Display N-->
+                                <label class="sliderTitle">Number of Terms:
+                                    <span id="NControllerDisplay" data-unit="">1</span>
+                                </label>
+                                <!--Slider N-->
+                                <label class="slider">
+                                    <span class="sliderMin">0</span>
+                                    <input id="NController" class="inputs" type="range" value="1" min="0" max="20"
+                                        step="1" />
+                                    <span class="sliderMax">20</span>
+                                </label>
+                            </div>
+                            <!--END Slider N-->
+
+                            <!--BEGIN Slider L-->
+                            <div id="L" style='flex-grow: 1'>
+                                <!--Slider Display L-->
+                                <label class="sliderTitle">Period:
+                                    <span id="LControllerDisplay2" data-unit="">1</span>
+                                </label>
+                                <!--Slider L-->
+                                <label class="slider">
+                                    <span class="sliderMin">-5</span>
+                                    <input id="LController2" class="inputs" type="range" value="1" min="-5" max="5"
+                                        step="0.5" />
+                                    <span class="sliderMax">5</span>
+                                </label>
+                            </div>
+                        </div>
+                        <!--END Slider L-->
+                    </div>
+                </div>
+            </div>
+            <!--add a div with class subVis and id visualisation_2_triangular
+            with a v-if when subVis['triangular'] is true
+            we then do the same for every possible graph-->
+
             <div class="vis_pg" id="visualisation_3" v-else-if="scrolling<pg_heights[2]"
                 style="background-color: #bd75ff">
             </div>
@@ -781,7 +863,12 @@
 
 
     <!-- THE BRAINS -->
-    <script src="template-scripts/journey.js"></script>
+
     <script src=Fourier-Series/scripts/0Orthogonality.js> </script> <script
         src=Fourier-Series/scripts/orthogonality_object.js> </script> <script
-        src=Fourier-Series/scripts/Derivation_of_a_Fourier_Series_duo.js> </script> </body> </html>
+        src=Fourier-Series/scripts/Derivation_of_a_Fourier_Series_duo.js> </script> <script
+        src=Fourier-Series\scripts\Visualising_Simple_Periodic_Functions.js></script>
+    <script src="template-scripts/journey.js"></script>
+</body>
+
+</html>
