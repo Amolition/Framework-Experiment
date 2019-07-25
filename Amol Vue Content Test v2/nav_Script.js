@@ -35,7 +35,7 @@ let app = new Vue ({
         showEq: true,
         equationID: "triangular",
         /*-----------------Eliza Version code---------------*/
-        lock: true,
+        locked: true,
         currentSec: 0,
     },
 
@@ -86,11 +86,9 @@ let app = new Vue ({
         // Delay added to allow time for div size changes
         subScrollTo: function (event) {
             let scrollTarget = event.currentTarget;
-            setTimeout(function () {
-                if (document.querySelectorAll(scrollTarget.dataset.target)[0].classList.contains("show")===true) {
-                    scrollTarget.scrollIntoView({behavior: "smooth"});
-                }
-            }, 500);
+            if (scrollTarget.id === "ssh" + app.derivationSubSection) {
+                    setTimeout(function () {scrollTarget.scrollIntoView();}, 500)
+            }
         },
 
 
@@ -104,22 +102,21 @@ let app = new Vue ({
             }
             app.$forceUpdate();
         },
+
         //               Eliza version code---------------------------------------------------------------------------------------
-    unlock: function (event){
-                if(app.currentSection===10){
-                    app.currentSection=0;
-                    app.currentSec=0;
-                    this.lock = true;
-                    document.getElementById("unlock").innerHTML="Unlock page";
-                } else {
-                    app.currentSection=10;
-                    app.currentSec=10;
-                    this.lock=false;
-                    document.getElementById("unlock").innerHTML="Lock page";
-                }
-
-
-            },
+        unlock: function (event){
+            if(app.currentSection===10){
+                app.currentSection=0;
+                app.currentSec=0;
+                this.lock = true;
+                document.getElementById("unlock").innerHTML="Unlock page";
+            } else {
+                app.currentSection=10;
+                app.currentSec=10;
+                this.lock=false;
+                document.getElementById("unlock").innerHTML="Lock page";
+            }
+        },
     },
 
     watch: {
@@ -225,6 +222,9 @@ let app = new Vue ({
                         app.addScript.async = false;
                         document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
                     }
+                }
+                if (oldValue !== 0) {
+                    document.querySelectorAll("ssh" + oldValue)
                 }
             }
         },

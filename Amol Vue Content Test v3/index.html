@@ -10,9 +10,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="styles/style.css" rel="stylesheet">
     <link href="styles/skeleton.css" rel="stylesheet">
-    <link href="Lock_Icon_Style.css" rel="stylesheet">
-    <link href="index_Style.css" rel="stylesheet">
-    <link href="loadout_Style.css" rel="stylesheet">
+    <link href="styles/Lock_Icon_Style.css" rel="stylesheet">
+    <link href="styles/index_Style.css" rel="stylesheet">
+    <link href="styles/loadout_Style.css" rel="stylesheet">
     <!--Required JS resources-->
     <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -31,9 +31,8 @@
     },
     "HTML-CSS": { fonts: ["TeX"] }
   });
-
     </script>
-    <script type="text/javascript" src="scripts/MathJax-master/MathJax.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 
 <body>
@@ -1297,23 +1296,6 @@
                     </div>
                 </div>
 
-<!---------------------------------------------E---------------------------------------------------------->
-                <div class="rightload text" v-else-if=" currentSec===10" style="background-color: #e3e7fc;overflow: auto">
-
-            <iframe src="0Orthogonality.html" width="900" height="800"></iframe>
-        <iframe src="1Fourier_derivation_graphs.html" width="900" height="600"></iframe>
-            <iframe src="2SPF_Interactive.html" width="900" height="800"></iframe>
-        <iframe src="3CoFS_Interactive.html" width="900" height="800"></iframe>
-        <iframe src="4PSFS_Interactive.html" width="900" height="800"></iframe>
-        <iframe src="5Generalised_Fourier_Decomposition.html" width="900" height="700"></iframe>
-    </div>
-        <div class="rightload text" v-else-if="currentSection===0 && currentSec===0" style="text-align: center; background-color: white">
-            <h1> </h1>
-            <h1> </h1>
-            <br>
-            <br>
-            <h1>Please Scroll the left side</h1>
-        </div>
         <!----------------------------------------------------E------------------------------------------------------------>
 <!--                <div class="rightload text" v-else-if=" currentSec===10" style="background-color: #b0b0ff;overflow: auto">-->
 <!--                    <iframe src="0Orthogonality.html" width="900" height="800"></iframe>-->
@@ -1366,6 +1348,6 @@
     </div>
 </body>
 
-<script src="nav_Script.js"></script>
+<script src="scripts/nav_Script.js"></script>
 
 </html>
