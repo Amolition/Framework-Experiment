@@ -22,15 +22,15 @@ var shape = 0;
 
 
 // initialize the Cartesian coordinates for the plots and the functions
-function initFourier() {
+function initFourierSec2Sub0() {
     Plotly.purge("graph0Sec2");
-    Plotly.newPlot("graph0Sec2", computePlot(z), layout);
+    Plotly.newPlot("graph0Sec2", computePlotSec2Sub0(z), layout);
     return;
 }
 
 
 // sum up all the number in the array
-function adding(array){
+function addingSec2Sub0(array){
     let result = 0
     for(let i =0; i<array.length; ++i){
         result+=array[i];
@@ -42,7 +42,7 @@ function adding(array){
 // Start. Functions to plot the Fourier Series
 
 // select the kind of Fourier Series you want
-function selection(n,A,L,x,type){
+function selectionSec2Sub0(n,A,L,x,type){
     //Is summand of the particular function
     if (type===0){
         formula = -(8*A*1/((2*(n)-1) *Math.PI)**2)*(-1)**(n) * Math.sin(x*(2*n -1) *Math.PI /L);
@@ -70,7 +70,7 @@ function selection(n,A,L,x,type){
 
 // sum up all the terms in the Fourier Series
 // so at x, we have terms n=0, n=1, n=2..., we sum up all the amplitudes y=y0+y1+y2+... y0 at n=0, y1 at n=1, y2 at n=2...
-function summation(x) {
+function summationSec2Sub0(x) {
     //Goes through and sums up each component of the summand up to N
     let N = parseFloat(document.getElementById('NControllerSec2Sub1').value);
     let L = parseFloat(document.getElementById('LControllerSec2Sub1').value);
@@ -83,15 +83,15 @@ function summation(x) {
 
 
     for (let i = 0; i < N; ++i){
-        y.push(selection(n[i],A,L,x,shape));
+        y.push(selectionSec2Sub0(n[i],A,L,x,shape));
         //y.push((8*A/((2*n[i]-1)*Math.PI)**2)*((-1)**n[i])*Math.sin((2*n[i]-1)*Math.PI*x/L));
     }
-    let sum = adding(y);
+    let sum = addingSec2Sub0(y);
     return sum;
 }
 
 
-function a_zero(shape,A,L){
+function a_zeroSec2Sub0(shape,A,L){
 // Returns a_0 for the particular function
     if (shape === 0) {
         a = 0;
@@ -109,10 +109,10 @@ function a_zero(shape,A,L){
     return a
 }
 
-function c_intercept(shape, N,A,L) {
-    let number = a_zero(shape,A,L)/2;
+function c_interceptSec2Sub0(shape, N,A,L) {
+    let number = a_zeroSec2Sub0(shape,A,L)/2;
     for (let n = 1; n < N; ++n){
-        number += selection(n, A,L, 0, shape);
+        number += selectionSec2Sub0(n, A,L, 0, shape);
         }
 
     return number
@@ -123,7 +123,7 @@ function c_intercept(shape, N,A,L) {
 // plot the Fourier series
 // y_values_cheat is to set the each of the value equals its midpoint value plus the y_value
 // so all the y_value_cheat starts at the midpoint of the y_value (equivalently, it's the average value)
-function computePlot(x){
+function computePlotSec2Sub0(x){
     //Just plots the sum approximation of the function
     let N = parseFloat(document.getElementById('NControllerSec2Sub1').value);
     let L = parseFloat(document.getElementById('LControllerSec2Sub1').value);
@@ -134,11 +134,11 @@ function computePlot(x){
     let y_values_cheat = [];
 
     for (let i = 0; i < x.length ; ++i){
-        y_values.push(summation(x[i]));
+        y_values.push(summationSec2Sub0(x[i]));
         x_values.push(x[i]);
     }
     for (let i = 0; i< y_values.length; ++i){
-        y_values_cheat.push(-y_values[y_values.length/2]+y_values[i] + c_intercept(shape, N,A,L));
+        y_values_cheat.push(-y_values[y_values.length/2]+y_values[i] + c_interceptSec2Sub0(shape, N,A,L));
 
         //The part "-y_values[y_values.length/2] +y_values[i]" centres
         //the equation so that the y value is equal to zero at x = 0
@@ -178,7 +178,7 @@ function computePlot(x){
 
 /** updates the plot according to the slider controls. */
 // Plotly.animate does not support bar charts, so need to reinitialize the Cartesian every time.
-function updatePlot() {
+function updatePlotSec2Sub0() {
     let data;
     // NB: updates according to the active tab
     let selectedValue = document.getElementById("SelectSec2Sub1").value; // finds out which function is active
@@ -187,7 +187,7 @@ function updatePlot() {
         } else {
            $('#ASec2Sub1').show(); console.log('shown')
         }})
-    data = computePlot(z);
+    data = computePlotSec2Sub0(z);
     //This is animation bit.
     Plotly.animate(
         'graph0Sec2',
@@ -201,34 +201,34 @@ function updatePlot() {
     );
 }
 
-function selectorFunc () {
+function selectorFuncSec2Sub0 () {
     let selectedValue = document.getElementById("SelectSec2Sub1").value;
     if (selectedValue==="main"){
         shape = 0;
     } else if (selectedValue==="triangular"){
         shape = 0;
-        updatePlot();
+        updatePlotSec2Sub0();
     } else if (selectedValue==="square"){
         shape = 1;
-        updatePlot();
+        updatePlotSec2Sub0();
     } else if (selectedValue==="sawtooth"){
         shape = 2;
-        updatePlot();
+        updatePlotSec2Sub0();
     } else if (selectedValue==="dirac"){
         shape = 3;
-        updatePlot();
+        updatePlotSec2Sub0();
     } else if (selectedValue==="parabola"){
         shape = 4;
-        updatePlot();
+        updatePlotSec2Sub0();
     }  else if (selectedValue==="mode"){
         shape = 6;
-        updatePlot();
+        updatePlotSec2Sub0();
     };
 
-    initFourier();
+    initFourierSec2Sub0();
 };
 
-function main() {
+function mainSec2Sub0() {
 
     /*Jquery*/ //NB: Put Jquery stuff in the main not in HTML
     $("input[type=range]").each(function () {
@@ -237,7 +237,7 @@ function main() {
             //Displays: (FLT Value) + (Corresponding Unit(if defined))
             $("#"+$(this).attr("id") + "Display").text( $(this).val() + $("#"+$(this).attr("id") + "Display").attr("data-unit"));
             //NB: Display values are restricted by their definition in the HTML to always display nice number.
-            updatePlot(); //Updating the plot is linked with display (Just My preference)
+            updatePlotSec2Sub0(); //Updating the plot is linked with display (Just My preference)
         });
 
     });
@@ -245,9 +245,9 @@ function main() {
     // as you select the functions you want from the scroll down
     // change the shape and the plots
     // change the titles and the math derivations
-    $('#SelectSec2Sub1').change(selectorFunc);
+    $('#SelectSec2Sub1').change(selectorFuncSec2Sub0);
 
-    initFourier();
+    initFourierSec2Sub0();
 }
 
-$(document).ready(main); //Load main when document is ready.
+$(document).ready(mainSec2Sub0); //Load main when document is ready.

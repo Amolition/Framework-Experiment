@@ -11,12 +11,16 @@
 }
 
 .rightload {
-    position: relative;
-    /*top: 42px;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
     width: inherit;
     height: inherit;
+}
+
+.lockMode {
+    position: absolute;
+}
+
+.unlockMode {
+    position: relative;
 }
 
 /* SECTION 1 */
