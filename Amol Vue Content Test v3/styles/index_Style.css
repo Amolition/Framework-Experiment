@@ -278,6 +278,7 @@ h3.section-sub-head {
     right: 60px;
     height: 40px;
     padding-top: 6px;
+    z-index: 9999;
 }
 
 #vis-logo {

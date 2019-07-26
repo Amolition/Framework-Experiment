@@ -329,3 +329,32 @@ let app = new Vue ({
         }
     )},
 });
+
+/*--------------------------------------------------Eliza code------------------------------------------------------------------*/
+
+window.onload=function(){
+	let oBox=document.getElementById("lock-container");
+	let RL=0;
+	let RT=0;
+	oBox.onmousedown=function(ev){
+
+	     RL=ev.clientX-oBox.offsetLeft;
+	     RT=ev.clientY-oBox.offsetTop;
+	     document.onmousemove=function(ev){
+
+                  var L=ev.clientX-RL;
+	          var T=ev.clientY-RT;
+	          
+	          oBox.style.left=L+"px";
+	          oBox.style.top=T+"px";
+	          console.log("RL:"+RL);
+             console.log("RT:"+RT);
+             console.log("L:"+L);
+             console.log("R:"+T);
+             console.log("lockL:"+oBox.style.left)
+	      }
+	};
+	oBox.onmouseup=function(){
+	        document.onmousemove=null;
+	}
+};

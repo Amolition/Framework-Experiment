@@ -1437,14 +1437,15 @@
         <!--    Right Panel Navigation Dropdown - only visible when unlocked    -->
 
         <!--    Lock Button    -->
-        <div id="lock-container">
-            <span :class="[locked === false ? 'unlocked' : '', 'lock']" @click="locked = !locked"></span>
-        </div>
+
         <!--    Imp-Vis Logo - acts as link back to website main page    -->
         <a href="https://www.imperialvisualisations.com/learn/">
             <img id="vis-logo" src="VisualisationsLogoWhite2.png">
         </a>
     </div>
+    <div id="lock-container">
+            <span :class="[locked === false ? 'unlocked' : '', 'lock']" @click="locked = !locked"></span>
+        </div>
     <div class="rightScriptSpace"></div>
     <div class="derivationScriptSpace"></div>
 </div>
