@@ -309,13 +309,8 @@ nav {
 
 /* TRANSITION STYLES */
 
-.fade-leave-active {
+.fade-leave-active, .fade-enter-active {
     transition: opacity 1s;
-}
-
-.fade-enter-active {
-    transition-delay: opacity 1s;
-    transition: opacity 2s;
 }
 
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
@@ -332,6 +327,15 @@ nav {
 
 .slide-enter, .slide-leave-to {
     height: 0;
+}
+
+.collapsed ~ .collapsing {
+    transition-duration: 0.5s;
+}
+
+:not(.collapsed) ~ .collapsing {
+    transition-delay: 0.7s;
+    transition-duration: 0.5s;
 }
 
 /* IMPORTED STYLE FROM LEARNING EXPERIENCE TEAM */
@@ -369,27 +373,4 @@ nav {
     bottom: 0;
     left: 34vw;
     opacity: 0.3;
-}
-
-/*---------------------------------------------Eliza version code--------------------------------------------------------*/
-
-
-#unlock{
-    position: fixed;
-    left: 35vw;
-    top: 0.2vh;
-
-}
-
-
-.container_vis_2{
-    float: left;
-  height: 100vh;
-  width: 67%;
-  /*background-color: #f7f7f7;*/
-    background-color: #b2d3e6;
-    overflow: auto;
-
-  box-sizing: border-box;
-  padding: 0px;
 }
