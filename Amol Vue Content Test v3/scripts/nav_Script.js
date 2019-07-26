@@ -1,3 +1,4 @@
+
 // Code for navigation functionality in visualisations main screen using Vue
 
 let app = new Vue ({
@@ -7,8 +8,8 @@ let app = new Vue ({
     data: {
         // Data required including variables associated with visible sections, script paths and booleans reflecting state of vis
         scrollPos: 0,
+        currentTitle: 0,
         currentSection: 0,
-        previousSection: 0,
         sectionTops: [],
         sectionBottoms: [],
         sectionTitleLong: ["Orthogonality", "Derivation", "Components", "Power Spectrum", "Overview"],
@@ -44,19 +45,39 @@ let app = new Vue ({
             // function only works once sectionPos has run at least once (in mounted)
             if (app.firstRunDone === true) {
                 app.scrollPos = document.querySelectorAll(".journey")[0].scrollTop;
-                function handleElement(section) {
-                    // update currentSection variable if user scrolls past the top edge of its corresponding section on left side
-                    let topSection = document.querySelectorAll("#"+"sc"+section)[0].offsetTop - 2;
-                    let bottomSection = topSection + document.querySelectorAll("#"+"sc"+section)[0].offsetHeight - 2;
-                    if (app.scrollPos >= topSection && app.scrollPos < bottomSection) {
-                        app.currentSection = section;
-                    };
-                }
-                for (let i=1; i<=app.n; i++) {
-                handleElement(i)}
+                app.changeTitle();
+                app.changeSec();
             }
         },
 
+        handleElement: function (section) {
+            // update currentSection variable if user scrolls past the top edge of its corresponding section on left side
+            let topSection = document.querySelectorAll("#"+"sc"+section)[0].offsetTop - 2;
+            let bottomSection = topSection + document.querySelectorAll("#"+"sc"+section)[0].offsetHeight - 2;
+            if (app.scrollPos >= topSection && app.scrollPos < bottomSection) {
+                app.currentTitle = section;
+            }
+        },
+
+        changeTitle:  function () {
+            for (let i=1; i<=app.n; i++) {
+                app.handleElement(i)
+            }},
+
+        changeSec: debounce(function () {
+          app.currentSection = app.currentTitle;
+        }, 100),
+
+        swapTitles: function (newValue, oldValue) {
+            for (let i=1; i<=app.n; i++) {
+                if (i !== newValue) {
+                    app.sectionTitle[i-1] = app.sectionTitleShort[i-1];
+                } else {
+                    setTimeout (function () {app.sectionTitle[i-1] = app.sectionTitleLong[i-1];}, 20);
+                    setTimeout (function () {app.$forceUpdate();}, 100);
+                }
+            }
+        },
 
         // Function called every x seconds to check if section div sizes have changed and recalculate scroll positions if so
         // Div sizes may change if window re-sized or if a subsection is expanded/collapsed
@@ -85,7 +106,7 @@ let app = new Vue ({
         subScrollTo: function (event) {
             let scrollTarget = event.currentTarget;
             if (scrollTarget.id === "ssh" + app.derivationSubSection) {
-                    setTimeout(function () {scrollTarget.scrollIntoView({behavior: "smooth"});}, 700)
+                    setTimeout(function () {scrollTarget.scrollIntoView({behavior: "smooth"});}, 10)
             }
         },
 
@@ -101,6 +122,11 @@ let app = new Vue ({
     },
 
     watch: {
+
+        currentTitle: function (newValue, oldValue) {
+        // Updates current section title to display in full in nav/progress bar whilst minimising other section titles
+            app.swapTitles(newValue, oldValue)
+        },
 
         currentSection: function (newValue, oldValue) {
 
@@ -153,15 +179,6 @@ let app = new Vue ({
                 // runs mathJax re-display equation when section 3 entered
                 if (newValue === 3) {setTimeout(function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
                     }, 50)
-                }
-            }
-            // Updates current section title to display in full in nav/progress bar whilst minimising other section titles
-            for (let i=1; i<=app.n; i++) {
-                if (i !== newValue) {
-                    app.sectionTitle[i-1] = app.sectionTitleShort[i-1];
-                } else {
-                    setTimeout (function () {app.sectionTitle[i-1] = app.sectionTitleLong[i-1];}, 20);
-                    setTimeout (function () {app.$forceUpdate();}, 100);
                 }
             }
         },
@@ -298,7 +315,9 @@ let app = new Vue ({
                         document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
                     }, 100)
                 }
-
+                setTimeout(
+                    function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
+                    }, 100)
             }
         }
     },
@@ -325,7 +344,7 @@ let app = new Vue ({
                 }
             },2000);
             // re-runs mathJax on entire page once everything else has loaded
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]);
+            // MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]);
         }
     )},
 });

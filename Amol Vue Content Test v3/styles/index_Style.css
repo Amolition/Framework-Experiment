@@ -280,6 +280,19 @@ h3.section-sub-head {
     padding-top: 6px;
 }
 
+#rightload-nav {
+    position: absolute;
+    right: 120px;
+    height: 40px;
+    width: 200px;
+    padding: 4px 0;
+}
+
+#rightload-dropdown {
+    width: 200px;
+    font-size: 10pt;
+}
+
 #vis-logo {
     position: absolute;
     top: 10px;
@@ -310,7 +323,7 @@ nav {
 /* TRANSITION STYLES */
 
 .fade-leave-active, .fade-enter-active {
-    transition: opacity 1s;
+    transition: opacity 0.5s;
 }
 
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
@@ -330,11 +343,11 @@ nav {
 }
 
 .collapsed ~ .collapsing {
-    transition-duration: 0.5s;
+    transition-duration: 0s;
 }
 
 :not(.collapsed) ~ .collapsing {
-    transition-delay: 0.7s;
+    transition-delay: 0.1s;
     transition-duration: 0.5s;
 }
 
