@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fffd6940-2464-450d-a064-dd088e74ef8d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/index_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/index_Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Amol Vue Content Test v2/nav_Script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Amol Vue Content Test v2/nav_Script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/journey.js" beforeDir="false" afterPath="$PROJECT_DIR$/journey.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-learning.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue-learning.html" afterDir="false" />
-    </list>
+    <list default="true" id="fffd6940-2464-450d-a064-dd088e74ef8d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,7 +355,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
+    <frame x="-6" y="-6" width="1381" height="885" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15117158" />
