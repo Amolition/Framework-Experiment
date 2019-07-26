@@ -85,7 +85,7 @@ let app = new Vue ({
         subScrollTo: function (event) {
             let scrollTarget = event.currentTarget;
             if (scrollTarget.id === "ssh" + app.derivationSubSection) {
-                    setTimeout(function () {scrollTarget.scrollIntoView();}, 500)
+                    setTimeout(function () {scrollTarget.scrollIntoView({behavior: "smooth"});}, 700)
             }
         },
 
@@ -134,7 +134,7 @@ let app = new Vue ({
                                 console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
                                 document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
                                 setTimeout(function () {
-                                    selectorFunc();
+                                    selectorFuncSec2Sub0();
                                     document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(app.derivationSubSection-3))[0].title;
                                     document.querySelectorAll("#subSecTitle")[0].style.display="block";
                                 }, 200);
@@ -193,7 +193,7 @@ let app = new Vue ({
                                 console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
                                 document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
                                 setTimeout(function () {
-                                    selectorFunc();
+                                    selectorFuncSec2Sub0();
                                     document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(newValue-3))[0].title;
                                     document.querySelectorAll("#subSecTitle")[0].style.display="block";
                                 }, 200);
@@ -256,7 +256,7 @@ let app = new Vue ({
                                 console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
                                 document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
                                 setTimeout(function () {
-                                    selectorFunc();
+                                    selectorFuncSec2Sub0();
                                     document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(app.derivationSubSection-3))[0].title;
                                     document.querySelectorAll("#subSecTitle")[0].style.display="block";
                                 }, 200);
