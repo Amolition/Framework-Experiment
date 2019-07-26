@@ -64,7 +64,7 @@
                 <div class="section-container" id="sc1">
                     <div class="placeholder" id="ph1">
                         <hr>
-                        <h2 class="text section-head" id="s1">
+                        <h2 class="text section-head underline-from-center" id="s1" @click = "subScrollTo($event)">
                             Orthogonality
                         </h2>
                         <hr>
@@ -118,7 +118,7 @@
                 <div class="section-container" id="sc2">
                     <div class="placeholder" id="ph2">
                         <hr>
-                        <h2 class="text section-head" id="s2">
+                        <h2 class="text section-head underline-from-center" id="s2"  @click = "subScrollTo($event)">
                             Derivation
                         </h2>
                         <hr>
@@ -669,7 +669,7 @@
                 <div class="section-container" id="sc3">
                     <div class="placeholder" id="ph3">
                         <hr>
-                        <h2 class="text section-head" id="s3">
+                        <h2 class="text section-head underline-from-center" id="s3">
                             Components
                         </h2>
                         <hr>
@@ -689,7 +689,7 @@
                 <div class="section-container" id="sc4">
                     <div class="placeholder" id="ph4">
                         <hr>
-                        <h2 class="text section-head" id="s4">
+                        <h2 class="text section-head underline-from-center" id="s4">
                             Power Spectrum
                         </h2>
                         <hr>
@@ -756,7 +756,7 @@
                 <div class="section-container" id="sc5">
                     <div class="placeholder" id="ph5">
                         <hr>
-                        <h2 class="text section-head" id="s5">
+                        <h2 class="text section-head underline-from-center" id="s5">
                             Overview
                         </h2>
                         <hr>
@@ -1297,6 +1297,23 @@
                     </div>
                 </div>
 
+<!---------------------------------------------E---------------------------------------------------------->
+                <div class="rightload text" v-else-if=" currentSec===10" style="background-color: #e3e7fc;overflow: auto">
+
+            <iframe src="0Orthogonality.html" width="900" height="800"></iframe>
+        <iframe src="1Fourier_derivation_graphs.html" width="900" height="600"></iframe>
+            <iframe src="2SPF_Interactive.html" width="900" height="800"></iframe>
+        <iframe src="3CoFS_Interactive.html" width="900" height="800"></iframe>
+        <iframe src="4PSFS_Interactive.html" width="900" height="800"></iframe>
+        <iframe src="5Generalised_Fourier_Decomposition.html" width="900" height="700"></iframe>
+    </div>
+        <div class="rightload text" v-else-if="currentSection===0 && currentSec===0" style="text-align: center; background-color: white">
+            <h1> </h1>
+            <h1> </h1>
+            <br>
+            <br>
+            <h1>Please Scroll the left side</h1>
+        </div>
         <!----------------------------------------------------E------------------------------------------------------------>
 <!--                <div class="rightload text" v-else-if=" currentSec===10" style="background-color: #b0b0ff;overflow: auto">-->
 <!--                    <iframe src="0Orthogonality.html" width="900" height="800"></iframe>-->

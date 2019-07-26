@@ -89,6 +89,7 @@ let app = new Vue ({
             if (scrollTarget.id === "ssh" + app.derivationSubSection) {
                     setTimeout(function () {scrollTarget.scrollIntoView();}, 500)
             }
+
         },
 
 

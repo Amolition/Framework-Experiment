@@ -717,8 +717,8 @@
     <div class="menuContent" v-show="show9">
         <!--hyperlink needed-->
             <ul>
-                <li><a>Home</a></li>
-                <li><a>Give Feed Back</a></li>
+                <li><a src="https://www.imperialvisualisations.com/learn/">Home</a></li>
+                <li><a src="https://www.imperialvisualisations.com/visualisations/fourier-series/feedback/">Give Feed Back</a></li>
                 <li><a>Learn More</a></li>
             </ul>
 
@@ -776,6 +776,7 @@
     <button id="unlock" v-on:click="unlock" style="color: #f8ac59; font-weight: bold">Unlock Page</button>
 
     <div class="container_vis">
+
         <div class="vis_pg" id="visualisation_1" v-if = "currentsec==1" style = "background-color: #f0f4fc">
 
             <div class="placeholder"></div>
@@ -784,8 +785,9 @@
         </div>
 
 
-
         <div class="vis_pg" id="visualisation_2" v-else-if = "currentsec==2" style = "background-color: #f0f4fc">
+
+
             <div class="placeholder"></div>
             <iframe src="1Fourier_derivation_graphs.html" width="900" height="600">
 
@@ -802,19 +804,25 @@
 
 </iframe>
         </div>
+
         <div class="vis_pg" id="visualisation_4" v-else-if = "currentsec==4" style = "background-color: #f0f4fc">
-            <div class="placeholder"></div>
+
             <iframe src="4PSFS_Interactive.html" width="900" height="800">
 
 </iframe>
+
         </div>
         <div class="vis_pg" id="visualisation_5" v-else-if = "currentsec==5" style = "background-color: #e8f1ff">
+
             <div class="placeholder"></div>
             <iframe src="5Generalised_Fourier_Decomposition.html" width="900" height="700">
 
 </iframe>
+
         </div>
-        <div class="container_vis_2" v-else-if="currentsec==10" style="background-color: #b0b0ff">
+
+        <div class="container_vis_2" v-else-if="currentsec==10" style="background-color: #e3e7fc">
+
         <div class="placeholder"></div>
             <iframe src="0Orthogonality.html" width="900" height="800"></iframe>
         <iframe src="1Fourier_derivation_graphs.html" width="900" height="600"></iframe>
@@ -822,7 +830,9 @@
         <iframe src="3CoFS_Interactive.html" width="900" height="800"></iframe>
         <iframe src="4PSFS_Interactive.html" width="900" height="800"></iframe>
         <iframe src="5Generalised_Fourier_Decomposition.html" width="900" height="700"></iframe>
+
     </div>
+
         <div v-else-if="currentsec==0" style="text-align: center; background-color: white">
             <h1> </h1>
             <h1> </h1>

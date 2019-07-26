@@ -63,22 +63,7 @@ window.onload = function () {
         // call the update function each time you click the button
         //setTimeout(function () {$('#delta').scrollIntoView({behavior: "smooth"});}, 500);
         $(".derivation_collapse").on('click', () => {
-            setTimeout(function () {
-            pg_heights=[];
-            for (i = 0; i < journey_pg.length; i++) {
-                //console.log(journey_pgs)
-                //pg_heights2.push($("#" + journey_pg[i].id).offset().top);
-                h = 0;
-                for (j = 0; j < (i + 1); j++) {
-                    //h+=parseFloat(journey_pg[j].scrollHeight)
-                    h += $("#" + journey_pg[j].id).outerHeight()
-                }
-                pg_heights.push(h);
-                console.log('newp:' + pg_heights);
-        console.log('newh:' + h)
-
-            }
-        },1000);
+            setTimeout(updateHeight(),1000);
             //updateHeight()
         });
 let executed = 1;
@@ -113,11 +98,7 @@ let executed = 1;
             show8: false,
             show9: false,
             show10: false,
-            showpage1: false,
-            showpage2: false,
-            showpage3: false,
-            showpage4: false,
-            showpage5: false,
+
             currentsec: 0,
             active1: false,
             active2: false,

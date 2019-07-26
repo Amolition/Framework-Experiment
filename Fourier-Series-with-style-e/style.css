@@ -467,6 +467,13 @@
                   opacity: 0;
                 }
 
+.slide-fade-long-enter-active, .slide-fade-long-leave-active {
+                  transition: opacity 3s;
+                }
+                .slide-fade-long-enter, .slide-fade-long-leave-to {
+                  opacity: 0;
+                }
+
 @-webkit-keyframes slideInDown {
   from {
     -webkit-transform: translate3d(0, -100%, 0);
