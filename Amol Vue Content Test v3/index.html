@@ -1454,6 +1454,9 @@
             <img id="vis-logo" src="VisualisationsLogoWhite2.png">
         </a>
     </div>
+    <div id="lock-container">
+            <span :class="[locked === false ? 'unlocked' : '', 'lock']" @click="locked = !locked"></span>
+        </div>
     <div class="rightScriptSpace"></div>
     <div class="derivationScriptSpace"></div>
 </div>
