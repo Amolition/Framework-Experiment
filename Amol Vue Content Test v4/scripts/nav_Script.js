@@ -37,7 +37,6 @@ let app = new Vue ({
         ],
         showEq: true,
         equationID: "triangular",
-        locked: true,
     },
 
     methods: {
@@ -108,7 +107,15 @@ let app = new Vue ({
         subScrollTo: function (event) {
             let scrollTarget = event.currentTarget;
             if (scrollTarget.id === "ssh" + app.derivationSubSection) {
-                    setTimeout(function () {scrollTarget.scrollIntoView({behavior: "smooth"});}, 10)
+                scrollTarget.scrollIntoView();
+                    // setTimeout(function () {
+                    //     let i = 1;
+                    //     for (let arrowTarget = document.querySelectorAll("#"+"ssh"+i)[0]; i<=app.n; i++) {
+                    //         if (arrowTarget.classList.contains("collapsed") === true) {
+                    //             arrowTarget.classList.toggle()
+                    //         }
+                    //     }
+                    // }, 0)
             }
         },
 
@@ -126,6 +133,15 @@ let app = new Vue ({
             // pass event object, bound to mouse move with update
             console.log("working");
             app.mouseX = event.clientX -15;
+        },
+
+        hideShowToggle: function (event) {
+            let toggleTarget = event.currentTarget.querySelectorAll('span')[0].innerHTML;
+            if (toggleTarget === "Show") {
+                event.currentTarget.querySelectorAll('span')[0].innerHTML = "Hide"
+            } else {
+                event.currentTarget.querySelectorAll('span')[0].innerHTML = "Show"
+            }
         }
     },
 
@@ -138,104 +154,101 @@ let app = new Vue ({
 
         currentSection: function (newValue, oldValue) {
 
-            if (app.locked===true) {
-                // Removes and adds scripts depending on which section is at top of visible part of journey
-                document.querySelectorAll('.rightScriptSpace')[0].innerHTML = "";
-                for (let i=1; i<=app.rightScripts[newValue-1].length; i++) {
-                    app.addScript = document.createElement("script");
-                    app.addScript.id ="rightScriptS" + newValue + "E" + i;
-                    app.addScript.src = (app.rightScripts[newValue-1][i-1]);
-                    app.addScript.async = false;
-                    document.querySelectorAll('.rightScriptSpace')[0].appendChild(app.addScript);
-                }
-                // Code to deal with loading / unloading appropriate scripts when entering / leaving section 2 as the scripts depend on which subsection is active
-                if (oldValue === 2) {
-                    document.querySelectorAll('.derivationScriptSpace')[0].innerHTML = "";
-                }
-                if (newValue === 2) {
-                    if (app.derivationSubSection !==3) {
-                        for (let i=1; i<=app.derivationScripts[0].length; i++) {
-                            app.addScript = document.createElement("script");
-                            app.addScript.id ="derivationScriptS" + 0 + "E" + i;
-                            app.addScript.src = (app.derivationScripts[0][i-1]);
-                            app.addScript.async = false;
-                            document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+            // Removes and adds scripts depending on which section is at top of visible part of journey
+            document.querySelectorAll('.rightScriptSpace')[0].innerHTML = "";
+            for (let i=1; i<=app.rightScripts[newValue-1].length; i++) {
+                app.addScript = document.createElement("script");
+                app.addScript.id ="rightScriptS" + newValue + "E" + i;
+                app.addScript.src = (app.rightScripts[newValue-1][i-1]);
+                app.addScript.async = false;
+                document.querySelectorAll('.rightScriptSpace')[0].appendChild(app.addScript);
+            }
+            // Code to deal with loading / unloading appropriate scripts when entering / leaving section 2 as the scripts depend on which subsection is active
+            if (oldValue === 2) {
+                document.querySelectorAll('.derivationScriptSpace')[0].innerHTML = "";
+            }
+            if (newValue === 2) {
+                if (app.derivationSubSection !==3) {
+                    for (let i=1; i<=app.derivationScripts[0].length; i++) {
+                        app.addScript = document.createElement("script");
+                        app.addScript.id ="derivationScriptS" + 0 + "E" + i;
+                        app.addScript.src = (app.derivationScripts[0][i-1]);
+                        app.addScript.async = false;
+                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
+                    }
+                    setTimeout(function () {
+                        if (app.derivationSubSection > 3) {
+                            document.querySelectorAll('#opt' + (app.derivationSubSection - 3))[0].setAttribute("selected", "true");
+                            document.querySelectorAll('#SelectSec2Sub1')[0].setAttribute("disabled", "true");
+                            console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
+                            document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
+                            setTimeout(function () {
+                                selectorFuncSec2Sub0();
+                                document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(app.derivationSubSection-3))[0].title;
+                                document.querySelectorAll("#subSecTitle")[0].style.display="block";
+                            }, 200);
                         }
-                        setTimeout(function () {
-                            if (app.derivationSubSection > 3) {
-                                document.querySelectorAll('#opt' + (app.derivationSubSection - 3))[0].setAttribute("selected", "true");
-                                document.querySelectorAll('#SelectSec2Sub1')[0].setAttribute("disabled", "true");
-                                console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
-                                document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
-                                setTimeout(function () {
-                                    selectorFuncSec2Sub0();
-                                    document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(app.derivationSubSection-3))[0].title;
-                                    document.querySelectorAll("#subSecTitle")[0].style.display="block";
-                                }, 200);
-                            }
-                        }, 200);
-                    } else {
-                        for (let i=1; i<=app.derivationScripts[1].length; i++) {
-                            app.addScript = document.createElement("script");
-                            app.addScript.id ="derivationScriptS" + 1 + "E" + i;
-                            app.addScript.src = (app.derivationScripts[1][i-1]);
-                            app.addScript.async = false;
-                            document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
-                        }
+                    }, 200);
+                } else {
+                    for (let i=1; i<=app.derivationScripts[1].length; i++) {
+                        app.addScript = document.createElement("script");
+                        app.addScript.id ="derivationScriptS" + 1 + "E" + i;
+                        app.addScript.src = (app.derivationScripts[1][i-1]);
+                        app.addScript.async = false;
+                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
                     }
                 }
-                // runs mathJax re-display equation when section 3 entered
-                if (newValue === 3) {setTimeout(function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
-                    }, 50)
-                }
+            }
+            // runs mathJax re-display equation when section 3 entered
+            if (newValue === 3) {setTimeout(function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
+                }, 50)
             }
         },
 
         derivationSubSection: function (newValue, oldValue) {
             // Removes and adds scripts depending on which subsection is active when on section 2
-            if (app.locked===true) {
-                document.querySelectorAll('.derivationScriptSpace')[0].innerHTML = "";
-                if (app.currentSection === 2) {
-                    if (newValue !==3) {
-                        for (let i=1; i<=app.derivationScripts[0].length; i++) {
-                            app.addScript = document.createElement("script");
-                            app.addScript.id ="derivationScriptS" + 0 + "E" + i;
-                            app.addScript.src = (app.derivationScripts[0][i-1]);
-                            app.addScript.async = false;
-                            document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
-                        }
-                        // locks function displayed to show only specific example if subsection about specific function is active
-                        setTimeout(function () {
-                            if (oldValue > 3) {
-                                document.querySelectorAll('#opt' + (oldValue - 3))[0].removeAttribute("selected");
-                                document.querySelectorAll('#SelectSec2Sub1')[0].removeAttribute("disabled");
-                                document.querySelectorAll("#subSecTitle")[0].style.display = "none";
-                                document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "block";
-                            }
-                            if (newValue > 3) {
-                                document.querySelectorAll('#opt' + (newValue - 3))[0].setAttribute("selected", "true");
-                                document.querySelectorAll('#SelectSec2Sub1')[0].setAttribute("disabled", "true");
-                                console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
-                                document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
-                                setTimeout(function () {
-                                    selectorFuncSec2Sub0();
-                                    document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(newValue-3))[0].title;
-                                    document.querySelectorAll("#subSecTitle")[0].style.display="block";
-                                }, 200);
-                            }
-                        }, 200);
-                    } else {
-                        for (let i=1; i<=app.derivationScripts[1].length; i++) {
-                            app.addScript = document.createElement("script");
-                            app.addScript.id ="derivationScriptS" + 1 + "E" + i;
-                            app.addScript.src = (app.derivationScripts[1][i-1]);
-                            app.addScript.async = false;
-                            document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
-                        }
+
+            document.querySelectorAll('.derivationScriptSpace')[0].innerHTML = "";
+            if (app.currentSection === 2) {
+                if (newValue !==3) {
+                    for (let i=1; i<=app.derivationScripts[0].length; i++) {
+                        app.addScript = document.createElement("script");
+                        app.addScript.id ="derivationScriptS" + 0 + "E" + i;
+                        app.addScript.src = (app.derivationScripts[0][i-1]);
+                        app.addScript.async = false;
+                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
                     }
-                    if (oldValue !== 0) {
-                        document.querySelectorAll("ssh" + oldValue)
+                    // locks function displayed to show only specific example if subsection about specific function is active
+                    setTimeout(function () {
+                        if (oldValue > 3) {
+                            document.querySelectorAll('#opt' + (oldValue - 3))[0].removeAttribute("selected");
+                            document.querySelectorAll('#SelectSec2Sub1')[0].removeAttribute("disabled");
+                            document.querySelectorAll("#subSecTitle")[0].style.display = "none";
+                            document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "block";
+                        }
+                        if (newValue > 3) {
+                            document.querySelectorAll('#opt' + (newValue - 3))[0].setAttribute("selected", "true");
+                            document.querySelectorAll('#SelectSec2Sub1')[0].setAttribute("disabled", "true");
+                            console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
+                            document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
+                            setTimeout(function () {
+                                selectorFuncSec2Sub0();
+                                document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(newValue-3))[0].title;
+                                document.querySelectorAll("#subSecTitle")[0].style.display="block";
+                            }, 200);
+                        }
+                    }, 200);
+                } else {
+                    for (let i=1; i<=app.derivationScripts[1].length; i++) {
+                        app.addScript = document.createElement("script");
+                        app.addScript.id ="derivationScriptS" + 1 + "E" + i;
+                        app.addScript.src = (app.derivationScripts[1][i-1]);
+                        app.addScript.async = false;
+                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
                     }
+                }
+                if (oldValue !== 0) {
+                    document.querySelectorAll("ssh" + oldValue)
                 }
             }
         },
@@ -250,84 +263,6 @@ let app = new Vue ({
                 function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
             }, 100)
         },
-
-        locked: function () {
-            // clear script spaces
-            document.querySelectorAll('.rightScriptSpace')[0].innerHTML = "";
-            document.querySelectorAll('.derivationScriptSpace')[0].innerHTML = "";
-            if (app.locked===true) {
-                // adds scripts for current section when returning to locked mode
-                for (let i=1; i<=app.rightScripts[app.currentSection-1].length; i++) {
-                    app.addScript = document.createElement("script");
-                    app.addScript.id ="rightScriptS" + app.currentSection + "E" + i;
-                    app.addScript.src = (app.rightScripts[app.currentSection-1][i-1]);
-                    app.addScript.async = false;
-                    document.querySelectorAll('.rightScriptSpace')[0].appendChild(app.addScript);
-                }
-                // Code to deal with loading / unloading appropriate scripts when entering / leaving section 2 as the scripts depend on which subsection is active
-                if (app.currentSection === 2) {
-                    if (app.derivationSubSection !==3) {
-                        for (let i=1; i<=app.derivationScripts[0].length; i++) {
-                            app.addScript = document.createElement("script");
-                            app.addScript.id ="derivationScriptS" + 0 + "E" + i;
-                            app.addScript.src = (app.derivationScripts[0][i-1]);
-                            app.addScript.async = false;
-                            document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
-                        }
-                        setTimeout(function () {
-                            if (app.derivationSubSection > 3) {
-                                document.querySelectorAll('#opt' + (app.derivationSubSection - 3))[0].setAttribute("selected", "true");
-                                document.querySelectorAll('#SelectSec2Sub1')[0].setAttribute("disabled", "true");
-                                console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
-                                document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
-                                setTimeout(function () {
-                                    selectorFuncSec2Sub0();
-                                    document.querySelectorAll("#subSecTitle")[0].innerHTML=document.querySelectorAll("#opt"+(app.derivationSubSection-3))[0].title;
-                                    document.querySelectorAll("#subSecTitle")[0].style.display="block";
-                                }, 200);
-                            }
-                        }, 200);
-                    } else {
-                        for (let i=1; i<=app.derivationScripts[1].length; i++) {
-                            app.addScript = document.createElement("script");
-                            app.addScript.id ="derivationScriptS" + 1 + "E" + i;
-                            app.addScript.src = (app.derivationScripts[1][i-1]);
-                            app.addScript.async = false;
-                            document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
-                        }
-                    }
-                }
-                // runs mathJax re-display equation when section 3 entered
-                if (app.currentSection === 3) {setTimeout(function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
-                    }, 50)
-                }
-            } else {
-                // load all scripts simultaneously for unlocked mode
-                for (let j=1; j<=app.rightScripts.length; j++) {
-                        for (let i=1; i<=app.rightScripts[j-1].length; i++) {
-                            setTimeout ( function () {
-                                app.addScript = document.createElement("script");
-                                app.addScript.id ="rightScriptS" + j + "E" + i;
-                                app.addScript.src = (app.rightScripts[j-1][i-1]);
-                                app.addScript.async = false;
-                                document.querySelectorAll('.rightScriptSpace')[0].appendChild(app.addScript);
-                            }, 100)
-                        }
-                }
-                for (let i=1; i<=app.derivationScripts[0].length; i++) {
-                    setTimeout ( function () {
-                        app.addScript = document.createElement("script");
-                        app.addScript.id ="derivationScriptS" + 0 + "E" + i;
-                        app.addScript.src = (app.derivationScripts[0][i-1]);
-                        app.addScript.async = false;
-                        document.querySelectorAll('.derivationScriptSpace')[0].appendChild(app.addScript);
-                    }, 100)
-                }
-                setTimeout(
-                    function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
-                    }, 100)
-            }
-        }
     },
 
     mounted () {

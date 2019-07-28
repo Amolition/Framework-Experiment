@@ -64,7 +64,7 @@ meter {
     border: solid 2px #151c26;
     height: 36px;
     min-width: 30px;
-    transition: flex-grow 750ms;
+    transition: flex-grow 350ms;
 }
 
 meter::-webkit-meter-bar {
@@ -129,7 +129,7 @@ meter::-moz-meter-bar {
     color: #ffffff !important;
     border: none;
     min-width: 30px;
-    transition: flex-grow 750ms;
+    transition: flex-grow 350ms;
     box-shadow: none;
 }
 
@@ -215,6 +215,7 @@ meter::-moz-meter-bar {
 
 button.section-sub-head {
     width: 100%;
+    position: relative;
     margin: 10px 0 20px 0;
     text-align: center;
     font-size: 18pt;
@@ -238,6 +239,18 @@ h3.section-sub-head {
 .section-sub-content {
     margin-top: 30px;
     margin-bottom: 50px;
+}
+
+i {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    transition-delay: 0.1s;
+    transition: transform 0.4s ease-in-out;
+}
+
+.section-sub-head:not(.collapsed) i {
+    transform: rotate(-180deg);
 }
 
 .section-extra-head-container {
@@ -299,14 +312,6 @@ h3.section-sub-head {
     letter-spacing: 2pt;
 }
 
-#lock-container {
-    position: absolute;
-    right: 60px;
-    height: 40px;
-    padding-top: 6px;
-    z-index: 9999;
-}
-
 #rightload-nav {
     position: absolute;
     right: 120px;
@@ -349,11 +354,15 @@ nav {
 
 /* TRANSITION STYLES */
 
-.fade-leave-active, .fade-enter-active {
+.fadeUneven-enter-active {
     transition: opacity 0.5s;
 }
 
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fadeUneven-leave-active {
+    /*  NO TRANSITION FOR FADE OUT  */
+}
+
+.fadeUneven-enter, .fadeUneven-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
 }
 
@@ -369,13 +378,13 @@ nav {
     height: 0;
 }
 
-.collapsed ~ .collapsing {
+.collapsed ~ .collapsing:not(.extra-content-container) {
     transition-duration: 0s;
 }
 
-:not(.collapsed) ~ .collapsing {
-    transition-delay: 0.1s;
-    transition-duration: 0.5s;
+:not(.collapsed) ~ .collapsing:not(.extra-content-container) {
+    transition-delay: 0.2s;
+    transition-duration: 0.6s;
 }
 
 /* IMPORTED STYLE FROM LEARNING EXPERIENCE TEAM */
@@ -384,33 +393,10 @@ nav {
     width: inherit;
 }
 
-.solidline {
-    /* Indicates a drop down box to hide stuff */
-    /*border-style: outset;*/
-    /*border-color: coral;*/
-    /*border-width: 3px;*/
+.extra-content {
     background: #d1e4ff;
     padding: 25px 40px;
     border-radius: 5px;
     text-align: justify;
     margin-bottom: 30px;
-}
-.bigdropdown {
-    /* Indicates a drop down box to hide sections*/
-    border-style: outset;
-    border-color: blueviolet;
-    border-width: 3px;
-    padding: 20px;
-    border-radius: 20px;
-    text-align: justify;
-}
-
-.verticalline {
-    width: 2px;
-    background-color: #000;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 34vw;
-    opacity: 0.3;
 }

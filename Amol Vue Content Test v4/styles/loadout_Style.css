@@ -16,22 +16,6 @@
     height: inherit;
 }
 
-.lockMode {
-    position: absolute;
-}
-
-.unlockMode {
-    position: relative;
-}
-
-.unlockMode.odd {
-    background-color: #f0e5ff;
-}
-
-.unlockMode.even {
-    background-color: #d2e0ff;
-}
-
 /* SECTION 1 */
 
 #loadout1 {
