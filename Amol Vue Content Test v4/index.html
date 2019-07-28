@@ -159,10 +159,10 @@
                 </div>
                 <div class="text section-body odd" id="p2">
                     <div id="intro" class="divclass">
-                        <button id="ssh1" class="section-sub-head first-sub-head collapsed" key="ssh1" @click="updateSubSection(1); subScrollTo($event)" data-toggle="collapse" data-target="#introContentContainer">
+                        <button id="ssh1" class="section-sub-head first-sub-head" key="ssh1" @click="updateSubSection(1); subScrollTo($event)" data-toggle="collapse" data-target="#introContentContainer">
                             Introduction to Fourier series <i class='fas fa-chevron-down'></i>
                         </button>
-                        <div id="introContentContainer" class="collapse" data-parent="#p2">
+                        <div id="introContentContainer" class="collapse show" data-parent="#p2">
                             <div id="introContent" class="section-sub-content" key="introContent">
                                 Consider a function <span>$ f(x) $</span> which is periodic over the domain <span>$ -L \leq x < L $</span>
                                 where <span>$ L $</span> is positive. <span>$ f(x) $</span> can be represented as a sum
@@ -530,7 +530,7 @@
                                 <span class="mathJaxDisplay">
                                         $$ b_n=\frac{1}{L}\int_{-L}^{+L}\delta(x) \sin \left(\frac{n\pi x}{L} \right)dx $$
                                     </span>
-                                <span>$ \delta(x) $</span>is an even function. Hence <span>$ b_n=0 $</span> and
+                                <span>$ \delta(x) $</span> is an even function. Hence <span>$ b_n=0 $</span> and
                                 <span class="mathJaxDisplay">
                                         $$ a_n=\frac{1}{L} $$
                                     </span>
@@ -544,7 +544,7 @@
                                         <span class="mathJaxDisplay">
                                         $$ \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha) $$
                                         </span>
-                                        For us,<span>$ \alpha=0, \epsilon=L, $</span>and <span>$ g(x)= \sin \left(n \pi x/L \right) $</span>.
+                                        For us, <span>$ \alpha=0 $</span>, <span>$ \epsilon=L, $</span> and <span>$ g(x)= \sin \left(n \pi x/L \right) $</span>.
                                         <br><br>
                                         Therefore,
                                         <span class="mathJaxDisplay">
@@ -1224,15 +1224,15 @@
                                 \right.
                                 $$
                                 <br><br>
-                                $$ f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi}$ $\displaystyle (1-(-1)^n) \sin \left(\frac{n\pi x}{L}\right)$$
+                                $$ f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi} (1-(-1)^n) \sin \left(\frac{n\pi x}{L}\right)$$
                             </span>
                     </div>
 
                     <div id="Sawtooth_eqn" v-else-if="equationID === 'sawtooth'">
                             <span class="mathJaxDisplay">
-                                $$ f(x)=\frac{Ax}{L} $ $\displaystyle \quad (-L < x \leq L) $$
+                                $$ f(x)=\frac{Ax}{L} \quad (-L < x \leq L) $$
                                 <br><br>
-                                $$ f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1}$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right) $$
+                                $$ f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1} \sin \left(\frac{n\pi x}{L} \right) $$
                             </span>
                     </div>
 
@@ -1263,13 +1263,12 @@
                             <span class="mathJaxDisplay">
                                 $$ f(x)=A|x| $$
                                 <br><br>
-                                $$ f(x)=\frac{AL}{2}+ \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2}$ $\displaystyle \left[(-1)^n-1 \right] \cos \left(\frac{n\pi
+                                $$ f(x)=\frac{AL}{2}+ \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2} \left[(-1)^n-1 \right] \cos \left(\frac{n\pi
                                 x}{L} \right) $$
                             </span>
                     </div>
 
                 </div>
-
             </div>
             <div class="rightload text even" id='loadout4'
                  key="loadout4" v-if="currentSection === 4">

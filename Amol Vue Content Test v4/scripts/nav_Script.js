@@ -30,7 +30,7 @@ let app = new Vue ({
         removeScript: "",
         addScript: "",
         firstRunDone: false,
-        derivationSubSection: 0,
+        derivationSubSection: 1,
         derivationScripts: [
             ["scripts/Visualising_Simple_Periodic_Functions.js"],
             ["scripts/Derivation_of_a_Fourier_Series_duo.js"],
@@ -108,14 +108,6 @@ let app = new Vue ({
             let scrollTarget = event.currentTarget;
             if (scrollTarget.id === "ssh" + app.derivationSubSection) {
                 scrollTarget.scrollIntoView();
-                    // setTimeout(function () {
-                    //     let i = 1;
-                    //     for (let arrowTarget = document.querySelectorAll("#"+"ssh"+i)[0]; i<=app.n; i++) {
-                    //         if (arrowTarget.classList.contains("collapsed") === true) {
-                    //             arrowTarget.classList.toggle()
-                    //         }
-                    //     }
-                    // }, 0)
             }
         },
 

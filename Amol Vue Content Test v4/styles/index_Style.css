@@ -54,7 +54,7 @@ hr {
     position: fixed;
     left: 0;
     top: 0;
-    border: solid 2px #151c26;
+    background: #151c26;
 }
 
 meter {
@@ -62,9 +62,9 @@ meter {
     flex-basis: 0;
     flex-grow: 1;
     border: solid 2px #151c26;
-    height: 36px;
+    height: 40px;
     min-width: 30px;
-    transition: flex-grow 350ms;
+    transition: flex-grow 450ms ease;
 }
 
 meter::-webkit-meter-bar {
@@ -129,7 +129,7 @@ meter::-moz-meter-bar {
     color: #ffffff !important;
     border: none;
     min-width: 30px;
-    transition: flex-grow 350ms;
+    transition: flex-grow 450ms ease;
     box-shadow: none;
 }
 
