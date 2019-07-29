@@ -10,7 +10,7 @@
           href="styles/style.css">
     <!--Required JS resources-->
     <!--NB: better to have resources before the main body but still works even if they are not-->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="scripts/plotly-1.47.4.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="scripts/numeric/src/numeric.js"></script>
     <script src="scripts/math.min.js"></script>
@@ -33,13 +33,12 @@
 </head>
 <body>
 
-<div class="right" style="background-color: white;"></div>
-<div class="container">
+<div class="container" style="top: 5vh; position: absolute">
     <div class="row">
+        <!-- Graph -->
+        <div class="one-third column" style="padding-left: 1em;">
 
-        <div class="one-third column" style="padding-left: 2em;">
-
-            <div id='graph' style="width:30vw; height:70vh;">
+            <div id='graph' style="width:50vw; height:70vh;">
                 <p style="margin-left: 9em; padding: 1em;">Components of Projections:</p>
                 <div id="vectorComponents" style="font-size: 10pt;">0.83 x vector1 & 0.83 x vector2</div>
                 <div class="popup" onclick="myFunction()">
@@ -55,13 +54,90 @@
         </div>
 
 
+        <!--Buttons/Sliders-->
+        <div class="one-third column" style="position: absolute; padding-left:3vw; right: 0; top: 3vh;width: 40vw">
 
+            <!--Main body contents-->
+            <div class="tab-content">
+                <!--BEGIN Slider-->
+                <!--These Sliders are shared among all tabs-->
+
+                <!--Slider Display--> <!--Linked with the slider below-->
+                <!--Linked with a slider and shows the live values of its corresponding slider-->
+                
+                    <h6 style="border-left: solid 5px rgb(213,0,50); padding-left: 8px; margin: -5px; padding-top: 1vh;">Basis vector 1:</h6>
+                    <!--BEGIN Slider-->
+                    <label class="slider" style="position: relative; float: left;  width: 50%">
+                        <input id="x1Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5" step="0.01" oninput="x1.value=x1Controller.value"/></input>
+                        <br>
+                        <span> x: <output id="x1" for="x1Controller">1.1</output></span>
+                    </label>
+                    <!--END Slider-->
+
+                    <!--BEGIN Slider-->
+                    <label class="slider" style="position: relative; float: right; width: 50%">
+                        <input id="y1Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5" step="0.01" oninput="y1.value=y1Controller.value"/></input>
+                        <br>
+                        <span> y: <output id="y1" for="y1Controller">0.1</output></span>
+                    </label>
+                    <!--END Slider-->
+
+                    <br>
+
+                <hr>
+
+                <br>
+                    
+                    <h6 style="border-left: solid 5px rgb(0,0,255); padding-left: 8px; margin: -5px; padding-top: 1vh; ">Basis vector 2:</h6>
+                    <!--BEGIN Slider-->
+                    <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
+                        <input id="x2Controller" class="inputs" type="range" value="0.1" min="-2.5" max="2.5" step="0.01" oninput="x2.value=x2Controller.value"/></input>
+                        <br>
+                        <span> x: <output id="x2" for="x2Controller">0.1</output></span>
+                    </label>
+                    <!--END Slider-->
+                    
+                    <!--BEGIN Slider-->
+                    <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
+                        <input id="y2Controller" class="inputs" type="range" value="1.1" min="-2.5" max="2.5" step="0.01" oninput="y2.value=y2Controller.value"/></input>
+                        <br>
+                        <span> y: <output id="y2" for="y2Controller">1.1</output></span>
+                    </label>
+                    <!--END Slider-->
+
+                    <br>
+                <hr>
+                <br>
+
+                    <h6 style="border-left: solid 5px rgb(0,255,0); padding-left: 8px; margin: -5px; padding-top: 1vh; ">Target vector:</h6>
+                    <!--BEGIN Slider-->
+                    <label class="slider" style="position: relative; float: left; width: 50%; top: 10px;">
+                        <input id="x3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5" step="0.01" oninput="x3.value=x3Controller.value"/></input>
+                        <br>
+                        <span> x: <output id="x3" for="x3Controller">1</output></span>
+                    </label>
+                    <!--END Slider-->
+                    
+                    <!--BEGIN Slider-->
+                    <label class="slider" style="position: relative; float: right; width: 50%; top: 10px;">
+                        <input id="y3Controller" class="inputs" type="range" value="1" min="-2.5" max="2.5" step="0.01" oninput="y3.value=y3Controller.value"/></input>
+                        <br>
+                        <span> y: <output id="y3" for="y3Controller">1</output></span>
+                    </label>
+                    <!--END Slider-->
+
+                    <!--Unique Areas-->
+                    <!--BEGIN Basis Vector Area-->
+                    <div class="tab-pane active" id="basis"></div> <!--NB: Also need 'active' here-->
+                    <!--END Basis-->
+                    <!--END Area-->
+                </div>
+            </div>
         </div>
     </div>
 
 <!--THE BRAINS-->
-<script src=scripts/orthogonality_object.js></script>
-<script src=scripts/0Orthogonality.js></script>
-
+<script src=scripts/scripts/0Orthogonality.js></script>
+<script src=scripts/scripts/orthogonality_object.js></script>
 </body>
 </html>

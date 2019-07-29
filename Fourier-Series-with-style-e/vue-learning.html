@@ -73,6 +73,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
 </head>
 
 <body>
@@ -84,7 +85,7 @@
 <!-- -------------------------------------------------------------left sec 1 orthogonality----------------------------------------------------------------------------- -->
         <div class="journey_pg" id="section_1">
 
-                    <h3 class = section_title >1. Orthogonality</h3>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll1">1. Orthogonality</h3>
                     <h4 class="subtitle">&#3898   Orthogonality of Vectors & Functions   &#3899</h4>
                     <!--<div class="container_journey">-->
                      <!--<center><h4>Orthogonality of Vectors & Functions:</h4></center>-->
@@ -125,18 +126,19 @@
             <br><!--
             <button class="derivation_collapse" id="derive" >Derivation</button>
             -->
+<!--
 <button class="derivation_collapse" id="derive" v-on:click="show1 = !show1" >Derivation</button>
 <div id="button-1">
 
 
-<!-- v-bind, write a function for click, style the hidden section, recalculate the height, update each time-->
+&lt;!&ndash; v-bind, write a function for click, style the hidden section, recalculate the height, update each time&ndash;&gt;
 
                 <transition name="slide-fade">
 <p v-show="show1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
                     </p>
                 </transition>
-                </div>
+                </div>-->
 
 
 
@@ -149,7 +151,7 @@
         </div><!--
       -->
         <div class="journey_pg" id="section_2">
-                    <h3 class = section_title >2. Derivation</h3>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll2">2. Derivation</h3>
                     <h4 class="subtitle">&#3898   Derivation   &#3899</h4>
 
             <!--<style>
@@ -339,7 +341,7 @@
 </div>
 <div>
 
-    <select id="fourierselect" class="derivation_collapse" onchange="showinfo()">
+    <select id="fourierselect" class="derivation_collapse" >
         <option selected="selected">Select a function</option>
         <option value="1">Parabolic Fourier Series Derivation</option>
         <option value="2">Dirac-Delta Fourier Series Derivation</option>
@@ -350,38 +352,41 @@
 
 </div>
 <hr>
-
+<transition
+    name="custom-classes-transition"
+    enter-active-class="animated slideInDown"
+    >
 <div id="parabolic" class="divclass bigdropdown hide">
     <h4 style="border: blue solid 1px"> Parabolic Fourier Series Derivation </h4>
     <p>The parabolic function is defined as:</p>
-    $ \displaystyle f(x)=Ax^2 \quad \text{for:} -L\leq x< L$
+    $$ \displaystyle f(x)=Ax^2 \quad \text{for:} -L\leq x< L$$
     <p> and forced to be periodic. $A$ is a constant.</p>
     <p>Therefore, $a_n$ and $b_n$ coefficients are given as  </p>
-    $\displaystyle b_n = \frac{1}{L}\int_{-L}^{+L} Ax^2$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx $
+    <p align="center">$\displaystyle b_n = \frac{1}{L}\int_{-L}^{+L} Ax^2$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx $</p>
     <p> </p>
-    $\displaystyle a_n= \frac{1}{L}\int_{-L}^{+L} Ax^2$ $\displaystyle \cos \left(\frac{n \pi x}{L} \right)dx $
+    <p align="center">$\displaystyle a_n= \frac{1}{L}\int_{-L}^{+L} Ax^2$ $\displaystyle \cos \left(\frac{n \pi x}{L} \right)dx $</p>
 
     <p> The $b_n$ integral is odd about $x=0$, hence $b_n=0$ for all $n$. $f(x)$ is even about $x=0$. Hence </p>
-    $\displaystyle a_n=\frac{2}{L}\int_{0}^{+L} Ax^2$ $\displaystyle \cos \left(\frac{n \pi x}{L} \right)dx $
+    <p align="center">$\displaystyle a_n=\frac{2}{L}\int_{0}^{+L} Ax^2$ $\displaystyle \cos \left(\frac{n \pi x}{L} \right)dx $</p>
     <p> For $n=0$:</p>
-    $\displaystyle a_0 = \frac{2}{L} \int _{0}^{+L} Ax^2 dx $
-    $\displaystyle a_0 = \frac{2AL^2}{3} $
+    $$\displaystyle a_0 = \frac{2}{L} \int _{0}^{+L} Ax^2 dx $$
+    $$\displaystyle a_0 = \frac{2AL^2}{3} $$
 
     <p> For $n\neq 0 $:</p>
-    $\displaystyle a_n = \frac{2A}{L}\int_0^L x^2$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx $
+    <p align="center">$\displaystyle a_n = \frac{2A}{L}\int_0^L x^2$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx $</p>
     <p>This Eqn. can be solved by integrating by parts.</p>
     <button class="derivation_collapse" v-on:click="show4 = !show4" >Detail</button>
     <div id="button-4">
 <transition name="slide-fade">
         <div class="solidline" v-show="show4">
-        $\displaystyle du = 2x\cdot dx \qquad$ $\displaystyle v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $
+            <p align="center">$\displaystyle du = 2x\cdot dx \qquad$ $\displaystyle v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $</p>
         <p></p>
-        $\displaystyle u=x^2 \qquad$ $\displaystyle dv= \cos \left(\frac{n \pi x}{L} \right)dx $
+            <p align="center">$\displaystyle u=x^2 \qquad$ $\displaystyle dv= \cos \left(\frac{n \pi x}{L} \right)dx $</p>
         <p></p>
-        $\displaystyle a_n = \frac{2A}{L}$ $\displaystyle \Bigg[ \Big[\frac{Lx^2}{n\pi}$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right) \Big] \biggr |_0^L $
-        $\displaystyle -\int_0^L\frac{2xL}{n\pi}$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx \Bigg] $
+            <p align="center">$\displaystyle a_n = \frac{2A}{L}$ $\displaystyle \Bigg[ \Big[\frac{Lx^2}{n\pi}$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right) \Big] \biggr |_0^L $
+                $\displaystyle -\int_0^L\frac{2xL}{n\pi}$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx \Bigg] $</p>
         <p> </p>
-        $\displaystyle = \frac{2A}{L}$ $\displaystyle \Bigg[0$ $\displaystyle -\int_0^L\frac{2xL}{n\pi}$ $\displaystyle \sin\left(\frac{n \pi x}{L}\right)dx \Bigg] $
+            <p align="center">$\displaystyle = \frac{2A}{L}$ $\displaystyle \Bigg[0$ $\displaystyle -\int_0^L\frac{2xL}{n\pi}$ $\displaystyle \sin\left(\frac{n \pi x}{L}\right)dx \Bigg] $</p>
 
     </div>
 </transition>
@@ -390,31 +395,31 @@
 
     <p></p>
 
-    $\displaystyle a_n = -\frac{4A}{n\pi}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx $
+    <p align="center">$\displaystyle a_n = -\frac{4A}{n\pi}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n \pi x}{L} \right)dx $</p>
     <p> </p>
     <button class="derivation_collapse" v-on:click="show5 = !show5" >Detail</button>
     <div id="button-5">
 <transition name="slide-fade">
 
         <div class="solidline" v-show="show5">
-        $\displaystyle u = x \qquad$ $\displaystyle dv = \sin \left(\frac{n\pi x}{L} \right) dx$
+            <p align="center">$\displaystyle u = x \qquad$ $\displaystyle dv = \sin \left(\frac{n\pi x}{L} \right) dx$</p>
         <p></p>
-        $\displaystyle du = dx \qquad$ $\displaystyle v = -\frac{L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right) $
+            <p align="center">$\displaystyle du = dx \qquad$ $\displaystyle v = -\frac{L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right) $</p>
         <p></p>
-        $\displaystyle a_n = \frac{-4A}{n\pi}$ $\displaystyle \Bigg[\Big[-\frac{xL}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)\Big] \biggr |_0^L $ $\displaystyle -
-        \int_0^L\frac{-L}{n\pi} $ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx \Bigg] $
+        <p align="center">$\displaystyle a_n = \frac{-4A}{n\pi}$ $\displaystyle \Bigg[\Big[-\frac{xL}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)\Big] \biggr |_0^L $ $\displaystyle -
+            \int_0^L\frac{-L}{n\pi} $ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx \Bigg] $</p>
     </div>
 
 </transition>
 </div>
 
     <p></p>
-    $\displaystyle a_n = \frac{4A}{n\pi} \Bigg[\frac{xL}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right) \Bigg] \biggr |_0^L $
+    <p align="center">$\displaystyle a_n = \frac{4A}{n\pi} \Bigg[\frac{xL}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right) \Bigg] \biggr |_0^L $
 
-    $\displaystyle = \frac{4AL^2}{n^2\pi^2}(-1)^n $
+        $\displaystyle = \frac{4AL^2}{n^2\pi^2}(-1)^n $</p>
     <p>Therefore, the fourier series can be written as </p>
-    $\displaystyle f(x) = \frac{AL^2}{3}$ $\displaystyle + \sum_{n=1}^\infty \frac{4AL^2}{n^2\pi^2}$ $\displaystyle (-1)^n
-    \cos \left(\frac{n\pi x}{L} \right) $
+    <p align="center">$\displaystyle f(x) = \frac{AL^2}{3}$ $\displaystyle + \sum_{n=1}^\infty \frac{4AL^2}{n^2\pi^2}$ $\displaystyle (-1)^n
+        \cos \left(\frac{n\pi x}{L} \right) $</p>
     <br>
     <a href="#fourierselect" style="background-color: white; border-radius: 3px; border: 2px #b0b0ff solid; left: 5vw; font-size: 20px;float: right">Go back</a>
     <br>
@@ -422,24 +427,25 @@
 
     <!--<a href="#fourierselect" id="close" v-on:click="hide" style="background-color: #b3d3e6; border-radius: 3px; border: 2px #b0b0ff solid">Close</a>-->
 </div>
+</transition>
 
 <div id="delta" class="divclass bigdropdown hide">
     <h4 style="border: blue solid 1px"> Dirac-Delta Fourier Series Derivation </h4>
     <p> The Dirac-delta function can be thought of as a infinite spike at $x=0$. </p>
-    $\displaystyle
+    <p align="center">$\displaystyle
     f(x) = \delta(x)=\left\{
     \begin{array}{ll}
     +\infty \quad (x=0) \\
     0 \qquad (x \neq 0)
     \end{array}
     \right.
-    $
+        $</p>
     <p> </p>
-     $\displaystyle a_n=\frac{1}{L}\int_{-L}^{+L} \delta (x)$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx $
+    <p align="center">$\displaystyle a_n=\frac{1}{L}\int_{-L}^{+L} \delta (x)$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx $</p>
     <p> </p>
-    $\displaystyle b_n=\frac{1}{L}\int_{-L}^{+L}\delta(x)$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx $
+    <p align="center">$\displaystyle b_n=\frac{1}{L}\int_{-L}^{+L}\delta(x)$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx $</p>
     <p> $\delta(x)$ is an even function. Hence $b_n=0 $ and </p>
-    $\displaystyle a_n=\frac{1}{L} $
+    $$\displaystyle a_n=\frac{1}{L} $$
     <p></p>
     <button class="derivation_collapse" v-on:click="show6 = !show6" >Explanation</button>
     <div id="button-6">
@@ -447,12 +453,12 @@
 
         <div class="solidline" v-show="show6">
         <p> By considering the shifting property of the Dirac-Delta function,</p>
-        $\displaystyle \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha)$
+        $$\displaystyle \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha)$$
         <p> For us, $\alpha=0, \epsilon=L,$ and $g(x)= \sin \left(n \pi x/L \right).$</p>
         <p> Therfore,</p>
-        $\displaystyle a_n=\frac{1}{L}\cos \left(\frac{n\pi \times 0}{L} \right)=\frac{1}{L}$
+        $$\displaystyle a_n=\frac{1}{L}\cos \left(\frac{n\pi \times 0}{L} \right)=\frac{1}{L}$$
         <p></p>
-        $\displaystyle b_n=\frac{1}{L}\sin \left(\frac{n\pi \times 0}{L} \right)=0$
+        $$\displaystyle b_n=\frac{1}{L}\sin \left(\frac{n\pi \times 0}{L} \right)=0$$
     </div>
 
 </transition>
@@ -471,29 +477,29 @@
 
     <h4 style="border: blue solid 1px">Square Wave Derivation</h4>
     <p>The square wave is defined as the following:</p>
-    $\displaystyle
+    $$\displaystyle
     f(x)=\left\{
     \begin{array}{ll}
     -A \quad (-L \leq x < 0) \\
     A \quad (0\leq x < L)
     \end{array}
     \right.
-    $
+    $$
     <p>The $a_{n}$ terms can be found be noting that $f(x)$ is odd, so $a_n$ is $0$ for all $n$. </p>
 
     <p>To find the $b_n$ terms, the integration can be split into two parts: $-L\leq x <0$ and $ 0\leq x < L.$
         This gives the following integration:</p>
-    $\displaystyle b_n=\frac{1}{L}\int_{-L}^0 -A$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx$ $\displaystyle +
+    <p align="center">$\displaystyle b_n=\frac{1}{L}\int_{-L}^0 -A$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx$ $\displaystyle +
     \frac{1}{L}\int_0^L A$ $\displaystyle
-    \sin \left(\frac{n \pi x}{L} \right)dx $
+        \sin \left(\frac{n \pi x}{L} \right)dx $</p>
     <p>which can be evaluated to:</p>
-    $\displaystyle b_n=\frac{-2A}{L}\frac{L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L$
-    $\displaystyle =\frac{2A}{n\pi}\left[1-\cos\left(n\pi \right) \right] $
+    <p align="center">$\displaystyle b_n=\frac{-2A}{L}\frac{L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)\biggr |_0^L$
+        $\displaystyle =\frac{2A}{n\pi}\left[1-\cos\left(n\pi \right) \right] $</p>
     <p>Note that $\displaystyle\cos \left(n \pi\right)=(-1)^n$ </p>
     <p>Hence $\displaystyle b_n=\frac{2A}{n\pi}(1-(-1)^n)$ </p>
     <p>Therefore the final fourier series is:</p>
-    $\displaystyle f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi}$ $\displaystyle (1-(-1)^n)$ $\displaystyle\sin \left(\frac{n\pi x}{L}\right).
-    $
+    <p align="center">$\displaystyle f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi}$ $\displaystyle (1-(-1)^n)$ $\displaystyle\sin \left(\frac{n\pi x}{L}\right).
+        $</p>
     <br>
     <a href="#fourierselect" style="background-color: white; border-radius: 3px; border: 2px #b0b0ff solid; left: 5vw; font-size: 20px;float: right">Go back</a>
     <br>
@@ -503,36 +509,36 @@
 <div id="sawtooth" class="divclass bigdropdown hide">
     <h4 style="border: blue solid 1px">Sawtooth Wave Derivation</h4>
     <p>The Sawtooth wave is defined as the following:</p>
-    $\displaystyle f(x)=\frac{Ax}{L} $ $\displaystyle \quad (-L \leq x < L). $
+    <p align="center">$\displaystyle f(x)=\frac{Ax}{L} $ $\displaystyle \quad (-L \leq x < L). $</p>
     <p>$f(x)$ is odd, so $a_n= 0$ for all $n$.</p>
     <p>The $b_n$ terms are given by the following integration:</p>
-    $\displaystyle b_n=\frac{1}{L}\int_{-L}^{L} \frac{Ax}{L}$ $\displaystyle\sin \left(\frac{n\pi x}{L} \right)dx $
-    $\displaystyle =\frac{2A}{L^{2}}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx. $
+    <p align="center">$\displaystyle b_n=\frac{1}{L}\int_{-L}^{L} \frac{Ax}{L}$ $\displaystyle\sin \left(\frac{n\pi x}{L} \right)dx $
+        $\displaystyle =\frac{2A}{L^{2}}\int_{0}^{L} x$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right)dx. $</p>
     <p>Using Integration by parts it can be shown that:</p>
     <button class="derivation_collapse" v-on:click="show7 = !show7" >Explanation</button>
     <div id="button-7">
 <transition name="slide-fade">
 
         <div class="solidline" v-show="show7">
-        $\displaystyle u=x \quad $ $\displaystyle dv=\sin \left(\frac{n\pi x}{L} \right)dx $
+            <p align="center">$\displaystyle u=x \quad $ $\displaystyle dv=\sin \left(\frac{n\pi x}{L} \right)dx $</p>
         <p></p>
-        $\displaystyle du=dx \quad$ $\displaystyle v=\frac{-L}{n\pi}\cos \left(\frac{n\pi x}{L} \right) $
+            <p align="center">$\displaystyle du=dx \quad$ $\displaystyle v=\frac{-L}{n\pi}\cos \left(\frac{n\pi x}{L} \right) $</p>
         <p></p>
-        $\displaystyle b_n=\frac{2A}{L^{2}} \Bigg[ \frac{-Lx}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi
+        <p align="center">$\displaystyle b_n=\frac{2A}{L^{2}} \Bigg[ \frac{-Lx}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi
         x}{L} \right)\biggr |_0^L $ $\displaystyle-\int_0^L\frac{-L}{n\pi}$ $\displaystyle \cos \left(\frac{n\pi x}{L} \right)dx \Bigg]
-        $
+            $</p>
         <p>Note that the second integrand is zero as it is of cosine over a full period.</p>
 
-        $\displaystyle b_n=-\frac{2A}{n\pi} \cos \left(n\pi \right)$ $\displaystyle=-\frac{2A}{n\pi}(-1)^n $
+        $$\displaystyle b_n=-\frac{2A}{n\pi} \cos \left(n\pi \right)$ $\displaystyle=-\frac{2A}{n\pi}(-1)^n $$
     </div>
 
 </transition>
 </div>
 
     <p></p>
-    $\displaystyle b_n=\frac{2A}{n\pi}(-1)^{n+1}. $
+    $$\displaystyle b_n=\frac{2A}{n\pi}(-1)^{n+1}. $$
     <p>Therefore the final fourier series is:</p>
-    $\displaystyle f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1}$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right). $
+    <p align="center">$\displaystyle f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1}$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right). $</p>
     <br>
     <a href="#fourierselect" style="background-color: white; border-radius: 3px; border: 2px #b0b0ff solid; left: 5vw; font-size: 20px;float: right">Go back</a>
     <br>
@@ -542,21 +548,21 @@
 <div class="divclass bigdropdown hide" id="modx">
     <h4 style="border: blue solid 1px">Mod x Derivation</h4>
     <p>The $|x|$ function is defined as the following:</p>
-    $\displaystyle f(x)=A|x| \quad (-L \leq x < L). $
+    $$\displaystyle f(x)=A|x| \quad (-L \leq x < L). $$
     <p></p>
-    $\displaystyle a_n = \frac{1}{L}\int_{-L}^{+L} A|x| \cos \left(\frac{n \pi x}{L} \right)dx $
+    $$\displaystyle a_n = \frac{1}{L}\int_{-L}^{+L} A|x| \cos \left(\frac{n \pi x}{L} \right)dx $$
     <p></p>
-    $\displaystyle b_n = \frac{1}{L}\int_{-L}^{+L} A|x|$ $\displaystyle \sin \left( \frac{n\pi x}{L}\right) dx $
+    <p align="center">$\displaystyle b_n = \frac{1}{L}\int_{-L}^{+L} A|x|$ $\displaystyle \sin \left( \frac{n\pi x}{L}\right) dx $</p>
     <p> $f(x)$ is even about $x=0$. Hence $b_n=0 $</p>
     <p> The $a_n$ integral is even about $x=0$. Hence, </p>
-    $\displaystyle a_n = \frac{2}{L}\int_{0}^{+L} Ax $ $\displaystyle \cos \left(\frac{n \pi x}{L}\right)dx. $
+    <p align="center">$\displaystyle a_n = \frac{2}{L}\int_{0}^{+L} Ax $ $\displaystyle \cos \left(\frac{n \pi x}{L}\right)dx. $</p>
 
     <p> For $n=0$:</p>
-    $\displaystyle a_0 = \frac{2A}{L}\int_0^L x dx $
-    $\displaystyle = \frac{2A}{L}\frac{x^2}{2} \biggr |_0^L $
-    $\displaystyle = AL .$
+    $$\displaystyle a_0 = \frac{2A}{L}\int_0^L x dx $$
+    $$\displaystyle = \frac{2A}{L}\frac{x^2}{2} \biggr |_0^L $$
+    $$\displaystyle = AL .$$
     <p> For $n \neq 0$: </p>
-    $\displaystyle a_n = \frac{2A}{L}\int_{0}^{+L} x $ $\displaystyle  \cos \left(\frac{n \pi x}{L} \right)dx. $
+    <p align="center">$\displaystyle a_n = \frac{2A}{L}\int_{0}^{+L} x $ $\displaystyle  \cos \left(\frac{n \pi x}{L} \right)dx. $</p>
     <p> By integrating by parts,</p>
     <button class="derivation_collapse" v-on:click="show8 = !show8" >Detail</button>
     <div id="button-8">
@@ -575,13 +581,13 @@
 </transition>
 </div>
     <p></p>
-    $\displaystyle a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}$ $\displaystyle  \cos \left( \frac{n\pi x}{L} \right)\biggr |_0^L . $
+    <p align="center">$\displaystyle a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}$ $\displaystyle  \cos \left( \frac{n\pi x}{L} \right)\biggr |_0^L . $</p>
     <p>Hence,</p>
-    $\displaystyle a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}$ $\displaystyle  \left[(-1)^n-1 \right] $
-    $\displaystyle = \frac{2AL}{(n\pi)^2}\left[(-1)^n-1 \right]. $
+    <p align="center">$\displaystyle a_n = \frac{2A}{L}\frac{L^2}{(n\pi)^2}$ $\displaystyle  \left[(-1)^n-1 \right] $
+        $\displaystyle = \frac{2AL}{(n\pi)^2}\left[(-1)^n-1 \right]. $</p>
     <p>Therefore the final fourier series is:</p>
-    $\displaystyle f(x)=\frac{AL}{2}+$ $\displaystyle \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2}$ $\displaystyle \left[(-1)^n-1 \right]$ $\displaystyle  \cos \left(\frac{n\pi
-    x}{L} \right). $
+    <p align="center">$\displaystyle f(x)=\frac{AL}{2}+$ $\displaystyle \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2}$ $\displaystyle \left[(-1)^n-1 \right]$ $\displaystyle  \cos \left(\frac{n\pi
+        x}{L} \right). $</p>
     <br>
     <a href="#fourierselect" style="background-color: white; border-radius: 3px; border: 2px #b0b0ff solid; left: 5vw; font-size: 20px;float: right">Go back</a>
     <br>
@@ -591,8 +597,8 @@
         </div><!--
       -->
         <div class="journey_pg" id="section_3">
-                  <h3 class = section_title >3. Decomposition</h3>
-                  <h4 align="center">&#3898 Decomposition of a function into odd and even parts &#3898</h4>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll3">3. Decomposition</h3>
+                  <h4 align="center" class="subtitle">&#3898 Decomposition of a function into odd and even parts &#3898</h4>
     <p> Representing a function in terms of a trigonometric Fourier series is analogous to representing a vector in
     terms of basis vectors. Here sines and cosines are our basis functions, we have a method for finding the projection
     of the function in the direction of each basis function ($a_{n}$ and $b_{n}$ are the "projections" of $f(x)$ onto
@@ -622,7 +628,7 @@
 
 
         <div class="journey_pg" id="section_4">
-                  <h3 class = section_title >4. Power Spectrum</h3>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll4">4. Power Spectrum</h3>
                   <h4 class="subtitle">&#3898   Power Spectrum   &#3899</h4>
                   <h5 align="center" style="border: blue solid 1px">Power spectrum</h5>
             <p>The power spectrum form is a different representation of a continuous signal.
@@ -646,7 +652,7 @@
         </div>
 
         <div class="journey_pg" id="section_5">
-                  <h3 class = section_title >5. Generalised Content</h3>
+            <h3 class = "section_title hvr-underline-from-center" v-on:click="Scroll5">5. Generalised Content</h3>
                   <h4 class="subtitle">&#3898   Generalised Content   &#3899</h4>
             <p style="font-weight: bold; font-size:large">
             <!--Derivation of Dirac-Delta-->
@@ -711,8 +717,8 @@
     <div class="menuContent" v-show="show9">
         <!--hyperlink needed-->
             <ul>
-                <li><a>Home</a></li>
-                <li><a>Give Feed Back</a></li>
+                <li><a src="https://www.imperialvisualisations.com/learn/">Home</a></li>
+                <li><a src="https://www.imperialvisualisations.com/visualisations/fourier-series/feedback/">Give Feed Back</a></li>
                 <li><a>Learn More</a></li>
             </ul>
 
@@ -720,22 +726,58 @@
         </transition>
     <div class="sidebar">
         <ul>
-            <li class = progress_button id="p1b" v-on:click="Scroll1">1.<p>Orthogonality</p></li>
-            <li id="line">|</li>
-            <li class = progress_button id="p2b" v-on:click="Scroll2">2.<p>Derivation</p></li>
-            <li id="line">|</li>
-            <li class = progress_button id="p3b" v-on:click="Scroll3">3.<p>Decomposition</p></li>
-            <li id="line">|</li>
-            <li class = progress_button id="p4b" v-on:click="Scroll4">4.<p>Power Spectrum</p></li>
-            <li id="line">|</li>
-            <li class = progress_button id="p5b" v-on:click="Scroll5">5.<p>Generalised Content</p></li>
+            <li class = progress_button id="p1b" v-on:click="Scroll1" @mouseover="mouseOver1" @mouseleave="mouseOver1">1.</li>
+            <li v-show="active1" style="background-color: #fcd4f1">Orthogonality</li>
+            <li id="line" v-show="!active1">|</li>
+            <li class = progress_button id="p2b" v-on:click="Scroll2" @mouseover="mouseOver2" @mouseleave="mouseOver2">2.</li>
+            <li v-show="active2" style="background-color: #fcd4f1">Derivation</li>
+            <li id="line" v-show="!active2">|</li>
+            <li class = progress_button id="p3b" v-on:click="Scroll3" @mouseover="mouseOver3" @mouseleave="mouseOver3">3.</li>
+            <li v-show="active3" style="background-color: #fcd4f1">Decomposition</li>
+            <li id="line" v-show="!active3">|</li>
+            <li class = progress_button id="p4b" v-on:click="Scroll4" @mouseover="mouseOver4" @mouseleave="mouseOver4">4.</li>
+            <li v-show="active4" style="background-color: #fcd4f1">Power Spectrum</li>
+            <li id="line" v-show="!active4">|</li>
+            <li class = progress_button id="p5b" v-on:click="Scroll5" @mouseover="mouseOver5" @mouseleave="mouseOver5">5.</li>
+            <li v-show="active5" style="background-color: #fcd4f1">Generalized Content</li>
+            <li id="line" v-show="!active5">|</li>
 
         </ul>
 
+        <!--<ul class="hide">
+            <li class="sec1name">Orthogonality</li>
+            <li id="line hide">|</li>
+            <li class="sec2name">Derivation</li>
+            <li id="line hide">|</li>
+            <li  class="sec3name">Decomposition</li>
+            <li id="line hide">|</li>
+            <li class="sec4name">Power Spectrum</li>
+            <li id="line hide">|</li>
+            <li class="sec5name">Generalised Content</li>
+
+        </ul>-->
+        <!--<div>
+            <div class="sec1name hide">Orthogonality</div>
+            <div class="sec2name hide">Derivation</div>
+            <div class="sec3name hide">Decomposition</div>
+            <div class="sec4name hide">Power Spectrum</div>
+            <div class="sec5name hide">Generalised Content</div>
+        </div>-->
     </div>
+    <!------------------------------------------------------------------------------------------------------------------------------------------>
+    <!--section progress bar-->
+    <!--<meter v-if="currentsec==1"  min="pg_heights[0]" max="pg_heights[1]" value="scrolling"></meter>
+    <meter v-else-if="currentsec==2"  min="pg_heights[1]" max="pg_heights[2]" value="scrolling"></meter>
+    <meter v-else-if="currentsec==3"  min="pg_heights[2]" max="pg_heights[3]" value="scrolling"></meter>
+    <meter v-else-if="currentsec==4"  min="pg_heights[3]" max="pg_heights[4]" value="scrolling"></meter>
+    <meter v-else-if="currentsec==5"  min="pg_heights[4]" max="h" value="scrolling"></meter>-->
+
     <!-- ---------------------------------------right side--------------------------------------------------------------------------------------- -->
+    <button id="unlock" v-on:click="unlock" style="color: #f8ac59; font-weight: bold">Unlock Page</button>
+
     <div class="container_vis">
-        <div class="vis_pg" id="visualisation_1" v-if = "scrolling < pg_heights[0]" style = "background-color: #f0f4fc">
+
+        <div class="vis_pg" id="visualisation_1" v-if = "currentsec==1" style = "background-color: #f0f4fc">
 
             <div class="placeholder"></div>
             <iframe src="0Orthogonality.html" width="900" height="800">
@@ -743,8 +785,9 @@
         </div>
 
 
+        <div class="vis_pg" id="visualisation_2" v-else-if = "currentsec==2" style = "background-color: #f0f4fc">
 
-        <div class="vis_pg" id="visualisation_2" v-else-if = "scrolling<pg_heights[1]" style = "background-color: #f0f4fc">
+
             <div class="placeholder"></div>
             <iframe src="1Fourier_derivation_graphs.html" width="900" height="600">
 
@@ -755,27 +798,54 @@
 
 
         </div>
-        <div class="vis_pg" id="visualisation_3" v-else-if = "scrolling<pg_heights[2]" style = "background-color: #d8e9f3">
+        <div class="vis_pg" id="visualisation_3" v-else-if = "currentsec==3" style = "background-color: #d8e9f3">
             <div class="placeholder"></div>
             <iframe src="3CoFS_Interactive.html" width="900" height="800">
 
 </iframe>
         </div>
-        <div class="vis_pg" id="visualisation_4" v-else-if = "scrolling<pg_heights[3]" style = "background-color: #f0f4fc">
-            <div class="placeholder"></div>
+
+        <div class="vis_pg" id="visualisation_4" v-else-if = "currentsec==4" style = "background-color: #f0f4fc">
+
             <iframe src="4PSFS_Interactive.html" width="900" height="800">
 
 </iframe>
+
         </div>
-        <div class="vis_pg" id="visualisation_5" v-else-if = "scrolling<pg_heights[4]" style = "background-color: #e8f1ff">
+        <div class="vis_pg" id="visualisation_5" v-else-if = "currentsec==5" style = "background-color: #e8f1ff">
+
             <div class="placeholder"></div>
             <iframe src="5Generalised_Fourier_Decomposition.html" width="900" height="700">
 
 </iframe>
+
+        </div>
+
+        <div class="container_vis_2" v-else-if="currentsec==10" style="background-color: #e3e7fc">
+
+        <div class="placeholder"></div>
+            <iframe src="0Orthogonality.html" width="900" height="800"></iframe>
+        <iframe src="1Fourier_derivation_graphs.html" width="900" height="600"></iframe>
+            <iframe src="2SPF_Interactive.html" width="900" height="800"></iframe>
+        <iframe src="3CoFS_Interactive.html" width="900" height="800"></iframe>
+        <iframe src="4PSFS_Interactive.html" width="900" height="800"></iframe>
+        <iframe src="5Generalised_Fourier_Decomposition.html" width="900" height="700"></iframe>
+
+    </div>
+
+        <div v-else-if="currentsec==0" style="text-align: center; background-color: white">
+            <h1> </h1>
+            <h1> </h1>
+            <br>
+            <br>
+            <h1>Please Scroll the left side</h1>
         </div>
 
 
     </div>
+
+
+
     <div id="loading"></div>
     <!--<div class=nav id=lownav>
         <ul>

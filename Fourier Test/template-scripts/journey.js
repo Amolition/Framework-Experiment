@@ -15,7 +15,6 @@ let n = 0;
 
 
 
-
 //When the page loads this sets all the buttons to inactive and calculates the height of each section.
 window.onload = function () {
     progress_buttons[0].style = "background-color: #003e74; color: white;"

@@ -34,13 +34,14 @@
 </head>
 
 <body>
-<div class="container_journey" style="background-color: white;"></div>
-<div class="container_vis" id="visualisation">
+<h1></h1>
+<h1></h1>
+<div class="container_vis" id="visualisation" style="width: 90vw">
     <div class="row">
         <!-- Graph -->
         <div class="six columns">
             <!--Graph-->
-            <div id='graph' style="height: 43vh; padding-left: 1vw;"></div>
+            <div id='graph' style="height: 43vh;width: 40vw; padding-left: 1vw;"></div>
             <!--<div id='graph2' style="width:450px; height:450px;"></div>-->
         </div>
 
@@ -48,7 +49,7 @@
         <div class="six columns">
             <div class="tab-content">
 
-                <div class="allSliders">
+                <div class="allSliders" style="right:20vw;position: absolute;top:1vh">
                     <!--These Sliders are shared among all tabs-->
                     <!--NB: Be careful with classes and types-->
 
@@ -101,11 +102,7 @@
                         <input id="NController" class="inputs" type="range" value="1" min="0" max="20" step="1">
                         <span class="sliderMax" id="N">20</span>
                     </label>
-                </div>
-                <!--END Slider N-->
-
-                <!--BEGIN Slider L-->
-                <div id="L">
+                    <div id="L">
                     <!--Slider Display L-->
                     <label class="sliderTitle" style="padding-bottom:20px;">Period:
                         <span id="LControllerDisplay" data-unit="">1</span>
@@ -118,6 +115,11 @@
                         <span class="sliderMax">5</span>
                     </label>
                 </div>
+                </div>
+                <!--END Slider N-->
+
+                <!--BEGIN Slider L-->
+
                 <!--END Slider L-->
             </div>
 
@@ -127,11 +129,11 @@
     <div class="row">
         <div class="six columns">
 
-            <div id='graph2' style="height: 43vh; padding-top: 2vh; padding-left: 1vw;"></div>
+            <div id='graph2' style="height: 43vh;width: 40vw; padding-top: 5vh; padding-left: 1vw;"></div>
         </div>
 
         <div class="six columns">
-            <div id='graph3' style="height: 43vh; padding-top: 2vh;"></div>
+            <div id='graph3' style="height: 43vh;width: 40vw; padding-top: 5vh;padding-left: 10vw;"></div>
 
         </div>
 
@@ -140,7 +142,7 @@
 
 
 <!--THE BRAINS-->
-<script src="scripts/Generalised_Fourier_Decomposition.js"></script>
+<script src="scripts/scripts/Generalised_Fourier_Decomposition.js"></script>
 
 </body>
 

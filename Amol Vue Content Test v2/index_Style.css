@@ -5,6 +5,16 @@
     font-family: "Fira Sans", sans-serif;
 }
 
+hr {
+    border-top: 1px solid #033482;
+    margin: 10px 0;
+}
+
+.mathJaxDisplay {
+    display:table;
+    margin: 10px auto;
+}
+
 .vis-container {
     float: left;
 }
@@ -17,7 +27,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: #9971df;
+    background: #d1e4ff;
 }
 
 #section-title {
@@ -31,7 +41,7 @@
     font-weight: bolder;
     top: 0;
     min-height: 35px;
-    background: #ffffff;
+    background: #d1e4ff;
     color: #003e74;
     border-left: #c6d1fe solid 17px;
     border-right: #c6d1fe solid 17px;
@@ -40,21 +50,56 @@
 #progress-container {
     display: flex;
     width: 33vw;
+    height: 40px;
     position: fixed;
     left: 0;
     top: 0;
-    border-left: #c6d1fe solid 17px;
-    border-right: #c6d1fe solid 17px;
+    border: solid 2px #151c26;
 }
 
 meter {
     visibility: visible;
     flex-basis: 0;
     flex-grow: 1;
-    border: solid 2px #000000;
-    height: 40px;
+    border: solid 2px #151c26;
+    height: 36px;
     min-width: 30px;
     transition: flex-grow 750ms;
+}
+
+meter::-webkit-meter-bar {
+    background: none; /* Required to get rid of the default background property */
+    background-color: #5e8cd6;
+    box-shadow: 0 5px 5px -5px #333 inset;
+}
+
+meter::-webkit-meter-optimum-value {
+    box-shadow: 0 5px 5px -5px #999 inset;
+    background-image: linear-gradient(
+            90deg,
+            #033482 0%,
+            #033482 66%,
+            #151c26 100%
+    );
+    background-size: 100% 100%;
+}
+
+meter {
+    /* Firefox */
+    background: none; /* Required to get rid of the default background property */
+    background-color: #5e8cd6;
+    box-shadow: 0 5px 5px -5px #333 inset;
+}
+
+meter::-moz-meter-bar {
+    box-shadow: 0 5px 5px -5px #000000 inset;
+    background-image: linear-gradient(
+            90deg,
+            #033482 0%,
+            #033482 66%,
+            #151c26 100%
+    );
+    background-size: 100% 100%;
 }
 
 .activeMeter {
@@ -68,8 +113,6 @@ meter {
     top: 0;
     left: 0;
     z-index: 1;
-    border-left: #c6d1fe solid 17px;
-    border-right: #c6d1fe solid 17px;
 }
 
 .overlay-button {
@@ -83,6 +126,7 @@ meter {
     vertical-align: middle;
     font-size: 12pt;
     background: none;
+    color: #ffffff !important;
     border: none;
     min-width: 30px;
     transition: flex-grow 750ms;
@@ -91,12 +135,16 @@ meter {
 
 .activeButton {
     flex-grow: 5.7;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 1px #000000;
+    font-size: 14pt;
+    letter-spacing: 2pt;
 }
 
 .overlay-button:hover {
-    color: #0000c6;
-    font-size: 13pt;
-    text-shadow: 1px 1px 1px #000000;
+    color: #ffffff !important;
+    font-size: 16pt;
+    text-shadow: 2px 2px 2px #000000;
     background-color: unset;
 }
 
@@ -115,29 +163,61 @@ meter {
     top: 40px;
     bottom: 0;
     background: #ffffff;
-    overflow-y:auto;
+    overflow-y:auto !important;
     overflow-x:hidden;
     text-align: justify;
+    box-shadow: 5px 10px 18px #888888 inset;
 }
 
 .section-container {
     width: inherit;
     padding: 25px 45px 0 25px;
+    margin-bottom: 100px;
 }
 
 .section-head {
-    background: #bcf7ff;
+    color: #152749;
     margin: 0;
     padding: 10px 0;
     text-align: center;
+    font-weight: bolder;
+    cursor: pointer;
 }
 
-.section-sub-head {
+.placeholder {
+    margin-bottom: 30px;
+}
+
+button.section-sub-head {
     width: 100%;
     margin: 10px 0 20px 0;
     text-align: center;
     font-size: 18pt;
-    background: #8fbdde;
+    background: #d1e4ff;
+    color: #033482;
+}
+
+button.section-sub-head.active, button.section-sub-head.collapsibleButton:hover {
+    background-color: #3a49cc;
+}
+
+h3.section-sub-head {
+    width: 100%;
+    margin: 50px 0 20px 0;
+    text-align: center;
+    font-size: 18pt;
+    background: #d1e4ff;
+    color: #033482;
+}
+
+.section-sub-content {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.section-extra-head-container {
+    display: table;
+    margin: 30px auto 10px auto;
 }
 
 .section-extra-head {
@@ -145,7 +225,7 @@ meter {
 }
 
 .first-sub-head {
-    margin: 0 0 20px 0;
+    margin: 0 0 20px 0 !important;
 }
 
 /* RIGHT SIDE STYLES */
@@ -157,6 +237,7 @@ meter {
     bottom: 0;
     right: 0;
     background: #ffffff;
+    box-shadow: 5px 10px 18px #888888 inset;
 }
 
 .banner {
@@ -165,10 +246,15 @@ meter {
     position: fixed;
     top: 0;
     right: 0;
-    border-bottom: solid 2px #003e74;
+    background: linear-gradient(
+            90deg,
+            #151c26 0%,
+            #033482 15%,
+            #033482 100%
+    );
+    color: #ffffff;
+    z-index: -1;
 }
-
-
 
 #vis-title {
     height: 40px;
@@ -180,20 +266,26 @@ meter {
     font-weight: bolder;
     top: 0;
     left: 33vw;
-    right: 200px;
+    right: 0;
     min-height: 40px;
-    background: #ffffff;
-    color: #003e74;
-    border-left: #edc5fe solid 17px;
-    border-right: #edc5fe solid 17px;
-    font-size: 18pt;
+    background: none;
+    color: #ffffff;
+    font-size: 20pt;
+    letter-spacing: 2pt;
+}
+
+#lock-container {
+    position: absolute;
+    right: 60px;
+    height: 40px;
+    padding-top: 6px;
 }
 
 #vis-logo {
     position: absolute;
-    top: -20px;
-    right: 20px;
-    height: 40px;
+    top: 10px;
+    right: 10px;
+    height: 20px;
 }
 
 nav {
@@ -219,29 +311,41 @@ nav {
 /* TRANSITION STYLES */
 
 .fade-enter-active, .fade-leave-active {
-    transition: opacity 2s;
+    transition: opacity 1s;
 }
 
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
 }
 
+.slide-enter-active {
+    transition: height 1s;
+}
+
+.slide-leave-active {
+    transition: height 1s;
+}
+
+.slide-enter, .slide-leave-to {
+    height: 0;
+}
+
 /* IMPORTED STYLE FROM LEARNING EXPERIENCE TEAM */
 
 .divclass {
     width: inherit;
-
-
 }
 
 .solidline {
     /* Indicates a drop down box to hide stuff */
-    border-style: outset;
-    border-color: coral;
-    border-width: 3px;
-    padding: 20px;
-    border-radius: 20px;
+    /*border-style: outset;*/
+    /*border-color: coral;*/
+    /*border-width: 3px;*/
+    background: #d1e4ff;
+    padding: 25px 40px;
+    border-radius: 5px;
     text-align: justify;
+    margin-bottom: 30px;
 }
 .bigdropdown {
     /* Indicates a drop down box to hide sections*/
@@ -261,4 +365,59 @@ nav {
     bottom: 0;
     left: 34vw;
     opacity: 0.3;
+}
+
+/*---------------------------------------------Eliza version code--------------------------------------------------------*/
+
+
+#unlock{
+    position: fixed;
+    left: 35vw;
+    top: 0.2vh;
+
+}
+
+
+.container_vis_2{
+    float: left;
+  height: 100vh;
+  width: 67%;
+  /*background-color: #f7f7f7;*/
+    background-color: #b2d3e6;
+    overflow: auto;
+
+  box-sizing: border-box;
+  padding: 0px;
+}
+
+/*-------------------------------------------underline from center---------------------------------------------------------*/
+.underline-from-center {
+  /*display: inline-block;*/
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+.underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 0;
+  color: #003E74;
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.6);
+  height: 3px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.underline-from-center:hover:before, .underline-from-center:focus:before, .underline-from-center:active:before {
+  left: 0;
+  right: 0;
 }
