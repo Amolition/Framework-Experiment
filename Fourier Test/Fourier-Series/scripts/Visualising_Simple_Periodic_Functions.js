@@ -1,5 +1,5 @@
 //Global Initial Parameters:
-const layout = {
+const layout_2 = {
     autosize: true,
     hovermode: "closest",
     margin: {l:30, r:30, t:30, b:30},
@@ -11,9 +11,9 @@ const layout = {
 
 let defaultHref = window.location.href;
 let initX = 0, initY = 0;
-let resolution = 2000;
+let resolution_2 = 2000;
 // set the step of the x axis from -2pi to 2pi
-let z = numeric.linspace(-2*Math.PI,2*Math.PI,resolution);
+let z_1 = numeric.linspace(-2*Math.PI,2*Math.PI,resolution_2);
 //----------------------------------------------------------------------------------------------------------------------
 //VERY IMPORTANT!!!
 // 0 is triangular, 1 is square, 2 is sawtooth, 3 is delta's, 4 is parabola, 5 is x, 6 is |x|,
@@ -22,15 +22,15 @@ let shape = 0;
 
 
 // initialize the Cartesian coordinates for the plots and the functions
-function initFourier() {
-    Plotly.purge("graph5");
-    Plotly.newPlot("graph5", computePlot(z), layout);
+function initFourier_2() {
+    Plotly.purge("graph_subVis");
+    Plotly.newPlot("graph_subVis", computePlot(z_1), layout_2);
     return;
 }
 
 
 // sum up all the number in the array
-function adding(array){
+function adding(array){  
     let result = 0
     for(let i =0; i<array.length; ++i){
         result+=array[i];
@@ -73,8 +73,8 @@ function selection(n,A,L,x,type){
 function summation(x) {
     //Goes through and sums up each component of the summand up to N
     let N = parseFloat(document.getElementById('NController').value);
-    let L = parseFloat(document.getElementById('LController').value);
-    let A = parseFloat(document.getElementById('AController').value);
+    let L = parseFloat(document.getElementById('LController2').value);
+    let A = parseFloat(document.getElementById('AController2').value);
 
     n = numeric.linspace(1,N,N);
 
@@ -126,8 +126,8 @@ function c_intercept(shape, N,A,L) {
 function computePlot(x){
     //Just plots the sum approximation of the function
     let N = parseFloat(document.getElementById('NController').value);
-    let L = parseFloat(document.getElementById('LController').value);
-    let A = parseFloat(document.getElementById('AController').value);
+    let L = parseFloat(document.getElementById('LController2').value);
+    let A = parseFloat(document.getElementById('AController2').value);
 
     let x_values = [];
     let y_values = [];
@@ -181,16 +181,16 @@ function computePlot(x){
 function updatePlot_3() {
     let data;
     // NB: updates according to the active tab
-    let selectedValue = document.getElementById("Select").value; // finds out which function is active
+   
         $(document).ready(() => { if (shape===3) {
             $('#A').hide(); console.log('hidden')
         } else {
            $('#A').show(); console.log('shown')
         }})
-    data = computePlot(z);
+    data = computePlot(z_1);
     //This is animation bit.
     Plotly.animate(
-        'graph5',
+        'graph_subVis',
         {data: data},
         {
             fromcurrent: true,
@@ -201,8 +201,8 @@ function updatePlot_3() {
     );
 }
 
-function main_3() {
-
+function main_3(selectedValue) {
+    initFourier_2();
     /*Jquery*/ //NB: Put Jquery stuff in the main not in HTML
     $("input[type=range]").each(function () {
         /*Allows for live update for display values*/
@@ -218,8 +218,8 @@ function main_3() {
     // as you select the functions you want from the scroll down
     // change the shape and the plots
     // change the titles and the math derivations
-    $('#Select').change(function(){
-        let selectedValue = document.getElementById("Select").value;
+    
+        
         if (selectedValue==="main"){
             shape = 0;
         } else if (selectedValue==="triangular"){
@@ -243,9 +243,10 @@ function main_3() {
         }
         $(".title").hide();
         $("#"+selectedValue+"Title").show();
-        initFourier();
-    })
+        initFourier_2();
+    
 
-    initFourier();
+    initFourier_2();
 }
-$(document).ready(main_3); //Load main when document is ready.
+ //Load main when document is ready.
+

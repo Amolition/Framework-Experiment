@@ -23,12 +23,12 @@
 
 #loadout1 #graph1Sec1 {
     box-sizing: content-box;
-    width: 40vw;
-    height: 40vw;
+    width: 50%;
+    height: 75%;
     position: absolute;
-    left: 30px;
-    top: 50px;
-    padding: 10px;
+    left: 5%;
+    top: 3%;
+    padding: 1%;
     border: solid 3px black;
 }
 
@@ -36,8 +36,8 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 20px;
-    top: 50px;
+    right: 1vh;
+    top: 5vh;
     width: 20vw;
     height: 90vh;
 }
@@ -119,15 +119,16 @@
 }
 
 #loadout2 #graph0Sec2 {
-    width: 60vw;
-    height: 30vw;
+    width: 94%;
+    height: 60%;
     position: absolute;
-    left: 50px;
+    left: 3%;
     top: 50px;
 }
 
 #loadout2 #scrollSec2Sub1 {
-    width: 67vw;
+    width: 100%;
+    height: 10%;
     position: absolute;
     top: 20px;
     display: table;
@@ -231,15 +232,16 @@
 }
 
 #loadout3 #graph1Sec3 {
-    width: 60vw;
-    height: 30vw;
+    width: 94%;
+    height: 60%;
     position: absolute;
-    left: 50px;
-    top: 75px;
+    left: 3%;
+    top: 10%;
 }
 
 #loadout3 #scrollSec3 {
-    width: 67vw;
+    width: 100%;
+    height: 10%;
     position: absolute;
     top: 20px;
     display: table;
@@ -255,10 +257,10 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 50px;
+    left: 0;
     bottom: 0;
-    width: 40vw;
-    height: 25vh;
+    width: 50%;
+    height: 30%;
 }
 
 #loadout3 .partial-sliders-container {
@@ -288,10 +290,10 @@
 
 #loadout3 #equationSpace {
     position: absolute;
-    right: 25px;
-    bottom: 25px;
-    width: 25vw;
-    height: 25vh;
+    right: 0;
+    bottom: 2%;
+    width: 50%;
+    height: 30%;
 }
 
 #loadout3 #eqnTitle {
@@ -307,19 +309,19 @@
 }
 
 #loadout4 #graph1Sec4 {
-    width: 35vw;
-    height: 22.5vw;
+    width: 45%;
+    height: 45%;
     position: absolute;
-    left: 50px;
-    top: 20px;
+    left: 2.5%;
+    top: 2.5%;
 }
 
 #loadout4 #graph2Sec4 {
-    width: 35vw;
-    height: 22.5vw;
+    width: 45%;
+    height: 45%;
     position: absolute;
-    left: 50px;
-    bottom: 20px;
+    left: 2.5%;
+    bottom: 2.5%;
 }
 
 #loadout4 .inputsContainer {
@@ -327,15 +329,16 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    right: 50px;
+    right: 0;
     top: 50px;
-    width: 25vw;
+    width: 50%;
     height: 90vh;
 }
 
 #loadout4 .selectorContainer {
     flex-basis: 0;
     flex-grow: 1;
+    width: 100%;
 }
 
 #loadout4 .overall-sliders-container {
@@ -343,6 +346,7 @@
     flex-direction: column;
     flex-basis: 0;
     flex-grow: 4;
+    width: 100%;
 }
 
 #loadout4 .partial-sliders-container {
@@ -377,27 +381,27 @@
 }
 
 #loadout5 #graph1Sec5 {
-    width: 30vw;
-    height: 22.5vw;
+    width: 45%;
+    height: 45%;
     position: absolute;
-    left: 50px;
-    top: 20px;
+    left: 2.5%;
+    top: 2.5%;
 }
 
 #loadout5 #graph2Sec5 {
-    width: 30vw;
-    height: 22.5vw;
+    width: 45%;
+    height: 45%;
     position: absolute;
-    left: 50px;
-    bottom: 20px;
+    left: 2.5%;
+    bottom: 2.5%;
 }
 
 #loadout5 #graph3Sec5 {
-    width: 30vw;
-    height: 22.5vw;
+    width: 45%;
+    height: 45%;
     position: absolute;
-    right: 50px;
-    bottom: 20px;
+    right: 2.5%;
+    bottom: 2.5%;
 }
 
 #loadout5 #inputSec5 {
@@ -415,10 +419,10 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    right: 50px;
-    top: 50px;
-    width: 30vw;
-    height: 40vh;
+    right: 0;
+    bottom: 50%;
+    width: 55%;
+    height: 50%;
 }
 
 #loadout5 .selectorContainer {
@@ -465,3 +469,4 @@
     vertical-align: middle;
     font-size: 30pt;
 }
+
