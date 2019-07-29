@@ -86,33 +86,71 @@ function exactSec2Sub0 (A,L,x,shape) {
             }
             break;
         case 1:
+            newY = -A;
+            newX = -15*L;
             for (let i=0; i<=50; i++) {
-                let xbase = 
+                newX=newX+L;
+                x_values.push(newX);
+                y_values.push(newY);
+                newY=-newY;
                 x_values.push(newX);
                 y_values.push(newY);
             }
             break;
         case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        default:
             newY = -A;
-            for (let i=0; i<=30; i++) {
-                newX = (-15.5+i)*L;
+            newX = -15*L;
+            for (let i=0; i<=50; i++) {
                 x_values.push(newX);
-                newY = newY*(-1);
+                y_values.push(newY);
+                newX=newX+L*2;
+                newY=-newY;
+                x_values.push(newX);
+                y_values.push(newY);
+                newY=-newY;
+                x_values.push(newX);
                 y_values.push(newY);
             }
+            break;
+        case 3:
+            newY = 0;
+            newX = -16*L;
+            for (let i=0; i<=50; i++) {
+                newX=newX+L*2;
+                x_values.push(newX);
+                y_values.push(newY);
+                newY=1000;
+                x_values.push(newX);
+                y_values.push(newY);
+                newY=0;
+                x_values.push(newX);
+                y_values.push(newY);
+            }
+            break;
+        case 4:
+            let x_base=math.multiply(L,numeric.linspace(-1,1,1000));
+            let y_base=math.multiply(A,math.dotMultiply(x_base,x_base));
+            let x_base2=math.add(x_base,-16*L);
+            for (let i=0; i<=12; i++) {
+                x_base2=math.add(x_base2,2*L);
+                x_values=x_values.concat(x_base2);
+                y_values=y_values.concat(y_base);
+            }
+            break;
+        case 6:
+            newY=0;
+            for (let i=0; i<=30; i++) {
+                newX = (-15 + i) * L;
+                x_values.push(newX);
+                if (newY===A) {
+                    newY=0
+                } else {
+                    newY=A
+                }
+                y_values.push(newY);
+            }
+            break;
     }
-
-
-    console.log(x_values);
-    console.log(y_values);
 
     data=
         {
@@ -120,7 +158,7 @@ function exactSec2Sub0 (A,L,x,shape) {
             mode:"lines",
             x: x_values,
             y: y_values,
-            line:{color:"#767676", width:3, dash: "dash"},
+            line:{color:"#000000", width:2, dash: "dot"},
         };
     return data;
 }
@@ -211,7 +249,7 @@ function computePlotSec2Sub0(x){
             mode:"lines",
             x: x_values,
             y: y_values,
-            line:{color:"#960078", width:3, dash: "dash"},
+            line:{color:"#960078", width:3, dash: "solid"},
          };
     } else {
         data1=
@@ -220,7 +258,7 @@ function computePlotSec2Sub0(x){
             mode:"lines",
             x: x_values,
             y: y_values_cheat,
-            line:{color:"#960078", width:3, dash: "dash"},
+            line:{color:"#960078", width:3, dash: "solid"},
          };
     }
     let data2 = exactSec2Sub0(A,L,x,shape);
