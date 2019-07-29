@@ -13,7 +13,7 @@ let app = new Vue ({
         sectionTops: [],
         sectionBottoms: [],
         sectionTitleLong: ["Orthogonality", "Derivation", "Components", "Power Spectrum", "Overview"],
-        sectionTitleShort: ["1","2","3","4","5","6"],
+        sectionTitleShort: ["1","2","3","4","5"],
         sectionTitle: [],
         n: "",
         journeyHeightOld: "",
@@ -36,6 +36,13 @@ let app = new Vue ({
         showEq: true,
         equationID: "triangular",
         locked: true,
+        /*----------------------------------------------Eliza code-----------------------------------------------------*/
+        active1: false,
+            active2: false,
+            active3: false,
+            active4: false,
+            active5: false,
+        /*-------------------------------------------------------------------------------------------------------------*/
     },
 
     methods: {
@@ -45,6 +52,18 @@ let app = new Vue ({
             // function only works once sectionPos has run at least once (in mounted)
             if (app.firstRunDone === true) {
                 app.scrollPos = document.querySelectorAll(".journey")[0].scrollTop;
+
+                function handleElement(section) {
+                    // update currentSection variable if user scrolls past the top edge of its corresponding section on left side
+                    let topSection = document.querySelectorAll("#"+"sc"+section)[0].offsetTop - 2;
+                    let bottomSection = topSection + document.querySelectorAll("#"+"sc"+section)[0].offsetHeight - 2;
+                    if (app.scrollPos >= topSection && app.scrollPos < bottomSection) {
+                        app.currentSection = section;
+                    }
+                }
+                for (let i=1; i<=app.n; i++) {
+                handleElement(i)}
+
                 app.changeTitle();
                 app.changeSec();
             }
@@ -119,6 +138,36 @@ let app = new Vue ({
             }
             app.$forceUpdate();
         },
+
+        /*--------------------------------------------------Eliza code-----------------------------------------------------------------*/
+        mouseOver1: function(){
+            this.active1 = !this.active1;
+        },
+        mouseOver2: function(){
+            this.active2 = !this.active2;
+        },
+        mouseOver3: function(){
+            this.active3 = !this.active3;
+        },
+        mouseOver4: function(){
+            this.active4 = !this.active4;
+        },
+        mouseOver5: function(){
+            this.active5 = !this.active5;
+        },
+
+        previous: function() {
+            if (app.currentSection >= 1) {
+                app.currentSection -= 1
+            }
+        },
+        next: function() {
+            if (app.currentSection <= 4) {
+                app.currentSection += 1
+            }
+        }
+
+        /*--------------------------------------------------------------------------------------------------------------------------*/
     },
 
     watch: {
@@ -353,17 +402,27 @@ let app = new Vue ({
 
 window.onload=function(){
 	let oBox=document.getElementById("lock-container");
+	console.log("lockL1:"+oBox.style.left)
 	let RL=0;
 	let RT=0;
 	oBox.onmousedown=function(ev){
 
-	     RL=ev.clientX-oBox.offsetLeft;
+	     /*RL=ev.clientX-oBox.offsetLeft;
 	     RT=ev.clientY-oBox.offsetTop;
 	     document.onmousemove=function(ev){
 
                   var L=ev.clientX-RL;
-	          var T=ev.clientY-RT;
-	          
+	          var T=ev.clientY-RT;*/
+	     RL=ev.screenX-oBox.offsetLeft;
+	     RT=ev.screenY-oBox.offsetTop;
+	     document.onmousemove=function(ev){
+
+                  var L=ev.screenX-RL;
+	          var T=ev.screenY-RT;
+
+	          oBox.style.left=L+"px";
+	          oBox.style.top=T+"px";
+
 	          oBox.style.left=L+"px";
 	          oBox.style.top=T+"px";
 	          console.log("RL:"+RL);
@@ -377,3 +436,157 @@ window.onload=function(){
 	        document.onmousemove=null;
 	}
 };
+/*
+
+let app2= new Vue({
+    el: '#app2'
+
+
+});
+
+*/
+$(document).ready(function() {
+		var canvas = document.getElementById("c");
+		var ctx = canvas.getContext("2d");
+		var c = $("#c");
+		var x,y1,w,h,cx,cy,l;
+		var y1 = [];
+		var b = {
+			n:100,
+			c:false,    //  random color
+			bc:'white',   //  background color
+			r:0.9,
+			o:0.05,
+			a:1,
+			s:20,
+		};
+		var bx = 0,by = 0,vx = 0,vy = 0;
+		var td = 0;
+		var p = 0;
+		var hs = 0;
+		re();
+		var color,color2;
+		if(b.c){
+			color2 = b.c;
+		}else{
+			color = Math.random()*360;
+		}
+
+		$(window).resize(function(){
+			re();
+		});
+		var tp4=true;
+    function begin(){
+			if(tp4){
+				if(!b.c){
+					color+=.1;
+					color2 = 'hsl('+color+',100%,80%)';
+				}
+				ctx.globalAlpha = 1;
+				ctx.fillStyle = b.bc;
+				ctx.fillRect(0,0,w,h);
+				for(var i=0;i<y1.length;i++){
+					ctx.globalAlpha = y1[i].o;
+					ctx.fillStyle = color2;
+					ctx.beginPath();
+					ctx.shadowBlur=20;
+					ctx.shadowColor=color2;
+					y1[i].vx2 += (cx - y1[i].wx)/1000;
+					y1[i].vy2 += (cy - y1[i].wy)/1000;
+					y1[i].wx+=y1[i].vx2;
+					y1[i].wy+=y1[i].vy2;
+					y1[i].o-=b.o/2;
+					y1[i].r=10;
+					ctx.arc(y1[i].wx,y1[i].wy,y1[i].r,0,Math.PI*2);
+					ctx.closePath();
+					ctx.fill();
+					ctx.shadowBlur=0;
+					if(y1[i].o<=0){
+						y1.splice(i,1);
+						i--;
+					};
+
+				}
+			}
+			window.requestAnimationFrame(begin);
+		}
+		function re(){
+			w = window.innerWidth;
+			h = window.innerHeight;
+			canvas.width = w;
+			canvas.height = h;
+			cx = w/2;
+			cy = h/2;
+		};
+		c.mousemove(function(e){
+			cx = e.pageX-c.offset().left;
+			cy = e.pageY-c.offset().top;
+			if(tp4){
+				if(Math.random()<=.5){
+					if(Math.random()<=.5){
+						bx = -10;
+					}else{
+						bx = w+10;
+					}
+					by = Math.random()*h;
+				}else{
+					if(Math.random()<=.5){
+						by = -10;
+					}else{
+						by = h+10;
+					}
+					bx = Math.random()*w;
+				}
+				vx = (Math.random()-.5)*8;
+				vy = (Math.random()-.5)*8;
+			}
+			if(tp4){
+				y1.push({x:cx,y1:cy,r:b.r,o:1,v:0,wx:bx,wy:by,vx2:vx,vy2:vy});
+			}
+		});
+		/*c.mousedown(function(){
+			c.on('mousemove',function(e){
+				cx = e.pageX-c.offset().left;
+				cy = e.pageY-c.offset().top;
+				y.push({x:cx,y:cy,r:b.r,o:1});
+			});
+			c.on('mouseup',function(){
+				c.off('mouseup');
+				c.off('mousemove');
+				c.off('moseleave');
+			});
+			c.on('mouseleave',function(){
+				c.off('mouseup');
+				c.off('mousemove');
+				c.off('moseleave');
+			});
+		});*/
+
+		(function() {
+			var lastTime = 0;
+			var vendors = ['webkit', 'moz'];
+			for(var xx = 0; xx < vendors.length && !window.requestAnimationFrame; ++xx) {
+				window.requestAnimationFrame = window[vendors[xx] + 'RequestAnimationFrame'];
+				window.cancelAnimationFrame = window[vendors[xx] + 'CancelAnimationFrame'] ||
+											  window[vendors[xx] + 'CancelRequestAnimationFrame'];
+			}
+
+			if (!window.requestAnimationFrame) {
+				window.requestAnimationFrame = function(callback, element) {
+					var currTime = new Date().getTime();
+					var timeToCall = Math.max(0, 16.7 - (currTime - lastTime));
+					var id = window.setTimeout(function() {
+						callback(currTime + timeToCall);
+					}, timeToCall);
+					lastTime = currTime + timeToCall;
+					return id;
+				};
+			}
+			if (!window.cancelAnimationFrame) {
+				window.cancelAnimationFrame = function(id) {
+					clearTimeout(id);
+				};
+			}
+		}());
+		begin();
+	});

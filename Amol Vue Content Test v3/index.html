@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Title-->
-    <title>Visualisations Vue Template - Amol</title>
+    <title>Visualisations Vue Template</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -46,6 +46,10 @@
         <div class="" id="progress-container">
             <!--    Dynamic Section Heading Text - overlaid on meters    -->
             <!--    Also act as buttons to navigate between sections    -->
+
+            <!--<div class="" id="overlay">
+                <button :class="[currentSection === 1 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle1"
+
             <div class="" id="overlay">
                 <button :class="[currentTitle === 1 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle1"
                         key="sectionTitle1" data-no=1 @click="scrollTo($event)">{{sectionTitle[0]}}
@@ -62,8 +66,42 @@
                 <button :class="[currentTitle === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5"
                         key="sectionTitle5" data-no=5 @click="scrollTo($event)">{{sectionTitle[4]}}
                 </button>
+            </div>-->
+            <!------------------------------------------Eliza code------------------------------------------------------->
+            <div class="" id="overlay">
+                <button :class="[currentSection === 1 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle1" @mouseover="mouseOver1" @mouseleave="mouseOver1"
+                        key="sectionTitle1" data-no=1 @click="scrollTo($event)">{{sectionTitle[0]}}
+                </button>
+                <button :class="[currentSection === 2 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle2" @mouseover="mouseOver2" @mouseleave="mouseOver2"
+                        key="sectionTitle2" data-no=2 @click="scrollTo($event)">{{sectionTitle[1]}}
+                </button>
+                <button :class="[currentSection === 3 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle3" @mouseover="mouseOver3" @mouseleave="mouseOver3"
+                        key="sectionTitle3" data-no=3 @click="scrollTo($event)">{{sectionTitle[2]}}
+                </button>
+                <button :class="[currentSection === 4 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle4" @mouseover="mouseOver4" @mouseleave="mouseOver4"
+                        key="sectionTitle4" data-no=4 @click="scrollTo($event)">{{sectionTitle[3]}}
+                </button>
+                <button :class="[currentSection === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5" @mouseover="mouseOver5" @mouseleave="mouseOver5"
+                        key="sectionTitle5" data-no=5 @click="scrollTo($event)">{{sectionTitle[4]}}
+                </button>
             </div>
+
+
+            <!----------------------------------------------------------------------------------------------------------->
+
+
             <!--    Dynamic meters indicating progress through each section    -->
+            <!--<meter :class="[currentSection === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
+                   :max="sectionBottoms[0]" :value="scrollPos" @mouseover="mouseOver1" @mouseleave="mouseOver1"></meter>
+            <meter :class="[currentSection === 2 ? 'activeMeter' : '']" id="m2" :min="sectionTops[1]"
+                   :max="sectionBottoms[1]" :value="scrollPos" @mouseover="mouseOver2" @mouseleave="mouseOver2"></meter>
+            <meter :class="[currentSection === 3 ? 'activeMeter' : '']" id="m3" :min="sectionTops[2]"
+                   :max="sectionBottoms[2]" :value="scrollPos" @mouseover="mouseOver3" @mouseleave="mouseOver3"></meter>
+            <meter :class="[currentSection === 4 ? 'activeMeter' : '']" id="m4" :min="sectionTops[3]"
+                   :max="sectionBottoms[3]" :value="scrollPos" @mouseover="mouseOver4" @mouseleave="mouseOver4"></meter>
+            <meter :class="[currentSection === 5 ? 'activeMeter' : '']" id="m5" :min="sectionTops[4]"
+                   :max="sectionBottoms[4]" :value="scrollPos" @mouseover="mouseOver5" @mouseleave="mouseOver5"></meter>
+-->
             <meter :class="[currentTitle === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
                    :max="sectionBottoms[0]" :value="scrollPos"></meter>
             <meter :class="[currentTitle === 2 ? 'activeMeter' : '']" id="m2" :min="sectionTops[1]"
@@ -75,6 +113,13 @@
             <meter :class="[currentTitle === 5 ? 'activeMeter' : '']" id="m5" :min="sectionTops[4]"
                    :max="sectionBottoms[4]" :value="scrollPos"></meter>
         </div>
+        <div class="mouseoverName">
+                <p v-show="active1">| Orthogonality |</p>
+                <p v-show="active2">| Derivation |</p>
+                <p v-show="active3">| Decomposition |</p>
+                <p v-show="active4">| Power Spectrum |</p>
+                <p v-show="active5">| Overview |</p>
+            </div>
         <!--    Container for text content split into sections    -->
         <div class="journey" id="main-journey" v-on:scroll.passive="scrollFunc">
             <!--    Section Text Containers   -->
@@ -909,6 +954,9 @@
             <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'odd']" id='loadout1'
                  key="loadout1" v-if="currentSection === 1 || locked === false">
                 <!--Graph-->
+                <div v-show="locked===false" style="position: relative">
+                    <h3 align="center">Section 1 title</h3>
+                </div>
                 <div id='graph1Sec1'></div>
                 <!--Display of vector 1 and 2 lengths to reach target vector-->
                 <div id="vectorComponents">
@@ -994,7 +1042,14 @@
             </div>
             <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'even']" id='loadout2'
                  key="loadout2" v-if="currentSection === 2 || locked === false">
+
                 <transition name="fade">
+                <div v-if="locked===false" style="position: relative">
+                    <h3 align="center">Section 2 title</h3>
+                </div>
+                <div v-else>
+                    <h3> </h3>
+                </div>
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout2sub0' key="loadout2sub0" v-if="derivationSubSection !== 3">
                         <!--Graph-->
@@ -1122,6 +1177,9 @@
             </div>
             <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'odd']" id='loadout3'
                  key="loadout3" v-if="currentSection === 3 || locked === false">
+                <div v-show="locked===false">
+                    <h3 align="center">Section 3 title</h3>
+                </div>
                 <!--Graph-->
                 <div id='graph1Sec3'></div>
                 <!--Scroll-down-->
@@ -1266,6 +1324,9 @@
             </div>
             <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'even']" id='loadout4'
                  key="loadout4" v-if="currentSection === 4 || locked === false">
+                <div v-show="locked===false">
+                    <h3 align="center">Section 4 title</h3>
+                </div>
                 <!--Graphs-->
                 <div id='graph1Sec4'></div>
                 <div id='graph2Sec4'></div>
@@ -1345,6 +1406,9 @@
             </div>
             <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'odd']" id='loadout5'
                  key="loadout5" v-if="currentSection === 5 || locked === false">
+                <div v-show="locked===false" >
+                    <h3 align="center">Section 5 title</h3>
+                </div>
                 <!--Graphs-->
                 <div id='graph1Sec5'></div>
                 <div id='graph2Sec5'></div>

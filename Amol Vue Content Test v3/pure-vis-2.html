@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Title-->
-    <title>Visualisations Vue Template - Amol</title>
+    <title>Visualisations Vue Template</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"
-          integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link href="styles/style.css" rel="stylesheet">
     <link href="styles/skeleton.css" rel="stylesheet">
     <link href="styles/Lock_Icon_Style.css" rel="stylesheet">
@@ -41,36 +39,72 @@
 </head>
 
 <body>
-<div id="app">
-    <!--   Title of non-current sections to appear on hovering above respective number in navbar     -->
-    <div  id="hoverTitleSpace" :style="{left: mouseX +'px'}" v-show="hoverTitle !== false">
-        {{hoverTitle}}
-    </div>
+<div id="app" style="box-shadow: none !important">
     <!--    Left Side of Window - containing mainly text    -->
-    <div class="vis-container left" id="left-container">
+
         <!--     Dynamic Navigation Bar and Section Headings       -->
-        <div class="" id="progress-container">
+
             <!--    Dynamic Section Heading Text - overlaid on meters    -->
             <!--    Also act as buttons to navigate between sections    -->
-            <div class="" id="overlay" @mousemove="hoverTitle !== false ? updateMouseX($event) : ''">
+
+            <!--<div class="" id="overlay">
+                <button :class="[currentSection === 1 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle1"
+=======
+            <div class="" id="overlay">
                 <button :class="[currentTitle === 1 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle1"
-                        key="sectionTitle1" data-no=1 @click="scrollTo($event)" @mouseover="(currentTitle !== 1) ? hoverTitle=sectionTitleLong[0] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[0]}}
+>>>>>>> 9119b9f943abdb97f98ba2195ec36812d795b5fb
+                        key="sectionTitle1" data-no=1 @click="scrollTo($event)">{{sectionTitle[0]}}
                 </button>
                 <button :class="[currentTitle === 2 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle2"
-                        key="sectionTitle2" data-no=2 @click="scrollTo($event)" @mouseover="(currentTitle !== 2) ? hoverTitle=sectionTitleLong[1] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[1]}}
+                        key="sectionTitle2" data-no=2 @click="scrollTo($event)">{{sectionTitle[1]}}
                 </button>
                 <button :class="[currentTitle === 3 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle3"
-                        key="sectionTitle3" data-no=3 @click="scrollTo($event)" @mouseover="(currentTitle !== 3) ? hoverTitle=sectionTitleLong[2] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[2]}}
+                        key="sectionTitle3" data-no=3 @click="scrollTo($event)">{{sectionTitle[2]}}
                 </button>
                 <button :class="[currentTitle === 4 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle4"
-                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="(currentTitle !== 4) ? hoverTitle=sectionTitleLong[3] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[3]}}
+                        key="sectionTitle4" data-no=4 @click="scrollTo($event)">{{sectionTitle[3]}}
                 </button>
                 <button :class="[currentTitle === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5"
-                        key="sectionTitle5" data-no=5 @click="scrollTo($event)" @mouseover="(currentTitle !== 5) ? hoverTitle=sectionTitleLong[4] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[4]}}
+                        key="sectionTitle5" data-no=5 @click="scrollTo($event)">{{sectionTitle[4]}}
+                </button>
+            </div>-->
+            <!------------------------------------------Eliza code------------------------------------------------------->
+            <div class="" id="overlay">
+                <button :class="[currentSection === 1 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle1" @mouseover="mouseOver1" @mouseleave="mouseOver1"
+                        key="sectionTitle1" data-no=1 @click="scrollTo($event)">{{sectionTitle[0]}}
+                </button>
+                <button :class="[currentSection === 2 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle2" @mouseover="mouseOver2" @mouseleave="mouseOver2"
+                        key="sectionTitle2" data-no=2 @click="scrollTo($event)">{{sectionTitle[1]}}
+                </button>
+                <button :class="[currentSection === 3 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle3" @mouseover="mouseOver3" @mouseleave="mouseOver3"
+                        key="sectionTitle3" data-no=3 @click="scrollTo($event)">{{sectionTitle[2]}}
+                </button>
+                <button :class="[currentSection === 4 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle4" @mouseover="mouseOver4" @mouseleave="mouseOver4"
+                        key="sectionTitle4" data-no=4 @click="scrollTo($event)">{{sectionTitle[3]}}
+                </button>
+                <button :class="[currentSection === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5" @mouseover="mouseOver5" @mouseleave="mouseOver5"
+                        key="sectionTitle5" data-no=5 @click="scrollTo($event)">{{sectionTitle[4]}}
                 </button>
             </div>
+
+
+            <!----------------------------------------------------------------------------------------------------------->
+
+
             <!--    Dynamic meters indicating progress through each section    -->
-            <meter :class="[currentTitle === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
+<!--<<<<<<< HEAD
+            <meter :class="[currentSection === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
+                   :max="sectionBottoms[0]" :value="scrollPos" @mouseover="mouseOver1" @mouseleave="mouseOver1"></meter>
+            <meter :class="[currentSection === 2 ? 'activeMeter' : '']" id="m2" :min="sectionTops[1]"
+                   :max="sectionBottoms[1]" :value="scrollPos" @mouseover="mouseOver2" @mouseleave="mouseOver2"></meter>
+            <meter :class="[currentSection === 3 ? 'activeMeter' : '']" id="m3" :min="sectionTops[2]"
+                   :max="sectionBottoms[2]" :value="scrollPos" @mouseover="mouseOver3" @mouseleave="mouseOver3"></meter>
+            <meter :class="[currentSection === 4 ? 'activeMeter' : '']" id="m4" :min="sectionTops[3]"
+                   :max="sectionBottoms[3]" :value="scrollPos" @mouseover="mouseOver4" @mouseleave="mouseOver4"></meter>
+            <meter :class="[currentSection === 5 ? 'activeMeter' : '']" id="m5" :min="sectionTops[4]"
+                   :max="sectionBottoms[4]" :value="scrollPos" @mouseover="mouseOver5" @mouseleave="mouseOver5"></meter>
+=======-->
+           <!-- <meter :class="[currentTitle === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
                    :max="sectionBottoms[0]" :value="scrollPos"></meter>
             <meter :class="[currentTitle === 2 ? 'activeMeter' : '']" id="m2" :min="sectionTops[1]"
                    :max="sectionBottoms[1]" :value="scrollPos"></meter>
@@ -81,8 +115,18 @@
             <meter :class="[currentTitle === 5 ? 'activeMeter' : '']" id="m5" :min="sectionTops[4]"
                    :max="sectionBottoms[4]" :value="scrollPos"></meter>
         </div>
+        <div class="mouseoverName">
+                <p v-show="active1">| Orthogonality |</p>
+                <p v-show="active2">| Derivation |</p>
+                <p v-show="active3">| Decomposition |</p>
+                <p v-show="active4">| Power Spectrum |</p>
+                <p v-show="active5">| Overview |</p>
+            </div>-->
         <!--    Container for text content split into sections    -->
-        <!--suppress XmlUnboundNsPrefix -->
+    <div class="vis-container left hide" id="left-container">
+        <!--     Dynamic Navigation Bar and Section Headings       -->
+
+        <!--    Container for text content split into sections    -->
         <div class="journey" id="main-journey" v-on:scroll.passive="scrollFunc">
             <!--    Section Text Containers   -->
             <div class="section-container" id="sc1">
@@ -160,9 +204,9 @@
                 <div class="text section-body odd" id="p2">
                     <div id="intro" class="divclass">
                         <button id="ssh1" class="section-sub-head first-sub-head" key="ssh1" @click="updateSubSection(1); subScrollTo($event)" data-toggle="collapse" data-target="#introContentContainer">
-                            Introduction to Fourier series <i class='fas fa-chevron-down'></i>
+                            Introduction to Fourier series
                         </button>
-                        <div id="introContentContainer" class="collapse show" data-parent="#p2">
+                        <div id="introContentContainer" class="collapse" data-parent="#p2">
                             <div id="introContent" class="section-sub-content" key="introContent">
                                 Consider a function <span>$ f(x) $</span> which is periodic over the domain <span>$ -L \leq x < L $</span>
                                 where <span>$ L $</span> is positive. <span>$ f(x) $</span> can be represented as a sum
@@ -207,8 +251,8 @@
                         </div>
                     </div>
                     <div id="FSderivation" class="divclass">
-                        <button id="ssh2" class="section-sub-head collapsed" key="ssh2" @click="updateSubSection(2); subScrollTo($event)" data-toggle="collapse" data-target="#FSderivationContentContainer">
-                            General Derivation <i class='fas fa-chevron-down'></i>
+                        <button id="ssh2" class="section-sub-head" key="ssh2" @click="updateSubSection(2); subScrollTo($event)" data-toggle="collapse" data-target="#FSderivationContentContainer">
+                            General Derivation
                         </button>
                         <div id="FSderivationContentContainer" class="collapse" data-parent="#p2">
                             <div id="FSderivationContent" class="section-sub-content" key="FSderivationContent">
@@ -247,11 +291,11 @@
                                     </span>
                                 We can regroup the terms in the summation in the following way:
                                 <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                                data-target="#regroupexplainContainer"> <span>Show</span> Full Calculation </button>
+                                        <button class="section-extra-head" data-toggle="collapse"
+                                                data-target="#regroupexplainContainer"> Show Full Calculation </button>
                                     </span>
-                                <div id="regroupexplainContainer" class="collapse extra-content-container">
-                                    <div id="regroupexplain" class="extra-content">
+                                <div id="regroupexplainContainer" class="collapse">
+                                    <div id="regroupexplain" class="solidline">
                                             <span class="mathJaxDisplay">
                                                 \begin{align}
                                                 = \frac{1}{2} \Big[  2c_n e^{in\pi x/L} + 2c_{-n} e^{-in\pi x/L} & \\
@@ -307,8 +351,8 @@
                         </div>
                     </div>
                     <div id="triangular1" class="divclass">
-                        <button id="ssh3" class="section-sub-head collapsed" key="ssh3" @click="updateSubSection(3); subScrollTo($event)" data-toggle="collapse" data-target="#triangular1ContentContainer">
-                            Triangular Function Part 1 <i class='fas fa-chevron-down'></i>
+                        <button id="ssh3" class="section-sub-head" key="ssh3" @click="updateSubSection(3); subScrollTo($event)" data-toggle="collapse" data-target="#triangular1ContentContainer">
+                            Triangular Function Part 1
                         </button>
                         <div id="triangular1ContentContainer" class="collapse" data-parent="#p2">
                             <div id="triangular1Content" class="section-sub-content" key="triangular1Content">
@@ -349,8 +393,8 @@
                         </div>
                     </div>
                     <div id="triangular2" class="divclass">
-                        <button id="ssh4" class="section-sub-head collapsed" key="ssh4" @click="updateSubSection(4); subScrollTo($event)" data-toggle="collapse" data-target="#triangular2ContentContainer">
-                            Triangular Function Part 2 <i class='fas fa-chevron-down'></i>
+                        <button id="ssh4" class="section-sub-head" key="ssh4" @click="updateSubSection(4); subScrollTo($event)" data-toggle="collapse" data-target="#triangular2ContentContainer">
+                            Triangular Function Part 2
                         </button>
                         <div id="triangular2ContentContainer" class="collapse" data-parent="#p2">
                             <div id="triangular2Content" class="section-sub-content" key="triangular2Content">
@@ -364,11 +408,11 @@
                                     </span>
                                 This integral can be performed by parts.
                                 <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                                data-target="#BypartsTriangularContainer"> <span>Show</span> Full Calculation </button>
+                                        <button class="section-extra-head" data-toggle="collapse"
+                                                data-target="#BypartsTriangularContainer"> Show Full Calculation </button>
                                     </span>
-                                <div id="BypartsTriangularContainer" class="collapse extra-content-container">
-                                    <div id="BypartsTriangular" class="extra-content">
+                                <div id="BypartsTriangularContainer" class="collapse">
+                                    <div id="BypartsTriangular" class="solidline">
                                             <span class="mathJaxDisplay">
                                                 $$ u=x \qquad dv= \sin \left(\frac{n\pi x}{L} \right)dx $$
                                             </span>
@@ -416,8 +460,8 @@
                         </div>
                     </div>
                     <div id="parabolic" class="divclass">
-                        <button id="ssh5" class="section-sub-head collapsed" key="ssh5" @click="updateSubSection(5); subScrollTo($event)" data-toggle="collapse" data-target="#parabolicContentContainer">
-                            Parabolic Function <i class='fas fa-chevron-down'></i>
+                        <button id="ssh5" class="section-sub-head" key="ssh5" @click="updateSubSection(5); subScrollTo($event)" data-toggle="collapse" data-target="#parabolicContentContainer">
+                            Parabolic Function
                         </button>
                         <div id="parabolicContentContainer" class="collapse" data-parent="#p2">
                             <div id="parabolicContent" class="section-sub-content" key="parabolicContent">
@@ -449,11 +493,11 @@
                                     </span>
                                 This Eqn. can be solved by integrating by parts.
                                 <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                                data-target="#ByPartsParabolic1Container"> <span>Show</span> Full Calculation </button>
+                                        <button class="section-extra-head" data-toggle="collapse"
+                                                data-target="#ByPartsParabolic1Container"> Show Full Calculation </button>
                                     </span>
-                                <div id="ByPartsParabolic1Container" class="collapse extra-content-container">
-                                    <div id="ByPartsParabolic1" class="extra-content">
+                                <div id="ByPartsParabolic1Container" class="collapse">
+                                    <div id="ByPartsParabolic1" class="solidline">
                                         <span class="mathJaxDisplay">
                                             $$ du = 2x\cdot dx \qquad v=\frac{L}{n\pi} \sin \left(\frac{n\pi x}{L} \right) $$
                                         </span>
@@ -475,11 +519,11 @@
                                         $$ a_n = -\frac{4A}{n\pi}\int_{0}^{L} x \sin \left(\frac{n \pi x}{L} \right)dx $$
                                     </span>
                                 <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                                data-target="#ByPartsParabolic2Container"> <span>Show</span> Full Calculation </button>
+                                        <button class="section-extra-head" data-toggle="collapse"
+                                                data-target="#ByPartsParabolic2Container"> Show Full Calculation </button>
                                     </span>
-                                <div id="ByPartsParabolic2Container" class="collapse extra-content-container">
-                                    <div id="ByPartsParabolic2" class="extra-content">
+                                <div id="ByPartsParabolic2Container" class="collapse">
+                                    <div id="ByPartsParabolic2" class="solidline">
                                         <span class="mathJaxDisplay">
                                             $$ u = x \qquad dv = \sin \left(\frac{n\pi x}{L} \right) dx $$
                                         </span>
@@ -508,8 +552,8 @@
                         </div>
                     </div>
                     <div id="delta" class="divclass">
-                        <button id="ssh6" class="section-sub-head collapsed" key="ssh6" @click="updateSubSection(6); subScrollTo($event)" data-toggle="collapse" data-target="#deltaContentContainer">
-                            Dirac-Delta Function <i class='fas fa-chevron-down'></i>
+                        <button id="ssh6" class="section-sub-head" key="ssh6" @click="updateSubSection(6); subScrollTo($event)" data-toggle="collapse" data-target="#deltaContentContainer">
+                            Dirac-Delta Function
                         </button>
                         <div id="deltaContentContainer" class="collapse" data-parent="#p2">
                             <div id="deltaContent" class="section-sub-content" key="deltaContent">
@@ -530,21 +574,21 @@
                                 <span class="mathJaxDisplay">
                                         $$ b_n=\frac{1}{L}\int_{-L}^{+L}\delta(x) \sin \left(\frac{n\pi x}{L} \right)dx $$
                                     </span>
-                                <span>$ \delta(x) $</span> is an even function. Hence <span>$ b_n=0 $</span> and
+                                <span>$ \delta(x) $</span>is an even function. Hence <span>$ b_n=0 $</span> and
                                 <span class="mathJaxDisplay">
                                         $$ a_n=\frac{1}{L} $$
                                     </span>
                                 <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                                data-target="#ByPartsDiracContainer"> <span>Show</span> Full Calculation </button>
+                                        <button class="section-extra-head" data-toggle="collapse"
+                                                data-target="#ByPartsDiracContainer"> Show Full Calculation </button>
                                     </span>
-                                <div id="ByPartsDiracContainer" class="collapse extra-content-container">
-                                    <div id="ByPartsDirac" class="extra-content">
+                                <div id="ByPartsDiracContainer" class="collapse">
+                                    <div id="ByPartsDirac" class="solidline">
                                         By considering the shifting property of the Dirac-Delta function,
                                         <span class="mathJaxDisplay">
                                         $$ \int_{\alpha-\epsilon}^{\alpha+\epsilon} g(x) \delta(x-\alpha)dx=g(\alpha) $$
                                         </span>
-                                        For us, <span>$ \alpha=0 $</span>, <span>$ \epsilon=L, $</span> and <span>$ g(x)= \sin \left(n \pi x/L \right) $</span>.
+                                        For us,<span>$ \alpha=0, \epsilon=L, $</span>and <span>$ g(x)= \sin \left(n \pi x/L \right) $</span>.
                                         <br><br>
                                         Therefore,
                                         <span class="mathJaxDisplay">
@@ -563,8 +607,8 @@
                         </div>
                     </div>
                     <div id="square" class="divclass">
-                        <button id="ssh7" class="section-sub-head collapsed" key="ssh7" @click="updateSubSection(7); subScrollTo($event)" data-toggle="collapse" data-target="#squareContentContainer">
-                            Square Wave <i class='fas fa-chevron-down'></i>
+                        <button id="ssh7" class="section-sub-head" key="ssh7" @click="updateSubSection(7); subScrollTo($event)" data-toggle="collapse" data-target="#squareContentContainer">
+                            Square Wave
                         </button>
                         <div id="squareContentContainer" class="collapse" data-parent="#p2">
                             <div id="squareContent" class="section-sub-content" key="squareContent">
@@ -615,8 +659,8 @@
                         </div>
                     </div>
                     <div id="sawtooth" class="divclass">
-                        <button id="ssh8" class="section-sub-head collapsed" key="ssh8" @click="updateSubSection(8); subScrollTo($event)" data-toggle="collapse" data-target="#sawtoothContentContainer">
-                            Sawtooth Wave <i class='fas fa-chevron-down'></i>
+                        <button id="ssh8" class="section-sub-head" key="ssh8" @click="updateSubSection(8); subScrollTo($event)" data-toggle="collapse" data-target="#sawtoothContentContainer">
+                            Sawtooth Wave
                         </button>
                         <div id="sawtoothContentContainer" class="collapse" data-parent="#p2">
                             <div id="sawtoothContent" class="section-sub-content" key="sawtoothContent">
@@ -635,11 +679,11 @@
                                     </span>
                                 Using Integration by parts it can be shown that:
                                 <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                                data-target="#ByPartsSawtoothContainer"> <span>Show</span> Full Calculation </button>
+                                        <button class="section-extra-head" data-toggle="collapse"
+                                                data-target="#ByPartsSawtoothContainer"> Show Full Calculation </button>
                                     </span>
-                                <div id="ByPartsSawtoothContainer" class="collapse extra-content-container">
-                                    <div id="ByPartsSawtooth" class="extra-content">
+                                <div id="ByPartsSawtoothContainer" class="collapse">
+                                    <div id="ByPartsSawtooth" class="solidline">
                                         <span class="mathJaxDisplay">
                                             $$ u=x \quad  dv=\sin \left(\frac{n\pi x}{L} \right)dx $$
                                         </span>
@@ -670,8 +714,8 @@
                         </div>
                     </div>
                     <div id="modx" class="divclass">
-                        <button id="ssh9" class="section-sub-head collapsed" key="ssh9" @click="updateSubSection(9); subScrollTo($event)" data-toggle="collapse" data-target="#modxContentContainer">
-                            Mod x Function <i class='fas fa-chevron-down'></i>
+                        <button id="ssh9" class="section-sub-head" key="ssh9" @click="updateSubSection(9); subScrollTo($event)" data-toggle="collapse" data-target="#modxContentContainer">
+                            Mod x Function
                         </button>
                         <div id="modxContentContainer" class="collapse" data-parent="#p2">
                             <div id="modxContent" class="section-sub-content" key="modxContent">
@@ -700,11 +744,11 @@
                                     </span>
                                 By integrating by parts,
                                 <span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                                data-target="#ByPartsModxContainer"> <span>Show</span> Full Calculation </button>
+                                        <button class="section-extra-head" data-toggle="collapse"
+                                                data-target="#ByPartsModxContainer"> Show Full Calculation </button>
                                     </span>
-                                <div id="ByPartsModxContainer" class="collapse extra-content-container">
-                                    <div id="ByPartsModx" class="extra-content">
+                                <div id="ByPartsModxContainer" class="collapse">
+                                    <div id="ByPartsModx" class="solidline">
                                         <span class="mathJaxDisplay">
                                             $$ u=x \qquad  dv= \cos\left(\frac{n\pi x}{L}\right)dx $$
                                         </span>
@@ -814,11 +858,11 @@
                     do you think
                     this happens?
                     <span class="section-extra-head-container">
-                            <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                    data-target="#evenThetaAnswerContainer"> <span>Show</span> Answer </button>
+                            <button class="section-extra-head" data-toggle="collapse"
+                                    data-target="#evenThetaAnswerContainer"> Show Answer </button>
                         </span>
-                    <div id="evenThetaAnswerContainer" class="collapse extra-content-container">
-                        <div id="evenThetaAnswer" class="extra-content">
+                    <div id="evenThetaAnswerContainer" class="collapse">
+                        <div id="evenThetaAnswer" class="solidline">
                             This happens because the value of <span>$ a_n $</span> changes sign
                             (<span>$ b_n $</span> is 0) causing the value of
                             <span>$ \theta_n $</span>to change. For <span>$ b_n = 0 $</span>, <span>$ \tan^{-1}(\frac{b_n}{a_n}) $</span>
@@ -908,14 +952,21 @@
             </div>
         </div>
     </div>
+    <!-- previous, next and home button -->
+    <button id="previous" @click="previous"><< Previous</button>
+    <button id="next"  @click="next">Next >></button>
+
     <!--    Right Side of Window - containing mainly interactive and visual content    -->
-    <div class="vis-container right" id="right-container">
+    <div class="vis-container center" id="right-container" >
         <!--    fade transition tag for RHS - applied by Vue and CSS    -->
-        <transition-group name="fade" tag="div" class="transition-container">
+        <transition-group name="fade" tag="div" class="transition-container" style="box-shadow: none !important">
             <!--    Interactive Zone Containers   -->
-            <div class="rightload text odd" id='loadout1'
-                 key="loadout1" v-if="currentSection === 1">
+            <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'odd']" id='loadout1'
+                 key="loadout1" v-if="currentSection === 1 || locked === false">
                 <!--Graph-->
+                <div v-show="locked===false" style="position: relative">
+                    <h3 align="center">Section 1 title</h3>
+                </div>
                 <div id='graph1Sec1'></div>
                 <!--Display of vector 1 and 2 lengths to reach target vector-->
                 <div id="vectorComponents">
@@ -999,9 +1050,11 @@
                     </div>
                 </div>
             </div>
-            <div class="rightload text even" id='loadout2'
-                 key="loadout2" v-if="currentSection === 2">
-                <transition name="fade">
+            <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'even']" id='loadout2'
+                 key="loadout2" v-if="currentSection === 2 || locked === false">
+
+
+
                     <!--Interactive Zone Sub Containers-->
                     <div class="rightload text" id='loadout2sub0' key="loadout2sub0" v-if="derivationSubSection !== 3">
                         <!--Graph-->
@@ -1125,10 +1178,12 @@
                             <!--END Slider L-->
                         </div>
                     </div>
-                </transition>
             </div>
-            <div class="rightload text odd" id='loadout3'
-                 key="loadout3" v-if="currentSection === 3">
+            <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'odd']" id='loadout3'
+                 key="loadout3" v-if="currentSection === 3 || locked === false">
+                <div v-show="locked===false">
+                    <h3 align="center">Section 3 title</h3>
+                </div>
                 <!--Graph-->
                 <div id='graph1Sec3'></div>
                 <!--Scroll-down-->
@@ -1224,15 +1279,15 @@
                                 \right.
                                 $$
                                 <br><br>
-                                $$ f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi} (1-(-1)^n) \sin \left(\frac{n\pi x}{L}\right)$$
+                                $$ f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi}$ $\displaystyle (1-(-1)^n) \sin \left(\frac{n\pi x}{L}\right)$$
                             </span>
                     </div>
 
                     <div id="Sawtooth_eqn" v-else-if="equationID === 'sawtooth'">
                             <span class="mathJaxDisplay">
-                                $$ f(x)=\frac{Ax}{L} \quad (-L < x \leq L) $$
+                                $$ f(x)=\frac{Ax}{L} $ $\displaystyle \quad (-L < x \leq L) $$
                                 <br><br>
-                                $$ f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1} \sin \left(\frac{n\pi x}{L} \right) $$
+                                $$ f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1}$ $\displaystyle \sin \left(\frac{n\pi x}{L} \right) $$
                             </span>
                     </div>
 
@@ -1263,15 +1318,19 @@
                             <span class="mathJaxDisplay">
                                 $$ f(x)=A|x| $$
                                 <br><br>
-                                $$ f(x)=\frac{AL}{2}+ \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2} \left[(-1)^n-1 \right] \cos \left(\frac{n\pi
+                                $$ f(x)=\frac{AL}{2}+ \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2}$ $\displaystyle \left[(-1)^n-1 \right] \cos \left(\frac{n\pi
                                 x}{L} \right) $$
                             </span>
                     </div>
 
                 </div>
+
             </div>
-            <div class="rightload text even" id='loadout4'
-                 key="loadout4" v-if="currentSection === 4">
+            <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'even']" id='loadout4'
+                 key="loadout4" v-if="currentSection === 4 || locked === false">
+                <div v-show="locked===false">
+                    <h3 align="center">Section 4 title</h3>
+                </div>
                 <!--Graphs-->
                 <div id='graph1Sec4'></div>
                 <div id='graph2Sec4'></div>
@@ -1349,8 +1408,11 @@
                     </div>
                 </div>
             </div>
-            <div class="rightload text odd" id='loadout5'
-                 key="loadout5" v-if="currentSection === 5">
+            <div :class="[locked === false ? 'unlockMode' : 'lockMode', 'rightload', 'text', 'odd']" id='loadout5'
+                 key="loadout5" v-if="currentSection === 5 || locked === false">
+                <div v-show="locked===false" >
+                    <h3 align="center">Section 5 title</h3>
+                </div>
                 <!--Graphs-->
                 <div id='graph1Sec5'></div>
                 <div id='graph2Sec5'></div>
@@ -1382,7 +1444,6 @@
                     <!--END Input function box  -->
                     <!--Scroll-down to select between a_n b_n and alpha_n theta_n-->
                     <!--Scroll-down to select coefficient-->
-                    <div>
                     <strong>Select Coefficient: </strong>
                     <select id="CoefficientSec5">
                         <option value="a">a</option>
@@ -1390,7 +1451,6 @@
                         <option value="α">α</option>
                         <option value="θ">θ</option>
                     </select>
-                </div>
                     <!--Sliders-->
                     <div class="overall-sliders-container">
                         <!--BEGIN Slider N-->
@@ -1429,25 +1489,62 @@
                     </div>
                 </div>
             </div>
-            <div class="rightload text wait" id='loadoutblank' key="loadoutblank"
+            <!--<div class="rightload text wait" id='loadoutblank' key="loadoutblank"
                  v-if="1 <= currentSection <= 5 === false">
                 please wait...
+            </div>-->
+            <div key="loadoutblank" v-else-if="currentSection===0">
+                <h1 align="center">The Fourier Series
+                Visualization</h1>
+                <br>
+                <br>
+                <br>
+                <h4 align="center">Please press the "Next" button</h4>
             </div>
         </transition-group>
     </div>
     <!--    Title Banner above Right Side    -->
-    <div class="banner">
-        <!--    Visualisation Title    -->
-        <h1 class="" id="vis-title">
-            THE FOURIER SERIES
-        </h1>
+<div class="banner">
+        <span v-bind:class="[currentSection === 1 ? 'active':'nonactive']" @click="currentSection=1">      Orthogonality    </span>
+    <span v-bind:class="[currentSection === 2 ? 'active':'nonactive']" @click="currentSection=2">    Derivation    </span>
+    <span v-bind:class="[currentSection === 3 ? 'active':'nonactive']" @click="currentSection=3">    Decomposition    </span>
+    <span v-bind:class="[currentSection === 4 ? 'active':'nonactive']" @click="currentSection=4">    Power Spectrum    </span>
+    <span v-bind:class="[currentSection === 5 ? 'active':'nonactive']" @click="currentSection=5">    Overview    </span>
+        <!--    Right Panel Navigation Dropdown - only visible when unlocked    -->
+        <!--<div>Orthogonality</div>        <div>Derivation</div>        <div>Decomposition</div>        <div>Power Spectrum</div>        <div>Overview</div>
+        --><!--<ul>
+            <li>1.Orthogonality</li>
+            <li>2.</li>
+            <li>3.</li>
+            <li>4.</li>
+            <li>5.</li>
+        </ul>-->
+        <!--    Lock Button    -->
+        <!--<div id="lock-container">
+            <span :class="[locked === false ? 'unlocked' : '', 'lock']" @click="locked = !locked"></span>
+        </div>-->
+        <!--    Unlocked Rightload Nav Dropdown    -->
+        <!--<div id="rightload-nav">
+            <select id="rightload-dropdown">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>-->
+        <!--    Imp-Vis Logo - acts as link back to website main page    -->
         <a href="https://www.imperialvisualisations.com/learn/">
             <img id="vis-logo" src="VisualisationsLogoWhite2.png">
         </a>
     </div>
-     <div class="rightScriptSpace"></div>
+
+
+    <div class="rightScriptSpace"></div>
     <div class="derivationScriptSpace"></div>
 </div>
+<canvas id="c" width="1368" height="538"></canvas>
+
 </body>
 
 <script src="scripts/nav_Script.js"></script>
