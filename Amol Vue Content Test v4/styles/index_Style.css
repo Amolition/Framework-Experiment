@@ -5,16 +5,6 @@
     font-family: "Fira Sans", sans-serif;
 }
 
-hr {
-    border-top: 1px solid #033482;
-    margin: 10px 0;
-}
-
-.mathJaxDisplay {
-    display:table;
-    margin: 10px auto;
-}
-
 .vis-container {
     float: left;
 }
@@ -27,61 +17,85 @@ hr {
     position: fixed;
     top: 0;
     left: 0;
-    background: #d1e4ff;
+    /*background: #d1e4ff;*/
+    background: #ccdfff;
 }
 
 #section-title {
-    height: 35px;
+    /*height: 35px;*/
+    height: 4vh;
     width: inherit;
     margin:0;
     position: fixed;
     text-align: center;
     vertical-align: middle;
-    line-height: 35px;
+    /*line-height: 35px;*/
     font-weight: bolder;
     top: 0;
-    min-height: 35px;
-    background: #d1e4ff;
+    /*min-height: 35px;*/
+    /*background: #d1e4ff;*/
+    background: #ccdfff;
     color: #003e74;
-    border-left: #c6d1fe solid 17px;
-    border-right: #c6d1fe solid 17px;
+    /*border-left: #c6d1fe solid 17px;
+    border-right: #c6d1fe solid 17px;*/
+    border-left: #ccdfff solid 17px;
+    border-right: #ccdfff solid 17px;
 }
 
 #progress-container {
     display: flex;
     width: 33vw;
-    height: 40px;
+    /*height: 40px;*/
+    height: 4vh;
     position: fixed;
     left: 0;
     top: 0;
-    background: #151c26;
+    /*border: solid 0.5vh #151c26;*/
+    border:none;
 }
 
 meter {
     visibility: visible;
     flex-basis: 0;
     flex-grow: 1;
-    border: solid 2px #151c26;
-    height: 40px;
+    /*border: solid 2px #151c26;*/
+    /*border: solid 0.5vh #151c26;*/
+    border: none;
+    /*border-right: solid 0.7vh #324257;*/
+    /*border-right: solid 0.7vh #bccfec;*/
+    /*height: 36px;*/
+    height: 4vh;
     min-width: 30px;
-    transition: flex-grow 450ms ease;
+    transition: flex-grow 750ms;
 }
 
 meter::-webkit-meter-bar {
     background: none; /* Required to get rid of the default background property */
-    background-color: #5e8cd6;
-    box-shadow: 0 5px 5px -5px #333 inset;
+    /*background-color: #5e8cd6;*/
+    /*background-color: #6e76ed;*/
+    background-color: #37578b;
+    box-shadow: 0 0.5vhpx 0.5vh -0.5vhpx
+     #333 inset;
 }
 
 meter::-webkit-meter-optimum-value {
     box-shadow: 0 5px 5px -5px #999 inset;
-    background-image: linear-gradient(
+    /*background-image: linear-gradient(
             90deg,
             #033482 0%,
             #033482 66%,
             #151c26 100%
-    );
-    background-size: 100% 100%;
+    );*/
+    /*background-image: linear-gradient(
+            90deg,
+            #6e76ed 0%,
+            #6e85ed 66%,
+            #6e76ed 100%
+    );*/
+    height: 0.4vh;
+    /*background: #ff0038;*/
+    background: #ff1447;
+    background-size: 100% 100%; 
 }
 
 meter {
@@ -108,6 +122,7 @@ meter::-moz-meter-bar {
 
 #overlay {
     display: flex;
+    height: 4vh;
     width: inherit;
     position: fixed;
     top: 0;
@@ -116,69 +131,39 @@ meter::-moz-meter-bar {
 }
 
 .overlay-button {
-    height: 40px;
+    /*height: 40px;*/
+    height: 4vh;
     flex-basis: 0;
     flex-grow: 1;
     margin: 0;
     padding: 0;
-    line-height: 25px;
+    line-height: 4vh;
     text-align: center;
     vertical-align: middle;
-    font-size: 12pt;
+    /*font-size: 12pt;*/
+    font-size:2vh;
     background: none;
     color: #ffffff !important;
     border: none;
-    min-width: 30px;
-    transition: flex-grow 450ms ease;
+    min-width: 25px;
+    transition: flex-grow 750ms;
     box-shadow: none;
 }
 
 .activeButton {
     flex-grow: 5.7;
     color: #ffffff !important;
-    text-shadow: 1px 1px 1px #000000;
-    font-size: 14pt;
-    letter-spacing: 2pt;
+    /*text-shadow: 1px 1px 1px #000000;*/
+    /*font-size: 14pt;*/
+    font-size: 2.8vh;
+    /*letter-spacing: 2pt;*/
 }
 
 .overlay-button:hover {
     color: #ffffff !important;
     font-size: 16pt;
-    text-shadow: 2px 2px 2px #000000;
+    /*text-shadow: 2px 2px 2px #000000;*/
     background-color: unset;
-}
-
-#hoverTitleSpace {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    font-size: 12pt;
-    width: fit-content;
-    height: fit-content;
-    padding: 5px;
-    border-radius: 6px;
-    background: #000000;
-    color: #ffffff;
-    z-index: 3;
-    box-shadow: 2px 2px 2px 1px #888888;
-}
-
-#hoverTitleSpace::after {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 10px;
-    margin-left: -5px;
-    border-width: 8px;
-    border-style: solid;
-    border-color: transparent transparent #000000 transparent;
-}
-
-.section-body {
-    margin: 0;
-    padding: 20px 0 0 0;
-    font-size: 14pt;
-    text-align: justify;
 }
 
 .journey {
@@ -186,76 +171,77 @@ meter::-moz-meter-bar {
     width: inherit;
     padding: 0;
     position: fixed;
-    top: 40px;
+    /*top: 40px;*/
+    top: 4vh;
     bottom: 0;
     background: #ffffff;
     overflow-y:auto !important;
     overflow-x:hidden;
     text-align: justify;
-    box-shadow: 5px 10px 18px #888888 inset;
+    /*box-shadow: 5px 10px 18px #888888 inset;*/
+    box-shadow: 0.5vh 0.5vh 2.5vh #b1b1b1 inset;
+}
+
+.section-body {
+    margin: 0;
+    padding: 2vh 0 0 0;
+    /*font-size: 14pt;*/
+    font-size: 2.4vh;
+    text-align: justify;
 }
 
 .section-container {
     width: inherit;
-    padding: 25px 45px 0 25px;
+    /*padding: 25px 45px 0 25px;*/
+    padding: 1vw 2vw 0 1vw;
     margin-bottom: 100px;
 }
 
 .section-head {
-    color: #152749;
+    /*color: #152749;*/
+    /*color: #033482;*/
+    color: #003E74;
     margin: 0;
     padding: 10px 0;
+    font-size: 4vh;
     text-align: center;
     font-weight: bolder;
 }
 
+hr {
+    border-top: 1px solid #033482;
+    margin: 1vh 0;
+}
+
 .placeholder {
-    margin-bottom: 30px;
+    margin-bottom: 3vh;
 }
 
 button.section-sub-head {
     width: 100%;
-    position: relative;
     margin: 10px 0 20px 0;
     text-align: center;
-    font-size: 18pt;
-    background: #d1e4ff;
+    /*font-size: 18pt;*/
+    font-size: 2.5vh;
+    /*background: #d1e4ff;*/
+    background: #ccdfff;
     color: #033482;
-}
-
-button.section-sub-head.active, button.section-sub-head.collapsibleButton:hover {
-    background-color: #3a49cc;
 }
 
 h3.section-sub-head {
     width: 100%;
-    margin: 50px 0 20px 0;
+    margin: 4vh 0 2vh 0;
+    padding: 0.5vh 0 0.5vh 0;
     text-align: center;
-    font-size: 18pt;
-    background: #d1e4ff;
+    font-size: 3.2vh;
+    /*background: #d1e4ff;*/
+    background: #CCDFFF;
     color: #033482;
 }
 
 .section-sub-content {
     margin-top: 30px;
     margin-bottom: 50px;
-}
-
-i {
-    position: absolute;
-    right: 10px;
-    top: 6px;
-    transition-delay: 0.1s;
-    transition: transform 0.4s ease-in-out;
-}
-
-.section-sub-head:not(.collapsed) i {
-    transform: rotate(-180deg);
-}
-
-.section-extra-head-container {
-    display: table;
-    margin: 30px auto 10px auto;
 }
 
 .section-extra-head {
@@ -271,75 +257,84 @@ i {
 .right {
     width: 67vw;
     position: fixed;
-    top: 40px;
+    top: 4vh;
     bottom: 0;
     right: 0;
     background: #ffffff;
-    box-shadow: 5px 10px 18px #888888 inset;
+    /*box-shadow: 5px 10px 18px #888888 inset;*/
+    box-shadow: 0.5vh 0.5vh 2.5vh #b1b1b1 inset;
 }
 
 .banner {
-    height: 42px;
+    /*height: 42px;*/
+    height: 4vh;
     width: 67vw;
     position: fixed;
     top: 0;
     right: 0;
-    background: linear-gradient(
+    /*background: linear-gradient(
             90deg,
             #151c26 0%,
             #033482 15%,
             #033482 100%
+    );*/
+    /*background: linear-gradient(
+            90deg,
+            #033482 0%,
+            #5e8cd6 15%,
+            #5e8cd6 100%
+    );*/
+    background: linear-gradient(
+            90deg,
+            #003E74 0%,
+            #37578b 15%,
+            #37578b 100%
     );
     color: #ffffff;
     z-index: -1;
 }
 
 #vis-title {
-    height: 40px;
+    /*height: 40px;*/
+    height: 3vh;
     margin:0;
     position: fixed;
     text-align: center;
     vertical-align: middle;
-    line-height: 40px;
+    /*line-height: 40px;*/
+    line-height: 3vh;
     font-weight: bolder;
-    top: 0;
+    padding-top: 0.5vh;
+    /*top: 0;*/
     left: 33vw;
-    right: 0;
-    min-height: 40px;
+    right: 200px;
+    /*min-height: 40px;*/
     background: none;
     color: #ffffff;
     font-size: 20pt;
     letter-spacing: 2pt;
 }
 
-#rightload-nav {
-    position: absolute;
-    right: 120px;
-    height: 40px;
-    width: 200px;
-    padding: 4px 0;
-}
-
-#rightload-dropdown {
-    width: 200px;
-    font-size: 10pt;
-}
-
 #vis-logo {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    height: 20px;
+    img{
+    max-height: 80%;
+    width: auto;
+    }
+    top: 0.5vh;
+    right: 0.5vh;
+    height: 4vh;
 }
 
-nav {
+/*nav {
     height: 60px;
+    height: 5vh;
     width: 200px;
     position: fixed;
     top: 15px;
     bottom: 15px;
     right: 0;
-}
+}*/
 
 .wait {
     font-size: 12pt;
@@ -354,37 +349,12 @@ nav {
 
 /* TRANSITION STYLES */
 
-.fadeUneven-enter-active {
-    transition: opacity 0.5s;
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s;
 }
 
-.fadeUneven-leave-active {
-    /*  NO TRANSITION FOR FADE OUT  */
-}
-
-.fadeUneven-enter, .fadeUneven-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
-}
-
-.slide-enter-active {
-    transition: height 1s;
-}
-
-.slide-leave-active {
-    transition: height 1s;
-}
-
-.slide-enter, .slide-leave-to {
-    height: 0;
-}
-
-.collapsed ~ .collapsing:not(.extra-content-container) {
-    transition-duration: 0s;
-}
-
-:not(.collapsed) ~ .collapsing:not(.extra-content-container) {
-    transition-delay: 0.2s;
-    transition-duration: 0.6s;
 }
 
 /* IMPORTED STYLE FROM LEARNING EXPERIENCE TEAM */
@@ -393,10 +363,34 @@ nav {
     width: inherit;
 }
 
-.extra-content {
-    background: #d1e4ff;
+.solidline {
+    /* Indicates a drop down box to hide stuff */
+    /*border-style: outset;*/
+    /*border-color: coral;*/
+    /*border-width: 3px;*/
+    /*background: #d1e4ff;*/
+    background: #ccdfff;
     padding: 25px 40px;
     border-radius: 5px;
     text-align: justify;
     margin-bottom: 30px;
+}
+.bigdropdown {
+    /* Indicates a drop down box to hide sections*/
+    border-style: outset;
+    border-color: blueviolet;
+    border-width: 3px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: justify;
+}
+
+.verticalline {
+    width: 2px;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 34vw;
+    opacity: 0.3;
 }
