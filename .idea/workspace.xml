@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e52ee41-ced2-4931-850e-ad06fd7add85" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/pure vis.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Fourier-Series-with-style-e/pure animation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v3/scripts/nav_Script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/scripts/nav_Script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v3/pure vis.html" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/pure vis.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v3/pure-vis-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/pure-vis-2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v3/styles/index_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/styles/index_Style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,15 +25,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="2" />
-          <entry key="html" value="22" />
+          <entry key="css" value="3" />
+          <entry key="html" value="23" />
           <entry key="js" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="2" />
-          <entry key="HTML" value="22" />
+          <entry key="CSS" value="3" />
+          <entry key="HTML" value="23" />
           <entry key="JavaScript" value="6" />
         </counts>
       </usages-collector>
@@ -61,17 +58,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/vue-learning.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="728" column="118" selection-start-line="728" selection-start-column="70" selection-end-line="728" selection-end-column="118" />
+            <state relative-caret-position="3577">
+              <caret line="726" column="25" selection-start-line="726" selection-start-column="25" selection-end-line="726" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/scripts/2017053198575697/css/dmaku.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="474" column="17" selection-start-line="462" selection-end-line="474" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/style.css">
+        <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v4/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="474" column="17" lean-forward="true" selection-start-line="462" selection-end-line="474" selection-end-column="17" />
+            <state relative-caret-position="1197">
+              <caret line="1239" column="57" selection-start-line="1239" selection-start-column="57" selection-end-line="1239" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -80,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/pure animation.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -88,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/journey.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1900">
+            <state relative-caret-position="-38">
               <caret line="106" column="27" selection-start-line="102" selection-start-column="12" selection-end-line="106" selection-end-column="27" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -123,6 +134,7 @@
       <find>transition-</find>
       <find>lock</find>
       <find>unlock</find>
+      <find>slide</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -210,6 +222,11 @@
               <item name="Framework-Experiment" type="462c0819:PsiDirectoryNode" />
               <item name="Amol Vue Content Test v3" type="462c0819:PsiDirectoryNode" />
               <item name="styles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Framework-Experiment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Framework-Experiment" type="462c0819:PsiDirectoryNode" />
+              <item name="Amol Vue Content Test v4" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Framework-Experiment" type="b2602c69:ProjectViewProjectNode" />
@@ -303,7 +320,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/journey-1.js" />
     <entry file="file://$PROJECT_DIR$/jquery/Scroll_Bar.html" />
     <entry file="file://$PROJECT_DIR$/jquery/Scroll_Bar_Style.css" />
     <entry file="file://$PROJECT_DIR$/jquery/Scroll_Bar_Script.js" />
@@ -545,20 +561,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/journey.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1900">
-          <caret line="106" column="27" selection-start-line="102" selection-start-column="12" selection-end-line="106" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/pure animation.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -581,17 +587,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/vue-learning.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="728" column="118" selection-start-line="728" selection-start-column="70" selection-end-line="728" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
-          <caret line="474" column="17" lean-forward="true" selection-start-line="462" selection-end-line="474" selection-end-column="17" />
+          <caret line="474" column="17" selection-start-line="462" selection-end-line="474" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/scripts/2017053198575697/css/dmaku.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/journey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="106" column="27" selection-start-line="102" selection-start-column="12" selection-end-line="106" selection-end-column="27" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fourier-Series-with-style-e/vue-learning.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3577">
+          <caret line="726" column="25" selection-start-line="726" selection-start-column="25" selection-end-line="726" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v4/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1197">
+          <caret line="1239" column="57" selection-start-line="1239" selection-start-column="57" selection-end-line="1239" selection-end-column="57" />
         </state>
       </provider>
     </entry>

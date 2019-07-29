@@ -133,6 +133,7 @@ meter::-moz-meter-bar {
     box-shadow: none;
 }
 
+
 /*-------------------------------------------Eliza----------------------------------------------------------*/
 
 .mouseoverName{
@@ -150,16 +151,124 @@ meter::-moz-meter-bar {
 }
 
 .center{
-    width: 67vw;
+    width: 70vw;
     position: fixed;
-    top: 40px;
-    bottom: 0;
+    top: 42px;
+    bottom: 3vh;
     left: 16vw;
     background: #ffffff;
-    box-shadow: 5px 10px 18px #888888 inset;
+    overflow: auto;
+
 
 }
+/*
 
+.sectionbar{
+    height:40px;
+    width: 100%;
+    position: absolute;
+    top:0;
+
+
+}
+.sectionbar li{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    border: 3px;
+}
+.sectionbar li::-moz-meter-bar {
+
+    background-image: linear-gradient(
+            90deg,
+            #033482 0%,
+            #033482 66%,
+            #151c26 100%
+    );
+    background-size: 100% 100%;
+}
+*/
+
+#previous{
+    position: fixed;
+    left: 5vw;
+    bottom: 10vh;
+
+}
+#next{
+    position: fixed;
+    right: 5vw;
+    bottom: 10vh;
+
+}
+.hide{
+    display: none;
+}
+
+.banner {
+    height: 42px;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+
+    background: linear-gradient(
+            90deg,
+            #151c26 0%,
+            #033482 15%,
+            #033482 100%
+    );
+    color: #ffffff;
+    z-index: 999;
+    text-align: center;
+    justify-content: space-around;
+
+
+}/*
+.banner span{
+    width: 15vw;
+    min-width: 10vw;
+    border-right: white solid 2px;
+    border-left: white solid 2px;
+    position: relative;
+    cursor: pointer;
+    font-size: 26px;
+    text-align: center;
+    white-space:pre;
+
+}*/
+.nonactive{
+    width: 15vw;
+    min-width: 10vw;
+    border-right: white solid 2px;
+    border-left: white solid 2px;
+    position: relative;
+    cursor: pointer;
+    font-size: 26px;
+    text-align: center;
+    white-space:pre;
+
+}
+.active{
+    width: 15vw;
+    min-width: 10vw;
+    border-right: white solid 2px;
+    border-left: white solid 2px;
+    position: relative;
+    cursor: pointer;
+    font-size: 26px;
+    text-align: center;
+    white-space:pre;
+    color: #ff5153;
+
+
+}
+/*
+.banner li{
+    display: flex;
+    flex-direction: row;
+    width: 17vw;
+    border-right: white solid 2px;
+}*/
 .slide-fade-enter-active {
   transition: all .3s ease;
 }
@@ -280,21 +389,7 @@ h3.section-sub-head {
     box-shadow: 5px 10px 18px #888888 inset;
 }
 
-.banner {
-    height: 42px;
-    width: 67vw;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background: linear-gradient(
-            90deg,
-            #151c26 0%,
-            #033482 15%,
-            #033482 100%
-    );
-    color: #ffffff;
-    z-index: -1;
-}
+
 
 #vis-title {
     height: 40px;
