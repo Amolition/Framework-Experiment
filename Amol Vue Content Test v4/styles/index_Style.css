@@ -5,6 +5,11 @@
     font-family: "Fira Sans", sans-serif;
 }
 
+.mathJaxDisplay {
+    display:table;
+    margin: 10px auto;
+}
+
 .vis-container {
     float: left;
 }
@@ -66,7 +71,7 @@ meter {
     /*height: 36px;*/
     height: 4vh;
     min-width: 30px;
-    transition: flex-grow 750ms;
+    transition: flex-grow 450ms ease;
 }
 
 meter::-webkit-meter-bar {
@@ -146,7 +151,7 @@ meter::-moz-meter-bar {
     color: #ffffff !important;
     border: none;
     min-width: 25px;
-    transition: flex-grow 750ms;
+    transition: flex-grow 450ms ease;
     box-shadow: none;
 }
 
@@ -164,6 +169,32 @@ meter::-moz-meter-bar {
     font-size: 16pt;
     /*text-shadow: 2px 2px 2px #000000;*/
     background-color: unset;
+}
+
+#hoverTitleSpace {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    font-size: 12pt;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 6px;
+    background: #000000;
+    color: #ffffff;
+    z-index: 3;
+    box-shadow: 2px 2px 2px 1px #888888;
+}
+
+#hoverTitleSpace::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 10px;
+    margin-left: -5px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #000000 transparent;
 }
 
 .journey {
@@ -219,6 +250,7 @@ hr {
 
 button.section-sub-head {
     width: 100%;
+    position: relative;
     margin: 10px 0 20px 0;
     text-align: center;
     /*font-size: 18pt;*/
@@ -242,6 +274,23 @@ h3.section-sub-head {
 .section-sub-content {
     margin-top: 30px;
     margin-bottom: 50px;
+}
+
+i {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    transition-delay: 0.1s;
+    transition: transform 0.4s ease-in-out;
+}
+
+.section-sub-head:not(.collapsed) i {
+    transform: rotate(-180deg);
+}
+
+.section-extra-head-container {
+    display: table;
+    margin: 30px auto 10px auto;
 }
 
 .section-extra-head {
@@ -317,14 +366,15 @@ h3.section-sub-head {
 
 #vis-logo {
     position: absolute;
-    img{
-    max-height: 80%;
-    width: auto;
-    }
     top: 0.5vh;
     right: 0.5vh;
     height: 4vh;
 }
+
+#vis-logo img{
+     max-height: 80%;
+     width: auto;
+ }
 
 /*nav {
     height: 60px;
@@ -363,7 +413,7 @@ h3.section-sub-head {
     width: inherit;
 }
 
-.solidline {
+.extra-content {
     /* Indicates a drop down box to hide stuff */
     /*border-style: outset;*/
     /*border-color: coral;*/
@@ -374,23 +424,4 @@ h3.section-sub-head {
     border-radius: 5px;
     text-align: justify;
     margin-bottom: 30px;
-}
-.bigdropdown {
-    /* Indicates a drop down box to hide sections*/
-    border-style: outset;
-    border-color: blueviolet;
-    border-width: 3px;
-    padding: 20px;
-    border-radius: 20px;
-    text-align: justify;
-}
-
-.verticalline {
-    width: 2px;
-    background-color: #000;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 34vw;
-    opacity: 0.3;
 }
