@@ -68,6 +68,38 @@ function selectionSec2Sub0(n,A,L,x,type){
     return formula;
 }
 
+// Function for exact Targets
+function exactSec2Sub0 (A,L,x,shape) {
+    let data;
+    switch(shape) {
+        case "0" :
+            let x_values = [];
+            let y_values = [];
+            let newX;
+            let newY = A;
+            for (let i=0; i<=30; i++) {
+                newX = (-15.5+i)*L;
+                x_values.push(newX);
+                newY = newY*(-1);
+                y_values.push(newY);
+            }
+            console.log(x_values);
+            console.log(y_values);
+
+            data=[
+                {
+                    type:"scatter",
+                    mode:"lines",
+                    x: x_values,
+                    y: y_values,
+                    line:{color:"#767676", width:3, dash: "dashed"},
+                },
+            ];
+            break;
+    }
+    return data;
+}
+
 // sum up all the terms in the Fourier Series
 // so at x, we have terms n=0, n=1, n=2..., we sum up all the amplitudes y=y0+y1+y2+... y0 at n=0, y1 at n=1, y2 at n=2...
 function summationSec2Sub0(x) {
@@ -146,9 +178,9 @@ function computePlotSec2Sub0(x){
         //This was a bit of a long convoluted way to do this but I can't find the mistake,
         //so this fixes it. It's not too time consuming which is good.
     }
-    let data;
+    let data1;
     if (shape === 3){
-        data=[
+        data1=[
          {
             type:"scatter",
             mode:"lines",
@@ -158,7 +190,7 @@ function computePlotSec2Sub0(x){
          },
         ];
     } else {
-        data=[
+        data1=[
          {
             type:"scatter",
             mode:"lines",
@@ -168,7 +200,8 @@ function computePlotSec2Sub0(x){
          },
         ];
     }
-    return data;
+    let data2 = exactSec2Sub0(A,L,x,shape);
+    return [data1,data2];
 
 
 }
