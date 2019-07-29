@@ -12,7 +12,7 @@ let app = new Vue ({
         sectionTops: [],
         sectionBottoms: [],
         sectionTitleLong: ["Orthogonality", "Derivation", "Components", "Power Spectrum", "Overview"],
-        sectionTitleShort: ["1","2","3","4","5","6"],
+        sectionTitleShort: ["1","2","3","4","5"],
         sectionTitle: [],
         n: "",
         journeyHeightOld: "",
@@ -35,6 +35,13 @@ let app = new Vue ({
         showEq: true,
         equationID: "triangular",
         locked: true,
+        /*----------------------------------------------Eliza code-----------------------------------------------------*/
+        active1: false,
+            active2: false,
+            active3: false,
+            active4: false,
+            active5: false,
+        /*-------------------------------------------------------------------------------------------------------------*/
     },
 
     methods: {
@@ -50,7 +57,7 @@ let app = new Vue ({
                     let bottomSection = topSection + document.querySelectorAll("#"+"sc"+section)[0].offsetHeight - 2;
                     if (app.scrollPos >= topSection && app.scrollPos < bottomSection) {
                         app.currentSection = section;
-                    };
+                    }
                 }
                 for (let i=1; i<=app.n; i++) {
                 handleElement(i)}
@@ -98,6 +105,25 @@ let app = new Vue ({
             }
             app.$forceUpdate();
         },
+
+        /*--------------------------------------------------Eliza code-----------------------------------------------------------------*/
+        mouseOver1: function(){
+            this.active1 = !this.active1;
+        },
+        mouseOver2: function(){
+            this.active2 = !this.active2;
+        },
+        mouseOver3: function(){
+            this.active3 = !this.active3;
+        },
+        mouseOver4: function(){
+            this.active4 = !this.active4;
+        },
+        mouseOver5: function(){
+            this.active5 = !this.active5;
+        },
+
+        /*--------------------------------------------------------------------------------------------------------------------------*/
     },
 
     watch: {
@@ -334,17 +360,27 @@ let app = new Vue ({
 
 window.onload=function(){
 	let oBox=document.getElementById("lock-container");
+	console.log("lockL1:"+oBox.style.left)
 	let RL=0;
 	let RT=0;
 	oBox.onmousedown=function(ev){
 
-	     RL=ev.clientX-oBox.offsetLeft;
+	     /*RL=ev.clientX-oBox.offsetLeft;
 	     RT=ev.clientY-oBox.offsetTop;
 	     document.onmousemove=function(ev){
 
                   var L=ev.clientX-RL;
-	          var T=ev.clientY-RT;
-	          
+	          var T=ev.clientY-RT;*/
+	     RL=ev.screenX-oBox.offsetLeft;
+	     RT=ev.screenY-oBox.offsetTop;
+	     document.onmousemove=function(ev){
+
+                  var L=ev.screenX-RL;
+	          var T=ev.screenY-RT;
+
+	          oBox.style.left=L+"px";
+	          oBox.style.top=T+"px";
+
 	          oBox.style.left=L+"px";
 	          oBox.style.top=T+"px";
 	          console.log("RL:"+RL);
@@ -358,3 +394,4 @@ window.onload=function(){
 	        document.onmousemove=null;
 	}
 };
+

@@ -133,6 +133,46 @@ meter::-moz-meter-bar {
     box-shadow: none;
 }
 
+/*-------------------------------------------Eliza----------------------------------------------------------*/
+
+.mouseoverName{
+    position: fixed;
+    background-color: #d1e4ff;
+    text-align: center;
+    top:40px;
+    left:13vw;
+
+    color: black;
+    z-index: 9999;
+    height: 30px;
+    border-radius: 3px;
+    opacity: 0.6;
+}
+
+.center{
+    width: 67vw;
+    position: fixed;
+    top: 40px;
+    bottom: 0;
+    left: 16vw;
+    background: #ffffff;
+    box-shadow: 5px 10px 18px #888888 inset;
+
+}
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+/*---------------------------------------------------------------------------------------------------------------*/
 .activeButton {
     flex-grow: 5.7;
     color: #ffffff !important;
@@ -147,6 +187,7 @@ meter::-moz-meter-bar {
     text-shadow: 2px 2px 2px #000000;
     background-color: unset;
 }
+
 
 .section-body {
     margin: 0;
