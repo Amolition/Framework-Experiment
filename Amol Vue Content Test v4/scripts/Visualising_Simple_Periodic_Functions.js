@@ -71,17 +71,46 @@ function selectionSec2Sub0(n,A,L,x,type){
 // Function for exact Targets
 function exactSec2Sub0 (A,L,x,shape) {
     let data;
-    console.log("high");
     let x_values = [];
     let y_values = [];
     let newX;
-    let newY = -A;
-    for (let i=0; i<=30; i++) {
-        newX = (-15.5+i)*L;
-        x_values.push(newX);
-        newY = newY*(-1);
-        y_values.push(newY);
+    let newY;
+    switch (shape) {
+        case 0:
+            newY = -A;
+            for (let i=0; i<=30; i++) {
+                newX = (-15.5+i)*L;
+                x_values.push(newX);
+                newY = newY*(-1);
+                y_values.push(newY);
+            }
+            break;
+        case 1:
+            for (let i=0; i<=50; i++) {
+                let xbase = 
+                x_values.push(newX);
+                y_values.push(newY);
+            }
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        default:
+            newY = -A;
+            for (let i=0; i<=30; i++) {
+                newX = (-15.5+i)*L;
+                x_values.push(newX);
+                newY = newY*(-1);
+                y_values.push(newY);
+            }
     }
+
+
     console.log(x_values);
     console.log(y_values);
 
