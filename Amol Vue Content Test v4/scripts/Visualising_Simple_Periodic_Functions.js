@@ -71,32 +71,28 @@ function selectionSec2Sub0(n,A,L,x,type){
 // Function for exact Targets
 function exactSec2Sub0 (A,L,x,shape) {
     let data;
-    switch(shape) {
-        case "0" :
-            let x_values = [];
-            let y_values = [];
-            let newX;
-            let newY = A;
-            for (let i=0; i<=30; i++) {
-                newX = (-15.5+i)*L;
-                x_values.push(newX);
-                newY = newY*(-1);
-                y_values.push(newY);
-            }
-            console.log(x_values);
-            console.log(y_values);
-
-            data=[
-                {
-                    type:"scatter",
-                    mode:"lines",
-                    x: x_values,
-                    y: y_values,
-                    line:{color:"#767676", width:3, dash: "dashed"},
-                },
-            ];
-            break;
+    console.log("high");
+    let x_values = [];
+    let y_values = [];
+    let newX;
+    let newY = -A;
+    for (let i=0; i<=30; i++) {
+        newX = (-15.5+i)*L;
+        x_values.push(newX);
+        newY = newY*(-1);
+        y_values.push(newY);
     }
+    console.log(x_values);
+    console.log(y_values);
+
+    data=
+        {
+            type:"scatter",
+            mode:"lines",
+            x: x_values,
+            y: y_values,
+            line:{color:"#767676", width:3, dash: "dash"},
+        };
     return data;
 }
 
@@ -180,25 +176,23 @@ function computePlotSec2Sub0(x){
     }
     let data1;
     if (shape === 3){
-        data1=[
+        data1=
          {
             type:"scatter",
             mode:"lines",
             x: x_values,
             y: y_values,
-            line:{color:"#960078", width:3, dash: "dashed"},
-         },
-        ];
+            line:{color:"#960078", width:3, dash: "dash"},
+         };
     } else {
-        data1=[
+        data1=
          {
             type:"scatter",
             mode:"lines",
             x: x_values,
             y: y_values_cheat,
-            line:{color:"#960078", width:3, dash: "dashed"},
-         },
-        ];
+            line:{color:"#960078", width:3, dash: "dash"},
+         };
     }
     let data2 = exactSec2Sub0(A,L,x,shape);
     return [data1,data2];
