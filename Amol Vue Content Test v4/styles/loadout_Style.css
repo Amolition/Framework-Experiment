@@ -28,7 +28,6 @@
     left: 5%;
     top: 3%;
     padding: 1%;
-    border: solid 3px black;
 }
 
 #loadout1 .overall-sliders-container {
@@ -89,7 +88,7 @@
 
 #loadout1 #vectorComponents {
     width: 30vw;
-    margin: 0 5vw;
+    margin: 0 2vw;
     position: absolute;
     bottom: 20px;
     left: 30px;
