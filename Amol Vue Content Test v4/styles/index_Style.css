@@ -8,6 +8,11 @@
 .mathJaxDisplay {
     display:table;
     margin: 10px auto;
+    font-size: calc(4px + 0.95vw);
+}
+
+.mathJaxInline {
+    font-size: calc(4px + 0.95vw);
 }
 
 .vis-container {

@@ -202,10 +202,6 @@ let app = new Vue ({
                     }
                 }
             }
-            // runs mathJax re-display equation when section 3 entered
-            if (newValue === 3) {setTimeout(function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
-                }, 50)
-            }
         },
 
         derivationSubSection: function (newValue, oldValue) {
@@ -261,9 +257,6 @@ let app = new Vue ({
             setTimeout(
                 function () {app.showEq=true
             }, 50);
-            setTimeout(
-                function () {MathJax.Hub.Queue(["Typeset",MathJax.Hub,"equationSpace"]);
-            }, 100)
         },
     },
 
@@ -288,9 +281,14 @@ let app = new Vue ({
                     this.sectionPos();
                 }
             },2000);
-            // re-runs mathJax on entire page once everything else has loaded
-            // MathJax.Hub.Queue(["Typeset",MathJax.Hub,"app"]);
+            // collapses collapsible divs once mathJax has loaded fully
+            setTimeout(function () {MathJax.Hub.Queue(function () {
+               let collapseDivs = document.querySelectorAll(".collapse:not(#introContentContainer)");
+               for (let i=0; i<collapseDivs.length; i++) {
+                   collapseDivs[i].classList.remove("show");
+               }
+            })
+            }, 1000)
         }
     )},
 });
-$('input[type=range]').css( 'background-size', this.value + '% 100%' );
