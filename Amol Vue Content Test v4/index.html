@@ -1196,77 +1196,32 @@
 
                 <div id="equationSpace" v-if="showEq">
 
-                    <h4 id="eqnTitle"> Equation: </h4>
+<!--                    <h4 id="eqnTitle"> Equation: </h4>-->
 
-                    <br><br>
+<!--                    <br><br>-->
 
                     <div id="Triangle_eqn" v-if="equationID === 'triangular'">
-                            <span class="mathJaxDisplay">
-                                $$ f(x)=\left\{
-                                \begin{array}{ll}
-                                \frac{-2A}{L} (x+L) \quad (-L \leq x < -L/2) \\
-                                \frac{2A}{L} x \qquad \qquad (-L/2 \leq x < L/2) \\
-                                \frac{-2A}{L} (x-L) \quad (L/2 \leq x < L)
-                                \end{array}
-                                \right. $$
-                                $$ f(x)=\sum_{n=1,2,3...}^\infty  \frac{8A}{(2n-1)^2\pi^2}(-1)^n \sin \left(\frac{(2n-1)\pi x}{L}
-                                \right) $$
-                            </span>
+                            <img src="Triangle_Eqn.png">
                     </div>
 
                     <div id="Square_eqn" v-else-if="equationID === 'square'">
-                            <span class="mathJaxDisplay">
-                                $$
-                                f(x)=\left\{
-                                \begin{array}{ll}
-                                -A \quad (-L < x < 0) \\
-                                A \quad (0< x < L)
-                                \end{array}
-                                \right.
-                                $$
-                                <br><br>
-                                $$ f(x)=\sum_{n=1}^{\infty} \frac{2A}{n\pi} (1-(-1)^n) \sin \left(\frac{n\pi x}{L}\right)$$
-                            </span>
+                            <img src="Square_Eqn.png">
                     </div>
 
                     <div id="Sawtooth_eqn" v-else-if="equationID === 'sawtooth'">
-                            <span class="mathJaxDisplay">
-                                $$ f(x)=\frac{Ax}{L} \quad (-L < x \leq L) $$
-                                <br><br>
-                                $$ f(x)=\sum_{n=1}^\infty \frac{2A}{n\pi}(-1)^{n+1} \sin \left(\frac{n\pi x}{L} \right) $$
-                            </span>
+                            <img src="Sawtooth_Eqn.png">
                     </div>
 
                     <div id="Dirac_eqn" v-else-if="equationID === 'dirac'">
-                            <span class="mathJaxDisplay">
-                                $$
-                                f(x) = \delta(x)=\left\{
-                                \begin{array}{ll}
-                                +\infty \quad (x=0) \\
-                                0 \qquad (x \neq 0)
-                                \end{array}
-                                \right.
-                                $$
-                                <br><br>
-                                $$ f(x)=\frac{1}{2L}+\sum_{n=1}^\infty \frac{1}{L} \cos \left(\frac{n\pi x}{L} \right) $$
-                            </span>
+                        <img src="Dirac_Eqn.png">
                     </div>
 
                     <div id="Parabola_eqn" v-else-if="equationID === 'parabola'">
-                            <span class="mathJaxDisplay">
-                                $$ f(x)=Ax^2 $$
-                                <br><br>
-                                $$ f(x) = \frac{AL^2}{3} + \sum_{n=1}^\infty \frac{4AL^2}{n^2\pi^2} (-1)^n \cos \left(\frac{n\pi x}{L} \right) $$
-                            </span>
+                            <img src="Parabola_Eqn.png">
                     </div>
 
                     <div id="Modx_eqn" v-else-if="equationID === 'mode'">
-                            <span class="mathJaxDisplay">
-                                $$ f(x)=A|x| $$
-                                <br><br>
-                                $$ f(x)=\frac{AL}{2}+ \sum_{n=1}^\infty \frac{2AL}{(n\pi)^2} \left[(-1)^n-1 \right] \cos \left(\frac{n\pi
-                                x}{L} \right) $$
-                            </span>
+                            <img src="Modx_Eqn.png">
                     </div>
 
                 </div>

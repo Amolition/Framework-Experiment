@@ -255,10 +255,10 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 0;
+    left: 3%;
     bottom: 0;
-    width: 50%;
-    height: 30%;
+    width: 45%;
+    height: 25%;
 }
 
 #loadout3 .partial-sliders-container {
@@ -288,19 +288,15 @@
 
 #loadout3 #equationSpace {
     position: absolute;
-    right: 5%;
-    bottom: 2%;
-    width: 50%;
-    height: 30%;
+    right: 3%;
+    bottom: 3%;
+    width: 45%;
+    height: 22%;
     font-size: calc(3px + 0.95vw);
 }
 
-#loadout3 #eqnTitle {
+#loadout3 #img {
     width: inherit;
-    font-size: 5vh;
-    position: absolute;
-    top: 0;
-    text-align: center;
 }
 
 /* SECTION 4 */

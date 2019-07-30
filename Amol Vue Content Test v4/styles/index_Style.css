@@ -207,7 +207,7 @@ h3.section-sub-head {
     padding: 0.5vh 0 0.5vh 0;
     text-align: center;
     font-size: 3.2vh;
-    background: #CCDFFF;
+    background: #eaf2ff;
     color: #033482;
 }
 
@@ -323,7 +323,7 @@ i {
 /* TRANSITION STYLES */
 
 .fade-enter-active, .fade-leave-active {
-    transition: opacity 1s;
+    transition: opacity 0.5s;
 }
 
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
