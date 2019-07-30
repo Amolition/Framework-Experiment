@@ -280,3 +280,4 @@ let app = new Vue ({
         }
     )},
 });
+$('input[type=range]').css( 'background-size', this.value + '% 100%' );
