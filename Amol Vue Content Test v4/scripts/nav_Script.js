@@ -123,7 +123,6 @@ let app = new Vue ({
 
         updateMouseX: function(event) {
             // pass event object, bound to mouse move with update
-            console.log("working");
             app.mouseX = event.clientX -15;
         },
 
@@ -172,7 +171,6 @@ let app = new Vue ({
                         if (app.derivationSubSection > 3) {
                             document.querySelectorAll('#opt' + (app.derivationSubSection - 3))[0].setAttribute("selected", "true");
                             document.querySelectorAll('#SelectSec2Sub1')[0].setAttribute("disabled", "true");
-                            console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
                             document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
                             setTimeout(function () {
                                 selectorFuncSec2Sub0();
@@ -221,7 +219,6 @@ let app = new Vue ({
                         if (newValue > 3) {
                             document.querySelectorAll('#opt' + (newValue - 3))[0].setAttribute("selected", "true");
                             document.querySelectorAll('#SelectSec2Sub1')[0].setAttribute("disabled", "true");
-                            console.log(document.querySelectorAll("#SelectSec2Sub1")[0].value);
                             document.querySelectorAll('#scrollSec2Sub1')[0].style.display = "none";
                             setTimeout(function () {
                                 selectorFuncSec2Sub0();
