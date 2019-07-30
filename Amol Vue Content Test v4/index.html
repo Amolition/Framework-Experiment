@@ -50,6 +50,7 @@
     <div class="vis-container left" id="left-container">
         <!--     Dynamic Navigation Bar and Section Headings       -->
         <div class="" id="progress-container">
+            <div id="banner-dummy"></div>
             <!--    Dynamic Section Heading Text - overlaid on meters    -->
             <!--    Also act as buttons to navigate between sections    -->
             <div class="" id="overlay" @mousemove="hoverTitle !== false ? updateMouseX($event) : ''">
@@ -180,7 +181,7 @@
                                 <span class="mathJaxDisplay">
                                         \begin{align}
                                         a_n & = \frac{1}{L}\int_{-L}^{L} f(x) \cos\Big(\frac{\pi nx}{L}\Big) dx, \\
-                                        b_n & = e\frac{1}{L}\int_{-L}^{L} f(x) \sin\Big(\frac{\pi nx}{L}\Big) dx, \\
+                                        b_n & = \frac{1}{L}\int_{-L}^{L} f(x) \sin\Big(\frac{\pi nx}{L}\Big) dx, \\
                                         a_0 & = \frac{1}{L}\int_{-L}^{L} f(x) dx,
                                         \end{align}
                                     </span>
@@ -441,7 +442,7 @@
                                     </span>
                                 For <span>$ n=0 $</span>:
                                 <span class="mathJaxDisplay">
-                                        $$ a_0 = \frac{2}{L} \int _{0}^{+L} Ax^2 dx a_0 = \frac{2AL^2}{3} $$
+                                        $$ a_0 = \frac{2}{L} \int _{0}^{+L} Ax^2 dx  = \frac{2AL^2}{3} $$
                                     </span>
                                 For <span>$ n\neq 0 $</span>:
                                 <span class="mathJaxDisplay">
@@ -821,18 +822,18 @@
                         <div id="evenThetaAnswer" class="extra-content">
                             This happens because the value of <span>$ a_n $</span> changes sign
                             (<span>$ b_n $</span> is 0) causing the value of
-                            <span>$ \theta_n $</span>to change. For <span>$ b_n = 0 $</span>, <span>$ \tan^{-1}(\frac{b_n}{a_n}) $</span>
+                            <span>$ \theta_n $</span> to change. For <span>$ b_n = 0 $</span>, <span>$ \tan^{-1}(\frac{b_n}{a_n}) $</span>
                             can be both
-                            0 or<span>$ \pi $</span> depending on whether <span>$ a_n $</span> is positive or
+                            0 or <span>$ \pi $</span> depending on whether <span>$ a_n $</span> is positive or
                             negative. Not all even functions exhibit this.
                             The parabola for example, has its <span>$ a_n $</span> proportional to
-                            <span>$ L^2 $</span>, so its sign does not change when L changes sign.
+                            <span>$ L^2 $</span>, so its sign does not change when $L$ changes sign.
                         </div>
                     </div>
                     <h3 class="section-sub-head">
                         Orthogonal functions
                     </h3>
-                    Two functions <span>$ f $</span>and <span>$ g $</span> are said to be orthogonal if their inner
+                    Two functions <span>$ f $</span> and <span>$ g $</span> are said to be orthogonal if their inner
                     product <span>$ \langle f,g\rangle $</span> is 0. Just like basis vectors in a finite vector space,
                     a set of orthogonal functions can form an infinite basis in a function space and a linear sum of
                     these basis functions can describe any function in that function space.
@@ -1323,7 +1324,7 @@
                                 <span id="NControllerSec4Display" data-unit="">1</span>
                             </label>
                             <!--Slider N-->
-                            <label class="slider-label">
+                            <label class="slider">
                                 <span class="sliderMin">0</span>
                                 <input id="NControllerSec4" class="inputs" type="range" value="1" min="0" max="50"
                                        step="1"/>
@@ -1401,7 +1402,7 @@
                                 <span id="NController2Sec5Display" data-unit="">1</span>
                             </label>
                             <!--Slider N-->
-                            <label class="slider-label">
+                            <label class="slider">
                                 <span class="sliderMin">0</span>
                                 <input id="NController2Sec5" class="inputs" type="range" value="1" min="0" max="10"
                                        step="1">
@@ -1436,6 +1437,7 @@
         </transition-group>
     </div>
     <!--    Title Banner above Right Side    -->
+
     <div class="banner">
         <!--    Visualisation Title    -->
         <h1 class="" id="vis-title">
