@@ -288,14 +288,16 @@
 
 #loadout3 #equationSpace {
     position: absolute;
-    right: 0;
+    right: 5%;
     bottom: 2%;
     width: 50%;
     height: 30%;
+    font-size: calc(3px + 0.95vw);
 }
 
 #loadout3 #eqnTitle {
     width: inherit;
+    font-size: 5vh;
     position: absolute;
     top: 0;
     text-align: center;
@@ -365,12 +367,14 @@
     flex-basis: 0;
     flex-grow: 0.5;
     flex-shrink: 1;
+    left:0;
 }
 
 #loadout4 .slider {
     flex-basis: 0;
     flex-grow: 1;
     flex-shrink: 1;
+    right: 0;
 }
 
 /* SECTION 5 */
@@ -453,12 +457,14 @@
     flex-basis: 0;
     flex-grow: 0.5;
     flex-shrink: 1;
+    left: 0;
 }
 
 #loadout5 .slider {
     flex-basis: 0;
     flex-grow: 1;
     flex-shrink: 1;
+    right:0;
 }
 
 #loadoutblank {
