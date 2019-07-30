@@ -193,6 +193,7 @@ meter::-moz-meter-bar {
     position: fixed;
     left: 5vw;
     bottom: 10vh;
+    
 
 }
 #next{
@@ -206,7 +207,8 @@ meter::-moz-meter-bar {
 }
 
 .banner {
-    height: 42px;
+    height: 3vw;
+    min-height: 2vw;
     width: 100vw;
     position: fixed;
     top: 0;
@@ -243,19 +245,19 @@ meter::-moz-meter-bar {
     border-left: white solid 2px;
     position: relative;
     cursor: pointer;
-    font-size: 26px;
+    font-size: 2vw;
     text-align: center;
     white-space:pre;
 
 }
 .active{
     width: 15vw;
-    min-width: 10vw;
+    min-width: 5vw;
     border-right: white solid 2px;
     border-left: white solid 2px;
     position: relative;
     cursor: pointer;
-    font-size: 26px;
+    font-size: 2vw;
     text-align: center;
     white-space:pre;
     color: #ff5153;
@@ -432,9 +434,9 @@ h3.section-sub-head {
 
 #vis-logo {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    height: 20px;
+    top: 1vh;
+    right: 1vw;
+    height: 2vw;
 }
 
 nav {
