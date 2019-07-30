@@ -23,22 +23,7 @@
     top: 0;
     left: 0;
     background: #ccdfff;
-}
-
-#section-title {
-    height: 4vh;
-    width: inherit;
-    margin:0;
-    position: fixed;
-    text-align: center;
-    vertical-align: middle;
-    font-weight: bolder;
-    top: 0;
-    /*min-height: 35px;*/
-    background: #ccdfff;
-    color: #003e74;
-    border-left: #ccdfff solid 17px;
-    border-right: #ccdfff solid 17px;
+    z-index: 1;
 }
 
 #progress-container {
@@ -49,6 +34,7 @@
     left: 0;
     top: 0;
     border:none;
+    z-index: 2;
 }
 
 meter {
@@ -64,8 +50,7 @@ meter {
 meter::-webkit-meter-bar {
     background: none; /* Required to get rid of the default background property */
     background-color: #37578b;
-    box-shadow: 0 0.5vhpx 0.5vh -0.5vhpx
-     #333 inset;
+    box-shadow: 0 0.5vhpx 0.5vh -0.5vhpx #333 inset;
 }
 
 meter::-webkit-meter-optimum-value {
@@ -78,18 +63,14 @@ meter::-webkit-meter-optimum-value {
 meter {
     /* Firefox */
     background: none; /* Required to get rid of the default background property */
-    background-color: #5e8cd6;
-    box-shadow: 0 5px 5px -5px #333 inset;
+    background-color: #37578b;
+    box-shadow: 0 0.5vhpx 0.5vh -0.5vhpx #333 inset;
 }
 
 meter::-moz-meter-bar {
-    box-shadow: 0 5px 5px -5px #000000 inset;
-    background-image: linear-gradient(
-            90deg,
-            #033482 0%,
-            #033482 66%,
-            #151c26 100%
-    );
+    box-shadow: 0 5px 5px -5px #999 inset;
+    height: 0.4vh;
+    background: #ff1447;
     background-size: 100% 100%;
 }
 
@@ -104,7 +85,7 @@ meter::-moz-meter-bar {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 .overlay-button {
@@ -116,13 +97,13 @@ meter::-moz-meter-bar {
     line-height: 4vh;
     text-align: center;
     vertical-align: middle;
-    /*font-size: 12pt;*/
     font-size:2vh;
     background: none;
     color: #ffffff !important;
     border: none;
     min-width: 25px;
     transition: flex-grow 450ms ease;
+    z-index: 2;
     box-shadow: none;
 }
 
@@ -142,17 +123,17 @@ meter::-moz-meter-bar {
 
 #hoverTitleSpace {
     position: fixed;
-    top: 50px;
+    top: 5vh;
     left: 0;
     font-size: 12pt;
     width: fit-content;
     height: fit-content;
-    padding: 5px;
-    border-radius: 6px;
+    padding: 0.5vh 0.5vw;
+    border-radius: 0.5vh;
     background: #000000;
     color: #ffffff;
     z-index: 3;
-    box-shadow: 2px 2px 2px 1px #888888;
+    box-shadow: 0.2vw 0.2vh 0.2vh 0.1vh #888888;
 }
 
 #hoverTitleSpace::after {
@@ -176,14 +157,11 @@ meter::-moz-meter-bar {
     overflow-y:auto !important;
     overflow-x:hidden;
     text-align: justify;
-    box-shadow: 0.5vh 0.5vh 2.5vh #b1b1b1 inset;
 }
 
 .section-body {
     margin: 0;
     padding: 2vh 0 0 0;
-    /*font-size: 14pt;*/
-    /*font-size: 2.4vh;*/
     font-size: calc(4px + 0.95vw);
     text-align: justify;
 }
@@ -272,7 +250,16 @@ i {
     bottom: 0;
     right: 0;
     background: #ffffff;
-    box-shadow: 0.5vh 0.5vh 2.5vh #b1b1b1 inset;
+}
+
+#banner-dummy {
+    height: 4vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 1vh 2.5vh #b1b1b1;
+    z-index: 1;
 }
 
 .banner {
@@ -288,7 +275,7 @@ i {
             #37578b 100%
     );
     color: #ffffff;
-    z-index: -1;
+    z-index: 2;
 }
 
 #vis-title {
