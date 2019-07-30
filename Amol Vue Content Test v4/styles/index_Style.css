@@ -103,7 +103,7 @@ meter::-moz-meter-bar {
     border: none;
     min-width: 25px;
     transition: flex-grow 450ms ease;
-    z-index: 2;
+    z-index: 4;
     box-shadow: none;
 }
 
@@ -115,15 +115,21 @@ meter::-moz-meter-bar {
     /*letter-spacing: 2pt;*/
 }
 
-.overlay-button:hover {
+.activeButton:hover {
     color: #ffffff !important;
-    font-size: 16pt;
+    font-size: 3vh;
+    background-color: unset;
+}
+
+.overlay-button:not(.activeButton):hover {
+    color: #ffffff !important;
+    font-size: 2.4vh;
     background-color: unset;
 }
 
 #hoverTitleSpace {
     position: fixed;
-    top: 5vh;
+    top: 6vh;
     left: 0;
     font-size: 12pt;
     width: fit-content;
@@ -132,7 +138,7 @@ meter::-moz-meter-bar {
     border-radius: 0.5vh;
     background: #000000;
     color: #ffffff;
-    z-index: 3;
+    z-index: 2;
     box-shadow: 0.2vw 0.2vh 0.2vh 0.1vh #888888;
 }
 
@@ -145,6 +151,7 @@ meter::-moz-meter-bar {
     border-width: 8px;
     border-style: solid;
     border-color: transparent transparent #000000 transparent;
+    z-index: 2;
 }
 
 .journey {
@@ -312,14 +319,13 @@ i {
 
 #vis-logo {
     position: absolute;
-    top: 0.5vh;
-    right: 0.5vh;
-    height: 4vh;
-    height: 80%;
+    top: 0.7vh;
+    right: 0.7vh;
+    height: 65%;
 }
 
 #vis-logo img{
-     max-height: 80%;
+     max-height: 65%;
      width: auto;
 }
 

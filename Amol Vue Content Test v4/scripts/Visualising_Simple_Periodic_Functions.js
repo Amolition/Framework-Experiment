@@ -142,10 +142,10 @@ function exactSec2Sub0 (A,L,x,shape) {
             for (let i=0; i<=30; i++) {
                 newX = (-15 + i) * L;
                 x_values.push(newX);
-                if (newY===A) {
+                if (newY===A*L) {
                     newY=0
                 } else {
-                    newY=A
+                    newY=A*L
                 }
                 y_values.push(newY);
             }

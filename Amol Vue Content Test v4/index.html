@@ -55,19 +55,19 @@
             <!--    Also act as buttons to navigate between sections    -->
             <div class="" id="overlay" @mousemove="hoverTitle !== false ? updateMouseX($event) : ''">
                 <button :class="[currentTitle === 1 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle1"
-                        key="sectionTitle1" data-no=1 @click="scrollTo($event)" @mouseover="(currentTitle !== 1) ? hoverTitle=sectionTitleLong[0] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[0]}}
+                        key="sectionTitle1" data-no=1 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[0]}}
                 </button>
                 <button :class="[currentTitle === 2 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle2"
-                        key="sectionTitle2" data-no=2 @click="scrollTo($event)" @mouseover="(currentTitle !== 2) ? hoverTitle=sectionTitleLong[1] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[1]}}
+                        key="sectionTitle2" data-no=2 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[1]}}
                 </button>
                 <button :class="[currentTitle === 3 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle3"
-                        key="sectionTitle3" data-no=3 @click="scrollTo($event)" @mouseover="(currentTitle !== 3) ? hoverTitle=sectionTitleLong[2] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[2]}}
+                        key="sectionTitle3" data-no=3 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[2]}}
                 </button>
                 <button :class="[currentTitle === 4 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle4"
-                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="(currentTitle !== 4) ? hoverTitle=sectionTitleLong[3] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[3]}}
+                        key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[3]}}
                 </button>
                 <button :class="[currentTitle === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5"
-                        key="sectionTitle5" data-no=5 @click="scrollTo($event)" @mouseover="(currentTitle !== 5) ? hoverTitle=sectionTitleLong[4] : ''" @mouseleave="hoverTitle=false">{{sectionTitle[4]}}
+                        key="sectionTitle5" data-no=5 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[4]}}
                 </button>
             </div>
             <!--    Dynamic meters indicating progress through each section    -->
@@ -160,7 +160,8 @@
                 </div>
                 <div class="text section-body odd" id="p2">
                     <div id="intro" class="divclass">
-                        <button id="ssh1" class="section-sub-head first-sub-head" key="ssh1" @click="updateSubSection(1); subScrollTo($event)" data-toggle="collapse" data-target="#introContentContainer">
+                        <button id="ssh1" class="section-sub-head first-sub-head" key="ssh1" @click="updateSubSection(1); subScrollTo($event)" data-toggle="collapse" data-target="#introContentContainer"
+                        :style="derivationSubSection === 1 ? 'background-color: #eaf2ff;' : ''">
                             Introduction to Fourier series <i class='fas fa-chevron-down'></i>
                         </button>
                         <div id="introContentContainer" class="collapse show" data-parent="#p2">
@@ -208,7 +209,8 @@
                         </div>
                     </div>
                     <div id="FSderivation" class="divclass">
-                        <button id="ssh2" class="section-sub-head collapsed" key="ssh2" @click="updateSubSection(2); subScrollTo($event)" data-toggle="collapse" data-target="#FSderivationContentContainer">
+                        <button id="ssh2" class="section-sub-head collapsed" key="ssh2" @click="updateSubSection(2); subScrollTo($event)" data-toggle="collapse" data-target="#FSderivationContentContainer"
+                                :style="derivationSubSection === 2 ? 'background-color: #eaf2ff;' : ''">
                             General Derivation <i class='fas fa-chevron-down'></i>
                         </button>
                         <div id="FSderivationContentContainer" class="collapse" data-parent="#p2">
@@ -308,7 +310,8 @@
                         </div>
                     </div>
                     <div id="triangular1" class="divclass">
-                        <button id="ssh3" class="section-sub-head collapsed" key="ssh3" @click="updateSubSection(3); subScrollTo($event)" data-toggle="collapse" data-target="#triangular1ContentContainer">
+                        <button id="ssh3" class="section-sub-head collapsed" key="ssh3" @click="updateSubSection(3); subScrollTo($event)" data-toggle="collapse" data-target="#triangular1ContentContainer"
+                                :style="derivationSubSection === 3 ? 'background-color: #eaf2ff;' : ''">
                             Triangular Function Part 1 <i class='fas fa-chevron-down'></i>
                         </button>
                         <div id="triangular1ContentContainer" class="collapse" data-parent="#p2">
@@ -350,7 +353,8 @@
                         </div>
                     </div>
                     <div id="triangular2" class="divclass">
-                        <button id="ssh4" class="section-sub-head collapsed" key="ssh4" @click="updateSubSection(4); subScrollTo($event)" data-toggle="collapse" data-target="#triangular2ContentContainer">
+                        <button id="ssh4" class="section-sub-head collapsed" key="ssh4" @click="updateSubSection(4); subScrollTo($event)" data-toggle="collapse" data-target="#triangular2ContentContainer"
+                                :style="derivationSubSection === 4 ? 'background-color: #eaf2ff;' : ''">
                             Triangular Function Part 2 <i class='fas fa-chevron-down'></i>
                         </button>
                         <div id="triangular2ContentContainer" class="collapse" data-parent="#p2">
@@ -417,7 +421,8 @@
                         </div>
                     </div>
                     <div id="parabolic" class="divclass">
-                        <button id="ssh5" class="section-sub-head collapsed" key="ssh5" @click="updateSubSection(5); subScrollTo($event)" data-toggle="collapse" data-target="#parabolicContentContainer">
+                        <button id="ssh5" class="section-sub-head collapsed" key="ssh5" @click="updateSubSection(5); subScrollTo($event)" data-toggle="collapse" data-target="#parabolicContentContainer"
+                                :style="derivationSubSection === 5 ? 'background-color: #eaf2ff;' : ''">
                             Parabolic Function <i class='fas fa-chevron-down'></i>
                         </button>
                         <div id="parabolicContentContainer" class="collapse" data-parent="#p2">
@@ -509,7 +514,8 @@
                         </div>
                     </div>
                     <div id="delta" class="divclass">
-                        <button id="ssh6" class="section-sub-head collapsed" key="ssh6" @click="updateSubSection(6); subScrollTo($event)" data-toggle="collapse" data-target="#deltaContentContainer">
+                        <button id="ssh6" class="section-sub-head collapsed" key="ssh6" @click="updateSubSection(6); subScrollTo($event)" data-toggle="collapse" data-target="#deltaContentContainer"
+                                :style="derivationSubSection === 6 ? 'background-color: #eaf2ff;' : ''">
                             Dirac-Delta Function <i class='fas fa-chevron-down'></i>
                         </button>
                         <div id="deltaContentContainer" class="collapse" data-parent="#p2">
@@ -564,7 +570,8 @@
                         </div>
                     </div>
                     <div id="square" class="divclass">
-                        <button id="ssh7" class="section-sub-head collapsed" key="ssh7" @click="updateSubSection(7); subScrollTo($event)" data-toggle="collapse" data-target="#squareContentContainer">
+                        <button id="ssh7" class="section-sub-head collapsed" key="ssh7" @click="updateSubSection(7); subScrollTo($event)" data-toggle="collapse" data-target="#squareContentContainer"
+                                :style="derivationSubSection === 7 ? 'background-color: #eaf2ff;' : ''">
                             Square Wave <i class='fas fa-chevron-down'></i>
                         </button>
                         <div id="squareContentContainer" class="collapse" data-parent="#p2">
@@ -616,7 +623,8 @@
                         </div>
                     </div>
                     <div id="sawtooth" class="divclass">
-                        <button id="ssh8" class="section-sub-head collapsed" key="ssh8" @click="updateSubSection(8); subScrollTo($event)" data-toggle="collapse" data-target="#sawtoothContentContainer">
+                        <button id="ssh8" class="section-sub-head collapsed" key="ssh8" @click="updateSubSection(8); subScrollTo($event)" data-toggle="collapse" data-target="#sawtoothContentContainer"
+                                :style="derivationSubSection === 8 ? 'background-color: #eaf2ff;' : ''">
                             Sawtooth Wave <i class='fas fa-chevron-down'></i>
                         </button>
                         <div id="sawtoothContentContainer" class="collapse" data-parent="#p2">
@@ -671,7 +679,8 @@
                         </div>
                     </div>
                     <div id="modx" class="divclass">
-                        <button id="ssh9" class="section-sub-head collapsed" key="ssh9" @click="updateSubSection(9); subScrollTo($event)" data-toggle="collapse" data-target="#modxContentContainer">
+                        <button id="ssh9" class="section-sub-head collapsed" key="ssh9" @click="updateSubSection(9); subScrollTo($event)" data-toggle="collapse" data-target="#modxContentContainer"
+                                :style="derivationSubSection === 1 ? 'background-color: #eaf2ff;' : ''">
                             Mod x Function <i class='fas fa-chevron-down'></i>
                         </button>
                         <div id="modxContentContainer" class="collapse" data-parent="#p2">
@@ -919,7 +928,7 @@
                 <!--Graph-->
                 <div id='graph1Sec1'></div>
                 <!--Display of vector 1 and 2 lengths to reach target vector-->
-                <div id="vectorComponents">
+                <div id="vectorComponentsCustom">
                         <span style="font-weight: bolder">
                             Components of Projections:
                         </span>
@@ -940,7 +949,7 @@
                         </span>
                 </div>
                 <!--Popup if vector 1 and 2 are parallel (meaning they cannot span R2)-->
-                <div class="popup" id="popup1">
+                <div id="popup1">
                     Vectors 1 and 2 are parallel so <span>$\Bbb{R}^2$</span> is not spanned.
                 </div>
                 <!--Buttons/Sliders-->
@@ -1196,27 +1205,27 @@
 
                 <div id="equationSpace" v-if="showEq">
 
-                    <div id="Triangle_eqn" v-if="equationID === 'triangular'">
+                    <div id="Triangle_eqn" class="equationContainer" v-if="equationID === 'triangular'">
                             <img src="Triangle_Eqn.png">
                     </div>
 
-                    <div id="Square_eqn" v-else-if="equationID === 'square'">
+                    <div id="Square_eqn" class="equationContainer" v-else-if="equationID === 'square'">
                             <img src="Square_Eqn.png">
                     </div>
 
-                    <div id="Sawtooth_eqn" v-else-if="equationID === 'sawtooth'">
+                    <div id="Sawtooth_eqn" class="equationContainer" v-else-if="equationID === 'sawtooth'">
                             <img src="Sawtooth_Eqn.png">
                     </div>
 
-                    <div id="Dirac_eqn" v-else-if="equationID === 'dirac'">
+                    <div id="Dirac_eqn" class="equationContainer" v-else-if="equationID === 'dirac'">
                         <img src="Dirac_Eqn.png">
                     </div>
 
-                    <div id="Parabola_eqn" v-else-if="equationID === 'parabola'">
+                    <div id="Parabola_eqn" class="equationContainer" v-else-if="equationID === 'parabola'">
                             <img src="Parabola_Eqn.png">
                     </div>
 
-                    <div id="Modx_eqn" v-else-if="equationID === 'mode'">
+                    <div id="Modx_eqn" class="equationContainer" v-else-if="equationID === 'mode'">
                             <img src="Modx_Eqn.png">
                     </div>
 
@@ -1335,50 +1344,48 @@
                     <!--Scroll-down to select between a_n b_n and alpha_n theta_n-->
                     <!--Scroll-down to select coefficient-->
                     <div>
-                    <strong>Select Coefficient: </strong>
-                    <select id="CoefficientSec5">
-                        <option value="a">a</option>
-                        <option value="b">b</option>
-                        <option value="α">α</option>
-                        <option value="θ">θ</option>
-                    </select>
-                </div>
-                    <!--Sliders-->
-                    <div class="overall-sliders-container">
-                        <!--BEGIN Slider N-->
-                        <div id="NSec5" class="partial-sliders-container">
-                            <!--Slider Display N-->
-                            <label class="slider-label">Number of Terms:
-                                <span id="NControllerSec5Display" data-unit="">1</span>
-                                <span id="NController2Sec5Display" data-unit="">1</span>
-                            </label>
-                            <!--Slider N-->
-                            <label class="slider">
-                                <span class="sliderMin">0</span>
-                                <input id="NController2Sec5" class="inputs" type="range" value="1" min="0" max="10"
-                                       step="1">
-                                <input id="NControllerSec5" class="inputs" type="range" value="1" min="0" max="20"
-                                       step="1">
-                                <span class="sliderMax" id="NMaxSec5">20</span>
-                            </label>
-                        </div>
-                        <!--END Slider N-->
-                        <!--BEGIN Slider L-->
-                        <div id="LSec5" class="partial-sliders-container">
-                            <!--Slider Display L-->
-                            <label class="slider-label">Period:
-                                <span id="LControllerSec5Display" data-unit="">1</span>
-                            </label>
-                            <!--Slider L-->
-                            <label class="slider">
-                                <span class="sliderMin">-5</span>
-                                <input id="LControllerSec5" class="inputs" type="range" value="1" min="-5" max="5"
-                                       step="0.5"/>
-                                <span class="sliderMax">5</span>
-                            </label>
-                        </div>
-                        <!--END Slider L-->
+                        <strong>Select Coefficient: </strong>
+                        <select id="CoefficientSec5">
+                            <option value="a">a</option>
+                            <option value="b">b</option>
+                            <option value="α">α</option>
+                            <option value="θ">θ</option>
+                        </select>
                     </div>
+                    <!--Sliders-->
+                    <!--BEGIN Slider N-->
+                    <div id="NSec5" class="partial-sliders-container">
+                        <!--Slider Display N-->
+                        <label class="slider-label">Number of Terms:
+                            <span id="NControllerSec5Display" data-unit="">1</span>
+                            <span id="NController2Sec5Display" data-unit="">1</span>
+                        </label>
+                        <!--Slider N-->
+                        <label class="slider">
+                            <span class="sliderMin">0</span>
+                            <input id="NController2Sec5" class="inputs" type="range" value="1" min="0" max="10"
+                                   step="1">
+                            <input id="NControllerSec5" class="inputs" type="range" value="1" min="0" max="20"
+                                   step="1">
+                            <span class="sliderMax" id="NMaxSec5">20</span>
+                        </label>
+                    </div>
+                    <!--END Slider N-->
+                    <!--BEGIN Slider L-->
+                    <div id="LSec5" class="partial-sliders-container">
+                        <!--Slider Display L-->
+                        <label class="slider-label">Period:
+                            <span id="LControllerSec5Display" data-unit="">1</span>
+                        </label>
+                        <!--Slider L-->
+                        <label class="slider">
+                            <span class="sliderMin">-5</span>
+                            <input id="LControllerSec5" class="inputs" type="range" value="1" min="-5" max="5"
+                                   step="0.5"/>
+                            <span class="sliderMax">5</span>
+                        </label>
+                    </div>
+                    <!--END Slider L-->
                 </div>
             </div>
             <div class="rightload text wait" id='loadoutblank' key="loadoutblank"
@@ -1388,7 +1395,6 @@
         </transition-group>
     </div>
     <!--    Title Banner above Right Side    -->
-
     <div class="banner">
         <!--    Visualisation Title    -->
         <h1 class="" id="vis-title">
@@ -1398,7 +1404,7 @@
             <img id="vis-logo" src="VisualisationsLogoWhite2.png">
         </a>
     </div>
-     <div class="rightScriptSpace"></div>
+    <div class="rightScriptSpace"></div>
     <div class="derivationScriptSpace"></div>
 </div>
 </body>

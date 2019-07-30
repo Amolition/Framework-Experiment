@@ -6,7 +6,7 @@
     bottom: 0;
     right: 0;
     background: #ffffff;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -21,14 +21,12 @@
 }
 
 #loadout1 #graph1Sec1 {
-    box-sizing: content-box;
-    width: 50%;
-    height: 75%;
+    width: 60%;
+    height: 80%;
     position: absolute;
-    left: 5%;
+    left: 3%;
     top: 3%;
     padding: 1%;
-    /*border: solid 3px black;*/
 }
 
 #loadout1 .overall-sliders-container {
@@ -37,8 +35,8 @@
     position: absolute;
     right: 1vh;
     top: 5vh;
-    width: 20vw;
-    height: 90vh;
+    width: 30%;
+    height: 100%;
 }
 
 #loadout1 .partial-sliders-container {
@@ -87,29 +85,25 @@
     color: rgb(0, 128, 0);
 }
 
-#loadout1 #vectorComponents {
-    width: 30vw;
-    margin: 0 2vw;
+#loadout1 #vectorComponentsCustom {
+    width: 60%;
     position: absolute;
-    bottom: 20px;
-    left: 30px;
+    left: 3%;
+    bottom: 6%;
+    padding: 1%;
     text-align: center;
     font-size: 14pt;
 }
 
-#loadout1 .popup {
-    width: 30vw;
-    margin: 0 5vw;
+#loadout1 #popup1 {
+    width: 60%;
     position: absolute;
-    bottom: 20px;
-    left: 30px;
+    left: 3%;
+    bottom: 6%;
+    padding: 1%;
     text-align: center;
     color: white;
     background-color: #D50032;
-}
-
-#vectorComponents {
-    font-size: 14pt;
 }
 
 /* SECTION 2 */
@@ -256,7 +250,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 3%;
+    left: 5%;
     bottom: 0;
     width: 45%;
     height: 25%;
@@ -289,15 +283,22 @@
 
 #loadout3 #equationSpace {
     position: absolute;
-    right: 3%;
+    right: 5%;
     bottom: 3%;
     width: 45%;
     height: 22%;
     font-size: calc(3px + 0.95vw);
 }
 
-#loadout3 #img {
-    width: inherit;
+#loadout3 .equationContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+#loadout3 img {
+    height: 100%;
 }
 
 /* SECTION 4 */
@@ -333,6 +334,9 @@
 }
 
 #loadout4 .selectorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-basis: 0;
     flex-grow: 1;
     width: 100%;
@@ -413,27 +417,20 @@
     flex-grow: 1;
 }
 
-#loadout5 .inputsContainer{
+#loadout5 .inputsContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    right: 0;
-    bottom: 50%;
-    width: 55%;
-    height: 50%;
+    top: 5%;
+    right: 2.5%;
+    width: 45%;
+    height: 40%;
 }
 
-#loadout5 .selectorContainer {
+#loadout5 * {
     flex-basis: 0;
     flex-grow: 1;
-}
-
-#loadout5 .overall-sliders-container {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 0;
-    flex-grow: 4;
 }
 
 #loadout5 .partial-sliders-container {

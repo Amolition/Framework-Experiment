@@ -15,6 +15,7 @@ let app = new Vue ({
         sectionTitleLong: ["Orthogonality", "Derivation", "Components", "Power Spectrum", "Overview"],
         sectionTitleShort: ["1","2","3","4","5","6"],
         sectionTitle: [],
+        hoverPos: '',
         hoverTitle: false,
         mouseX: '',
         n: "",
@@ -119,6 +120,18 @@ let app = new Vue ({
                 app.derivationSubSection = 0;
             }
             app.$forceUpdate();
+        },
+
+        hoverPosUpdate: function (event) {
+            app.hoverPos = parseFloat(event.currentTarget.dataset.no)
+        },
+
+        selectHover: function () {
+            if (app.currentTitle !== app.hoverPos) {
+                app.hoverTitle=app.sectionTitleLong[app.hoverPos-1]
+            } else {
+                app.hoverTitle=false
+            }
         },
 
         updateMouseX: function(event) {

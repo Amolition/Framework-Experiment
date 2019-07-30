@@ -218,7 +218,7 @@ function computeBasisSec1(x1, y1,x2,y2 , x3,y3) {
        vertex7 = new Line2d([[x_dprime, y_dprime] , [x3, y3]] );//[project_2[0],project_2[1]]]);
 
        $(document).ready(() => {
-	        $('.popup').hide();
+	        $('#popup1').hide();
        });
 
 
@@ -231,7 +231,7 @@ function computeBasisSec1(x1, y1,x2,y2 , x3,y3) {
 
         $(document).ready(() => {
             MathJax.Hub.Queue(["Typeset",MathJax.Hub,"popup1"]);
-            $('.popup').show();
+            $('#popup1').show();
         });
 
 
