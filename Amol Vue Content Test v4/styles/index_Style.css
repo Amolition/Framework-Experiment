@@ -9,10 +9,12 @@
     display:table;
     margin: 10px auto;
     font-size: calc(4px + 0.95vw);
+    font-family: "Fira Sans", sans-serif;
 }
 
 .mathJaxInline {
     font-size: calc(4px + 0.95vw);
+    font-family: "Fira Sans", sans-serif;
 }
 
 .vis-container {
@@ -212,14 +214,9 @@ button.section-sub-head {
     position: relative;
     margin: 10px 0 20px 0;
     text-align: center;
-    /*font-size: 18pt;*/
     font-size: 2.5vh;
-    /*background: #ccdfff;*/
-    /*border: solid 1px black;*/
     border: solid 1px #033482;
-    /*border-radius: 10%;*/
     color: #033482;
-    /*border-radius: 40px;*/
     box-shadow: none;
 }
 
@@ -260,7 +257,16 @@ i {
 }
 
 .section-extra-head {
+    margin: 10px 0 20px 0;
+    text-align: center;
     font-size: 10pt;
+    border: solid 1px #033482;
+    color: #033482;
+    box-shadow: none;
+}
+
+.section-extra-head:hover {
+    background-color: #eaf2ff;
 }
 
 .first-sub-head {
