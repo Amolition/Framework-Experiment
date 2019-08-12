@@ -953,8 +953,10 @@
         </div>
     </div>
     <!-- previous, next and home button -->
-    <button id="previous" @click="previous"><< Previous</button>
-    <button id="next"  @click="next">Next >></button>
+    <div id="previous" @click="previous" @mouseenter="prevState=true" @mouseleave="prevState=false"></div>
+    <div :class="[prevState === true ? 'activePrevDummy' : '', 'prevDummy']"><span style="text-align: right"><<</span> Previous</div>
+    <div id="next" @click="next" @mouseenter="nextState=true" @mouseleave="nextState=false"></div>
+    <div :class="[nextState === true ? 'activeNextDummy' : '', 'nextDummy']">Next <span style="text-align: left">>></span></div>
 
     <!--    Right Side of Window - containing mainly interactive and visual content    -->
     <div class="vis-container center" id="right-container" >
