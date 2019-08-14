@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e52ee41-ced2-4931-850e-ad06fd7add85" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v3/pure-vis-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/pure-vis-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v3/scripts/nav_Script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/scripts/nav_Script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v3/styles/index_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v3/styles/index_Style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Amol Vue Content Test v4/styles/index_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Amol Vue Content Test v4/styles/index_Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Support-Vector-Machines/Support-Vector-Machines.html" beforeDir="false" afterPath="$PROJECT_DIR$/Support-Vector-Machines/Support-Vector-Machines.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Support-Vector-Machines/scripts/nav_Script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Support-Vector-Machines/scripts/nav_Script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Support-Vector-Machines/styles/index_Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Support-Vector-Machines/styles/index_Style.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,56 +15,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/pure-vis-2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="971" column="43" lean-forward="true" selection-start-line="971" selection-start-column="43" selection-end-line="971" selection-end-column="43" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#2;n#div#2;n#div#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#4;n#div#2;n#div#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#1;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#1;n#div#2;n#div#0;n#div#1;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#2;n#div#2;n#div#0;n#div#1;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#0;n#div#3;n#div#2;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#1;n#div#3;n#div#2;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#2;n#div#3;n#div#2;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#1;n#div#2;n#div#3;n#div#3;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#div#2;n#div#2;n#div#3;n#div#3;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#label#0;n#div#1;n#div#4;n#div#4;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/styles/index_Style.css">
+        <entry file="file://$PROJECT_DIR$/Support-Vector-Machines/Support-Vector-Machines.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3604">
-              <caret line="212" column="18" lean-forward="true" selection-start-line="212" selection-start-column="18" selection-end-line="212" selection-end-column="18" />
+            <state relative-caret-position="204">
+              <caret line="125" column="45" lean-forward="true" selection-start-line="125" selection-start-column="45" selection-end-line="125" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/styles/loadout_Style.css">
+        <entry file="file://$PROJECT_DIR$/Support-Vector-Machines/styles/index_Style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="257">
+              <caret line="307" selection-start-line="307" selection-end-line="307" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/scripts/nav_Script.js">
+        <entry file="file://$PROJECT_DIR$/Support-Vector-Machines/styles/loadout_Style.css">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Support-Vector-Machines/scripts/nav_Script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="165" column="10" lean-forward="true" selection-start-line="165" selection-start-column="10" selection-end-line="165" selection-end-column="10" />
+            <state relative-caret-position="490">
+              <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -104,6 +81,11 @@
       <find>bann</find>
       <find>linear</find>
       <find>previous</find>
+      <find>app2</find>
+      <find>mouseOve</find>
+      <find>mouseOver</find>
+      <find>addScript</find>
+      <find>first_section_toload</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -148,6 +130,9 @@
         <option value="$PROJECT_DIR$/Amol Vue Content Test v3/scripts/nav_Script.js" />
         <option value="$PROJECT_DIR$/Amol Vue Content Test v3/pure-vis-2.html" />
         <option value="$PROJECT_DIR$/Amol Vue Content Test v3/styles/index_Style.css" />
+        <option value="$PROJECT_DIR$/Support-Vector-Machines/styles/index_Style.css" />
+        <option value="$PROJECT_DIR$/Support-Vector-Machines/scripts/nav_Script.js" />
+        <option value="$PROJECT_DIR$/Support-Vector-Machines/Support-Vector-Machines.html" />
       </list>
     </option>
   </component>
@@ -161,7 +146,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,24 +156,19 @@
             <path>
               <item name="Framework-Experiment" type="b2602c69:ProjectViewProjectNode" />
               <item name="Framework-Experiment" type="462c0819:PsiDirectoryNode" />
-              <item name="Amol Vue Content Test v3" type="462c0819:PsiDirectoryNode" />
+              <item name="Support-Vector-Machines" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Framework-Experiment" type="b2602c69:ProjectViewProjectNode" />
               <item name="Framework-Experiment" type="462c0819:PsiDirectoryNode" />
-              <item name="Amol Vue Content Test v3" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Framework-Experiment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Framework-Experiment" type="462c0819:PsiDirectoryNode" />
-              <item name="Amol Vue Content Test v3" type="462c0819:PsiDirectoryNode" />
+              <item name="Support-Vector-Machines" type="462c0819:PsiDirectoryNode" />
               <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -227,16 +206,19 @@
       <workItem from="1562945388058" duration="128000" />
       <workItem from="1563184357502" duration="638000" />
       <workItem from="1565641846824" duration="6370000" />
+      <workItem from="1565690787412" duration="7000" />
+      <workItem from="1565788817357" duration="1291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35979000" />
+    <option name="totallyTimeSpent" value="37277000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21601686" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21601686" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -288,37 +270,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/styles/style-1.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/journey.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="47" column="1" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Amol NavBar Layout Option/jquery.debounce-1.0.5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Amol NavBar Layout Option/nav_Script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="105" column="45" selection-start-line="105" selection-start-column="45" selection-end-line="105" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Amol NavBar Layout Option/loadout_Style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Amol NavBar Layout Option/loadout.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -591,49 +542,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/scripts/nav_Script.js">
+    <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/pure-vis-2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="165" column="10" lean-forward="true" selection-start-line="165" selection-start-column="10" selection-end-line="165" selection-end-column="10" />
+        <state relative-caret-position="16507">
+          <caret line="971" column="43" selection-start-line="971" selection-start-column="43" selection-end-line="971" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/styles/loadout_Style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/pure-vis-2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="971" column="43" lean-forward="true" selection-start-line="971" selection-start-column="43" selection-end-line="971" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#div#2;n#div#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#4;n#div#2;n#div#0;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#2;n#div#0;n#div#1;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#div#2;n#div#0;n#div#1;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#2;n#div#2;n#div#0;n#div#1;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#0;n#div#3;n#div#2;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#div#3;n#div#2;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#2;n#div#3;n#div#2;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#div#2;n#div#3;n#div#3;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#2;n#div#2;n#div#3;n#div#3;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#label#0;n#div#1;n#div#4;n#div#4;n#transition-group#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/styles/index_Style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3604">
-          <caret line="212" column="18" lean-forward="true" selection-start-line="212" selection-start-column="18" selection-end-line="212" selection-end-column="18" />
+        <state relative-caret-position="314">
+          <caret line="181" column="31" selection-start-line="181" selection-start-column="31" selection-end-line="181" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Amol Vue Content Test v3/scripts/nav_Script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="165" column="10" selection-start-line="165" selection-start-column="10" selection-end-line="165" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Support-Vector-Machines/styles/loadout_Style.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Support-Vector-Machines/styles/index_Style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="307" selection-start-line="307" selection-end-line="307" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Support-Vector-Machines/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Support-Vector-Machines/scripts/nav_Script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Support-Vector-Machines/Support-Vector-Machines.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="125" column="45" lean-forward="true" selection-start-line="125" selection-start-column="45" selection-end-line="125" selection-end-column="45" />
         </state>
       </provider>
     </entry>
