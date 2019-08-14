@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+     
+<head>
+    <!--Page Info-->
+    <title>Different Kernel Functions</title>
+    <!--css link-->
+    <link rel="stylesheet" href="https://manglekuo.com/i-v/styles.css?v=2">
+    <!--Required JS resources--> <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src=script/numeric/src/numeric.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.15.0/math.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <script src="./script/svm.js"></script>
+
+    <script type="text/javascript">
+        // Toggle visibility of <div>
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+
+    <script type="text/javascript" src="testRBFExample/jqueryui/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="testRBFExample/jqueryui/js/jquery-ui-1.8.21.custom.min.js"></script>
+    <script src="testRBFExample/npg_include/npgmain.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body onLoad="NPGinit(10);">
+    <div class="container">
+        <h1>
+            Different Kernel Functions
+        </h1>
+        <p>
+            There are many different types of Kernel. Here are a few of common ones.
+            <!--
+                The kernel used in the Hard Margin SVM and Soft Margin SVM examples from earlier are known as <i>Linear Kernels</i> since they didn't require any projections.
+                The kernel used in the projection example is a type of <i>Polynomial Kernel</i>.
+                There are many types of kernel that can be used with Support Vector Machines.
+            -->
+        </p>
+        <h3>
+            The Linear Kernel
+        </h3>
+        <p>
+            The Linear kernel is the kernel we used in the first example.
+            It is linear because there is no projection into a higher dimension and the SVM is found in the initial dimension.
+        </p>
+        <p>
+            It is extremely quick to calculate in comparison to non linear kernels.
+        </p>
+        <h3>
+            The Polynomial Kernel
+        </h3>
+        <p>
+            For degree-\(d\) polynomials, the polynomial kernel is defined as:
+            \[
+                K(x,y) = \left( x^{\top}y+C \right)^d
+            \]
+            <ul style="padding-left:20px">
+                <li> \(x\) and \(y\) are vectors in the input space.</li>
+                <li> \(c \ge 0\) is a free parameter trading off the influence of higher-order versus lower-order terms in the polynomial.</li>
+            </ul>
+            The polynomial kernel is the one that we used in the projection example earlier. 
+            The polynomial kernel is useful in natural language processing although in most other applications, the Radial Basis Function is used instead.
+        </p>
+        <h3>
+            The Radial Basis Function
+        </h3>
+        <p>
+            The RBF is defined as:
+            \[  
+                \begin{align}
+                    (\mathbf{x}\cdot \mathbf{x}') 
+                    &= \exp{\left( -\gamma ||\mathbf{x}-\mathbf{x}'||^2 \right)}
+                \end{align}
+            \]
+            An example of a very useful kernel fucntion is the <b>Radial Basis Function</b>. Here is an example of an RBF Support Vector Machine:
+        </p>
+        <div align="center"> 
+            <!--
+            <canvas id="NPGcanvas" width="500" height="500">Browser not supported for Canvas. Get a real browser.</canvas><br /><br />
+            <div id="optsdiv">
+                <div style="width:230px; float: left; margin-left: 10px;"><div id="slider1"></div><br/><span id="creport">C = 1.0</span></div>
+                <div style="width:230px; float: right; margin-right: 10px;"><div id="slider2"></div><br/><span id="sigreport">RBF Kernel sigma = 1.0</span></div>
+            </div>
+            -->
+            <img src="assets/rbf.png">
+        </div>
+            The radial basis function is very useful because it allows for us to represent an infinite dimension projection. Since a dot product is just a summation, we can use an approach similar to <a href="https://www.mathsisfun.com/algebra/infinite-series.html">infiite series</a> to find an approximation of this dot product.
+        </p>
+        <div align="center">
+            <form onclick="toggle_visibility('infiniteRBF');">
+                <input type="button" value="See how the RBF represents an infinite dimension projection." />
+            </form>
+        </div>
+            <!--a href="#" onclick="toggle_visibility('infiniteRBF');">See how the RBF represents an infinite dimension projection.</a--->
+        <div id="infiniteRBF" style="display: none">
+            <h3>
+                How the RBF represents an infinite dimension projection
+            </h3>
+            
+            <p>
+                Remembering the definition of the kernel function:
+                \[
+                    k(\mathbf{x}_i,\mathbf{x}') = \langle\varphi(\mathbf{x}),\varphi(\mathbf{x}')\rangle_{\mathcal{V}}
+                \]
+                We can prove that \( \varphi_{RBF}:\mathbb{R}^n \rightarrow \mathbb{R}^{\infty} \).
+            </p>
+            <p>    
+                (We choose \(\gamma = -\frac{1}{2}\) to avoid loss of generality.)                
+                \[
+                    \begin{align}
+                        K_{RBF}(\mathbf{x},\mathbf{x}')
+                        &= \exp{\left[ -\frac{1}{2} || \mathbf{x}^2 - \mathbf{x'}||^2 \right]} \\
+                        &= \exp{\left[ -\frac{1}{2} \langle \mathbf{x} - \mathbf{x'}, \mathbf{x} - \mathbf{x'} \rangle \right]} \\
+                        &= \exp{\left[ -\frac{1}{2} \left( \langle \mathbf{x} , \mathbf{x} - \mathbf{x'}\rangle - \langle \mathbf{x'}, \mathbf{x} - \mathbf{x'} \rangle \right) \right]} \\
+                        &= \exp{\left[ -\frac{1}{2} \left( \langle \mathbf{x},\mathbf{x} \rangle - \langle \mathbf{x},\mathbf{x'} \rangle - \langle \mathbf{x'},\mathbf{x} \rangle + \langle \mathbf{x'},\mathbf{x'} \rangle \right) \right]} \\
+                        &= \exp{\left[ -\frac{1}{2}\left(||\mathbf{x}||^2 + ||\mathbf{x'}||^2-2\langle \mathbf{x}, \mathbf{x'}\rangle\right)\right]} \\
+                        &= \exp{\left[ -\frac{1}{2}||\mathbf{x}||^2-\frac{1}{2}||\mathbf{x'}||^2 \right]}\exp{\left[ -\frac{1}{2}-2\langle \mathbf{x}, \mathbf{x'} \rangle \right]} \\
+                    \end{align}
+                \]       
+                Since
+                \[
+                    \exp{ \left[ -\frac{1}{2} || \mathbf{x}^2 - \mathbf{x'}^2 || \right]} = C \quad \text{(constant)}
+                \]
+                We can use the taylor expansion of \(e^x\) to show:
+                \[    
+                    \begin{align}
+                        &\exp{\left[ -\frac{1}{2}||\mathbf{x}||^2-\frac{1}{2}||\mathbf{x'}||^2 \right]}\exp{\left[ -\frac{1}{2}-2\langle \mathbf{x}, \mathbf{x'} \rangle \right]} \\
+                        &= C \exp{\left[ -\frac{1}{2}-2\langle \mathbf{x}, \mathbf{x'} \rangle \right]} \\
+                        &= C e^{\langle \mathbf{x}, \mathbf{x}' \rangle} \\
+                        &= C\sum_{n=0}^{\infty}\frac{{\langle \mathbf{x}, \mathbf{x}' \rangle}^n}{n!} \\
+                        &= C\sum_{n=0}^{\infty}\frac{K_{poly(n)} (\mathbf{x}, \mathbf{x}' )}{n!} \\
+                    \end{align}
+                \]
+                Therefore we see that the RBF kernel is formed by taking an infinite sum over polynomial kernels.
+            </p>
+        </div>
+        <h3>
+            The Fisher Kernel
+        </h3>
+        <p>
+            This kernel combines Support Vector machines with <a href="https://en.wikipedia.org/wiki/Generative_model">generative models</a> such as <a href="https://en.wikipedia.org/wiki/Hidden_Markov_model">hidden Markov models</a> to combine the performance of SVMs with the ability of process data that has a variable length.
+        </p>
+        <p>    
+            It uses the Fisher score:
+            \[
+                U_X=\nabla_{\theta}\log{P(X|\theta)}
+            \]
+            It is defined as:
+            \[
+                K(X_i, X_j) = U_{X_i}^{T}\mathcal{I}^{-1}U_{X_j}
+            \]
+            Where \(\mathcal{I}\) is the <a href="https://en.wikipedia.org/wiki/Fisher_information">Fisher information matrix</a>.
+        </p>
+        <p>
+            The fisher Kernel can be applied to image representation for classification and retrieval. It can take problems with sparsity and high dimensionality and produce a result that is compact and dense.
+            This is very desirable in image representation problems.
+        </p>
+        <div align="center">
+            <form action="./index.html">
+                <input type="submit" value="Back to Home" />
+            </form>
+        </div>
+    </div>
+    
+    <!--THE BRAINS-->
+    <script src=script/objects.js></script>
+    <script src=script/kernel.js></script>
+    <script src=testRBFExample/testSVM.js></script>
+    
+</body>
+
+</html>

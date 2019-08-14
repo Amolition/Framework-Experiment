@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+    <!--Page Info-->
+    <title>Introduction to Support Vector Machines</title>
+    <!--css link-->
+    <link rel="stylesheet" href="https://manglekuo.com/i-v/styles.css?v=2">
+    <!--Required JS resources--> <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src=script/numeric/src/numeric.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.15.0/math.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <script src="./p5/p5.min.js"></script>
+    <script src="./p5/addons/p5.dom.min.js"></script>
+    <script src="./p5/addons/p5.sound.min.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+
+    <div class="container">
+
+        .<h1>
+            Introduction to Support Vector Machines
+        </h1>
+        <p>
+            Support Vector Machines are statistical methods of classifying data.
+        </p>
+        <h4>
+            What is Classification
+        </h4>
+        <p>
+            Many problems in machine learning involve classification. 
+            This is where we have a data set that is split into different categories based on various characteristics and we want to add a new data point to the set and put it into the correct category.
+        </p>
+        <p>
+            For example, if we are an engineering department at a university, we might have data that sows that new students to the university are accepted if they have good grades in both Physics and Maths. 
+            The engineering department could represent this data using a 2D plot of Maths exam results against Physics exam results, and using then if they asked a student for their physics and maths exam results, they could add the results to the graph and see if the student should be accepted.
+            Classification is used to determine whether the new point is in the accepted category or the rejected category.
+        </p>
+        <p>
+            <div align="center">
+                <div id = 'mathsandphysics'></div>
+            </div>
+        </p>
+        
+        <p>
+            There are many approaches to classification, but one of the simplest ways is to draw a straight line that separates the different catagories, and then assigning any new data points the category based on which side of the line they are on.
+            This raises more problems though. As can be seen below, there are many lines that can separate the two categories. 
+            How do we know that the line we have chosen is most likely to classify new datapoints correctly?
+        </p>
+        <p>
+            <div align="center">
+                <div id = 'separatinglines'></div>
+            </div>
+        </p>
+        <p>
+            What we need is an algorithm that take all the data points we currently have and outputs the line that is most likely to correctly classify new data. 
+        </p>
+        <h4>
+            Good and Bad Classifiers
+        </h4>
+        <p>
+            In the example above, all the lines split the data correctly so how can we know which was best?
+            A good classifier not only has to be good at separating the data we already have, it also has classify data that hasn't been seen yet. 
+            We use the data we already have to get a general idea of what future data might look like.
+        </p>
+        <p>
+            <div align="center">
+                <div id = 'linearlyseparable'></div>
+            </div>
+        </p>
+        <p>
+            In the example above, the first plots line separates the data, but it gets very close to both clusters.
+            This isn't ideal since if we add a red point thats close to the red cluster, there is a large chance that it is classified as blue since it will be on the other side of the line.
+        </p>
+        <p> 
+            In the second plot, the the line perfectly separates the data but is also very far away from both clusters. 
+            This means that new points are unlikely to be misclassified.
+        </p>
+        <h4>
+            How do we get a good classifier?
+        </h4>
+        <p>
+            In order to get a classifier like the one in the second plot, we can use <b>Support Vector Machines</b>. Support Vector Machines (SVMs) are a type of supervised learning model that is very good at coming up with optimal classifiers
+            <div align="center">
+                <form action="./hard svm.html">
+                    <input type="submit" value="Find out more about SVMs!" />
+                </form>
+            </div>
+        </p>
+
+        
+        
+
+    <!--THE BRAINS-->
+    <script src=script/objects.js></script>
+    <script src=script/svm.js></script>
+    <script src=script/hardsvm.js></script>
+    <script src=script/softsvm.js></script>
+    <script src=script/linearlyseparableexample.js></script>
+    <script src=script/separatinglines.js></script>
+</body>
+
+</html>
