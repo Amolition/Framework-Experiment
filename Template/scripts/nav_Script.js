@@ -15,9 +15,9 @@ let app = new Vue ({
         sectionBottoms: [],
         innerchange:[],
         // the title of each section
-        sectionTitleLong: ["Introduction", "Materials","Fields",  "Dispersion", "Dielectric Boundary","Conductor Boundary","Plasma Boundary","Meta-material"],
+        sectionTitleLong: ["Introduction", "Sec2 Name",  "Example Sec", "Sec4 Name"],
         // the number of each section
-        sectionTitleShort: ["1","2","3","4","5","6","7","8"],
+        sectionTitleShort: ["1","2","3","4"],
         sectionTitle: [],
         hoverPos: '',
         hoverTitle: false,
@@ -27,7 +27,7 @@ let app = new Vue ({
         journeyHeightNew: "",
         firstRunDone: false,
         // the index of each subsection
-        subSection: [1,1,1,1,1,1,1,1],
+        subSection: [1,1,1,1],
         subSubSection: 1,
     },
 

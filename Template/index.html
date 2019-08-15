@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--Title-->
-    <title>EM 2 Visualisations</title>
+    <title>Visualisations Template</title>
     <!--css links-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -67,18 +67,7 @@
                 <button :class="[currentTitle === 4 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle4"
                         key="sectionTitle4" data-no=4 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[3]}}
                 </button>
-                <button :class="[currentTitle === 5 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle5"
-                        key="sectionTitle5" data-no=5 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[4]}}
-                </button>
-                <button :class="[currentTitle === 6 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle6"
-                        key="sectionTitle6" data-no=6 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[5]}}
-                </button>
-                <button :class="[currentTitle === 7 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle7"
-                        key="sectionTitle7" data-no=7 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[6]}}
-                </button>
-                <button :class="[currentTitle === 8 ? 'activeButton' : '', 'overlay-button']" id="sectionTitle8"
-                        key="sectionTitle8" data-no=8 @click="scrollTo($event)" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">{{sectionTitle[7]}}
-                </button>
+
             </div>
             <!--    Dynamic meters indicating progress through each section    -->
             <meter :class="[currentTitle === 1 ? 'activeMeter' : '']" id="m1" :min="sectionTops[0]"
@@ -89,14 +78,7 @@
                    :max="sectionBottoms[2]" :value="scrollPos"></meter>
             <meter :class="[currentTitle === 4 ? 'activeMeter' : '']" id="m4" :min="sectionTops[3]"
                    :max="sectionBottoms[3]" :value="scrollPos"></meter>
-            <meter :class="[currentTitle === 5 ? 'activeMeter' : '']" id="m5" :min="sectionTops[4]"
-                   :max="sectionBottoms[4]" :value="scrollPos"></meter>
-            <meter :class="[currentTitle === 6 ? 'activeMeter' : '']" id="m6" :min="sectionTops[5]"
-                   :max="sectionBottoms[5]" :value="scrollPos"></meter>
-            <meter :class="[currentTitle === 7 ? 'activeMeter' : '']" id="m7" :min="sectionTops[6]"
-                   :max="sectionBottoms[6]" :value="scrollPos"></meter>
-            <meter :class="[currentTitle === 8 ? 'activeMeter' : '']" id="m8" :min="sectionTops[7]"
-                   :max="sectionBottoms[7]" :value="scrollPos"></meter>
+
             <div id="banner-dummy"></div>
         </div>
         <!--    Container for text content split into sections    -->
@@ -146,13 +128,13 @@ Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risu
                         <!--  always active the first button, click the tab will change the subSection[i] to different values, and use v-if, v-else-if
                         to switch visualizations on the right,-->
                         <li :class="[subSection[1] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#ttab1" @click="subScrollTo(2); subSection[1]=1; loadSubScripts(); $forceUpdate();">Dielectric</a>
+                            <a data-toggle="tab" href="#ttab1" @click="subScrollTo(2); subSection[1]=1; loadSubScripts(); $forceUpdate();">Tab 1</a>
                         </li>
                         <li :class="[subSection[1] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#ttab2" @click="subScrollTo(2); subSection[1]=2; loadSubScripts(); $forceUpdate();">Conductor</a>
+                            <a data-toggle="tab" href="#ttab2" @click="subScrollTo(2); subSection[1]=2; loadSubScripts(); $forceUpdate();">Tab 2</a>
                         </li>
                         <li :class="[subSection[1] === 3 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#ttab3" @click="subScrollTo(2); subSection[1]=3; loadSubScripts(); $forceUpdate();">Plasma</a>
+                            <a data-toggle="tab" href="#ttab3" @click="subScrollTo(2); subSection[1]=3; loadSubScripts(); $forceUpdate();">Tab 3</a>
                         </li>
                     </ul>
                     <!--    Sub-Section Text Containers    -->
@@ -355,336 +337,40 @@ Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risu
                            <p> Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. </p>
                         </div>
                         <div id="con-disp" class="tab-pane fade">
-                            Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris.
+                            <h3>Note that if the text of the last section is not long enough, add "br" at the end to make sure the right side can work properly</h3>
+                            ed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris.
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                         </div>
                         <div id="plas-disp" class="tab-pane fade">
                             <h5 style = "text-align:center">Sub-Title</h5>
 
 
     Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede.
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                         </div>
 
                     </div>
                 </div>
             </div>
 
-            <div class="section-container" id="sc5">
-                <div class="placeholder" id="ph5">
-                    <hr>
-                    <h2 class="text section-head" id="s5">
-                        {{sectionTitleLong[4]}}
-                    </h2>
-                    <hr>
-                </div>
-                <div class="text section-body odd" id="p5">
-                    <!--    Sub-Section Tabs    -->
-                    <ul class="nav nav-tabs nav-justified">
-                        <li :class="[subSection[4] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#die-A" @click="subScrollTo(5); subSection[4]=1; loadSubScripts(); $forceUpdate();">A</a>
-                        </li>
-                        <li :class="[subSection[4] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#die-B" @click="subScrollTo(5); subSection[4]=2; loadSubScripts(); $forceUpdate();">B</a>
-                        </li>
-                        <li :class="[subSection[4] === 3 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#die-C" @click="subScrollTo(5); subSection[4]=3; loadSubScripts(); $forceUpdate();">C</a>
-                        </li>
-                    </ul>
-                    <!--    Sub-Section Text Containers    -->
-                    <div class="tab-content">
-                            <div id="die-A" class="tab-pane fade in active show">
-                                <div id="intro" class="divclass">
-            <center><h4>The Fresnel Equations</h4></center>
-            <p>
-                This visualisation explains the behaviour of electromagnetic waves incident on a dielectric boundary. More specifically, it focusses on the Fresnel coefficients, also known as the reflection and transmission coefficients.
-            </p>
-        </div>
-<span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                                data-target="#pillbox"> Pill-box Volume </button>
-                                    </span>
-                                <div id="pillbox" class="collapse extra-content-container" >
-                                    <div class="extra-content" style="background-color: white; !important;">
-                                            <h5>Pill-box Volume</h5>
-                                            <p>
-                    The Fresnel equations follow directly from Maxwell’s equations. To see why this is the case, consider the following pill-box volume.
-                                            </p>
 
-                                            <p>
-                Applying the 4-field form of Maxwell’s equations on this pill-box, we arrive at 4 general boundary conditions for an EM wave incident on a dielectric boundary. The conditions can be simplified for simple media by setting $\mu_r=1$.
-                                            </p>
-                                    </div>
-                                </div>
-
-
-    <div id="main_text" class="divclass">
-        <p>
-            Of the four boundary conditions obtained from Maxwell’s equations, only the continuity of the electric and magnetic fields at the boundary are needed to derive the Fresnel equations.
-        </p>
-<span class="section-extra-head-container">
-                                        <button class="section-extra-head" data-toggle="collapse"  @click="hideShowToggle($event)"
-                                                data-target="#intro_polarisation"> Intro to Polarization </button>
-                                    </span>
-                                <div id="intro_polarisation" class="collapse extra-content-container" >
-                                    <div class="extra-content" style="background-color: white;!important;">
-                                            <h5>Introduction to Polarisation</h5>
-            Note here that the incident wave has two main modes of polarisation. The first mode is p-polarisation – here the electric field is parallel to the plane of incidence. The second is s-polarised – here the opposite is true in that the electric field is perpendicular to the plane of incidence. These two linear polarisations can then form any arbitrary polarisation.
-
-                                    </div>
-                                </div>
-
-
-        <p>
-            To avoid sign errors in our two boundary conditions, we must account for the polarisation of the incident wave. The right-hand rule should help you avoid any such errors. This is perhaps best shown in the following diagrams. Superscript $i$, $t$ and $r$ denote the incident, transmitted and reflected wave respectively.
-        </p>
-
-
-
-        <p>
-            Thus, for a p-polarised incident wave, we obtain the boundary conditions
-            $$E_0^i\cos\theta^i+E_0^r\cos\theta^i=E_0^t\cos\theta^t$$
-            and
-            $$B_0^i-B_0^r=B_0^t$$.
-            <br>
-            We can also make use of
-            $$B=\frac{\mu_0E_0}{Z}$$,
-            where $\mu_0$ is the vacuum permeability and $Z$ is the wave impedance, to write
-            $$B_0^i-B_0^r=B_0^t\Rightarrow\frac{E_0^i}{Z_1}-\frac{E_0^r}{Z_1}=\frac{E_0^t}{Z_2}$$
-        </p>
-        <p>
-            Similarly, for s-polarisation, we obtain the boundary conditions
-            $$E_0^i-E_0^r=E_0^t$$
-            and
-            $$-B_0^i\cos\theta^i+B_0^r\cos\theta^i=-B_0^t\cos\theta^t$$
-            $$\Rightarrow\frac{E_0^i}{Z_1}-\frac{E_0^r}{Z_1}=-\frac{E_0^t}{Z_2}\cos\theta^t$$.
-        </p>
-        <p>
-            Finally, we make use of Snell’s law to obtain an expression for θ^t in terms of θ^i, to arrive at the Fresnel equations
-            $$t_{p,s}=\frac{E_0^t}{E_0^i}=\frac{2\cos\theta^i}{\cos\theta^{t,i}+(\frac{n_2}{n_1})\cos\theta^{i,t}}$$
-            and
-            $$r_{p,s}=\frac{E_0^r}{E_0^i}=\frac{\cos\theta^{t,i}-(\frac{n_2}{n_1})\cos\theta^{i,t}}{\cos\theta^{t,i}+(\frac{n_2}{n_1})\cos\theta^{i,t}},$$
-            where $n$ denotes the refractive index of the medium.
-        </p>
-        <p>
-            We now define the Brewster angle to be the angle where $r_p=0$, thus $\theta_B=\arctan\frac{n_2}{n_1}$.
-        </p>
-        <p>
-            Also, recall that past the critical angle $θ_c=\arcsin\frac{n_2}{n_1}$, Snell’s law breaks down and we get total internal reflection.
-        </p>
-    </div>
-                            </div>
-                            <div id="die-B" class="tab-pane fade">
-                                text needed
-                            </div>
-                        <div id="die-C" class="tab-pane fade">
-                                Text needed
-                            </div>
-                        </div>
-                </div>
-            </div>
-            
-            <div class="section-container" id="sc6">
-                <div class="placeholder" id="ph6">
-                    <hr>
-                    <h2 class="text section-head" id="s6">
-                        {{sectionTitleLong[5]}}
-                    </h2>
-                    <hr>
-                </div>
-                <div class="text section-body odd" id="p6">
-                    <!--    Sub-Section Tabs    -->
-                    <!--<ul class="nav nav-tabs nav-justified">
-                        <li :class="[subSection[5] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#elecPotential" @click="subScrollTo(6); subSection[5]=1; loadSubScripts(); $forceUpdate();">Field</a>
-                        </li>
-                        <li :class="[subSection[5] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#elecField" @click="subScrollTo(6); subSection[5]=2; loadSubScripts(); $forceUpdate();">Potential</a>
-                        </li>
-                    </ul>
-                    &lt;!&ndash;    Sub-Section Text Containers    &ndash;&gt;
-                    <div class="tab-content">
-                            <div id="elecPotential" class="tab-pane fade in active show">
-                                <center><h4>Gradient of an electric potential</h4></center>
-                                Consider a particle with charge $Q$ positioned at the origin.  The graph on the right 
-                                shows the potential field $V(x,y)$ around the particle (when only considering a 2D 
-                                slice of space passing through the centre of the charge).  
-                                <br><br>
-                                Beneath it the electric field is shown, which is the negative of the gradient of the 
-                                electric potential.
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                            </div>
-                            <div id="elecField" class="tab-pane fade">
-                                <center><h5>$$ V_B - V_A = - \int _A ^B \mathbf{E} \cdot \mathbf{ dl }$$</h5></center>
-                                In electrostatics, all electric fields are conservative. This means that we can find out the potential difference between any two points (A and B) by performing a line integral:
-
-                                $$\displaystyle \Delta V_{AB} = V_B - V_A = \frac{\Delta U_{AB} }{q} $$
-                                $$\displaystyle = -\frac{1}{q} \int _A ^B \mathbf{F} \cdot \mathbf{ dl }$$
-                                $$\displaystyle =  - \int _A ^B \mathbf{E} \cdot \mathbf{ dl } $$
-
-
-                                <br>
-                                Visualisation Guide
-                                <br><br>
-                                <ol>
-                                    <li>On the right, you can see a electric field and the electric potential associated with this field.
-                                        Change the value of the charge, $q$, and observe the change in $\mathbf{E}$ and $V$.</li>
-                                    <li>As the magnitude of $q$ increases, the length of the arrows in $\mathbf{E}$ increases and the contour of the electric potential
-                                        $V$ becomes steeper as well. Since $\mathbf{E} = - \nabla V$, the gradient vector of $V$ is its electric field vector,
-                                        which points in the direction of steepest decrease of $V$.</li>
-                                    <li>The line integral along the electric field,
-                                        $\int \mathbf{E} \cdot \mathbf{ dl }$ is path independent. Move the path of the ball from Point A to Point B
-                                        along 2 different paths, Path 1 and Path 2.</li>
-                                    <li>Observe their electric potential values. Note that along the path, the value of $V$ may be different.
-                                        However, when the balls reach Point B, they have the same electric potential.</li>
-                                    <li>This shows that static electric fields are conservative, hence $\mathbf{E}$ is only dependent on its position.</li>
-                                    <li>There are a few other electric fields for you to play around with. Click the dropdown menu to find out.</li>
-                                </ol>
-
-
-                            </div>-->
-
-
-                    <p>
-            In a good conductor, when an electromagnetic wave is incident on a conductor, most of the incident wave is reflected.
-            This is because the electric field amplitude decays away rapidly
-            inside a good conductor due to the skin effect.
-            The length in which current density falls to $\frac {1}{e} $ compared to its value near the surface is known as the skin depth, $\delta$. It is given by
-            $$ \delta = \sqrt{ \frac{2}{\mu_0 \sigma \omega} }$$
-            where $\omega$ is the angular frequency of incident electromagnetic wave and $\sigma$ is the conductivity of the medium.
-            <br>
-            The transmitted electromagnetic wave inside the conductor drives a conduction current in the conductor due to Ohm's Law ($\mathbf{J}_c = \sigma \mathbf{E}^t$).
-            This conduction current experiences a force due to the magnetic field of the transmitted electromagnetic wave.
-            This force acts in the same direction as the incident wave, as if the electromagnetic radiation is exerting a force on the conductor.
-            This creates a radiation pressure by the electromagnetic radiation on the conductor, $P_{rad}$. In a good conductor, $ \frac{ \epsilon_0 \omega}{\sigma} \ll 1 $
-            and radiation pressure is given by
-            $$P_{rad} \approx \Big( 2 - \sqrt{ \frac{8 \epsilon_0 \omega}{\sigma} } \Big) \frac{1}{c} < S^i > $$
-            where $ < S^i > $ is the time average of the Poynting vector:
-            $$ < S^i > = \frac{c \epsilon_0}{2} E^2$$
-            and $E$ is the incident electric field amplitude.
-            <br>
-            As $ \sigma \rightarrow \infty $, $ \delta \rightarrow 0$ and $\sqrt{ \frac{8 \epsilon_0 \omega}{\sigma} } \rightarrow 0 $.
-            Therefore, in a perfect conductor, $ P_{rad} = \frac{2}{c} < S^i >$.
-        </p>
-
-        <p>
-            <h5 style="font-weight: bold">Visualisation Guide:</h5>
-                <ol>
-                    <li>On the right, we visualise a scenario where an electomagnetic wave, travelling from left to right, is incident on a conductor.
-                        Click "Play" to begin the visualisation.</li>
-                    <li>Switch around between the reflected and resultant waves.</li>
-                    <li>There are 3 parameters you can change: the angular frequency of the electromagnetic wave $\omega$,
-                        the amplitude of the electric field $E$ and the conductivity of the medium $\sigma$.
-                        Look at their effects on the skin depth, radiation pressure and the reflected wave amplitude.</li>
-                    <li>There are certain combination of values where the reflected wave would not display. This is because the medium is no longer a good conductor
-                        $\Big( \frac{ \epsilon_0 \omega}{\sigma} \not\ll 1 \Big).$
-                        Hence, $R \approx 1 - \sqrt{ \frac{8\epsilon_0 \omega}{\sigma} } $ (Hagen-Rubens Relation) is no longer applicable.</li>
-                </ol>
-        </p>
-
-        <p>
-            <h3 class="section-sub-head">A Quantum Approach</h3>
-                In a wave approach, the intensity $< S^i >$ is only dependent on the electric field amplitude of the wave.
-                However, in a quantum perspective, $< S^i > = N E_{photon} $ where $N$ is the number of photons incident on the medium per unit time per unit area and
-                $E_{photon} = \hbar \omega$ is the energy of a single photon.
-                Hence,
-                $$< S^i > = N \hbar \omega .$$
-                Note that $< S^i >$ is dependent on both $N$ and $\omega$.
-                In this visualisation, we took a purely wave approach:
-                increasing $\omega$ does not increase the radiation pressure, as $E$ remains unchanged.
-                From a quantum perspective, even though the energy of each photon increases, $N$ decreases such that intensity remains constant.
-                <br>
-                Radiation pressure can be understood as the force exerted by the photons on the surface due to the change in momentum of the photons.
-                Assuming all photons are reflected,
-                $$ P_{rad} = 2 N \Delta p = 2 N \hbar k = 2 N \hbar  \frac{\omega}{c} .$$
-        </p>
-                    </div>
-                </div>
-
-
-
-            <div class="section-container" id="sc7">
-                <div class="placeholder" id="ph7">
-                    <hr>
-                    <h2 class="text section-head" id="s7">
-                        {{sectionTitleLong[6]}}
-                    </h2>
-                    <hr>
-                </div>
-                <div class="text section-body odd" id="p7">
-                    Text Needed
-                    <!--    Sub-Section Tabs    -->
-                    <!--<ul class="nav nav-tabs nav-justified">
-                        <li :class="[subSection[6] === 1 ? 'shaded' : '', 'active', 'tabLeft']">
-                            <a data-toggle="tab" href="#elecPotential" @click="subScrollTo(7); subSection[6]=1; loadSubScripts(); $forceUpdate();">Field</a>
-                        </li>
-                        <li :class="[subSection[6] === 2 ? 'shaded' : '', 'tabRight']">
-                            <a data-toggle="tab" href="#elecField" @click="subScrollTo(7); subSection[6]=2; loadSubScripts(); $forceUpdate();">Potential</a>
-                        </li>
-                    </ul>
-                    &lt;!&ndash;    Sub-Section Text Containers    &ndash;&gt;
-                    <div class="tab-content">
-                            <div id="" class="tab-pane fade in active show">
-
-                            </div>
-                            <div id="" class="tab-pane fade">
-
-
-                            </div>
-
-                    </div>-->
-                </div>
-            </div>
-
-            <div class="section-container" id="sc8">
-                <div class="placeholder" id="ph8">
-                    <hr>
-                    <h2 class="text section-head" id="s8">
-                        {{sectionTitleLong[7]}}
-                    </h2>
-                    <hr>
-                </div>
-                <div class="text section-body odd" id="p8">
-
-                    <!--    Sub-Section Tabs    -->
-
-                    <!--    Sub-Section Text Containers    -->
-
-        The behaviour of electromagnetic radiations in the various materials as discussed above assumes that all the medium are homogeneous, isotropic and linear.
-        However, some materials that do not have HIL properties can exhibit very interesting and mind
-        (and light) - bending behaviour that is the focus of many cutting-edge research.
-        <br>
-        Click on the right to look at two applications of metamaterials in the manipulation of electromagnetic wave.
-
-        <h3 class="section-sub-head">Negative Index Metamaterials (NIMs)</h3>
-        NIMs are materials that have negative refractive indices for electromagnetic waves over certain frequency ranges.
-        NIM is a composite material made from repeating unit cells stacked together.
-        The first experimentally investigated NIM used wires and dielectrics for its unit cell.
-        <br>
-        One property that NIMs can exhibit is reverse propagation.
-        This allows for the resolution of image below the diffraction limit feasible.
-        On top of that, the permittivity and permeability of the NIM can also be tuned by means of how the unit cells are stacked etc.
-        Negative permittivity and permeability are also achievable in NIMs.
-
-        <h3 class="section-sub-head">Metamaterial Cloaking</h3>
-        The manufacturing of invisibility cloaks using metamaterials that react to electromagnetic radiation in a way that conceal themselves is a focus of transformation optics.
-        By controlling the properties of these metamaterials, light can be refracted in a way such that an "invisibility" effect can be achieved theoretically.
-        Electromagnetic waves are typically bent around the object, and the behaviour is frequency dependent (dispersion relation). If the range of operable frequency of the material
-        encompasses the visible spectrum, cloaking is achieved.
-        In principle, an inhomogeneous composite metamaterial can be engineered with the permittivity and permeability or any part varied at will,
-        where they conserve the electric field vector $\mathbf{D}$, magnetic field intensity $\mathbf{B}$ and the Poynting vector $\mathbf{S}$.
-        Such a material can concentrate electromagnetic fields in a given direction and be made to avoid or surround objects, returning to their original path without pertubation.
-        This is consistent with the Maxwell's equations and in principle, is application to all frequencies.
-
-
-                </div>
-            </div>
 
 
         </div>
@@ -695,7 +381,7 @@ Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risu
         <div class="banner">
             <!--    Visualisation Title    -->
             <h1 class="" id="vis-title">
-                ELECTROMAGNETISM IN MATERIALS
+                Visualization Title
             </h1>
             <a href="https://www.imperialvisualisations.com/learn/">
                 <img id="vis-logo" src="VisualisationsLogoWhite2.png">
@@ -781,46 +467,7 @@ Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risu
 
             </div>
 
-            <div class="rightload text even" id='loadout5' key="loadout5" v-if="currentSection === 5">
-                <transition name="fade">
-                    <!--Interactive Zone Sub Containers-->
-                    <div class="rightload text" id='loadout5sub1' key="loadout5sub1"
-                         v-if="subSection[4] === 1">
 
-                    </div>
-                    <div class="rightload text" id='loadout5sub2' key="loadout5sub2" v-else-if="subSection[4] === 2">
-
-                    </div>
-                    <div class="rightload text" id='loadout5sub3' key="loadout5sub3" v-else-if="subSection[4] === 3">
-
-                    </div>
-
-                </transition>
-            </div>
-
-            <div class="rightload text even" id='loadout6' key="loadout6" v-if="currentSection === 6">
-                <transition name="fade">
-                    <!--Interactive Zone Sub Containers-->
-
-                </transition>
-            </div>
-
-            <div class="rightload text even" id='loadout7' key="loadout7" v-if="currentSection === 7">
-                <transition name="fade">
-                    <!--Interactive Zone Sub Containers-->
-
-                </transition>
-            </div>
-
-            <div class="rightload text even" id='loadout8' key="loadout8" v-if="currentSection === 8">
-                <transition name="fade">
-                    <!--Interactive Zone Sub Containers-->
-
-
-
-
-                </transition>
-            </div>
 
 
         </transition-group>
