@@ -189,19 +189,79 @@ meter::-moz-meter-bar {
 }
 */
 
-#previous{
+#previous {
     position: fixed;
+
     left: 5vw;
     bottom: 10vh;
-
-
 }
+
+.prevDummy{
+    position: fixed;
+    height: 100%;
+    width: 10%;
+    left: -9%;
+    bottom: 0;
+    z-index: 0;
+    cursor: pointer;
+    font-size: 1.2vw;
+    color: #ffffff;
+    background: linear-gradient(
+            90deg,
+            #000268 0%,
+            #000268 90%,
+            #033482 90%,
+            #033482 100%);
+    line-height: 100vh;
+    padding-right: 1%;
+    text-align: center;
+    vertical-align: middle;
+    opacity: 0.5;
+    transition: left 0.4s ease-in-out;
+}
+
+.activePrevDummy{
+    left: 0;
+}
+
 #next{
     position: fixed;
-    right: 5vw;
-    bottom: 10vh;
-
+    height: 100%;
+    width: 10%;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    cursor: pointer;
 }
+
+.nextDummy{
+    position: fixed;
+    height: 100%;
+    width: 10%;
+    right: -9%;
+    bottom: 0;
+    z-index: 0;
+    cursor: pointer;
+    font-size: 1.2vw;
+    color: #ffffff;
+    background: linear-gradient(
+            270deg,
+            #000268 0%,
+            #000268 90%,
+            #033482 90%,
+            #033482 100%);
+    line-height: 100vh;
+    padding-left: 1%;
+    text-align: center;
+    vertical-align: middle;
+    opacity: 0.5;
+    transition: right 0.4s ease-in-out;
+}
+
+.activeNextDummy{
+    right: 0;
+}
+
 .hide{
     display: none;
 }

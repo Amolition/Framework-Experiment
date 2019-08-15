@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Title-->
+    <title>Visualisations Vue Template</title>
+    <!--css links-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/skeleton.css" rel="stylesheet">
+    <link href="styles/index_Style.css" rel="stylesheet">
+    <link href="styles/loadout_Style.css" rel="stylesheet">
+    <!--Required JS resources-->
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="scripts/debounce_and_throttle.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="scripts/numeric/src/numeric.js"></script>
+    <script src="scripts/math.min.js"></script>
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+
+<body>
+<div id="app" style="box-shadow: none !important">
+    <!-- <div id="previous" @click="previous(); changeSec();"></div> -->
+    <div id="previous" @click="previous" @mouseenter="prevState=true" @mouseleave="prevState=false"></div>
+    <div :class="[prevState === true ? 'activePrevDummy' : '', 'prevDummy']"><span style="text-align: right"><<</span> Previous</div>
+    <div id="next" @click="next" @mouseenter="nextState=true" @mouseleave="nextState=false"></div>
+    <div :class="[nextState === true ? 'activeNextDummy' : '', 'nextDummy']">Next <span style="text-align: left">>></span></div>
+
+    <!--    Right Side of Window - containing mainly interactive and visual content    -->
+    <div class="vis-container center" id="right-container" >
+        <!--    fade transition tag for RHS - applied by Vue and CSS    -->
+        <transition-group name="fade" tag="div" class="transition-container" style="box-shadow: none !important">
+            <!--    Interactive Zone Containers   -->
+            <div class='rightload text odd' id='loadout1'
+                 key="loadout1" v-if="currentSection === 1">
+            <div class="the-container">
+                <!--Graph-->
+            <div class="left-holder">
+                    <!-- <hr>
+                    <h2 class="text section-head" id="s1">
+                        Introduction to SVMs
+                    </h2>
+                    <hr> -->
+                    <p>
+                        <b>Support Vector Machines are statistical methods of classifying data.</b>
+                    </p>
+                    <h3 class = section-sub-head>
+                        What is Classification
+                    </h3>
+                    <p>
+                        Many problems in machine learning involve classification. 
+                        This is where we have a data set that is split into different categories based on various characteristics and we want to add a new data point to the set and put it into the correct category.
+                    </p>
+                    <p>
+                        For example, if we are an engineering department at a university, we might have data that sows that new students to the university are accepted if they have good grades in both Physics and Maths. 
+                        The engineering department could represent this data using a 2D plot of Maths exam results against Physics exam results, and using then if they asked a student for their physics and maths exam results, they could add the results to the graph and see if the student should be accepted.
+                        Classification is used to determine whether the new point is in the accepted category or the rejected category.
+                    </p>
+            </div>
+            <div class="right-holder">
+                <p>
+                    <div align="center">
+                        <div id = 'mathsandphysics'></div>
+                    </div>
+                </p>
+            </div>
+            </div>
+                <!-- <div id='graph1Sec1'></div> -->
+                <!--Display of vector 1 and 2 lengths to reach target vector-->
+                
+                <!--Popup if vector 1 and 2 are parallel (meaning they cannot span R2)-->
+                <!-- <div class="popup" id="popup1">
+                    Vectors 1 and 2 are parallel so <span>$\Bbb{R}^2$</span> is not spanned.
+                </div> -->
+                <!--Buttons/Sliders-->
+                <div class="overall-sliders-container">
+                    <!--Slider Display--> <!--Linked with the slider below-->
+                    <!--Linked with a slider and shows the live values of its corresponding slider-->
+                    <div class="partial-sliders-container">
+                        <!--BEGIN Slider-->
+                        <!--END Slider-->
+                        <!--BEGIN Slider-->
+                        <!--END Slider-->
+                    </div>
+                    <div class="partial-sliders-container">
+                        <!--BEGIN Slider-->
+                        <!--END Slider-->
+                        <!--BEGIN Slider-->
+                        <!--END Slider-->
+                    </div>
+                    <div class="partial-sliders-container">
+                        <!--BEGIN Slider-->
+                        <!--END Slider-->
+                        <!--BEGIN Slider-->
+                        <!--END Slider-->
+                    </div>
+                </div>
+            </div>
+            <div class='rightload text odd' id='loadout2'
+                 key="loadout2" v-if="currentSection === 2">
+            </div>
+            <div class='rightload text odd' id='loadout3'
+                 key="loadout3" v-if="currentSection === 3">
+            </div>
+            <div class='rightload text odd' id='loadout4'
+                 key="loadout4" v-if="currentSection === 4">
+            </div>
+            <div class='rightload text odd' id='loadout5'
+                 key="loadout5" v-if="currentSection === 5">
+                <!--Graphs-->
+                <div id='graph1Sec5'></div>
+                <div id='graph2Sec5'></div>
+                <div id='graph3Sec5'></div>
+                <!--Container for all Inputs-->
+                <div class="inputsContainer">
+                    <!--Scroll dropdown list for option of functions-->
+                    <div id="scrollSec5">
+                        <div class="scroll_down">
+                            <strong>Select Function:</strong>
+                            <select id="SelectSec5">
+                                <option value="custom">Custom Input</option>
+                                <option value="triangular">Triangular Function</option>
+                                <option value="square">Square Function</option>
+                                <option value="sawtooth">Sawtooth Function</option>
+                                <option value="dirac">Dirac-Delta Function</option>
+                                <option value="parabola">Parabola Function</option>
+                                <option value="mode">|x| Function</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--BEGIN Input function box -->
+                    <div id="inputSec5">
+                        <label>Input Function: f(x)=
+                            <input id="aInputSec5" type="text" value="x^2">
+                            <p id="aInputError" style="color:#ff0000" hidden></p>
+                        </label>
+                    </div>
+                    <!--END Input function box  -->
+                    <!--Scroll-down to select between a_n b_n and alpha_n theta_n-->
+                    <!--Scroll-down to select coefficient-->
+                    <strong>Select Coefficient: </strong>
+                    <select id="CoefficientSec5">
+                        <option value="a">a</option>
+                        <option value="b">b</option>
+                        <option value="α">α</option>
+                        <option value="θ">θ</option>
+                    </select>
+                    <!--Sliders-->
+                    <div class="overall-sliders-container">
+                        <!--BEGIN Slider N-->
+                        <div id="NSec5" class="partial-sliders-container">
+                            <!--Slider Display N-->
+                            <label class="slider-label">Number of Terms:
+                                <span id="NControllerSec5Display" data-unit="">1</span>
+                                <span id="NController2Sec5Display" data-unit="">1</span>
+                            </label>
+                            <!--Slider N-->
+                            <label class="slider-label">
+                                <span class="sliderMin">0</span>
+                                <input id="NController2Sec5" class="inputs" type="range" value="1" min="0" max="10"
+                                       step="1">
+                                <input id="NControllerSec5" class="inputs" type="range" value="1" min="0" max="20"
+                                       step="1">
+                                <span class="sliderMax" id="NMaxSec5">20</span>
+                            </label>
+                        </div>
+                        <!--END Slider N-->
+                        <!--BEGIN Slider L-->
+                        <div id="LSec5" class="partial-sliders-container">
+                            <!--Slider Display L-->
+                            <label class="slider-label">Period:
+                                <span id="LControllerSec5Display" data-unit="">1</span>
+                            </label>
+                            <!--Slider L-->
+                            <label class="slider">
+                                <span class="sliderMin">-5</span>
+                                <input id="LControllerSec5" class="inputs" type="range" value="1" min="-5" max="5"
+                                       step="0.5"/>
+                                <span class="sliderMax">5</span>
+                            </label>
+                        </div>
+                        <!--END Slider L-->
+                    </div>
+                </div>
+            </div>
+        </transition-group>
+    </div>
+    <!-- <div id="next" @click="next(); changeSec();"></div> -->
+    <!--    Title Banner above Right Side    -->
+<div class="banner" @mousemove="hoverTitle !== false ? updateMouseX($event) : ''">
+    <span :class="[currentSection === 1 ? 'active':'nonactive']" @click="currentTitle=1; changeSec();" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">      {{sectionTitle[0]}}    </span>
+    <span :class="[currentSection === 2 ? 'active':'nonactive']" @click="currentTitle=2; changeSec();" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">    {{sectionTitle[1]}}    </span>
+    <span :class="[currentSection === 3 ? 'active':'nonactive']" @click="currentTitle=3; changeSec();" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">   {{sectionTitle[2]}}    </span>
+    <span :class="[currentSection === 4 ? 'active':'nonactive']" @click="currentTitle=4; changeSec();" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">    {{sectionTitle[3]}}    </span>
+    <span :class="[currentSection === 5 ? 'active':'nonactive']" @click="currentTitle=5; changeSec();" @mouseover="hoverPosUpdate($event); selectHover();" @mouseout="hoverTitle=false">    {{sectionTitle[4]}}    </span>
+        <!--    Imp-Vis Logo - acts as link back to website main page    -->
+        <a href="https://www.imperialvisualisations.com/learn/">
+            <img id="vis-logo" src="VisualisationsLogoWhite2.png">
+        </a>
+    </div>
+
+
+    <div class="rightScriptSpace"></div>
+    <div class="derivationScriptSpace"></div>
+</div>
+<canvas id="c" width="1368" height="538"></canvas>
+
+</body>
+
+<script src="scripts/nav_Script.js"></script>
+
+</html>

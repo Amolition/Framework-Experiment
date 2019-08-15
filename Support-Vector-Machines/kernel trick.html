@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+     
+<head>
+    <!--Page Info-->
+    <title>Kernels</title>
+    <!--css link-->
+    <link rel="stylesheet" href="https://manglekuo.com/i-v/styles.css?v=2">
+    <!--Required JS resources--> <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src=script/numeric/src/numeric.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.15.0/math.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <script src="./script/svm.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <div class="container">
+        <h1>Kernels and The Kernel Trick</h1>
+        <p>
+            Support Vector Machines use techniques known as <b>kernels methods</b>.
+            To understand kernel methods, we will need to use some maths.
+        </p>
+        <p>
+            Kernel methods are a type of instance-based learner which means that rather than learning some fixed characteristics for each of the datapoints, they instead learn a specific <b>weight</b> \(w_i\) that corresponds to the speific datapoint \((x_i,y_i)\).
+            When they are presented with a new unknown data point, the kernel method will use a <b>kernel</b> to classify the new input.
+        </p>
+        <p>
+            A kernel is a type of function that takes a new input as well as all the known values and measures the similarity between all those known values and the new input. 
+            The output of this will be either a positive or negative number and the sign of this number is the output of the Kernel.
+            The equation for this is:
+            \[
+                \hat{y}=\text{sgn}\sum_{i=1}^{n}w_iy_ik(\mathbf{x}_i,\mathbf{x}')
+            \]
+            The \(k(\mathbf{x}_i,\mathbf{x}')\) is the kernel.
+            This can be written as a <i>feature map</i> which is the function we used in the non linear data example to project the data points into a higher dimension.
+            \[
+                k(\mathbf{x}_i,\mathbf{x}') = \langle\varphi(\mathbf{x}),\varphi(\mathbf{x}')\rangle_{\mathcal{V}}
+            \]
+            On the condition that \( \langle\cdot,\cdot\rangle_{\mathcal{V}} \) is a valid <a href="https://en.wikipedia.org/wiki/Inner_product_space">inner product space</a>, then we can write out the projection in terms of its inner products.
+        </p>
+        <p>
+            This is very useful since we can use the kernel functions to do mathematical operations as if the points were in a higher dimension without actually projecting them to a higher dimension.
+            This means that the computaional complexity of calculating the SVMs are reduced drastically.
+        </p>
+        <h3>
+            Example of reduced complexity
+        </h3>
+        <p>
+            Now we will show how the use of the kernel trick reduces the amount of operations that a computer would have to compute in comparison to projecting the data points to a higher dimension and then finding the SVM there.
+        </p>
+        <p>
+            First lets look at the complexity of our previous method of mapping from 2D to 3D.
+            We start of with our mapping:
+            \[
+                (x_i, y_i) \Rightarrow (x_i^2, y_i^2, \sqrt{2}x_iy_i)
+            \]
+            This mapping requires 4 multiplications:
+            <ul style="padding-left:20px">
+                <li>1 multiplication for the new x value (\(x_i * x_i\))</li>
+                <li>1 multiplication for the new y value (\(y_i * y_i\))</li>
+                <li>2 multiplications for the new z value (\(x_i * y_i * \sqrt{2}\))</li>
+            </ul>
+            The dot product between two 3D vectors is:
+            \[
+                \left(\ \begin{matrix}
+                x_{1} \\
+                y_{1} \\
+                z_{1}
+              \end{matrix} \right)
+              \cdot 
+              \left(\ \begin{matrix}
+                x_{2} \\
+                y_{2} \\
+                z_{2}
+              \end{matrix} \right)
+              =x_1 x_2 + y_1 y_2 + z_1 z_ 2
+            \]
+            Therefore we know that this requires 3 multiplications and 2 additions:
+            <ul style="padding-left:20px">
+                <li>1 multiplication for the x terms (\(x_1 * x_2\))</li>
+                <li>1 multiplication for the y terms (\(y_1 * y_2\))</li>
+                <li>1 multiplication for the z terms (\(z_1 * z_2\))</li>
+                <li>2 additions for the final dot product (\(x_1 x_2 + y_1 y_2 + z_1 z_ 2\))</li>
+            </ul>
+            Therefore to get the dot product for two vectors through the projection method, we need a total of 13 operations:
+            <ul style="padding-left:20px">
+                <li>4 multiplications for the first vector</li>
+                <li>4 multiplications for the second vector</li>
+                <li>3 multiplication for the final dot product</li>
+                <li>2 additions for the final dot product</li>
+            </ul>
+        </p>
+        <p>
+            Now we are going to calculate the number operations needed for the kernel that represented our transformation from before:
+            \[
+                k(\mathbf{x_1},\mathbf{x_2}) = (\mathbf{x_1}\cdot \mathbf{x_2})^2
+            \]
+            First, we can show that this kernel does represent our mapping from before by expanding it out:
+            \[  
+            \begin{align}
+                (\mathbf{x_1}\cdot \mathbf{x_2})^2 
+                &= (x_1x_2 + y_1y_2)^2 \\
+                &= (x_1x_2)^2 + (y_1y_2)^2 + 2*(x_1x_2y_1y_2) \\
+                &= x_1^2x_2^2 + y_1^2y_2^2 + 2x_1x_2y_1y_2 \\
+                &=(x_1^2,y_1^2,\sqrt{2}x_1y_1)\cdot(x_2^2,y_2^2,\sqrt{2}x_2y_2)
+                \end{align}
+            \]
+            This means that we can do calculate the dot product in the initial dimension instead of having to project it to a higher dimension!
+        </p>
+        <p>
+            This process only requires 3 multiplications and 1 addition compared to 11 multiplcations and 2 additions in the previous method:
+            <ul style="padding-left:20px">
+                <li>2 multiplications for the dot product in 2D (\(x_1x_2\) and \(y_1y_2\))</li>
+                <li>1 addition for the addition of the dot product (\(x_1x_2 + y_1y_2\))</li>
+                <li>1 multiplcation for squaring the dot product \((x_1x_2 + y_1y_2)^2\)</li>
+            </ul>
+            This is a vastly lower number of operations than the previous projection method, 4 vs 13 operations.
+        </p>
+        <p>
+            This method of using the kernel functions and dot products is known as the <b>Kernel Trick</b> and it is used by computers to compute Support Vctor Machines very quickly.
+            At dimensions higher than 3, the difference between the number of operations required by the projection and using the kernel trick can become massive and therefore the use of kernels provides a huge advantage.
+        </p>
+        <p>
+            There are many different types of kernel functions. 
+        </p>
+        <div align="center">
+            <form action="./rbf.html">
+                <input type="submit" value="Learn about different types of Kernel" />
+            </form>
+        </div>
+    </div>
+    
+    <!--THE BRAINS-->
+    <script src=script/objects.js></script>
+    <script src=script/kernel.js></script>
+    
+</body>
+
+</html>

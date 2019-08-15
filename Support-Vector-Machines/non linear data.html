@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+     
+<head>
+    <!--Page Info-->
+    <title>Non Linearly Separable Data</title>
+    <!--css link-->
+    <link rel="stylesheet" href="https://manglekuo.com/i-v/styles.css?v=2">
+    <!--Required JS resources--> <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src=script/numeric/src/numeric.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.15.0/math.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <script src="./script/svm.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <div class="container">
+        <h1>How SVMs deal with Non-Linearably Separable Data</h1>
+        <div class="row">
+            <!-- Graph -->
+            <div class="six columns" align="left">
+                <p>
+                    <br><br>
+                    Unfortunately for us, most data is not linearly separable.
+                    <br>For example, look at the data on the right. It is clearly not linearly separable.
+                    For a simpler classification algorithm, that might be it and we would have to find another way to classify the data, but not SVMs!
+                    To find a classifier for non-linearly separable data using SVMs, we have to do a few things. Click through the steps to see:
+                </p>
+                <p id="step">
+                    First, we start out with out dataset that can't be classified using a linear classifier.
+                </p>
+                <div type="input" id="number" value="1" class="columns" align="center" >
+                    <div style="width: 40%">
+                        <form>
+                            <div class="button" id="decrease" onclick="decreaseValue()" value="Decrease Value">Previous Step</div> 
+                            <div class="button" id="increase" onclick="increaseValue()" value="Increase Value">Next Step</div>
+                        </form>
+                    </div>
+                </div>                
+            </div>
+            <!--Bottons/Sliders-->
+            <div class="six columns" align="center">
+                <!--Main Options/Tabs-->
+                <div id="nonlinear"></div>
+            </div>
+        </div>
+        <div align="left">
+            <p>
+                The method outlined above is very useful, but depending on the number of dimensions, the complexity can grow extremely quickly until it becomes too difficult to calculate.
+                To counter this, Support Vector Machines have another trick, this one known as the <b>Kernel Trick</b>.
+            </p>
+            <div class="columns" align="center">
+                <form action="./kernel trick.html">
+                    <input type="submit" value="Find out about kernels and the kernel trick" />
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!--THE BRAINS-->
+    <script src=script/objects.js></script>
+    <script src=script/nonlineardata.js></script>
+    
+</body>
+
+</html>

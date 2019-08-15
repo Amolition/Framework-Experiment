@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+     
+<head>
+    <!--Page Info-->
+    <title>Soft Margin SVM</title>
+    <!--css link-->
+    <link rel="stylesheet" href="https://manglekuo.com/i-v/styles.css?v=2">
+    <!--Required JS resources--> <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src=script/numeric/src/numeric.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.15.0/math.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <script src="./script/svm.js"></script>
+
+    <script type="text/javascript">
+        // Toggle visibility of <div>
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Soft Margin Support Vector Machines
+        </h1>
+        <p>
+            If our data is not completely linearly separable due to a few points, depsite still looking like a linear classifer would generally do a good job, we can use <b>Soft Margin SVMs</b>.
+            These are a type of Support Vector Machine that allows for a certain amount of error during training.
+        </p>
+        <p>
+            In contrast to Hard Margin SVMs, the contraint of \(y_i(\langle\mathbf{w},\mathbf{x}_i\rangle+b)\ge 1\) becomes \(y_i(\langle\mathbf{w},\mathbf{x}_i\rangle+b)\ge 1 - \zeta_i\).
+            The term \(\zeta_i \) measures by how much the Hard Margin SVM contraint is being violated.
+            The Soft Margin SVM then tries to maximise the width of the margin whilst also minimising the average value of \( \zeta_i \).
+            The <b>Hinge Loss</b> is the tradeoff between \(\zeta_i\) and the margin width and is known as \( \lambda\).
+        </p>
+        <div align="center">
+            <form onclick="toggle_visibility('softSVMMaths');">
+                <input type="button" value="See some maths behind the Soft Margin SVM." />
+            </form>
+        </div>
+        <div id="softSVMMaths" style="display: none">
+            <h4>
+                Formal Definition of the Soft Margin SVM
+            </h4>
+            <p>
+                As a quadratic optimization problem the Soft Margin SVM can be defined as:
+                <div align="center">
+                    <img src="assets/softsvm.png" style="width: 60%">
+                </div>
+                Using the definition of hinge loss:
+                \[
+                    \ell^{\text{hinge}}((\mathbf{w},b),(\mathbf{x},y))=\text{max}\{0,1-y(\langle \mathbf{w}, x \rangle + b)\}
+                \]
+                We can represent the Soft Margin SVM as:
+                \[
+                    \underset{\mathbf{w},b}{\text{min}}\left( \lambda||\mathbf{w}||^2+L_S^{\text{hinge}}((\mathbf{w},b)) \right)
+                \]
+                For the homogenous case, it can be defined as:
+                \[
+                    \underset{\mathbf{w}}{\text{min}}\left( \lambda||\mathbf{w}||^2+L_S^{\text{hinge}}((\mathbf{w})) \right)
+                \]
+                Where
+                \[
+                    L_s^{\text{hinge}}(\mathbf{w})=\frac{1}{m}\sum_{i=1}^{m}\text{max}\{0, 1-y\langle \mathbf{w}, \mathbf{x}_i\rangle\}
+                \]
+            </p>
+        </div>
+        <p>
+            The use of the \( \lambda \) parameter is a tradeoff between having a large margin and correctly classifying the training data.
+            You get better classification of training data at the expense of a wide margin.
+            By choosing a higher value of \( \lambda \) you imply that you want less errors on the training data.
+        </p>
+        <p>
+            The choice of \( \lambda \) can be a complicated task in istelf and sometimes requires complex algorithms to decide it.
+            Have a look at the plot below to see how adjusting the size of \( \lambda \) affects the margin width.
+        </p>
+        <p>
+            <div align="center">
+                <div id="softSVMPlot" style="width:100%;height:100%"></div>
+                <label class="sliderTitle" style="font-size: x-large">λ:&nbsp;<!--rho-->
+                    <span id="CSliderDisplay" data-unit="">1</span>&nbsp; <!--default: 0-->
+                </label>
+                <div style="width: 60%">
+                    <label class="slider">
+                        <input id="CSlider" class="inputs" type="range" value="38" min="0" max="64" step="1"/>
+                        <span class="sliderMin">0.01</span><span class="sliderMax">100</span>
+                    </label>
+                    <p style="font-size: medium">
+                        <b>Click</b> to add an orange point.<br>
+                        <b>Shift + Click</b> to add an blue point.
+                    </p>
+                </div>
+                <p id="alphas"></p>
+            </div>
+        </p>
+        <p>
+            Compared to the hard margin SVM, it's not possible anymore to have both a good separating boundary as well as a large point-free margin. 
+            This means that some points creep into the margin.
+        </p>
+        <h4>
+            What About Completely Non-Linearly Separable Data?
+        </h4>
+        <p>
+            Sometimes data is completely non-linearly separable. 
+            We aren't always as lucky as we are when we have only a few overlaps of data.
+            <br>However, all is not lost. Support Vector Machines can deal with non linearly separable data too using a nifty trick!
+            <div align="center">
+                <form action="./non linear data.html">
+                    <input type="submit" value="Find out how SVMs deal with non-linearly separable data." />
+                </form>
+            </div>
+        </p>
+    </div>
+    <!--THE BRAINS-->
+    <script src=script/objects.js></script>
+    <script src=script/softsvm.js></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+     
+<head>
+    <!--Page Info-->
+    <title>Hard Margin SVM</title>
+    <!--css link-->
+    <link rel="stylesheet" href="https://manglekuo.com/i-v/styles.css?v=2">
+    <!--Required JS resources--> <!--NB: better to have resources before the main body but still works even if they are not-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src=script/numeric/src/numeric.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.15.0/math.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <script src="./script/svm.js"></script>
+
+    <script type="text/javascript">
+        // Toggle visibility of <div>
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if(e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <div class="container" >
+        <h1>
+            Hard Margin Support Vector Machines
+        </h1>
+        <p>
+            The most basic type of Support Vector Machine is known as a <b>Hard Margin SVM</b>.
+        </p>
+        <p>
+            A Hard Margin SVM tries to find a line that both separates the data, but is also as far away as possible to the points closest to it.
+            The points closest to the line are known as <b>Support Vectors</b> and the lines parallel to the optimal line that pass through the support vectors form a margin.
+        </p>
+        <p>
+            On the plot below you can see the most optimal classifying line as well as the margin lines and the support vectors (the larger points). 
+            Try adding points in different locations to see how they affect the SVM.
+        </p>
+        <p>
+            <div align="center">
+                <div id="hardSVMPlot" style="width:100%;height:100%"></div>
+                <div>
+                    <p style="font-size: medium">
+                        <b>Click</b> to add an orange point.<br>
+                        <b>Shift + Click</b> to add an blue point.
+                    </p>
+                </div>
+            </div>
+        </p>
+        <p>
+            What you should have seen is that if you add a point ouside the margin, the line that divides the different colours won't change.
+            This makes sense since the points aren't support vectors.
+            If you add points inside the margin, the SVM has to recalculate the classifying line so that is stays as far away from all the points.
+        </p>
+        <p>
+            If you added an orange point in the blue cluster then you will see that the the SVM fails to classify everything correctly since the orange ones you added are on the blue side of the line.
+            The SVM makes its best attempt to come up with a valid classifier but it is skewed by the points that are not in the correct cluster.
+            This is because, a Hard Margin SVM can only successfully classify <b>linearly separable data</b>.
+            This is data where at least one line exists that can split the data into the two catagories.
+        </p>
+        
+        <div>
+            <div align="center">
+                <form onclick="toggle_visibility('hardSVMMaths');">
+                    <input type="button" value="See some maths behind the Hard Margin SVM." />
+                </form>
+            </div>
+            <div id="hardSVMMaths" style="display: none">
+                <h4>
+                    Formal Definition of the Hard Margin SVM
+                </h4>
+                <p>    
+                    To define Hard Margin SVM formally, we express the distance between a point to a hyperplane using the parameters that define the halfspace:
+                    \[
+                        \text{The distance between a point }x\text{ and the hyperplane defined by }(\mathbf{w}, b)\text{ where }||\mathbf{w}|| = 1\text{ is }|\langle \mathbf{w}, \mathbf{x}\rangle + b|.
+                    \]
+                    On the basis of this claim, the closest point in the training set to the separating hyperplane is \(\text{min}_{i\in[m]} |\langle\mathbf{w}, \mathbf{x}_i + b|\). Therefore, the Hard-SVM rule is:
+                    \[
+                        \underset{(\mathbf{w},b):||\mathbf{w}||=1}{\text{argmax}} \; \underset{\left. i \in [m] \right.}{\text{min}} \; |\langle\mathbf{w}, \mathbf{x}_i \rangle + b| \quad \text{s.t.}\quad \forall i, \; y_i\left( \langle \mathbf{w}, \mathbf{x}_i \rangle + b\right) > 0
+                    \]
+                    Or equivalently:
+                    \[
+                        \underset{(\mathbf{w},b):||\mathbf{w}||=1}{\text{argmax}} \; \underset{\left. i \in [m] \right.}{\text{min}} \; y_i\left( \langle \mathbf{w},\mathbf{x}_i \rangle + b\right)
+                    \]
+                    The output of a Hard Margin SVM is an output of this equation.
+                </p> 
+                <p>
+                    As a quadratic optimization problem:
+                    <div align="center">
+                        <img src="assets/hardsvm.png" style="width: 60%">
+                    </div>
+                </p>
+                <p>
+                    For homegenous halfspaces (halfspaces that pass through the origin meaning \(b=0\)), the Hard Margin SVM can be found by solving:
+                    \[
+                        \underset{\mathbf{w}}{\text{min}} \;||\mathbf{w}||^2 \quad \text{s.t.} \quad \forall i, \; y_i \langle \mathbf{w}, \mathbf{x}_i \rangle \ge 1
+                    \]
+                </p>
+            </div>
+        </div>
+        <h4>
+            What about data that's not completely Linearly Separable?
+        </h4>
+        <p>
+            If we have data that looks like it could be split into two roughly correct catagories using a line despite the data not being linearly separable, does that mean we can't use an SVM?
+            To get an accurate classifier for that data, we cannot use a Hard Margin SVM. Instead we have to use another type of Support vector machine that is more tolerant of errors known as a <b>Soft Margin SVM</b>.
+            <div align="center">
+                <form action="./soft svm.html">
+                    <input type="submit" value="Find out about Soft Margin SVMs!" />
+                </form>
+            </div>
+            
+        </p>
+    </div>
+    <!--THE BRAINS-->
+    <script src=script/objects.js></script>
+    <script src=script/hardsvm.js></script>
+    
+</body>
+
+</html>
