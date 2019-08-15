@@ -189,14 +189,11 @@ meter::-moz-meter-bar {
 }
 */
 
-#previous{
+#previous {
     position: fixed;
-    height: 100%;
-    width: 10%;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    cursor: pointer;
+
+    left: 5vw;
+    bottom: 10vh;
 }
 
 .prevDummy{
